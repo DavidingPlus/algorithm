@@ -4,7 +4,7 @@ using namespace std;
 
 template <typename value_type>
 void print_arraylist(MyArrayList<value_type>& array) {
-    array.tranverse([](value_type& val) { cout << val << ' '; });
+    array.traverse([](value_type& val) { cout << val << ' '; });
     cout << endl;
 }
 
@@ -105,10 +105,7 @@ void test_get_operator() {
 }  // namespace Test_ArrayList
 
 int main() {
-    Test_ArrayList::test_constructor();
-    cout << endl
-         << "-------------------------------------" << endl
-         << endl;
+    // Test_ArrayList::test_constructor();
 
     // Test_ArrayList::test_insert();
 

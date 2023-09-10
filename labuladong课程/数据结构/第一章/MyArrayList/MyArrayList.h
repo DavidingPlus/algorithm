@@ -13,7 +13,7 @@ template <class value_type>
 class MyArrayList {
 public:
     /**
-     * @brief 定义一些类型
+     * @brief 定义一些类型别名
      */
     using pointer = value_type *;
     using reference = value_type &;
@@ -103,13 +103,13 @@ public:
     /**
      * @brief 定义回调函数的类型
      */
-    using call_back = void(reference val);
+    using call_back = void(reference);
 
     /**
      * @brief 给用户提供遍历容器的接口，怎么遍历通过回调函数指定
      * @param call，函数作为回调函数
      */
-    void tranverse(call_back call);
+    void traverse(call_back call);
 
     /**
      * @brief 提供返回容器元素个数的接口

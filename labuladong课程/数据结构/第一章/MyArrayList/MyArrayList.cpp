@@ -39,7 +39,7 @@ void MyArrayList<value_type>::_check_index(int index, std::string func_name) {
     // insert可以是size，但是其他的接口不能用size，这里进行特殊判断
     try {
         bool ret = false;
-        if ((func_name == "insert") ? true : false)
+        if (func_name == "insert")
             ret = index < 0 || index > _size;
         else
             ret = index < 0 || index >= _size;
@@ -169,7 +169,7 @@ typename MyArrayList<value_type>::reference MyArrayList<value_type>::operator[](
 }
 
 template <class value_type>
-inline void MyArrayList<value_type>::tranverse(call_back call) {
+inline void MyArrayList<value_type>::traverse(call_back call) {
     for (int i = 0; i < _size; ++i)
         call(data[i]);
 }
