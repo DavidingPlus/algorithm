@@ -18,13 +18,13 @@
 #include <iostream>
 using namespace std;
 
-struct ListNode {
-    int val;
-    ListNode* next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+// struct ListNode {
+//     int val;
+//     ListNode* next;
+//     ListNode() : val(0), next(nullptr) {}
+//     ListNode(int x) : val(x), next(nullptr) {}
+//     ListNode(int x, ListNode* next) : val(x), next(next) {}
+// };
 
 class Solution {
 public:
@@ -43,14 +43,22 @@ public:
         ListNode *move = head, *move_smaller = smaller_list, *move_bigger = bigger_list;
 
         for (; move; move = move->next) {
-            if (move->val < x) {
-                insert_after(move_smaller, move->val);
-                move_smaller = move_smaller->next;
-            }
-            else{
-                
-            }
+            ListNode*& tmp = (move->val < x) ? move_smaller : move_bigger;
+
+            insert_after(tmp, move->val);
+            tmp = tmp->next;
         }
+        // 删除虚拟头结点
+        smaller_list = smaller_list->next;
+        bigger_list = bigger_list->next;
+
+        // 连接
+        if (!smaller_list)
+            return bigger_list;
+
+        move_smaller->next = bigger_list;
+
+        return smaller_list;
     }
 };
 // @lc code=end
