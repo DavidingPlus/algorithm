@@ -47,7 +47,8 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "set": "cpp"
     },
     "diffEditor.wordWrap": "inherit",
     "C_Cpp.intelliSenseCacheSize": 0
