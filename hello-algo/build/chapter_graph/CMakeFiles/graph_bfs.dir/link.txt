@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/graph_bfs.dir/graph_bfs.cpp.o -o graph_bfs 

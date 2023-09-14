@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/min_path_sum.dir/min_path_sum.cpp.o -o min_path_sum 

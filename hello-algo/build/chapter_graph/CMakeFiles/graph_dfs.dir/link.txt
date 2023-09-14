@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/graph_dfs.dir/graph_dfs.cpp.o -o graph_dfs 

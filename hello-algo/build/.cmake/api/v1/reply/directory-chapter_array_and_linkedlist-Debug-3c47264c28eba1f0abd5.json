@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "chapter_array_and_linkedlist",
+		"source" : "chapter_array_and_linkedlist"
+	}
+}

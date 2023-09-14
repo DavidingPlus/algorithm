@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/merge_sort.dir/merge_sort.cpp.o -o merge_sort 

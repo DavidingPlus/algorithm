@@ -1,0 +1,367 @@
+[
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_computational_complexity",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/iteration.dir/iteration.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_computational_complexity/iteration.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_computational_complexity/iteration.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_computational_complexity",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/recursion.dir/recursion.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_computational_complexity/recursion.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_computational_complexity/recursion.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_computational_complexity",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/space_complexity.dir/space_complexity.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_computational_complexity/space_complexity.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_computational_complexity/space_complexity.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_computational_complexity",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/time_complexity.dir/time_complexity.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_computational_complexity/time_complexity.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_computational_complexity/time_complexity.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_computational_complexity",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/worst_best_time_complexity.dir/worst_best_time_complexity.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_computational_complexity/worst_best_time_complexity.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_computational_complexity/worst_best_time_complexity.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_array_and_linkedlist",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/array.dir/array.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_array_and_linkedlist/array.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_array_and_linkedlist/array.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_array_and_linkedlist",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/linked_list.dir/linked_list.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_array_and_linkedlist/linked_list.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_array_and_linkedlist/linked_list.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_array_and_linkedlist",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/list.dir/my_list.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_array_and_linkedlist/my_list.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_array_and_linkedlist/my_list.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_array_and_linkedlist",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/my_list.dir/my_list.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_array_and_linkedlist/my_list.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_array_and_linkedlist/my_list.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_stack_and_queue",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/array_deque.dir/array_deque.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/array_deque.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/array_deque.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_stack_and_queue",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/array_queue.dir/array_queue.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/array_queue.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/array_queue.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_stack_and_queue",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/array_stack.dir/array_stack.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/array_stack.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/array_stack.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_stack_and_queue",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/deque.dir/deque.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/deque.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/deque.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_stack_and_queue",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/linkedlist_deque.dir/linkedlist_deque.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/linkedlist_deque.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/linkedlist_deque.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_stack_and_queue",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/linkedlist_queue.dir/linkedlist_queue.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/linkedlist_queue.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/linkedlist_queue.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_stack_and_queue",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/linkedlist_stack.dir/linkedlist_stack.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/linkedlist_stack.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/linkedlist_stack.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_stack_and_queue",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/queue.dir/queue.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/queue.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/queue.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_stack_and_queue",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/stack.dir/stack.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/stack.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_stack_and_queue/stack.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_hashing",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/hash_map.dir/hash_map.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/hash_map.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/hash_map.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_hashing",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/array_hash_map_test.dir/array_hash_map_test.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/array_hash_map_test.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/array_hash_map_test.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_hashing",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/hash_map_chaining.dir/hash_map_chaining.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/hash_map_chaining.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/hash_map_chaining.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_hashing",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/hash_map_open_addressing.dir/hash_map_open_addressing.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/hash_map_open_addressing.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/hash_map_open_addressing.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_hashing",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/simple_hash.dir/simple_hash.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/simple_hash.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/simple_hash.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_hashing",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/built_in_hash.dir/built_in_hash.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/built_in_hash.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_hashing/built_in_hash.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_tree",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/avl_tree.dir/avl_tree.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/avl_tree.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/avl_tree.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_tree",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/binary_search_tree.dir/binary_search_tree.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/binary_search_tree.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/binary_search_tree.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_tree",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/binary_tree.dir/binary_tree.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/binary_tree.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/binary_tree.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_tree",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/binary_tree_bfs.dir/binary_tree_bfs.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/binary_tree_bfs.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/binary_tree_bfs.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_tree",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/binary_tree_dfs.dir/binary_tree_dfs.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/binary_tree_dfs.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/binary_tree_dfs.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_tree",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/array_binary_tree.dir/array_binary_tree.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/array_binary_tree.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_tree/array_binary_tree.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_heap",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/heap.dir/heap.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_heap/heap.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_heap/heap.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_heap",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/my_heap.dir/my_heap.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_heap/my_heap.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_heap/my_heap.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_heap",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/top_k.dir/top_k.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_heap/top_k.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_heap/top_k.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_graph",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/graph_bfs.dir/graph_bfs.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_graph/graph_bfs.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_graph/graph_bfs.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_graph",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/graph_dfs.dir/graph_dfs.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_graph/graph_dfs.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_graph/graph_dfs.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_graph",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/graph_adjacency_list_test.dir/graph_adjacency_list_test.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_graph/graph_adjacency_list_test.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_graph/graph_adjacency_list_test.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_graph",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/graph_adjacency_matrix.dir/graph_adjacency_matrix.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_graph/graph_adjacency_matrix.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_graph/graph_adjacency_matrix.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_searching",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/binary_search.dir/binary_search.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_searching/binary_search.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_searching/binary_search.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_searching",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/binary_search_insertion.dir/binary_search_insertion.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_searching/binary_search_insertion.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_searching/binary_search_insertion.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_searching",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/binary_search_edge.dir/binary_search_edge.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_searching/binary_search_edge.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_searching/binary_search_edge.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_searching",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/two_sum.dir/two_sum.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_searching/two_sum.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_searching/two_sum.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_sorting",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/selection_sort.dir/selection_sort.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/selection_sort.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/selection_sort.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_sorting",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/bubble_sort.dir/bubble_sort.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/bubble_sort.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/bubble_sort.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_sorting",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/insertion_sort.dir/insertion_sort.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/insertion_sort.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/insertion_sort.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_sorting",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/merge_sort.dir/merge_sort.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/merge_sort.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/merge_sort.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_sorting",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/quick_sort.dir/quick_sort.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/quick_sort.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/quick_sort.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_sorting",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/heap_sort.dir/heap_sort.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/heap_sort.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_sorting/heap_sort.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_divide_and_conquer",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/binary_search_recur.dir/binary_search_recur.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_divide_and_conquer/binary_search_recur.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_divide_and_conquer/binary_search_recur.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_divide_and_conquer",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/build_tree.dir/build_tree.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_divide_and_conquer/build_tree.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_divide_and_conquer/build_tree.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_divide_and_conquer",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/hanota.dir/hanota.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_divide_and_conquer/hanota.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_divide_and_conquer/hanota.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_backtracking",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/preorder_traversal_i_compact.dir/preorder_traversal_i_compact.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/preorder_traversal_i_compact.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/preorder_traversal_i_compact.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_backtracking",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/preorder_traversal_ii_compact.dir/preorder_traversal_ii_compact.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/preorder_traversal_ii_compact.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/preorder_traversal_ii_compact.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_backtracking",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/preorder_traversal_iii_compact.dir/preorder_traversal_iii_compact.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/preorder_traversal_iii_compact.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/preorder_traversal_iii_compact.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_backtracking",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/preorder_traversal_iii_template.dir/preorder_traversal_iii_template.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/preorder_traversal_iii_template.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/preorder_traversal_iii_template.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_backtracking",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/permutations_i.dir/permutations_i.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/permutations_i.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/permutations_i.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_backtracking",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/permutations_ii.dir/permutations_ii.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/permutations_ii.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/permutations_ii.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_backtracking",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/n_queens.dir/n_queens.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/n_queens.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/n_queens.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_backtracking",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/subset_sum_i_naive.dir/subset_sum_i_naive.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/subset_sum_i_naive.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/subset_sum_i_naive.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_backtracking",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/subset_sum_i.dir/subset_sum_i.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/subset_sum_i.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/subset_sum_i.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_backtracking",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/subset_sum_ii.dir/subset_sum_ii.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/subset_sum_ii.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_backtracking/subset_sum_ii.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_dynamic_programming",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/climbing_stairs_backtrack.dir/climbing_stairs_backtrack.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/climbing_stairs_backtrack.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/climbing_stairs_backtrack.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_dynamic_programming",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/climbing_stairs_dfs.dir/climbing_stairs_dfs.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/climbing_stairs_dfs.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/climbing_stairs_dfs.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_dynamic_programming",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/climbing_stairs_dfs_mem.dir/climbing_stairs_dfs_mem.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/climbing_stairs_dfs_mem.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/climbing_stairs_dfs_mem.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_dynamic_programming",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/climbing_stairs_dp.dir/climbing_stairs_dp.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/climbing_stairs_dp.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/climbing_stairs_dp.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_dynamic_programming",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/min_cost_climbing_stairs_dp.dir/min_cost_climbing_stairs_dp.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/min_cost_climbing_stairs_dp.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/min_cost_climbing_stairs_dp.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_dynamic_programming",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/min_path_sum.dir/min_path_sum.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/min_path_sum.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/min_path_sum.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_dynamic_programming",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/unbounded_knapsack.dir/unbounded_knapsack.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/unbounded_knapsack.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/unbounded_knapsack.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_dynamic_programming",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/coin_change.dir/coin_change.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/coin_change.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/coin_change.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_dynamic_programming",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/coin_change_ii.dir/coin_change_ii.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/coin_change_ii.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/coin_change_ii.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_dynamic_programming",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/edit_distance.dir/edit_distance.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/edit_distance.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_dynamic_programming/edit_distance.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_greedy",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/coin_change_greedy.dir/coin_change_greedy.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_greedy/coin_change_greedy.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_greedy/coin_change_greedy.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_greedy",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/fractional_knapsack.dir/fractional_knapsack.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_greedy/fractional_knapsack.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_greedy/fractional_knapsack.cpp"
+},
+{
+  "directory": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/build/chapter_greedy",
+  "command": "/usr/bin/g++  -I/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/./include -g -std=gnu++11 -o CMakeFiles/max_capacity.dir/max_capacity.cpp.o -c /home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_greedy/max_capacity.cpp",
+  "file": "/home/lzx0626/DavidingPlus/Cpp/为了工作/Algorithm/hello-algo/chapter_greedy/max_capacity.cpp"
+}
+]

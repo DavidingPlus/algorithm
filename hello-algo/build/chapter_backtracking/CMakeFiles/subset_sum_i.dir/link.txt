@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/subset_sum_i.dir/subset_sum_i.cpp.o -o subset_sum_i 

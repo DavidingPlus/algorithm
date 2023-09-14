@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/my_heap.dir/my_heap.cpp.o -o my_heap 

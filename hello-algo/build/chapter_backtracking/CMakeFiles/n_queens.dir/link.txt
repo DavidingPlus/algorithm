@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/n_queens.dir/n_queens.cpp.o -o n_queens 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/min_cost_climbing_stairs_dp.dir/min_cost_climbing_stairs_dp.cpp.o -o min_cost_climbing_stairs_dp 

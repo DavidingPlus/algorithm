@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/simple_hash.dir/simple_hash.cpp.o -o simple_hash 

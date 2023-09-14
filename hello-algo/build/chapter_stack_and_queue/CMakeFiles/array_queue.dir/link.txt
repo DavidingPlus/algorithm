@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/array_queue.dir/array_queue.cpp.o -o array_queue 
