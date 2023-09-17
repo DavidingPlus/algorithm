@@ -48,8 +48,18 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "list": "cpp",
+        "unordered_set": "cpp",
+        "format": "cpp",
+        "chrono": "cpp",
+        "variant": "cpp",
+        "span": "cpp",
+        "stack": "cpp",
+        "charconv": "cpp",
+        "ctime": "cpp",
+        "ratio": "cpp",
+        "iomanip": "cpp"
     },
-    "diffEditor.wordWrap": "inherit",
     "C_Cpp.intelliSenseCacheSize": 0
 }
