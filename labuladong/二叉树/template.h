@@ -1,5 +1,5 @@
-#ifndef _Binary_Tree_H_
-#define _Binary_Tree_H_
+#ifndef _Template_H_
+#define _Template_H_
 
 #include <iostream>
 #include <vector>
