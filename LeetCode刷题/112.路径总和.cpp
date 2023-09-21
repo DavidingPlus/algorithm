@@ -30,7 +30,7 @@ using namespace std;
 
 class Solution {
 public:
-    int num = 0;        // 用num变量来维护从根节点到当前节点的路径的和
+    int sum = 0;        // 用sum变量来维护从根节点到当前节点的路径的和
     bool flag = false;  // 用一个标志位记录
 
     void traverse(TreeNode *root, int targetSum) {
@@ -39,9 +39,9 @@ public:
         }
 
         // 前序遍历位置，结点刚进来将值相加，并且判断是否为正确路径
-        num += root->val;
+        sum += root->val;
         // 判断是否为符合条件的叶结点
-        if (targetSum == num && !root->left && !root->right) {
+        if (targetSum == sum && !root->left && !root->right) {
             flag = true;
             return;
         }
@@ -49,7 +49,7 @@ public:
         traverse(root->left, targetSum);
         traverse(root->right, targetSum);
         // 后序遍历位置，该节点下面的子树访问完成，准备往上回退
-        num -= root->val;
+        sum -= root->val;
     }
 
     bool hasPathSum(TreeNode *root, int targetSum) {
