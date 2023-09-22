@@ -8,18 +8,25 @@ using namespace std;
 
 // 我能想到这么写，但是这么写违背了函数的定义
 template <size_t N>
-void generateBinaryNumber() {
+void generateBinaryNumber_mine() {
     // 思考：如何和二叉树结合起来？(我没想到)
     for (int i = 0; i < pow(2, N); ++i)
         cout << bitset<N>(i) << ' ';
     cout << endl;
 }
 
+// 老师的方法
+void generateBinaryNumber(int num) {
+    // 思路见"思路.png"
+}
+
 int main() {
     int num;
     cin >> num;
 
-    generateBinaryNumber<3>();
+    // generateBinaryNumber_mine<3>();
+
+    generateBinaryNumber(num);
 
     return 0;
 }

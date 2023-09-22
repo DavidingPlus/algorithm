@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=114 lang=cpp
+ * @lc app=leetcode.cn id=100 lang=cpp
  *
- * [114] 二叉树展开为链表
+ * [100] 相同的树
  */
 
 // @lc code=start
@@ -31,27 +31,19 @@ using namespace std;
 
 class Solution {
 public:
-    // 第二种思路
-    void flatten(TreeNode* root) {
-        if (!root)
-            return;
+    bool isSameTree(TreeNode *p, TreeNode *q) {
+        // 处理一下走到空指针的问题
+        if (!p && !q)
+            return true;
+        if ((p && !q) || (!p && q))
+            return false;
 
-        // 把左右子树递归拉平
-        flatten(root->left);
-        flatten(root->right);
+        // 子树都不为空再进行后续判断
+        if (p->val != q->val)
+            return false;
 
-        // 最后处理本结点
-        TreeNode* left = root->left;
-        TreeNode* right = root->right;
-
-        root->left = nullptr;
-        root->right = left;
-
-        TreeNode* move = root;
-        while (move->right)
-            move = move->right;
-
-        move->right = right;
+        return isSameTree(p->left, q->left) &&
+               isSameTree(p->right, q->right);
     }
 };
 // @lc code=end
