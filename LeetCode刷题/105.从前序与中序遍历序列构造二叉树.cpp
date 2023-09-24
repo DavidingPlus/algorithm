@@ -47,6 +47,7 @@ public:
         vector<int> left_inorder = vector<int>{inorder.begin(), root_pos};
         vector<int> right_inorder = vector<int>{root_pos + 1, inorder.end()};
 
+        // 这里还是运用了递归修改数据结构，只不过这里是一个变种，但是思路是一样的
         root->left = buildTree(left_preorder, left_inorder);
         root->right = buildTree(right_preorder, right_inorder);
 
