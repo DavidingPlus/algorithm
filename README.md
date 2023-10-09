@@ -4,5 +4,5 @@
 
 一些技巧：
 
-使用内存消毒器编译的时候记得加上：`-fsanitize=address`
+- 使用内存消毒器编译的时候记得加上：`-fsanitize=address`
 
