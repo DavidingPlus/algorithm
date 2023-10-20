@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/list.dir/my_list.cpp.o -o list 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/coin_change_ii.dir/coin_change_ii.cpp.o -o coin_change_ii 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/avl_tree.dir/avl_tree.cpp.o -o avl_tree 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/linkedlist_queue.dir/linkedlist_queue.cpp.o -o linkedlist_queue 

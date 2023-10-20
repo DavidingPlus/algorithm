@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/binary_search_tree.dir/binary_search_tree.cpp.o -o binary_search_tree 

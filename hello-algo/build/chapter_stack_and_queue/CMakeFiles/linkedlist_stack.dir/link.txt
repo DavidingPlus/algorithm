@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/linkedlist_stack.dir/linkedlist_stack.cpp.o -o linkedlist_stack 

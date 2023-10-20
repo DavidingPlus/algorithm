@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/time_complexity.dir/time_complexity.cpp.o -o time_complexity 

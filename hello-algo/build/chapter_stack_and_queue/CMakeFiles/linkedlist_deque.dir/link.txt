@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/linkedlist_deque.dir/linkedlist_deque.cpp.o -o linkedlist_deque 

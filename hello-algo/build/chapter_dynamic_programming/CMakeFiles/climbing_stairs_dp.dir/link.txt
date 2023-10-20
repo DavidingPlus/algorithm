@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/climbing_stairs_dp.dir/climbing_stairs_dp.cpp.o -o climbing_stairs_dp 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/hanota.dir/hanota.cpp.o -o hanota 

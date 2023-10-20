@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/preorder_traversal_iii_template.dir/preorder_traversal_iii_template.cpp.o -o preorder_traversal_iii_template 

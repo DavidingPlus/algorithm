@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/climbing_stairs_backtrack.dir/climbing_stairs_backtrack.cpp.o -o climbing_stairs_backtrack 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/worst_best_time_complexity.dir/worst_best_time_complexity.cpp.o -o worst_best_time_complexity 

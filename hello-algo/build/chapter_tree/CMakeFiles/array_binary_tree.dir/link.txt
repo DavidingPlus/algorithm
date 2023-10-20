@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/array_binary_tree.dir/array_binary_tree.cpp.o -o array_binary_tree 

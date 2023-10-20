@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/graph_adjacency_matrix.dir/graph_adjacency_matrix.cpp.o -o graph_adjacency_matrix 
