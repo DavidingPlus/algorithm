@@ -1,4 +1,6 @@
 # 自己用的时候记得后缀改一下，我是为了防止vscode用cmake tools插件给我乱选很烦
+# 各个目录中的也对应改一下后缀
+
 cmake_minimum_required(VERSION 3.10)
 project(hello_algo CXX)
 
