@@ -4,6 +4,14 @@
  * [86] 分隔链表
  */
 
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
+};
+
 // @lc code=start
 /**
  * Definition for singly-linked list.
@@ -18,47 +26,32 @@
 #include <iostream>
 using namespace std;
 
-// struct ListNode {
-//     int val;
-//     ListNode* next;
-//     ListNode() : val(0), next(nullptr) {}
-//     ListNode(int x) : val(x), next(nullptr) {}
-//     ListNode(int x, ListNode* next) : val(x), next(next) {}
-// };
-
 class Solution {
 public:
-    void insert_after(ListNode* node, const int& val) {
-        ListNode* newnode = new ListNode(val);
-        newnode->next = node->next;
-        node->next = newnode;
-    }
-
     ListNode* partition(ListNode* head, int x) {
-        // 我们可以把小于x值存入一个链表，然后大于等于的存入一个链表
-        ListNode* smaller_list = new ListNode(-1);  // 虚拟头结点
-        ListNode* bigger_list = new ListNode(-1);
+        // 给定两个指针，第一个指针只关心小于x的节点，第二个关心大于等于x的
+        ListNode *l1 = head, *l2 = head;
+        ListNode* ret = new ListNode(-1);
+        ListNode* l = ret;
 
-        // 工作指针
-        ListNode *move = head, *move_smaller = smaller_list, *move_bigger = bigger_list;
-
-        for (; move; move = move->next) {
-            ListNode*& tmp = (move->val < x) ? move_smaller : move_bigger;
-
-            insert_after(tmp, move->val);
-            tmp = tmp->next;
+        while (l1) {
+            if (l1->val < x) {
+                l->next = new ListNode(l1->val);
+                l = l->next;
+            }
+            l1 = l1->next;
         }
-        // 删除虚拟头结点
-        smaller_list = smaller_list->next;
-        bigger_list = bigger_list->next;
+        while (l2) {
+            if (l2->val >= x) {
+                l->next = new ListNode(l2->val);
+                l = l->next;
+            }
+            l2 = l2->next;
+        }
 
-        // 连接
-        if (!smaller_list)
-            return bigger_list;
+        ret = ret->next;
 
-        move_smaller->next = bigger_list;
-
-        return smaller_list;
+        return ret;
     }
 };
 // @lc code=end

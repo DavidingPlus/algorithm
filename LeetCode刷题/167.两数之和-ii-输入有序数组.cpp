@@ -17,18 +17,15 @@ public:
         // 当状态变化的时候不能回移，肯定就让另一根移动
         // 这样的遍历是从外层到内层，不会少的
         int left = 0, right = nums.size() - 1;
-        while (left < right) {
-            int sum = nums[left] + nums[right];
-
-            if (target == sum)
+        while (left <= right) {
+            if (target == nums[left] + nums[right])
                 return {left + 1, right + 1};
 
-            if (sum < target)
-                ++left;
-            else
+            if (nums[left] + nums[right] > target)
                 --right;
+            else
+                ++left;
         }
-
         return {-1, -1};
     }
 };

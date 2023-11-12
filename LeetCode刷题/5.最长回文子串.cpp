@@ -12,11 +12,12 @@ class Solution {
 public:
     // 这个函数用来在下标i和j往外扩张的最大回文串，当然前提是i和j之间符合回文串特征
     string Palindrome(string s, int i, int j) {
-        while (i >= 0 && j < s.size() && s[i] == s[j]) {
+        while (i >= 0 and j < s.size() and s[i] == s[j]) {
             --i;
             ++j;
         }
 
+        // 这里的i和j是下一次不满足条件的下标，记得做处理
         return string(s.begin() + i + 1, s.begin() + j);
     }
 
@@ -27,16 +28,16 @@ public:
         string ret;
 
         for (int i = 0; i < s.size(); ++i) {
-            // 以本字符为中心的奇数个数的最大回文串
+            // 以该字符串为中心的回文串
             string s1 = Palindrome(s, i, i);
-            // 以本字符和下一个字符为中心的奇数个数的最大回文串
+            // 以本字符和下一个字符为中心的回文串
             string s2;
-            if (i != s.size() - 1)
+            if (i != s.size() - 1 and s[i] == s[i + 1])
                 s2 = Palindrome(s, i, i + 1);
 
-            string longer = (s1.size() >= s2.size()) ? s1 : s2;
+            string& longer = (s1.size() >= s2.size()) ? s1 : s2;
 
-            ret = (longer.size() > ret.size()) ? longer : ret;
+            ret = (ret.size() >= longer.size()) ? ret : longer;
         }
 
         return ret;

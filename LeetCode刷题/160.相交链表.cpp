@@ -4,6 +4,12 @@
  * [160] 相交链表
  */
 
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(nullptr) {}
+};
+
 // @lc code=start
 /**
  * Definition for singly-linked list.
@@ -16,54 +22,52 @@
 #include <iostream>
 using namespace std;
 
-// struct ListNode {
-//     int val;
-//     ListNode *next;
-//     ListNode(int x) : val(x), next(NULL) {}
-// };
-
 class Solution {
 public:
-    ListNode *detectCycle(ListNode *head) {
-        ListNode *fast = head, *slow = head;
+    // // 思路1：循环链表
+    // ListNode *detectCycle(ListNode *head) {
+    //     ListNode *fast = head, *slow = head;
+    //     while (fast and fast->next) {
+    //         fast = fast->next->next;
+    //         slow = slow->next;
+    //         if (fast == slow)
+    //             break;
+    //     }
+    //     if (nullptr == fast or nullptr == fast->next)
+    //         return nullptr;
 
-        while (fast && fast->next) {
-            fast = fast->next->next;
-            slow = slow->next;
+    //     fast = head;
+    //     while (fast != slow) {
+    //         fast = fast->next;
+    //         slow = slow->next;
+    //     }
+    //     return fast;
+    // }
 
-            if (fast == slow)
-                break;
-        }
+    // ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+    //     // 我把其中一个链表的头部和尾部接上，问题就变为了求环形链表的起点了
+    //     ListNode *la = headA;
+    //     while (la->next)
+    //         la = la->next;
 
-        if (!fast || !fast->next)
-            return nullptr;
+    //     la->next = headA;
 
-        // 参考labuladong的解法，巧妙
-        slow = head;
-        while (fast != slow) {
-            fast = fast->next;
-            slow = slow->next;
-        }
-        return slow;
-    }
+    //     ListNode *ret = detectCycle(headB);
 
+    //     la->next = nullptr;  // 恢复原始结构
+
+    //     return ret;
+    // }
+
+    // 思路2：想一些办法使得两个链表的遍历同时走到公共处
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        // 把A链表的首尾连接起来，从B链表看来相交的起始结点就是从B开始遍历的环起点
-        ListNode *moveA = headA;
-        for (; moveA->next; moveA = moveA->next)
-            ;
-
-        // 记录这个结点，后面需要恢复
-        ListNode *tmp = moveA;
-        tmp->next = headA;
-
-        // 遍历B
-        ListNode *ret = detectCycle(headB);
-
-        // 恢复结构
-        tmp->next = nullptr;
-
-        return ret;
+        // 我们让两个链表分别遍历，然后为空后指向另一个链表的头部，然后重新开始跑，这样跑出来后面一定会交于相交处第一个位置
+        ListNode *pa = headA, *pb = headB;
+        while (pa != pb) {
+            pa = pa ? pa->next : headB;
+            pb = pb ? pb->next : headA;
+        }
+        return pa;
     }
 };
 // @lc code=end

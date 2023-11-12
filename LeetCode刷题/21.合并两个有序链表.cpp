@@ -4,6 +4,14 @@
  * [21] 合并两个有序链表
  */
 
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
+};
+
 // @lc code=start
 /**
  * Definition for singly-linked list.
@@ -18,49 +26,31 @@
 #include <iostream>
 using namespace std;
 
-// struct ListNode {
-//     int val;
-//     ListNode* next;
-//     ListNode() : val(0), next(nullptr) {}
-//     ListNode(int x) : val(x), next(nullptr) {}
-//     ListNode(int x, ListNode* next) : val(x), next(next) {}
-// };
-
 class Solution {
 public:
-    void insert_after(ListNode* node, const int& val) {
-        ListNode* newnode = new ListNode(val);
-        newnode->next = node->next;
-        node->next = newnode;
-    }
-
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        // 使用两根指针，分别从两个链表开始往后移
-        // 哪个小就把谁的插入到新链表中，然后指针往后移
-        ListNode* ret_list = new ListNode(-1);  // 需要一个虚拟头结点，方便插数据
+        ListNode* head = new ListNode(-1);  // 给定一个虚拟头结点
+        ListNode *l1 = list1, *l2 = list2, *p = head;
 
-        ListNode *move1 = list1, *move2 = list2, *move_ret = ret_list;
-        while (move1 && move2) {
-            // 比较大小
-            ListNode*& smaller = (move1->val <= move2->val) ? move1 : move2;
-
-            insert_after(move_ret, smaller->val);
-            move_ret = move_ret->next;
+        // 两个都不为空
+        while (nullptr != l1 and nullptr != l2) {
+            auto& smaller = (l1->val <= l2->val) ? l1 : l2;
+            p->next = new ListNode(smaller->val);
+            p = p->next;
             smaller = smaller->next;
         }
-
-        // 最后肯定会剩下一个不为空
-        ListNode*& remain = move1 ? move1 : move2;
-        // 把剩下的插入
-        for (; remain; remain = remain->next) {
-            insert_after(move_ret, remain->val);
-            move_ret = move_ret->next;
+        // 其中一个先为空
+        auto& l = (nullptr != l1) ? l1 : l2;
+        while (l) {
+            p->next = new ListNode(l->val);
+            p = p->next;
+            l = l->next;
         }
 
-        // 删去虚拟头结点
-        ret_list = ret_list->next;
+        // 弹掉虚拟头结点
+        head = head->next;
 
-        return ret_list;
+        return head;
     }
 };
 // @lc code=end

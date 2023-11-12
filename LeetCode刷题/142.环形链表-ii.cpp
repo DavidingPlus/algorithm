@@ -4,6 +4,12 @@
  * [142] 环形链表 II
  */
 
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(nullptr) {}
+};
+
 // @lc code=start
 /**
  * Definition for singly-linked list.
@@ -16,35 +22,28 @@
 #include <iostream>
 using namespace std;
 
-// struct ListNode {
-//     int val;
-//     ListNode *next;
-//     ListNode(int x) : val(x), next(NULL) {}
-// };
-
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
+        // 相遇的时候快指针一定比慢指针多走了一倍
+        // 然后我们把其中一个指针指向起点，再相遇的时候就是起点
+        // 见142.png
         ListNode *fast = head, *slow = head;
-
-        while (fast && fast->next) {
+        while (fast and fast->next) {
             fast = fast->next->next;
             slow = slow->next;
-
             if (fast == slow)
                 break;
         }
-
-        if (!fast || !fast->next)
+        if (nullptr == fast or nullptr == fast->next)
             return nullptr;
 
-        // 参考labuladong的解法，巧妙
-        slow = head;
+        fast = head;
         while (fast != slow) {
             fast = fast->next;
             slow = slow->next;
         }
-        return slow;
+        return fast;
     }
 };
 // @lc code=end

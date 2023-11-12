@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=876 lang=cpp
+ * @lc app=leetcode.cn id=92 lang=cpp
  *
- * [876] 链表的中间结点
+ * [92] 反转链表 II
  */
 
 struct ListNode {
@@ -23,19 +23,13 @@ struct ListNode {
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
 #include <iostream>
 using namespace std;
 
 class Solution {
 public:
-    ListNode* middleNode(ListNode* head) {
-        // 快慢指针，注意判断条件
-        ListNode *fast = head, *slow = head;
-        while (fast and fast->next) {
-            fast = fast->next->next;
-            slow = slow->next;
-        }
-        return slow;
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
     }
 };
 // @lc code=end
