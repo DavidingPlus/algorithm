@@ -9,21 +9,23 @@
 using namespace std;
 #include <vector>
 
+const int N = 1e4 + 10;
+
 class NumArray {
+private:
+    int preSum[N] = {0};
+
 public:
     NumArray(vector<int>& nums) {
-        pre_sum[0] = 0;
-        // 初始化前缀和数组，这里我的起始下标为1
-        for (int i = 0; i < nums.size(); ++i)
-            pre_sum[i + 1] = pre_sum[i] + nums[i];
+        // 前缀和数组下标一般从1开始
+
+        for (int i = 1; i <= nums.size(); ++i)
+            preSum[i] = nums[i - 1] + preSum[i - 1];
     }
 
     int sumRange(int left, int right) {
-        return pre_sum[right + 1] - pre_sum[left];
+        return preSum[right + 1] - preSum[left];
     }
-
-private:
-    int pre_sum[10010];  // 构造前缀和数组
 };
 
 /**
