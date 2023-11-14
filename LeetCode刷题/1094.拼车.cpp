@@ -9,24 +9,27 @@
 using namespace std;
 #include <vector>
 
-const int N = 1e3 + 1;
+const int N = 1e3 + 10;
 
 class Solution {
 public:
     bool carPooling(vector<vector<int>>& trips, int capacity) {
-        // 定义差分数组
-        int df[N] = {0};  // 最多1001个站
+        // 各个站的人可以构成一个数组
+        // 不同批次的顾客在某个站下，某个站上，因此某个区间站的人会进行修改，因此可以用到差分数组
+        int dif[N] = {0};
+
+        int max_station = 0;
+
         for (auto& trip : trips) {
-            int val = trip[0], left = trip[1], right = trip[2];
-            df[left] += val;
-            df[right] -= val;
+            dif[trip[1]] += trip[0];
+            dif[trip[2]] -= trip[0];  // 下车的时候这站的人数已经减少了，所以下了的人不参与进来
+            max_station = max(max_station, trip[2]);
         }
 
-        // 构造前缀和数组，如果过程中一致保持小于容量则成功
-        int presum[N + 1] = {0};
-        for (int i = 1; i <= 1001; ++i) {
-            presum[i] = presum[i - 1] + df[i - 1];
-            if (presum[i] > capacity)
+        int num = 0;
+        for (int i = 1; i <= max_station; ++i) {
+            num += dif[i - 1];
+            if (num > capacity)
                 return false;
         }
         return true;

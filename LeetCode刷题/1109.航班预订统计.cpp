@@ -14,23 +14,21 @@ const int N = 2 * 1e4 + 10;
 class Solution {
 public:
     vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
-        // 差分数组，将nums数组看作为前缀和数组，然后构造出原来的数组
-        // 之后修改原来的数组，再求一次前缀和数组即可得到答案
+        // 想对数组进行某个区间的修改，就可以用到差分数组(就是前缀和数组逆向的原数组)
+        int dif[N] = {0};
 
-        int df[N] = {0};  // 初始化差分数组
+        // 构造差分数组
         for (auto& book : bookings) {
-            int left = book[0], right = book[1], val = book[2];
-            df[left - 1] += val;
-            df[right] -= val;
+            dif[book[0] - 1] += book[2];
+            if (n != book[1])
+                dif[book[1]] -= book[2];
         }
 
-        // 构造前缀和数组
-        vector<int> ret;
-        ret.push_back(0);
-
-        for (int i = 0; i < n; ++i)
-            ret.push_back(ret.back() + df[i]);
-
+        // 反过来推导前缀和数组
+        vector<int> ret{0};
+        for (int i = 1; i <= n; ++i) {
+            ret.push_back(ret.back() + dif[i - 1]);
+        }
         ret.erase(ret.begin());
 
         return ret;
