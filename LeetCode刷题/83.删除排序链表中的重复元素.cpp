@@ -4,6 +4,14 @@
  * [83] 删除排序链表中的重复元素
  */
 
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
+};
+
 // @lc code=start
 /**
  * Definition for singly-linked list.
@@ -18,14 +26,6 @@
 #include <iostream>
 using namespace std;
 
-// struct ListNode {
-//     int val;
-//     ListNode* next;
-//     ListNode() : val(0), next(nullptr) {}
-//     ListNode(int x) : val(x), next(nullptr) {}
-//     ListNode(int x, ListNode* next) : val(x), next(next) {}
-// };
-
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
@@ -33,9 +33,7 @@ public:
             return head;
 
         // 还是快慢指针，只不过这一次完事之后需要把slow置空
-        ListNode *
-            fast = head,
-           *slow = head, *slow_before = head;
+        ListNode *fast = head, *slow = head, *slow_before = head;
         int pre = __INT_MAX__;
 
         for (; fast; fast = fast->next) {

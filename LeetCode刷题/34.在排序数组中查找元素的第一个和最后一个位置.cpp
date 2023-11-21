@@ -11,47 +11,45 @@ using namespace std;
 
 // 代码模板可以记忆！
 
+// 升序!
 // 二分查找实现查找左边界和右边界
+// 为了左右统一，这里采用双闭区间
 int left_bound(vector<int>& nums, int target) {
-    int left = 0, right = nums.size() - 1;  // 这次我用闭区间
-
+    int left = 0, right = nums.size() - 1;
     while (left <= right) {
         int mid = left + (right - left) / 2;
 
+        // 与下面做同步，right减了不影响left的判断
         if (target == nums[mid])
-            right = mid - 1;  // 这里需要减1，防止死循环
+            right = mid - 1;
         else if (nums[mid] > target)
             right = mid - 1;
-        else if (nums[mid] < target)
+        else
             left = mid + 1;
     }
-    // 判断left的范围
-    if (left < 0 || left >= nums.size())
+    // 那left做判断，可能越界
+    if (left < 0 or left >= nums.size() or target != nums[left])
         return -1;
-
-    // 判断找到的值是否为预期值
-    return target == nums[left] ? left : -1;
+    return left;
 }
 
 int right_bound(vector<int>& nums, int target) {
-    int left = 0, right = nums.size() - 1;  // 这次我用闭区间
-
+    int left = 0, right = nums.size() - 1;
     while (left <= right) {
         int mid = left + (right - left) / 2;
 
+        // 这里有个问题是会卡住
+        // 解决办法是让mid+1，然后下面用right判断!!!!
         if (target == nums[mid])
             left = mid + 1;
         else if (nums[mid] > target)
             right = mid - 1;
-        else if (nums[mid] < target)
+        else
             left = mid + 1;
     }
-    // 判断left的范围
-    if (right < 0 || right >= nums.size())
+    if (right < 0 or right >= nums.size() or target != nums[right])
         return -1;
-
-    // 判断找到的值是否为预期值
-    return target == nums[right] ? right : -1;
+    return right;
 }
 
 class Solution {

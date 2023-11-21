@@ -16,11 +16,12 @@ public:
         // 我们的状态初始时候肯定有一个指针要单向移动，很可能在这个过程中一直状态不变
         // 当状态变化的时候不能回移，肯定就让另一根移动
         // 这样的遍历是从外层到内层，不会少的
+
+        // 双指针
         int left = 0, right = nums.size() - 1;
         while (left <= right) {
             if (target == nums[left] + nums[right])
-                return {left + 1, right + 1};
-
+                return {1 + left, 1 + right};
             if (nums[left] + nums[right] > target)
                 --right;
             else
