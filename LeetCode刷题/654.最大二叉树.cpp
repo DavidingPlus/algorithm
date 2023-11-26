@@ -37,8 +37,22 @@ public:
 
     TreeNode *buildBinaryTree(const vector<int> &nums, int left, int right) {
         // 这里我们取闭区间
-        if (nums.empty())
+        if (left > right)
             return nullptr;
+
+        // 查询left到right中的最大值
+        int maxIndex = left;
+        for (int i = left; i <= right; ++i)
+            // nums不重复
+            if (nums[maxIndex] < nums[i])
+                maxIndex = i;
+
+        // 创建根节点
+        TreeNode *root = new TreeNode(nums[maxIndex]);
+        root->left = buildBinaryTree(nums, left, maxIndex - 1);
+        root->right = buildBinaryTree(nums, maxIndex + 1, right);
+
+        return root;
     }
 };
 // @lc code=end
