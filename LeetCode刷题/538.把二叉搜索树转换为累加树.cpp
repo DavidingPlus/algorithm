@@ -28,14 +28,15 @@ struct TreeNode {
 
 class Solution {
 public:
-    int sum = 0;  // 维护相加和
+    int sum = 0;
 
     void traverse(TreeNode *root) {
+        // 先遍历右边，然后进行中序遍历，到达该节点的时候维护的和刚好就是条件
+        // 并且遇到的节点值都比现在的小，所以sum也不需要考虑出去的时候需要减掉
+
         if (nullptr == root)
             return;
 
-        // 为什么先遍历右子树
-        // 我们需要获得这个树的降序，然后拿到大于等于这个数的所有值，所以需要从右向左来
         traverse(root->right);
 
         sum += root->val;
@@ -45,7 +46,6 @@ public:
     }
 
     TreeNode *convertBST(TreeNode *root) {
-        // 我们可以先遍历一遍拿到总和，但是没必要，从右边向左遍历就可以了
         traverse(root);
         return root;
     }
