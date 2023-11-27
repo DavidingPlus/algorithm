@@ -8,7 +8,7 @@
 
 /* 基于邻接表实现的无向图类 */
 class GraphAdjList {
-  public:
+public:
     // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
     unordered_map<Vertex *, vector<Vertex *>> adjList;
 

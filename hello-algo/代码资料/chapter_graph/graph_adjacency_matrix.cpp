@@ -8,10 +8,10 @@
 
 /* 基于邻接矩阵实现的无向图类 */
 class GraphAdjMat {
-    vector<int> vertices;       // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    vector<vector<int>> adjMat; // 邻接矩阵，行列索引对应“顶点索引”
+    vector<int> vertices;        // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+    vector<vector<int>> adjMat;  // 邻接矩阵，行列索引对应“顶点索引”
 
-  public:
+public:
     /* 构造方法 */
     GraphAdjMat(const vector<int> &vertices, const vector<vector<int>> &edges) {
         // 添加顶点
