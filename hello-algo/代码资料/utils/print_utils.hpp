@@ -6,15 +6,17 @@
 
 #pragma once
 
-#include "list_node.hpp"
-#include "tree_node.hpp"
 #include <climits>
 #include <iostream>
 #include <sstream>
 #include <string>
 
+#include "list_node.hpp"
+#include "tree_node.hpp"
+
 /* Find an element in a vector */
-template <typename T> int vecFind(const vector<T> &vec, T ele) {
+template <typename T>
+int vecFind(const vector<T> &vec, T ele) {
     int j = INT_MAX;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] == ele) {
@@ -25,7 +27,8 @@ template <typename T> int vecFind(const vector<T> &vec, T ele) {
 }
 
 /* Concatenate a vector with a delim */
-template <typename T> string strJoin(const string &delim, const T &vec) {
+template <typename T>
+string strJoin(const string &delim, const T &vec) {
     ostringstream s;
     for (const auto &i : vec) {
         if (&i != &vec[0]) {
@@ -45,7 +48,8 @@ string strRepeat(string str, int n) {
 }
 
 /* Print an Array */
-template <typename T> void printArray(T *arr, int n) {
+template <typename T>
+void printArray(T *arr, int n) {
     cout << "[";
     for (int i = 0; i < n - 1; i++) {
         cout << arr[i] << ", ";
@@ -57,17 +61,20 @@ template <typename T> void printArray(T *arr, int n) {
 }
 
 /* Get the Vector String object */
-template <typename T> string getVectorString(vector<T> &list) {
+template <typename T>
+string getVectorString(vector<T> &list) {
     return "[" + strJoin(", ", list) + "]";
 }
 
 /* Print a vector */
-template <typename T> void printVector(vector<T> list) {
+template <typename T>
+void printVector(vector<T> list) {
     cout << getVectorString(list) << '\n';
 }
 
 /* Print a vector matrix */
-template <typename T> void printVectorMatrix(vector<vector<T>> &matrix) {
+template <typename T>
+void printVectorMatrix(vector<vector<T>> &matrix) {
     cout << "[" << '\n';
     for (vector<T> &list : matrix)
         cout << "  " + getVectorString(list) + "," << '\n';
@@ -146,7 +153,8 @@ void printTree(TreeNode *root) {
 }
 
 /* Print a stack */
-template <typename T> void printStack(stack<T> stk) {
+template <typename T>
+void printStack(stack<T> stk) {
     // Reverse the input stack
     stack<T> tmp;
     while (!stk.empty()) {
@@ -168,7 +176,8 @@ template <typename T> void printStack(stack<T> stk) {
 }
 
 /* Print a queue */
-template <typename T> void printQueue(queue<T> queue) {
+template <typename T>
+void printQueue(queue<T> queue) {
     // Generate the string to print
     ostringstream s;
     bool flag = true;
@@ -184,7 +193,8 @@ template <typename T> void printQueue(queue<T> queue) {
 }
 
 /* Print a deque */
-template <typename T> void printDeque(deque<T> deque) {
+template <typename T>
+void printDeque(deque<T> deque) {
     // Generate the string to print
     ostringstream s;
     bool flag = true;
@@ -201,14 +211,16 @@ template <typename T> void printDeque(deque<T> deque) {
 
 /* Print a HashMap */
 // 定义模板参数 TKey 和 TValue，用于指定键值对的类型
-template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
+template <typename TKey, typename TValue>
+void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
     }
 }
 
 /* Expose the underlying storage of the priority_queue container */
-template <typename T, typename S, typename C> S &Container(priority_queue<T, S, C> &pq) {
+template <typename T, typename S, typename C>
+S &Container(priority_queue<T, S, C> &pq) {
     struct HackedQueue : private priority_queue<T, S, C> {
         static S &Container(priority_queue<T, S, C> &pq) {
             return pq.*&HackedQueue::c;
@@ -218,7 +230,8 @@ template <typename T, typename S, typename C> S &Container(priority_queue<T, S, 
 }
 
 /* Print a Heap (PriorityQueue) */
-template <typename T, typename S, typename C> void printHeap(priority_queue<T, S, C> &heap) {
+template <typename T, typename S, typename C>
+void printHeap(priority_queue<T, S, C> &heap) {
     vector<T> vec = Container(heap);
     cout << "堆的数组表示：";
     printVector(vec);
