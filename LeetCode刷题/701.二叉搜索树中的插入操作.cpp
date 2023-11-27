@@ -33,12 +33,14 @@ class Solution {
 public:
     // 注意如何递归修改数据结构
     TreeNode *insertIntoBST(TreeNode *root, int val) {
+        // 我们的目标是找到插入位置，就是按照二叉搜索树的遍历来找
         if (nullptr == root)
             return new TreeNode(val);
 
-        if (val < root->val)
+        // 递归修改数据结构，像下面一样，递归函数的返回值需要被上层接收同步
+        if (root->val > val)
             root->left = insertIntoBST(root->left, val);
-        else
+        if (root->val < val)
             root->right = insertIntoBST(root->right, val);
 
         return root;
