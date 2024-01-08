@@ -36,7 +36,6 @@ public:
     // // 方法1：BST自带的优化过后的遍历
     // void traverse(TreeNode *root, int val) {
     //     if (nullptr == root)
-    //         // 没找到
     //         return;
 
     //     if (val == root->val) {
@@ -45,7 +44,7 @@ public:
     //     }
     //     if (root->val > val)
     //         traverse(root->left, val);
-    //     if (root->val < val)
+    //     else
     //         traverse(root->right, val);
     // }
 
@@ -61,12 +60,11 @@ public:
 
         if (val == root->val)
             return root;
+
         if (root->val > val)
             return searchBST(root->left, val);
-        if (root->val < val)
+        else
             return searchBST(root->right, val);
-
-        return nullptr;
     }
 };
 // @lc code=end

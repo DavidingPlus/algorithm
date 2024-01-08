@@ -31,21 +31,17 @@ public:
     int sum = 0;
 
     void traverse(TreeNode *root) {
-        // 先遍历右边，然后进行中序遍历，到达该节点的时候维护的和刚好就是条件
-        // 并且遇到的节点值都比现在的小，所以sum也不需要考虑出去的时候需要减掉
-
         if (nullptr == root)
             return;
 
         traverse(root->right);
-
         sum += root->val;
         root->val = sum;
-
         traverse(root->left);
     }
 
     TreeNode *convertBST(TreeNode *root) {
+        // 比它大的就是右子树的节点之和
         traverse(root);
         return root;
     }

@@ -30,28 +30,28 @@ using namespace std;
 
 class Solution {
 public:
-    void traverse(TreeNode *root, int &count, int &val, int k) {
+    int res = -1;
+
+    void traverse(TreeNode *root, int &num, int k) {
         if (nullptr == root)
             return;
 
-        traverse(root->left, count, val, k);
-        // 中序位置
-        ++count;
-        if (count == k) {
-            val = root->val;
+        traverse(root->left, num, k);
+
+        ++num;
+        if (num == k) {
+            res = root->val;
             return;
         }
 
-        traverse(root->right, count, val, k);
+        traverse(root->right, num, k);
     }
 
     int kthSmallest(TreeNode *root, int k) {
         // 二叉搜索树的中序遍历是有序的
-        int count = 0;
-        int res = 0;
+        int num = 0;
 
-        traverse(root, count, res, k);
-
+        traverse(root, num, k);
         return res;
     }
 };
