@@ -29,28 +29,25 @@ using namespace std;
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode* head = new ListNode(-1);  // 给定一个虚拟头结点
-        ListNode *l1 = list1, *l2 = list2, *p = head;
+        ListNode* res = new ListNode(-1);  // 构造虚拟头结点
+        ListNode *p1 = list1, *p2 = list2, *p = res;
 
-        // 两个都不为空
-        while (nullptr != l1 and nullptr != l2) {
-            auto& smaller = (l1->val <= l2->val) ? l1 : l2;
+        while (p1 and p2) {
+            auto& smaller = (p1->val <= p2->val) ? p1 : p2;
             p->next = new ListNode(smaller->val);
-            p = p->next;
             smaller = smaller->next;
-        }
-        // 其中一个先为空
-        auto& l = (nullptr != l1) ? l1 : l2;
-        while (l) {
-            p->next = new ListNode(l->val);
             p = p->next;
-            l = l->next;
+        }
+        auto& remain = p1 ? p1 : p2;
+        while (remain) {
+            p->next = new ListNode(remain->val);
+            remain = remain->next;
+            p = p->next;
         }
 
         // 弹掉虚拟头结点
-        head = head->next;
-
-        return head;
+        res = res->next;
+        return res;
     }
 };
 // @lc code=end

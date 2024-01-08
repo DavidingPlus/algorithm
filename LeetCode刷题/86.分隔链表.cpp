@@ -29,10 +29,10 @@ using namespace std;
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        // 给定两个指针，第一个指针只关心小于x的节点，第二个关心大于等于x的
+        // 给定两个指针，第一个指针只关心小于x的节点，另一个只关心大于等于x的
         ListNode *l1 = head, *l2 = head;
-        ListNode* ret = new ListNode(-1);
-        ListNode* l = ret;
+        ListNode* res = new ListNode(-1);
+        ListNode* l = res;
 
         while (l1) {
             if (l1->val < x) {
@@ -49,9 +49,9 @@ public:
             l2 = l2->next;
         }
 
-        ret = ret->next;
+        res = res->next;
 
-        return ret;
+        return res;
     }
 };
 // @lc code=end

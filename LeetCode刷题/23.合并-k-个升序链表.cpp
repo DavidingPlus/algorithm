@@ -33,8 +33,8 @@ using namespace std;
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        ListNode* ret = new ListNode(-1);
-        ListNode* p = ret;
+        ListNode* res = new ListNode(-1);
+        ListNode* p = res;
 
         // 就是合并2个链表的翻版，重点是我选择什么容器来存储
         // 选set会报错，我不知道为什么...，在仿函数的位置报错了，我得研究一下
@@ -55,9 +55,9 @@ public:
                 m.insert({node->val, node});
         }
 
-        ret = ret->next;
+        res = res->next;
 
-        return ret;
+        return res;
     }
 };
 // @lc code=end
