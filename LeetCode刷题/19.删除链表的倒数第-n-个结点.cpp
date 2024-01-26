@@ -30,36 +30,34 @@ class Solution {
 public:
     // 先找到倒数第n个节点，双指针
     ListNode* kthToLast(ListNode* head, int n) {
-        ListNode *first = head, *second = head;
+        ListNode *p1 = head, *p2 = head;
         // 先出发的指针先走n，后出发的指针在出发，这样后出发的指针刚好到达目的位置
         while (n--)
-            first = first->next;
+            p1 = p1->next;
 
-        while (first) {
-            first = first->next;
-            second = second->next;
+        while (p1) {
+            p1 = p1->next;
+            p2 = p2->next;
         }
 
-        return second;
+        return p2;
     }
 
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        // 如果是倒数第一个，那么需要特殊处理
+        // 如果链表长度为1，那么肯定返回为空，这是一个特殊情况
+        if (nullptr == head->next)
+            return nullptr;
+
+        // 删除后一个节点来模拟该节点被删除的情况，所以需要对最后一个节点做特殊处理
         if (1 == n) {
-            // 如果就一个元素，那么走下面会出错，返回空即可
-            if (nullptr == head->next)
-                return nullptr;
-
-            ListNode* q = kthToLast(head, n + 1);
-            q->next = nullptr;
+            auto p = kthToLast(head, n + 1);
+            p->next = nullptr;
         } else {
-            ListNode* q = kthToLast(head, n);
+            auto p = kthToLast(head, n);
 
-            // 删除后面一个节点模拟他被删除的情况
-            q->val = q->next->val;
-            q->next = q->next->next;
+            p->val = p->next->val;
+            p->next = p->next->next;
         }
-
         return head;
     }
 };

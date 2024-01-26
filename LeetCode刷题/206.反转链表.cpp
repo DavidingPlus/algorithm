@@ -32,37 +32,27 @@ class Solution {
 public:
     // 方法1：迭代做一次
     // ListNode* reverseList(ListNode* head) {
-    //     // 拿一个数组存
-    //     vector<int> vals;
+    //     // 头插法
+    //     auto res = new ListNode(-1);
 
-    //     ListNode* p = head;
-    //     while (p) {
-    //         vals.push_back(p->val);
-    //         p = p->next;
+    //     for (auto ph = head; ph; ph = ph->next) {
+    //         auto newNode = new ListNode(ph->val);
+    //         newNode->next = res->next;
+    //         res->next = newNode;
     //     }
-
-    //     p = head;
-    //     int i = 0;
-    //     while (p) {
-    //         p->val = vals[vals.size() - 1 - i++];
-    //         p = p->next;
-    //     }
-
-    //     return head;
+    //     return res->next;
     // }
 
     // 方法2：用递归做
     ListNode* reverseList(ListNode* head) {
+        // 递归出口（只写head会出现单元素链表越界的问题，因此这里两个都写
         if (nullptr == head or nullptr == head->next)
             return head;
 
-        // 反转后面的链表
-        auto last = reverseList(head->next);
-        // 并且反转之后把后面的链表加上自己变成一个新的反转链表，注意最后要是空，为了保持主问题和子问题的统一
+        auto newHead = reverseList(head->next);
         head->next->next = head;
         head->next = nullptr;
-
-        return last;
+        return newHead;
     }
 };
 // @lc code=end

@@ -29,29 +29,20 @@ using namespace std;
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        // 给定两个指针，第一个指针只关心小于x的节点，另一个只关心大于等于x的
-        ListNode *l1 = head, *l2 = head;
-        ListNode* res = new ListNode(-1);
-        ListNode* l = res;
-
-        while (l1) {
-            if (l1->val < x) {
-                l->next = new ListNode(l1->val);
-                l = l->next;
-            }
-            l1 = l1->next;
-        }
-        while (l2) {
-            if (l2->val >= x) {
-                l->next = new ListNode(l2->val);
-                l = l->next;
-            }
-            l2 = l2->next;
+        // 创建两个链表，遍历一次就行
+        auto res = new ListNode(-1),
+             res2 = new ListNode(-1);
+        auto p = head, p1 = res, p2 = res2;
+        while (p) {
+            auto& pp = p->val < x ? p1 : p2;
+            pp->next = new ListNode(p->val);
+            pp = pp->next;
+            p = p->next;
         }
 
-        res = res->next;
+        p1->next = res2->next;
 
-        return res;
+        return res->next;
     }
 };
 // @lc code=end

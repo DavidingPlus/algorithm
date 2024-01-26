@@ -29,8 +29,8 @@ using namespace std;
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        // 快慢指针，注意判断条件
-        ListNode *fast = head, *slow = head;
+        // 快慢指针，快指针一次两步，慢指针一次一步
+        auto fast = head, slow = head;
         while (fast and fast->next) {
             fast = fast->next->next;
             slow = slow->next;

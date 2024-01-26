@@ -26,38 +26,79 @@ struct ListNode {
 
 #include <iostream>
 using namespace std;
+#include <functional>
 #include <map>
-#include <set>
+#include <queue>
 #include <vector>
 
 class Solution {
 public:
+    // 使用multimap的方法
+    // ListNode* mergeKLists(vector<ListNode*>& lists) {
+    //     ListNode* res = new ListNode(-1);
+    //     auto p = res;
+
+    //     // 先用map/multimap这一套做，再用优先性队列做
+    //     multimap<int, ListNode*, less<int>> mm;
+
+    //     // 先把所有链表的首元素放进来
+    //     for (auto& head : lists)
+    //         if (head)
+    //             mm.insert({head->val, head});
+
+    //     // 由于按照值从小到大排序，所以每次从头部取出元素，然后后移即可
+    //     while (!mm.empty()) {
+    //         p->next = new ListNode(mm.begin()->first);
+    //         p = p->next;
+    //         auto tmp = mm.begin()->second;  // 先弹出，所以用中间量保存一下
+    //         // 弹出头部，插入新的
+    //         mm.erase(mm.begin());
+    //         if (tmp->next)
+    //             mm.insert({tmp->next->val, tmp->next});
+    //     }
+
+    //     return res->next;
+    // }
+
+    // 使用优先性队列的方法
+    // class Pred {
+    //     bool operator()(ListNode* node1, ListNode* node2) {
+    //         return node1->val > node2->val;
+    //     }
+    // };
+
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         ListNode* res = new ListNode(-1);
-        ListNode* p = res;
+        auto p = res;
 
-        // 就是合并2个链表的翻版，重点是我选择什么容器来存储
-        // 选set会报错，我不知道为什么...，在仿函数的位置报错了，我得研究一下
+        // 优先性队列（二叉堆），例如最小堆，能通过上浮或者下沉的操作保证每次的插入和删除操作之后容器是有序的
+        // priority_queue<ListNode*, vector<ListNode*>, Pred> pq;
+
         // TODO
-        multimap<int, ListNode*, less<int>> m;
+        // 这个用仿函数做谓词失败了，我也不知道为什么，但是学到了可以在模板参数中使用function模板类做占位，然后在构造参数中写出具体的lambda，这样在leetcode里面不会报错，头文件是<functional>
+        priority_queue<ListNode*, vector<ListNode*>,
+                       function<bool(ListNode*, ListNode*)> >
+            pq([](ListNode* node1, ListNode* node2) {
+                return node1->val > node2->val;
+            });
+
+        // 先把所有链表的首元素放进来
         for (auto& head : lists)
             if (head)
-                m.insert({head->val, head});
+                pq.push(head);
 
-        // 每次从头部读取一个，然后完事之后修改该元素的值，如此重复，直到map为空
-        while (!m.empty()) {
-            p->next = new ListNode(m.begin()->first);
+        // 由于按照值从小到大排序，所以每次从头部取出元素，然后后移即可
+        while (!pq.empty()) {
+            p->next = new ListNode(pq.top()->val);
             p = p->next;
-
-            auto node = m.begin()->second->next;
-            m.erase(m.begin());
-            if (node)
-                m.insert({node->val, node});
+            auto tmp = pq.top();  // 先弹出，所以用中间量保存一下
+            // 弹出头部，插入新的
+            pq.pop();
+            if (tmp->next)
+                pq.push(tmp->next);
         }
 
-        res = res->next;
-
-        return res;
+        return res->next;
     }
+    // @lc code=end
 };
-// @lc code=end
