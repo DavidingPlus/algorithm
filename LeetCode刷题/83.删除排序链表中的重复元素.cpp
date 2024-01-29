@@ -29,26 +29,22 @@ using namespace std;
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        if (!head)
-            return head;
+        if (nullptr == head)
+            return nullptr;
 
-        // 还是快慢指针，只不过这一次完事之后需要把slow置空
-        ListNode *fast = head, *slow = head, *slow_before = head;
-        int pre = __INT_MAX__;
+        // 同数组的那个一样的思路
+        auto fast = head, slow = head;
 
-        for (; fast; fast = fast->next) {
-            if (pre != fast->val) {
+        while (fast) {
+            if (nullptr == fast->next or fast->val != fast->next->val) {
                 slow->val = fast->val;
-                pre = fast->val;
-
-                // 我们要找到slow前面的指针
-                if (head != slow)
-                    slow_before = slow_before->next;
-                slow = slow->next;
+                if (fast->next)
+                    slow = slow->next;
             }
+            fast = fast->next;
         }
 
-        slow_before->next = nullptr;
+        slow->next = nullptr;
 
         return head;
     }

@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=92 lang=cpp
+ * @lc app=leetcode.cn id=25 lang=cpp
  *
- * [92] 反转链表 II
+ * [25] K 个一组翻转链表
  */
 
 struct ListNode {
@@ -29,7 +29,6 @@ using namespace std;
 
 class Solution {
 public:
-    // 思路1：在反转整个链表的基础上进行修改
     // 反转整个链表
     ListNode* reverseList(ListNode* head) {
         // 递归出口（只写head会出现单元素链表越界的问题，因此这里两个都写
@@ -42,47 +41,24 @@ public:
         return newHead;
     }
 
-    // 反转链表的前n个
-    ListNode* reverseStart(ListNode* head, int n) {
-        if (nullptr == head)
-            return nullptr;
-
-        // 先把最后一个节点和后面断开并且记录后面节点
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        // 一次递归，将前面k个和后面的拆开，如果长度不够就返回自身
         auto p = head, pr = head;
-        for (int i = 0; i < n; ++i) {
-            if (n - 1 == i) {
+        for (int i = 0; i < k; ++i) {
+            // 长度不够返回head即可
+            if (nullptr == p)
+                return head;
+
+            if (k - 1 == i) {
                 pr = p->next;
                 p->next = nullptr;
                 break;
             }
             p = p->next;
         }
-
         auto newHead = reverseList(head);
-        head->next = pr;
+        head->next = reverseKGroup(pr, k);
         return newHead;
     }
-
-    ListNode* reverseBetween(ListNode* head, int left, int right) {
-        if (1 == left)
-            return reverseStart(head, right - left + 1);
-
-        auto p = head, pl = head;
-        for (int i = 0; i < left; ++i) {
-            if (left - 2 == i) {  // 注意下下标
-                pl = p;
-                p = p->next;
-                pl->next = nullptr;
-                break;
-            }
-            p = p->next;
-        }
-        auto newHead = reverseStart(p, right - left + 1);
-        pl->next = newHead;
-        return head;
-    }
-
-    // 思路2：直接考虑这个问题
-    // TODO
 };
 // @lc code=end
