@@ -13,14 +13,15 @@ const int N = 200 + 10;
 
 class NumMatrix {
 private:
-    int preSum[N][N] = {0};  // 定义二维前缀和数组
+    int preSum[N][N] = {{0}};
 
 public:
     NumMatrix(vector<vector<int>>& matrix) {
-        // 前缀和数组从1开始，可以不用考虑边界条件
-        for (int i = 1; i <= matrix.size(); ++i)
-            for (int j = 1; j <= matrix[0].size(); ++j)
-                preSum[i][j] = matrix[i - 1][j - 1] + preSum[i - 1][j] + preSum[i][j - 1] - preSum[i - 1][j - 1];
+        // 同一维的思路，只是复杂了一些
+        for (int i = 1; i <= matrix.size(); ++i) {
+            for (int j = 1; j <= matrix.front().size(); ++j)
+                preSum[i][j] = preSum[i - 1][j] + preSum[i][j - 1] - preSum[i - 1][j - 1] + matrix[i - 1][j - 1];
+        }
     }
 
     int sumRegion(int row1, int col1, int row2, int col2) {
