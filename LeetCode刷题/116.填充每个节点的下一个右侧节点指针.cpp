@@ -49,20 +49,18 @@ public:
         if (nullptr == root)
             return nullptr;
 
-        // 将头结点入队列
         queue<Node*> q;
+        // 将根节点入队
         q.push(root);
-
         while (false == q.empty()) {
-            // q.size()会一直变化，需要提前存储
-            int n = q.size();
-
-            // 一次拿出一层，对该节点做处理并且把左右子树入队列
+            // 将某一层的节点出队，并且加入下层节点
+            int n = q.size();  // 记录当前层数节点个数，因为q的大小一直在变
             for (int i = 0; i < n; ++i) {
                 auto node = q.front();
                 q.pop();
 
-                if (i != n - 1)
+                // 本题逻辑，连接下一个位置
+                if (n - 1 != i)
                     node->next = q.front();
                 else
                     node->next = nullptr;
@@ -73,8 +71,11 @@ public:
                     q.push(node->right);
             }
         }
-
         return root;
     }
+
+    // 解法2：将完美二叉树抽象为一颗三叉树
+    // TODO
+    // Node* connect(Node* root) {}
 };
 // @lc code=end

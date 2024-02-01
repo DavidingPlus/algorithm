@@ -32,25 +32,22 @@ using namespace std;
 class Solution {
 public:
     TreeNode *constructMaximumBinaryTree(vector<int> &nums) {
-        return buildBinaryTree(nums, 0, nums.size() - 1);
+        return constructMaximumBinaryTree(nums, 0, nums.size() - 1);
     }
 
-    TreeNode *buildBinaryTree(const vector<int> &nums, int left, int right) {
-        // 这里我们取闭区间
+    TreeNode *constructMaximumBinaryTree(vector<int> &nums, int left, int right) {
+        // 取闭区间
         if (left > right)
             return nullptr;
 
-        // 查询left到right中的最大值
+        // 找到最大值的下标
         int maxIndex = left;
         for (int i = left; i <= right; ++i)
-            // nums不重复
-            if (nums[maxIndex] < nums[i])
-                maxIndex = i;
+            maxIndex = nums[i] > nums[maxIndex] ? i : maxIndex;
 
-        // 创建根节点
         TreeNode *root = new TreeNode(nums[maxIndex]);
-        root->left = buildBinaryTree(nums, left, maxIndex - 1);
-        root->right = buildBinaryTree(nums, maxIndex + 1, right);
+        root->left = constructMaximumBinaryTree(nums, left, maxIndex - 1);
+        root->right = constructMaximumBinaryTree(nums, maxIndex + 1, right);
 
         return root;
     }
