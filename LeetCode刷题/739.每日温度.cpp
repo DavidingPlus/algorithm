@@ -14,19 +14,16 @@ class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
         // 单调栈，只不过这一次栈里面存入的是下标
-        stack<pair<int, int>> s;
-        vector<int> res;
-        res.resize(temperatures.size());
+        stack<int> s;
+        vector<int> res(temperatures.size());
 
         for (int i = temperatures.size() - 1; i >= 0; --i) {
-            while (!s.empty() and temperatures[i] >= s.top().first)
+            while (false == s.empty() and temperatures[i] >= temperatures[s.top()])
                 s.pop();
 
-            res[i] = s.empty() ? 0 : s.top().second - i;
-
-            s.push({temperatures[i], i});
+            res[i] = s.empty() ? 0 : s.top() - i;
+            s.push(i);
         }
-
         return res;
     }
 };

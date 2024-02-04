@@ -13,42 +13,27 @@ class MyStack {
 public:
     MyStack() {}
 
-    void push(int x) {
-        q.push(x);
-    }
+    void push(int x) { q.push(x); }
 
     int pop() {
-        for (int i = 0; i < q.size() - 1; ++i) {
-            int val = q.front();
-
+        // 移动让队尾元素到达对头，从头部开始出队列入队列
+        for (int i = 0; i < q.size() - 1; ++i) {  // 移动size-1次
+            int num = q.front();
             q.pop();
-            q.push(val);
+            q.push(num);
         }
         int res = q.front();
         q.pop();
-
         return res;
     }
 
     int top() {
-        int res = -1;
-
-        // 注意top函数我们要保持队列不变
-        for (int i = 0; i < q.size(); ++i) {
-            int val = q.front();
-
-            if (i == q.size() - 1)
-                res = val;
-
-            q.pop();
-            q.push(val);
-        }
+        int res = pop();
+        q.push(res);  // 不能破坏原先的结构
         return res;
     }
 
-    bool empty() {
-        return q.empty();
-    }
+    bool empty() { return q.empty(); }
 
 private:
     // 只需要一个队列就够了
