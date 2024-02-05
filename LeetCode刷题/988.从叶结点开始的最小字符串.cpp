@@ -4,6 +4,15 @@
  * [988] 从叶结点开始的最小字符串
  */
 
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -17,44 +26,33 @@
  * };
  */
 
-// struct TreeNode {
-//     int val;
-//     TreeNode *left;
-//     TreeNode *right;
-//     TreeNode() : val(0), left(nullptr), right(nullptr) {}
-//     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-//     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-// };
-
 #include <iostream>
 using namespace std;
 #include <string>
 
 class Solution {
 public:
-    string path;  // 维护遍历过程中的实时状态
+    string res, path;
 
-    void traverse(TreeNode *root, string &ret) {
+    void traverse(TreeNode *root) {
         if (nullptr == root)
             return;
 
-        path.insert(path.begin(), root->val + 'a');
-        if (nullptr == root->left && nullptr == root->right)
-            ret = (path <= ret) ? path : ret;
+        path.insert(path.begin(), 'a' + root->val);
+        if (nullptr == root->left and nullptr == root->right)
+            res = min(res, path);
 
-        traverse(root->left, ret);
-        traverse(root->right, ret);
+        traverse(root->left);
+        traverse(root->right);
 
         path.erase(path.begin());
     }
 
     string smallestFromLeaf(TreeNode *root) {
-        string ret;      // 维护结果
-        ret += 'z' + 1;  // 构造一个最大值
-
-        traverse(root, ret);
-
-        return ret;
+        // 初始化res，给一个比z大的
+        res.push_back('z' + 1);
+        traverse(root);
+        return res;
     }
 };
 // @lc code=end

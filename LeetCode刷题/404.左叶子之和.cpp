@@ -4,6 +4,15 @@
  * [404] 左叶子之和
  */
 
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -17,37 +26,29 @@
  * };
  */
 
-// struct TreeNode {
-//     int val;
-//     TreeNode *left;
-//     TreeNode *right;
-//     TreeNode() : val(0), left(nullptr), right(nullptr) {}
-//     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-//     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-// };
-
 #include <iostream>
 using namespace std;
+#include <queue>
 
 class Solution {
 public:
-    int sum = 0;
+    int res = 0;
 
     void traverse(TreeNode *root) {
-        if (!root)
+        if (nullptr == root)
             return;
 
-        // 我需要判断这个节点的左子节点是不是叶节点
-        if (root->left && !root->left->left && !root->left->right)
-            sum += root->left->val;
+        if (root->left and nullptr == root->left->left and nullptr == root->left->right)
+            res += root->left->val;
 
+        // 左叶子的含义是有父节点并且左右子树为空
         traverse(root->left);
         traverse(root->right);
     }
 
     int sumOfLeftLeaves(TreeNode *root) {
         traverse(root);
-        return sum;
+        return res;
     }
 };
 // @lc code=end

@@ -31,29 +31,18 @@ using namespace std;
 
 class Solution {
 public:
-    // 判断输入的两棵树是不是镜像对称的
-    bool Check(TreeNode *tree1, TreeNode *tree2) {
-        if (nullptr == tree1 && nullptr == tree2)
+    // 这个题目用遍历不是很好写，思路清晰，但是要同时递归两个不太好，所以还是分解子问题
+    bool isMirror(TreeNode *p, TreeNode *q) {
+        if (nullptr == p and nullptr == q)
             return true;
-
-        // 都为空除去之后就是一个为空一个不为空
-        if (nullptr == tree1 || nullptr == tree2)
+        else if (nullptr == p or nullptr == q)
             return false;
 
-        // 剩下的情况就是都不为空
-        if (tree1->val != tree2->val)
-            return false;
-
-        // 我们判断tree1的左子树和tree2的右子树相同，另一方同理即可，这样一直下去就是镜像对称的
-        return Check(tree1->left, tree2->right) &&
-               Check(tree1->right, tree2->left);
+        return p->val == q->val and isMirror(p->left, q->right) and isMirror(p->right, q->left);
     }
 
     bool isSymmetric(TreeNode *root) {
-        if (nullptr == root)
-            return true;
-
-        return Check(root->left, root->right);
+        return isMirror(root->left, root->right);
     }
 };
 // @lc code=end

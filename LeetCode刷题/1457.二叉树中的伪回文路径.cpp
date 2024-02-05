@@ -4,6 +4,15 @@
  * [1457] 二叉树中的伪回文路径
  */
 
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -17,58 +26,36 @@
  * };
  */
 
-// struct TreeNode {
-//     int val;
-//     TreeNode *left;
-//     TreeNode *right;
-//     TreeNode() : val(0), left(nullptr), right(nullptr) {}
-//     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-//     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-// };
-
 #include <iostream>
 using namespace std;
 #include <unordered_map>
 
 class Solution {
 public:
-    int ret = 0;
-    int count = 0;                 // 记录当前路径当中奇数元素的个数
-    unordered_map<int, int> hash;  // 用哈希表来存储数值和个数的映射
+    int oddNum = 0;  // 维护遍历过程中路径的实时奇数个数
+    int res = 0;
+    unordered_map<int, int> um;  // 需要用哈希表记录实时的元素和个数关系，方便更新oddNum
 
     void traverse(TreeNode *root) {
         if (nullptr == root)
             return;
 
-        ++hash[root->val];  // 增加节点值的出现次数
-        // 如果出现次数为偶数，表示该节点在路径上出现了偶数次，可以从路径中移除
-        // 注意等号优先级高于&运算！！！
-        if (0 == (hash[root->val] & 1))
-            --count;
-        else
-            ++count;
+        // 伪回文路径的条件是路径中值的个数只有一个为奇数或者全为偶数，换句话说，奇数的个数<=1
+        um[root->val]++ & 1 ? --oddNum : ++oddNum;  // 不存在的也包含在这里面了，不存在会直接创建，赋初值0
 
-        if (nullptr == root->left && nullptr == root->right)
-            // 当前节点是叶子节点，检查是否满足伪回文串条件
-            if (count <= 1)
-                ++ret;
+        // 叶节点
+        if (nullptr == root->left and nullptr == root->right and oddNum <= 1)
+            ++res;
 
-        // 继续遍历左右子树
         traverse(root->left);
         traverse(root->right);
 
-        // 回溯：恢复状态
-        --hash[root->val];
-        if (0 == (hash[root->val] & 1))
-            --count;
-        else
-            ++count;
+        um[root->val]-- & 1 ? --oddNum : ++oddNum;
     }
 
     int pseudoPalindromicPaths(TreeNode *root) {
         traverse(root);
-
-        return ret;
+        return res;
     }
 };
 // @lc code=end

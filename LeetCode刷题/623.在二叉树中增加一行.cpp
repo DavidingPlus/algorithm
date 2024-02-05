@@ -32,61 +32,50 @@ using namespace std;
 
 class Solution {
 public:
-    queue<TreeNode *> q;
-    int height = 0;
-
-    // 用层序遍历找到应该插入的位置，就是在depth-1的所有结点下面添加结点
     TreeNode *addOneRow(TreeNode *root, int val, int depth) {
+        // 层序遍历，找到depth-1的一层，然后修改对应的左子树和右子树
         if (nullptr == root)
             return nullptr;
 
-        // depth==1的情况特判
+        // 直接更改头节点需要特殊处理
         if (1 == depth) {
-            TreeNode *newroot = new TreeNode(val);
-            newroot->left = root;
-            root = newroot;
-
-            return root;
+            auto newRoot = new TreeNode(val);
+            newRoot->left = root;
+            return newRoot;
         }
 
+        queue<TreeNode *> q;
         q.push(root);
-
-        while (!q.empty()) {
-            ++height;  // 这里的height至少为1，因此要特判depth==1的情况
-
-            int sz = q.size();
-            for (int i = 0; i < sz; ++i) {
-                auto cur = q.front();
-
-                // 插入
-                if (height == depth - 1) {
-                    insert(cur, val);
-                    // 插完之后没必要继续循环了
-                    if (i == sz - 1)
-                        return root;
-                }
-
-                if (cur->left)
-                    q.push(cur->left);
-                if (cur->right)
-                    q.push(cur->right);
-
+        int dep = 0;  // 记录深度
+        while (false == q.empty()) {
+            ++dep;
+            int n = q.size();
+            for (int i = 0; i < n; ++i) {
+                auto node = q.front();
                 q.pop();
+
+                if (node->left)
+                    q.push(node->left);
+
+                if (node->right)
+                    q.push(node->right);
+
+                if (depth - 1 == dep) {
+                    // 插入新节点
+                    // 不能写在上面的if里面是因为，不管node的左右是否为空，都需要插入目标节点，画个图就知道了
+                    auto newLeftNode = new TreeNode(val), newRightNode = new TreeNode(val);
+
+                    newLeftNode->left = node->left;
+                    node->left = newLeftNode;
+                    newRightNode->right = node->right;
+                    node->right = newRightNode;
+                }
             }
+
+            if (depth - 1 == dep)
+                break;
         }
-
         return root;
-    }
-
-    // 这个函数用于在目标节点后面插入结点，我们保证root有值
-    void insert(TreeNode *root, int val) {
-        TreeNode *newleft = new TreeNode(val),
-                 *newright = new TreeNode(val);
-
-        newleft->left = root->left;
-        newright->right = root->right;
-        root->left = newleft;
-        root->right = newright;
     }
 };
 // @lc code=end
