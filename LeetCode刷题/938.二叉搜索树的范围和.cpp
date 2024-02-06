@@ -32,42 +32,40 @@ using namespace std;
 class Solution {
 public:
     // 方法1：遍历二叉树
-    int ret = 0;  // 维护答案
+    // 这个题的技巧的是中序遍历是有序的，因此在遍历过程中我们能确定大致的返回，节省一下时间
+    // int res = 0;
 
-    void traverse(TreeNode *root, int low, int high) {
-        if (nullptr == root)
-            return;
-
-        if (low <= root->val && root->val <= high)
-            ret += root->val;
-
-        // 如果根节点的值小于等于low，那么没必要去左边遍历了
-        if (root->val > low)
-            traverse(root->left, low, high);
-        if (root->val < high)
-            traverse(root->right, low, high);
-    }
-
-    int rangeSumBST(TreeNode *root, int low, int high) {
-        traverse(root, low, high);
-
-        return ret;
-    }
-
-    // 方法2：大问题分解为小问题
-    // int rangeSumBST(TreeNode *root, int low, int high) {
+    // void traverse(TreeNode *root, int low, int high) {
     //     if (nullptr == root)
-    //         return 0;
+    //         return;
 
-    //     int ret = 0;
-    //     if (low <= root->val && root->val <= high)
-    //         ret += root->val;
-    //     if (root->val > low)
-    //         ret += rangeSumBST(root->left, low, high);
-    //     if (root->val < high)
-    //         ret += rangeSumBST(root->right, low, high);
+    //     traverse(root->left, low, high);
 
-    //     return ret;
+    //     if (root->val >= low and root->val <= high)
+    //         res += root->val;
+    //     else if (root->val > high)
+    //         return;
+
+    //     traverse(root->right, low, high);
     // }
+
+    // int rangeSumBST(TreeNode *root, int low, int high) {
+    //     traverse(root, low, high);
+    //     return res;
+    // }
+
+    // 方法2：分解子问题
+    int rangeSumBST(TreeNode *root, int low, int high) {
+        if (nullptr == root)
+            return 0;
+
+        // 值得注意的是如果当前节点不满足条件，并不代表这颗自述的其他节点也不满足条件
+        if (root->val < low)  // 当前节点和左子树不满足
+            return rangeSumBST(root->right, low, high);
+        else if (root->val > high)
+            return rangeSumBST(root->left, low, high);
+        else
+            return root->val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
+    }
 };
 // @lc code=end

@@ -4,6 +4,15 @@
  * [113] 路径总和 II
  */
 
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -17,46 +26,36 @@
  * };
  */
 
-// struct TreeNode {
-//     int val;
-//     TreeNode *left;
-//     TreeNode *right;
-//     TreeNode() : val(0), left(nullptr), right(nullptr) {}
-//     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-//     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-// };
-
 #include <iostream>
 using namespace std;
 #include <vector>
 
 class Solution {
 public:
-    pair<vector<int>, int> path_sum;  // 维护遍历时候的路径和相加的值
-    vector<vector<int>> ret;          // 结果数组
+    // 由于需要找出具体的路径，所以只能遍历来做了
+    vector<vector<int>> res;
+    int sum = 0;
+    vector<int> path;
 
     void traverse(TreeNode *root, int targetSum) {
-        if (!root)
+        if (nullptr == root)
             return;
 
-        // 到达新结点，压入结点
-        path_sum.first.push_back(root->val);
-        path_sum.second += path_sum.first.back();
-        // 判断是否满足条件
-        if (targetSum == path_sum.second && !root->left && !root->right)
-            ret.push_back(path_sum.first);
+        sum += root->val;
+        path.push_back(root->val);
+        if (nullptr == root->left and nullptr == root->right and targetSum == sum)
+            res.push_back(path);
 
         traverse(root->left, targetSum);
         traverse(root->right, targetSum);
 
-        // 回退，弹出结点
-        path_sum.second -= path_sum.first.back();
-        path_sum.first.pop_back();
+        path.pop_back();
+        sum -= root->val;
     }
 
     vector<vector<int>> pathSum(TreeNode *root, int targetSum) {
         traverse(root, targetSum);
-        return ret;
+        return res;
     }
 };
 // @lc code=end

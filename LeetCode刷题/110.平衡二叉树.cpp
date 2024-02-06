@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=1325 lang=cpp
+ * @lc app=leetcode.cn id=110 lang=cpp
  *
- * [1325] 删除给定值的叶子节点
+ * [110] 平衡二叉树
  */
 
 struct TreeNode {
@@ -31,19 +31,27 @@ using namespace std;
 
 class Solution {
 public:
-    TreeNode *removeLeafNodes(TreeNode *root, int target) {
-        // 递归修改数据结构
+    bool flag = true;
+
+    // 计算每个节点的左右子树的高度差的绝对值
+    // 这个函数是计算树的最大高度的，我们的目的在这里面进行修改
+    int maxDepth(TreeNode *root) {
         if (nullptr == root)
-            return nullptr;
+            return 0;
 
-        root->left = removeLeafNodes(root->left, target);
-        root->right = removeLeafNodes(root->right, target);
+        int leftHeight = maxDepth(root->left);
+        int rightHeight = maxDepth(root->right);
 
-        // 这里为什么放在后序？因为左右子树删除完毕之后，有可能本节点也变成了目标节点，因此放在后序
-        if (target == root->val and nullptr == root->left and nullptr == root->right)
-            return nullptr;
+        // 在后序的地方进行判断
+        if (std::abs(leftHeight - rightHeight) > 1)
+            flag = false;
 
-        return root;
+        return 1 + std::max(leftHeight, rightHeight);
+    }
+
+    bool isBalanced(TreeNode *root) {
+        maxDepth(root);
+        return flag;
     }
 };
 // @lc code=end

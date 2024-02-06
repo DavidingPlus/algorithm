@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=1325 lang=cpp
+ * @lc app=leetcode.cn id=897 lang=cpp
  *
- * [1325] 删除给定值的叶子节点
+ * [897] 递增顺序搜索树
  */
 
 struct TreeNode {
@@ -31,19 +31,27 @@ using namespace std;
 
 class Solution {
 public:
-    TreeNode *removeLeafNodes(TreeNode *root, int target) {
-        // 递归修改数据结构
+    TreeNode *increasingBST(TreeNode *root) {
         if (nullptr == root)
             return nullptr;
 
-        root->left = removeLeafNodes(root->left, target);
-        root->right = removeLeafNodes(root->right, target);
+        auto leftChild = increasingBST(root->left);
+        auto rightChild = increasingBST(root->right);
 
-        // 这里为什么放在后序？因为左右子树删除完毕之后，有可能本节点也变成了目标节点，因此放在后序
-        if (target == root->val and nullptr == root->left and nullptr == root->right)
-            return nullptr;
+        // 如果left为空，那么只管right
+        if (nullptr == leftChild) {
+            root->right = rightChild;
+            return root;
+        }
 
-        return root;
+        // 找到left的最右下节点
+        auto p = leftChild;
+        while (p->right) p = p->right;
+
+        p->right = root;
+        root->left = nullptr;
+        root->right = rightChild;
+        return leftChild;
     }
 };
 // @lc code=end
