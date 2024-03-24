@@ -1,5 +1,4 @@
 .vscode/
-_test.cpp
-a.out
+_test.*
+a.*
 build/
-a.exe
