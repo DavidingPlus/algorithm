@@ -1,0 +1,58 @@
+
+参考答案：
+(width-2-strlen(buf))/2,"",buf,width-2-strlen(buf)-(width-2-strlen(buf))/2,""
+
+正确直接得分，否则把用户答案带入测评代码中的######，运行结果比对：
++--------+
+|abcd123 |
+|........|
++--------+
+
+测评程序为：
+#include <stdio.h>
+#include <string.h>
+
+void StringInGrid(int width, int height, const char* s)
+{
+	int i,k;
+	char buf[1000];
+	strcpy(buf, s);
+	if(strlen(s)>width-2) buf[width-2]=0;
+	
+	printf("+");
+	for(i=0;i<width-2;i++) printf("-");
+	printf("+\n");
+	
+	for(k=1; k<(height-1)/2;k++){
+		printf("|");
+		for(i=0;i<width-2;i++) printf(".");
+		printf("|\n");
+	}
+	
+	printf("|");
+	
+	printf("%*s%s%*s",######);
+	          
+	printf("|\n");
+	
+	for(k=(height-1)/2+1; k<height-1; k++){
+		printf("|");
+		for(i=0;i<width-2;i++) printf(".");
+		printf("|\n");
+	}	
+	
+	printf("+");
+	for(i=0;i<width-2;i++) printf("-");
+	printf("+\n");	
+}
+
+int main()
+{
+	StringInGrid(10,4,"abcd123");
+	return 0;
+}
+
+--------------------------------------
+点评：
+这是比较坑人的一道题。一些高手也中着了。printf中格式化的写法有个生僻的用法，%*s 时，先提供一个动态的宽度值。再提供串的值。
+

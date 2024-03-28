@@ -2,3 +2,5 @@
 _test.*
 a.*
 build/
+__pycache__/
+.idea/
