@@ -22,3 +22,4 @@ for i in l:
             if i*j*k == n:
                 ans += 1
 print(ans)
+# print(2430)
