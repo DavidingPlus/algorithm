@@ -5,41 +5,42 @@
  */
 
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
 
-class Solution {
+#include <bits/stdc++.h>
+
+class Solution
+{
 public:
-    vector<vector<int>> res;
-    vector<int> path;  // 维护遍历过程中的路径
+    std::vector<std::vector<int>> res; // 存储路径
 
-    // 力扣对图的表示是连接链表，用的是vector表示的
-    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
-        // 思路，和二叉树一样，遍历一次图即可，用递归深度优先
-        traverse(graph, 0);
+    std::vector<std::vector<int>>
+    allPathsSourceTarget(std::vector<std::vector<int>> &graph)
+    {
+        std::vector<int> path; // 实时维护路径
+        traverseDFS(graph, 0, path);
         return res;
     }
 
-    void traverse(vector<vector<int>>& graph, int nodeVal) {
-        // 将节点存入
-        path.push_back(nodeVal);
+    // 用深度优先来做，就直接递归了
+    void traverseDFS(std::vector<std::vector<int>> &graph, int node, std::vector<int> &path)
+    {
+        path.push_back(node);
 
-        // 如果遇到目标节点则退出
-        if (nodeVal == graph.size() - 1) {
+        // 由于是有向无环图，并且需要找出所有的路径，所以不需要设置 isVisited 数组，递归搜索下去一定能到达终止节点（题目数据保证）
+        if (node == graph.size() - 1)
+        {
             res.push_back(path);
-            // 记得维护路径
-            path.pop_back();
-
+            path.pop_back(); // 记得维护路径
             return;
         }
 
-        // 递归遍历其余的节点
-        for (auto& node : graph[nodeVal])
-            traverse(graph, node);
-
-        // 出去之后弹出
+        for (auto &e : graph[node])
+        {
+            traverseDFS(graph, e, path);
+        }
+        // 回溯，将自己弹出路径
         path.pop_back();
     }
 };
+
 // @lc code=end
