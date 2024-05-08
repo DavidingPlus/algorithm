@@ -4,5 +4,7 @@ __pycache__/
 .idea/
 _test.*
 *.exe
+# 不忽略这个目录下的 exe 文件，加上 ! 号
+!docs/蓝桥杯试题资料/国际程序设计大赛作品欣赏/*.exe
 *.obj
 a.*
