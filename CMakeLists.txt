@@ -12,7 +12,7 @@ if(CMAKE_HOST_WIN32)
         add_compile_options ("/W2")
     endif ()
 
-    # pls use MSVC to satisfy Ccache
+    # please use MSVC to satisfy Ccache
     add_compile_options ("/Z7")
 
     find_program (CCACHE_EXECUTABLE ccache)
@@ -43,5 +43,4 @@ else ()
 
 endif ()
 
-# add subDicrectory src
 add_subdirectory(src)
