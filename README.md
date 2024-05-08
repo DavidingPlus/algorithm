@@ -1,8 +1,13 @@
 # Algorithm
 
-`LeetCode`的学习总结和刷题文件的存放目录，包括`LeetCode`的刷题记录，`yxc`的算法课程(太难了，目前停更)，还有`GitHub`大佬`labuladong`讲解的课程，现在还加入了`hello-algo`的书籍，但是没怎么看，现在还是以`labuladong`为主.
+算法学习的仓库，记录了自己的算法学习过程.
 
-一些技巧：
+- `feature-lzx-algorithm-learning`：网上各种算法课程的学习
 
-- 使用内存消毒器编译的时候记得加上：`-fsanitize=address`
+- `feature-lzx-hello-algo`：`hello-algo`算法项目的学习
+
+- `feature-lzx-lanqiao-review`：蓝桥杯的复习
+
+- `feature-lzx-leetcode`：记录`leetcode`刷题
+
 
