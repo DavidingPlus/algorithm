@@ -1,3 +1,4 @@
+# 奇怪的段
 # https://www.lanqiao.cn/problems/12112/learning/
 
 n, k = map(int, input().split())
