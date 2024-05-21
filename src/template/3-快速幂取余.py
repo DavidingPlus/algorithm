@@ -13,7 +13,7 @@ def quickPowModRecursion(base: int, power: int, mod: int) -> int:
 
 # 非递归快速幂取余算法（利用位运算，迭代）
 # 以 2 ** 5 次方为例，5 的二进制为 101，并且发现 2 ** 5 == (2 ** (2 ** 2)) * (2 ** (2 ** 0))
-# 而 2 ** n = (2 ** (n-1)) ** 2，因此状态转移方程就出来了
+# 而每一位的指数对应的值都是按指数增长的，比如 2**(2**0) ， 2**(2**1) ， 2**(2**2) ， 2**(2**3) ，每一个都是上一个的平方，这就是状态转移方程
 # 这里的 a, n ,mod 都是基本数据类型，pass by value，不会改变形参，可以直接修改
 def quickPowModNoRecursion(base: int, power: int, mod: int) -> int:
     res = 1
