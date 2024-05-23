@@ -1,13 +1,16 @@
-# 小明的字符串
-# https://www.lanqiao.cn/problems/1203/learning/
+# 利用埃式筛法筛选素数
+# 见 08-埃式筛法.png
 
-S = input()
-T = input()
+# 求 2 到 n 中的所有素数
+def getPrime(n: int) -> list:
+    prime = []
+    isPrime = [True for _ in range(1+n)]
+    for i in range(2, 1+n):
+        if isPrime[i]:
+            prime.append(i)
+            for j in range(i+i, 1+n, i):
+                isPrime[j] = False
+    return prime
 
-# python 环境下的常规做法，因为 python 可以直接判断一个字符串是否包含另一个字符串，所以还是比较方便的
-ans = 0
-for i in range(len(T)):
-    if T[:1+i] in S:
-        ans = 1+i
 
-print(ans)
+print(getPrime(100))
