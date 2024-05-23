@@ -1,35 +1,13 @@
-# 字符串哈希法
+# 小明的字符串
+# https://www.lanqiao.cn/problems/1203/learning/
 
-MOD = 998244353
-SEED = 233
-N = 100005
+S = input()
+T = input()
 
-s = ""
-h = [0] * N
-qp = [0] * N
+# python 环境下的常规做法，因为 python 可以直接判断一个字符串是否包含另一个字符串，所以还是比较方便的
+ans = 0
+for i in range(len(T)):
+    if T[:1+i] in S:
+        ans = 1+i
 
-
-def init_hash(s):
-    global h, qp
-    qp[0] = 1
-    h[0] = ord(s[0]) % MOD
-
-    for i in range(1, len(s)):
-        h[i] = (h[i - 1] * SEED % MOD + ord(s[i])) % MOD
-        qp[i] = (qp[i - 1] * SEED) % MOD
-
-
-def get_hash(l, r):
-    if 0 == l:
-        return h[r] % MOD
-
-    prefix_hash = (h[r] - h[l - 1] * qp[r - l + 1] % MOD + MOD) % MOD
-    return prefix_hash
-
-
-# 测试
-init_hash("abcss")
-print(get_hash(2, 4))
-
-init_hash("css")
-print(get_hash(0, 2))
+print(ans)
