@@ -37,7 +37,7 @@ def f(a, b, n):
     if a+1 == b:
         return quickPower(a, b, n)
 
-    # 递归公式推导见图 xxx
+    # 递归公式推导见图 05.jpg
     m = f(a+1, b, phi(n))
     # 如果 a 和 n 互质，那么 a**phi(n) 为 1
     if 1 != gcd(a, n):
