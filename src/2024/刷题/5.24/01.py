@@ -21,6 +21,8 @@ def lowbit(n):
 # 计算从开始到 pos 的前缀和数组（ pos 从 1 开始）
 # 只要知道 pos 的范围是 [1, N] ， while 循环的条件就很明确了
 def get(pos):
+    global f
+
     ans = 0
     while pos > 0:
         ans += f[pos]
@@ -30,6 +32,8 @@ def get(pos):
 
 # 将 pos 处的值加上 v ，更新 f 数组（ pos 从 1 开始）
 def update(pos, v):
+    global f
+
     while pos <= N:
         f[pos] += v
         pos += lowbit(pos)

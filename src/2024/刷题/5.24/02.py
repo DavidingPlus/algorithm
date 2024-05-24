@@ -21,6 +21,8 @@ def lowbit(n):
 
 
 def get(pos):
+    global f
+
     ans = 0
     while pos > 0:
         ans += f[pos]
@@ -29,6 +31,8 @@ def get(pos):
 
 
 def update(pos, v):
+    global f
+
     while pos <= N:
         f[pos] += v
         pos += lowbit(pos)

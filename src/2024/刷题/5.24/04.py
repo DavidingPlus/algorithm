@@ -21,6 +21,8 @@ def lowbit(n):
 
 
 def get(pos):
+    global f
+
     ans = 0
     while pos > 0:
         ans += f[pos]
@@ -29,6 +31,8 @@ def get(pos):
 
 
 def update(pos, v):
+    global f
+
     while pos <= MAX-MIN+1:
         f[pos] += v
         pos += lowbit(pos)
@@ -41,4 +45,5 @@ for i in range(1, 1+N):
         # get(MAX-MIN+1) 的值一定是目前为止所有的数的个数之和，因为是最大值的前缀和
         ans += (i-1)-get(nums[i]-MIN+1)
     update(nums[i]-MIN+1, 1)
+
 print(ans)
