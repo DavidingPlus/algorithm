@@ -1,4 +1,4 @@
-# Algorithm
+# algorithm
 
 算法学习的仓库，记录了自己的算法学习过程.
 
