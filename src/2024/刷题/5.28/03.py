@@ -2,6 +2,9 @@
 # https://www.lanqiao.cn/problems/4385/learning/
 
 from math import log2
+from sys import setrecursionlimit
+
+setrecursionlimit(int(1e9))
 
 N = int(input())
 # 使用邻接表的方式表示这棵树，下标从 1 开始
@@ -36,7 +39,7 @@ def dfs(node: int, prev: int) -> None:
 
     # 递归处理子节点
     for child in tree[node]:
-        # 防止遍历父节点导致重复递归
+        # tree 数组当中存储的是与该节点相连的节点，只可能有要给父节点和多个子节点，因此通过参数 prev 判断
         if prev != child:
             dfs(child, node)
 
@@ -45,14 +48,16 @@ def dfs(node: int, prev: int) -> None:
 def lca(u: int, v: int) -> int:
     global tree, depth, f
 
-    # 为了处理方便，让 u 节点的深度大于 v 节点的深度
-    if depth[u] > depth[v]:
+    # 为了处理方便，让 u 节点的深度一直 v 节点的深度
+    if depth[u] < depth[v]:
         u, v = v, u
 
     # 将 u 节点跳转到与 v 节点同一深度的位置（根据是二进制 1），方便开始同时往上跳
+    # 下面 u 会被修改，所以这里用 diff 记录（虽然不会对结果造成影响，因为是按照二进制进行修改的
+    diff = depth[u]-depth[v]
     for j in range(MAX):
-        if ((depth[u]-depth[v]) >> j) & 1:
-            v = f[v][j]
+        if (1 << j) & diff:
+            u = f[u][j]
 
     # 如果直接相等，那么直接返回，在一个点就是另一个点的祖先的时候触发
     if u == v:
@@ -72,6 +77,7 @@ def lca(u: int, v: int) -> int:
     return f[u][0]
 
 
+# 记得一定不要忘了预处理 ST 表
 dfs(1, 0)
 Q = int(input())
 for _ in range(Q):
