@@ -1,4 +1,3 @@
-# 最大公约数
 # https://www.lanqiao.cn/problems/2172/learning/
 
 from math import log2, gcd

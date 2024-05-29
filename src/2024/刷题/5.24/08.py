@@ -4,7 +4,7 @@
 # TODO 超时 9/15 ，主要就是删除一个元素以后更新线段树太慢了
 
 from sys import setrecursionlimit
-setrecursionlimit(10**9)
+setrecursionlimit(int(1e8))
 
 MAX = 10**9
 

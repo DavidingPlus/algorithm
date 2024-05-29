@@ -3,7 +3,7 @@
 # https://www.lanqiao.cn/problems/1133/learning/
 
 from sys import setrecursionlimit
-setrecursionlimit(10**9)
+setrecursionlimit(int(1e8))
 
 N, Q = map(int, input().split())
 

@@ -5,8 +5,8 @@
 # 通过这个题，可以记忆线段树的模板
 
 from sys import setrecursionlimit
-# 一般递归无脑开 1e9 就行了
-setrecursionlimit(10**9)
+# 一般递归无脑开 1e8 就行了
+setrecursionlimit(int(1e8))
 
 N = int(input())
 

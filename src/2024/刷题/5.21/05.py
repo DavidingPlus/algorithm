@@ -46,7 +46,7 @@ def f(a, b, n):
 
 
 # 设置递归深度，默认是 1000 ，显然不够
-setrecursionlimit(2023+10)
+setrecursionlimit(int(1e8))
 
 print(f(2, 2023, 2023))
 # print(869)
