@@ -5,7 +5,7 @@
 from math import log2
 from sys import setrecursionlimit
 
-setrecursionlimit(int(1e9))
+setrecursionlimit(int(1e8))
 
 N, Q = map(int, input().split())
 # 这里我们的 tree 只存储该节点的子节点，不存储父节点，所以下面的 dfs 会有一定区别

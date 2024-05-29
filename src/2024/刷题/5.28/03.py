@@ -4,7 +4,7 @@
 from math import log2
 from sys import setrecursionlimit
 
-setrecursionlimit(int(1e9))
+setrecursionlimit(int(1e8))
 
 N = int(input())
 # 使用邻接表的方式表示这棵树，下标从 1 开始
