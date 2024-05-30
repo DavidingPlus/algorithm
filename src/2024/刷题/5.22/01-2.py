@@ -1,6 +1,8 @@
 # 组合数 2 （公式法 + 逆元 + 打表）
 # https://www.acwing.com/file_system/file/content/whole/index/content/4412/
 
+MOD = 10**9+7
+
 
 def quickPower(base, power, mod):
     res = 1
@@ -11,8 +13,6 @@ def quickPower(base, power, mod):
         power >>= 1
     return res
 
-
-MOD = 10**9+7
 
 # 打表
 fac = [1 for _ in range(1+10**5)]
