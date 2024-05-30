@@ -1,44 +1,29 @@
-# 乘积幂次
-# https://www.lanqiao.cn/problems/1155/learning/?page=1&first_category_id=1&name=%E4%B9%98%E7%A7%AF%E5%B9%82%E6%AC%A1
+# 最小质因子之和
+# https://www.lanqiao.cn/problems/1151/learning/
 
-from functools import lru_cache
+# 同质因数的思路一样，考虑筛法
+T = int(input())
+l = []
+top = -1
+for _ in range(T):
+    l.append(int(input()))
+    top = max(top, l[len(l)-1])  # 题目数据会保证 top>=2
 
-# 使用欧拉函数判断 10**9+7 是否为一个质数
-# def phi(n):
-#     res = float(n)
-#     i = 2
-#     while i*i <= n:
-#         if 0 == n % i:
-#             while 0 == n % i:
-#                 res *= 1-1/i
-#             n /= i
-#         i += 1
-#     # 处理最后一个可能大于 sqrt(n) 的质数
-#     if 1 != n:
-#         res *= 1-1/n
-#     return int(res)
+# 最大值选择列表中的最大值
+prime = [0 for _ in range(1+top)]
+for i in range(2, 1+top):
+    if 0 == prime[i]:  # 代表是质数，最小质因子是其本身
+        prime[i] = i
+        for j in range(i+i, 1+top, i):
+            if 0 == prime[j]:
+                # 这里类似于先到先得的感觉，例如 2 先遇到 8 ，那么填 2 ，后续 4 再次遇到就不填，结果是正确的
+                prime[j] = i
 
-# print(phi(10**9+7))  # 10**9+6，代表他是质数
+# 为了省事，再做一个前缀和
+preSum = [0 for _ in range(1+top)]
+preSum[2] = prime[2]
+for i in range(3, 1+top):
+    preSum[i] = preSum[i-1]+prime[i]
 
-# 测试数据：131955674 417236 -> 424832133
-
-mod = 10**9+7
-n, m = map(int, input().split())
-
-
-def quickPower(n, m, p):
-    res = 1
-    while m > 0:
-        if m & 1:
-            res = (res*n) % p
-        n = (n*n) % p
-        m >>= 1
-    return res
-
-
-# 根据欧拉定理，原始的指数转化为 m! % (mod - 1)
-newM = 1
-for i in range(1, 1+m):
-    newM = (newM*i) % (mod - 1)
-
-print(quickPower(n, newM, mod))
+for i in range(T):
+    print(preSum[l[i]])

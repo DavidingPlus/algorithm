@@ -1,17 +1,23 @@
-# 二进制枚举的思想应用（我莫名想到了状压 DP ）
-def binaryEnum(l):
-    enums = []
-    for i in range(1 << len(l)):
-        tmp = []
-        # 看每一位看状态是否激活
-        for j in range(len(l)):
-            if i & (1 << j):
-                tmp.append(l[j])
-        enums.append(tmp)
-    return enums
+# 乘法逆元
+# https://www.lanqiao.cn/problems/1157/learning/
 
 
-l = [1, 2, 3]
-enums = binaryEnum(l)
-for e in enums:
-    print(e)
+# N 是一个大质数，所以根据欧拉定理，a * (a ** (phi(N) - 1)) === 1 (mod N)
+# 用快速幂算法即可求出
+def quickPower(n, m, p):
+    res = 1
+    while m > 0:
+        if m & 1:
+            res = (res*n) % p
+        n = (n*n) % p
+        m >>= 1
+    return res
+
+
+N = 10**9+7
+
+T = int(input())
+for _ in range(T):
+    a = int(input())
+    # N 是质数，所以 phi(N) 为 N-1
+    print(quickPower(a, N-1-1, N))

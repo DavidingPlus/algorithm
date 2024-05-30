@@ -20,16 +20,16 @@ for i in range(N):
     # 6 < 8 ，不够了，因此剩下 6
     # 最终的结果就是 [1, 2, 4, 6] ，当然相应物品的体积和价值要乘以倍数
     # 为什么能表示呢？首先看 1 2 4 ，这三个是 2 的 幂次，画图分析二进制的图，很容易知道，能够表示出 0 到 7 的任意数，然后再加上 6 ，就能表示出 6 到 13 的任意数，结合起来，最终就能表示出 0 到 13 的任意数
-    count = s[i]
+    cnt = s[i]
     base = 1
-    while base <= count:
+    while cnt > base:
         v.append(base * v_pre[i])
         w.append(base * w_pre[i])
-        count -= base
+        cnt -= base
         base *= 2
-    # 处理最后剩下的数， count 一定大于 0 ，因为循环进入的条件就是 count >= base ，减掉以后依然为正， base 乘 2 大于 count 导致循环结束
-    v.append(count * v_pre[i])
-    w.append(count * w_pre[i])
+    # 处理最后剩下的数， cnt 一定大于 0 ，因为循环进入的条件就是 cnt >= base ，减掉以后依然为正， base 乘 2 大于 cnt 导致循环结束
+    v.append(cnt * v_pre[i])
+    w.append(cnt * w_pre[i])
 
 # 后续按照 01 背包的思路来做就行
 dp = [0 for _ in range(1+V)]
