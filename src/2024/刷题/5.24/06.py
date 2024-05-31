@@ -47,11 +47,10 @@ def update(l, r, v, left, right, id):
         tag[id] += v
         return
 
-    # 区间不匹配，需要向下传递，注意，为了保证结果的正确性，即使只用到左区间，也需要传递右区间
-    f[id] += (r-l+1)*v
-
     mid = (left+right)//2
+    # 区间不匹配，向自己的两个子节点传递，注意，只有当区间完美匹配的时候 tag 才会被延迟保留，所以需要传递的 tag 都是包含当前整个区间的 update 的，因此不管 l r 落在哪个区间，当前如果有 tag 滞留，必然是上一次完美匹配的遗留产物，因此需要向左右子节点进行传递，因此用的是 left 和 right
     toDown(mid-left+1, right-(1+mid)+1, id)
+
     if l <= mid and r >= 1+mid:
         update(l, mid, v, left, mid, 2*id)
         update(1+mid, r, v, 1+mid, right, 2*id+1)
@@ -59,6 +58,8 @@ def update(l, r, v, left, right, id):
         update(l, r, v, left, mid, 2*id)
     else:
         update(l, r, v, 1+mid, right, 2*id+1)
+
+    f[id] = f[2*id]+f[2*id+1]
 
 
 def get(l, r, left, right, id):
@@ -70,6 +71,7 @@ def get(l, r, left, right, id):
     mid = (left+right)//2
     # 同理这里也需要向下传递
     toDown(mid-left+1, right-(1+mid)+1, id)
+
     if l <= mid and r >= 1+mid:
         return get(l, mid, left, mid, 2*id) + get(1+mid, r, 1+mid, right, 2*id+1)
     elif r < 1+mid:
