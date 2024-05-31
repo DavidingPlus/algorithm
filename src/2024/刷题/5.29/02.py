@@ -1,7 +1,7 @@
 # 神奇数
 # https://www.lanqiao.cn/problems/5891/learning/
 
-# TODO 这个代码严重逻辑问题，我还没理清楚。。。
+# TODO 这个代码存在严重的逻辑问题，我还没理清楚这是为什么。。。
 
 from sys import setrecursionlimit
 setrecursionlimit(int(1e8))
