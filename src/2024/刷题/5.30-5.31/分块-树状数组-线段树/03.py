@@ -5,22 +5,39 @@ from sys import setrecursionlimit
 setrecursionlimit(int(1e8))
 
 N = int(input())
-nums = list(map(int, input().split()))
+nums = [0]+list(map(int, input().split()))
 
 # 一般定义线段树的节点个数为 4*n ，因为其中可能包含一些空节点，并且节点编号从 1 开始
-f = [0 for _ in range(1+4*N)]
+f = [0 for _ in range(4*N)]
 
 
 def build(left, right, id):
     global nums, f
 
     if left == right:
-        f[id] == nums[left]
+        f[id] = nums[left]
         return
 
     mid = (left+right)//2
     build(left, mid, 2*id)
     build(1+mid, right, 2*id+1)
+    f[id] = f[2*id]+f[2*id+1]
+
+
+def update(pos, v, left, right, id):
+    global nums, f
+
+    if left == right:
+        f[id] += v
+        return
+
+    mid = (left+right)//2
+    if pos <= mid:
+        update(pos, v, left, mid, 2*id)
+    else:
+        update(pos, v, 1+mid, right, 2*id+1)
+
+    # 和 build 保持统一
     f[id] = f[2*id]+f[2*id+1]
 
 
@@ -40,25 +57,7 @@ def get(l, r, left, right, id):
         return get(l, r, 1+mid, right, 2*id+1)
 
 
-def update(pos, v, left, right, id):
-    global nums, f
-
-    f[id] += v
-
-    if left == right:
-        return
-
-    mid = (left+right)//2
-
-    if pos <= mid:
-        update(pos, v, left, mid, 2*id)
-    else:
-        update(pos, v, 1+mid, right, 2*id+1)
-
-
-for i in range(N):
-    update(1+i, nums[i], 1, N, 1)
-
+build(1, N, 1)
 m = int(input())
 for _ in range(m):
     l = list(map(int, input().split()))
