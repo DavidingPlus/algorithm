@@ -29,7 +29,7 @@ public:
 };
 
 /**
- * Your NumArray object will be instantiated and called as such:
+ * Your NumArray object will be instantiated && called as such:
  * NumArray* obj = new NumArray(nums);
  * int param_1 = obj->sumRange(left,right);
  */

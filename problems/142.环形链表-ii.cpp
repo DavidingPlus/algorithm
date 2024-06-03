@@ -29,13 +29,13 @@ public:
         // 然后我们把其中一个指针指向起点，再相遇的时候就是起点
         // 见142.png
         ListNode *fast = head, *slow = head;
-        while (fast and fast->next) {
+        while (fast && fast->next) {
             fast = fast->next->next;
             slow = slow->next;
             if (fast == slow)
                 break;
         }
-        if (nullptr == fast or nullptr == fast->next)
+        if (nullptr == fast || nullptr == fast->next)
             return nullptr;
 
         fast = head;

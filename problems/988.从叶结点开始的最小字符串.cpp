@@ -39,7 +39,7 @@ public:
             return;
 
         path.insert(path.begin(), 'a' + root->val);
-        if (nullptr == root->left and nullptr == root->right)
+        if (nullptr == root->left && nullptr == root->right)
             res = min(res, path);
 
         traverse(root->left);

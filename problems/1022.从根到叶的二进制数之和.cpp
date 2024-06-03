@@ -38,7 +38,7 @@ public:
             return;
 
         num = 2 * num + root->val;
-        if (nullptr == root->left and nullptr == root->right)
+        if (nullptr == root->left && nullptr == root->right)
             res += num;
 
         traverse(root->left);

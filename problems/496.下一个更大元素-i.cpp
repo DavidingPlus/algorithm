@@ -19,7 +19,7 @@ public:
         stack<int> s;
         vector<int> v(nums2.size());  // 存储num2的每个值
         for (int i = nums2.size() - 1; i >= 0; --i) {
-            while (false == s.empty() and s.top() <= nums2[i])
+            while (false == s.empty() && s.top() <= nums2[i])
                 s.pop();
 
             v[i] = s.empty() ? -1 : s.top();

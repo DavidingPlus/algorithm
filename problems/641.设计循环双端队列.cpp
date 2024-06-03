@@ -83,7 +83,7 @@ private:
 };
 
 /**
- * Your MyCircularDeque object will be instantiated and called as such:
+ * Your MyCircularDeque object will be instantiated && called as such:
  * MyCircularDeque* obj = new MyCircularDeque(k);
  * bool param_1 = obj->insertFront(value);
  * bool param_2 = obj->insertLast(value);

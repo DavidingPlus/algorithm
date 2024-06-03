@@ -24,11 +24,11 @@ public:
             // 前面的分析有一些疏漏的地方，就是队列新进来的数字一定必须是队列里面最小的，例如 3 1 ，进来2，这个1一样没有用处，所以我们从尾部开始判断，因此改用deque
 
             // 判断数量超出，不能简单的看d的个数，因为中间很可能有很多个因为值不对而没有进来，导致这个判断错误
-            if (!d.empty() and (k == i - d.front().second))
+            if (!d.empty() && (k == i - d.front().second))
                 d.pop_front();
 
             // 然后再看大小关系
-            while (!d.empty() and d.back().first <= nums[i])
+            while (!d.empty() && d.back().first <= nums[i])
                 d.pop_back();
 
             d.emplace_back(nums[i], i);

@@ -39,7 +39,7 @@ public:
     //         return;
 
     //     sum += root->val;
-    //     if (nullptr == root->left and nullptr == root->right and targetSum == sum) {
+    //     if (nullptr == root->left && nullptr == root->right && targetSum == sum) {
     //         flag = true;
     //         return;
     //     }
@@ -60,10 +60,10 @@ public:
         if (nullptr == root)
             return false;
 
-        if (targetSum == root->val and nullptr == root->left and nullptr == root->right)
+        if (targetSum == root->val && nullptr == root->left && nullptr == root->right)
             return true;
 
-        return hasPathSum(root->left, targetSum - root->val) or hasPathSum(root->right, targetSum - root->val);
+        return hasPathSum(root->left, targetSum - root->val) || hasPathSum(root->right, targetSum - root->val);
     }
 };
 // @lc code=end

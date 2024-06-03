@@ -51,7 +51,7 @@ private:
 };
 
 /**
- * Your MyCircularQueue object will be instantiated and called as such:
+ * Your MyCircularQueue object will be instantiated && called as such:
  * MyCircularQueue* obj = new MyCircularQueue(k);
  * bool param_1 = obj->enQueue(value);
  * bool param_2 = obj->deQueue();

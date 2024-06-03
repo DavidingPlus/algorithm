@@ -37,7 +37,7 @@ public:
         if (um.end() != um.find(key))
             l.erase(um[key]);
         // 不存在就是插入值，需要判断是否超了，清理缓存
-        else if (um.end() == um.find(key) and capacity == l.size()) {
+        else if (um.end() == um.find(key) && capacity == l.size()) {
             um.erase(l.back().first);  // 就是这里需要l存储key所以才需要pair
             l.pop_back();              // 从l中删除
         }
@@ -56,7 +56,7 @@ private:
 };
 
 /**
- * Your LRUCache object will be instantiated and called as such:
+ * Your LRUCache object will be instantiated && called as such:
  * LRUCache* obj = new LRUCache(capacity);
  * int param_1 = obj->get(key);
  * obj->put(key,value);

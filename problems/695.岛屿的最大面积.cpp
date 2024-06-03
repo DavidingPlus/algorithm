@@ -27,7 +27,7 @@ public:
             for (int j = 0; j < n; ++j)
             {
 
-                if (1 == grid[i][j] and false == isVisited[i][j])
+                if (1 == grid[i][j] && false == isVisited[i][j])
                 {
                     ans = std::max(ans, getIslandSizeDFS(grid, i, j, isVisited)); // DFS
                     // ans = std::max(ans, getIslandSizeBFS(grid, i, j, isVisited)); // BFS
@@ -48,7 +48,7 @@ public:
         for (int i = 0; i < 4; ++i)
         {
             int newX = x + dirs[i][0], newY = y + dirs[i][1];
-            if (newX >= 0 and newX < m and newY >= 0 and newY < n and 1 == grid[newX][newY] and false == isVisited[newX][newY])
+            if (newX >= 0 && newX < m && newY >= 0 && newY < n && 1 == grid[newX][newY] && false == isVisited[newX][newY])
             {
                 isVisited[newX][newY] = true;
                 res += getIslandSizeDFS(grid, newX, newY, isVisited);
@@ -79,7 +79,7 @@ public:
                 for (int i = 0; i < 4; ++i)
                 {
                     int newX = point.first + dirs[i][0], newY = point.second + dirs[i][1];
-                    if (newX >= 0 and newX < m and newY >= 0 and newY < n and 1 == grid[newX][newY] and false == isVisited[newX][newY])
+                    if (newX >= 0 && newX < m && newY >= 0 && newY < n && 1 == grid[newX][newY] && false == isVisited[newX][newY])
                     {
                         ++res;
                         q.push({newX, newY});

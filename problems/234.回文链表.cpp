@@ -64,7 +64,7 @@ public:
     ListNode* middleNode(ListNode* head) {
         // 快慢指针
         auto fast = head, slow = head;
-        while (fast and fast->next) {
+        while (fast && fast->next) {
             fast = fast->next->next;
             slow = slow->next;
         }
@@ -76,7 +76,7 @@ public:
     }
 
     ListNode* reverseList(ListNode* head) {
-        if (nullptr == head or nullptr == head->next)
+        if (nullptr == head || nullptr == head->next)
             return head;
 
         auto newHead = reverseList(head->next);

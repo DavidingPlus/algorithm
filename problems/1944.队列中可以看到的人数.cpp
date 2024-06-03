@@ -19,7 +19,7 @@ public:
         // vector<int> res(heights.size());
         // stack<int> s;
         // for (int i = heights.size() - 1; i >= 0; --i) {
-        //     while (false == s.empty() and heights[i] > heights[s.top()]) s.pop();
+        //     while (false == s.empty() && heights[i] > heights[s.top()]) s.pop();
         //     res[i] = s.empty() ? heights.size() - i - 1 : s.top() - i;
         //     s.push(i);
         // }

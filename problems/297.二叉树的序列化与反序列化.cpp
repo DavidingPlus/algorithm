@@ -110,7 +110,7 @@ public:
 //     }
 // };
 
-// Your Codec object will be instantiated and called as such:
+// Your Codec object will be instantiated && called as such:
 // Codec ser, deser;
 // TreeNode* ans = deser.deserialize(ser.serialize(root));
 // @lc code=end

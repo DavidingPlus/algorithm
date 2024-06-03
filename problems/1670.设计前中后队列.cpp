@@ -52,7 +52,7 @@ private:
 };
 
 /**
- * Your FrontMiddleBackQueue object will be instantiated and called as such:
+ * Your FrontMiddleBackQueue object will be instantiated && called as such:
  * FrontMiddleBackQueue* obj = new FrontMiddleBackQueue();
  * obj->pushFront(val);
  * obj->pushMiddle(val);

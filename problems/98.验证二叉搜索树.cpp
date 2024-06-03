@@ -44,7 +44,7 @@ public:
 
     //     // 判断是否满足顺序
     //     // 特殊维护下第一个
-    //     if (0 == count or root->val > pre) {
+    //     if (0 == count || root->val > pre) {
     //         (0 == count) ? ++count : 1;
     //         pre = root->val;
     //     } else {

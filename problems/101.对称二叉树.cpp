@@ -33,12 +33,12 @@ class Solution {
 public:
     // 这个题目用遍历不是很好写，思路清晰，但是要同时递归两个不太好，所以还是分解子问题
     bool isMirror(TreeNode *p, TreeNode *q) {
-        if (nullptr == p and nullptr == q)
+        if (nullptr == p && nullptr == q)
             return true;
-        else if (nullptr == p or nullptr == q)
+        else if (nullptr == p || nullptr == q)
             return false;
 
-        return p->val == q->val and isMirror(p->left, q->right) and isMirror(p->right, q->left);
+        return p->val == q->val && isMirror(p->left, q->right) && isMirror(p->right, q->left);
     }
 
     bool isSymmetric(TreeNode *root) {

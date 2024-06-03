@@ -40,7 +40,7 @@ public:
         root->right = removeLeafNodes(root->right, target);
 
         // 这里为什么放在后序？因为左右子树删除完毕之后，有可能本节点也变成了目标节点，因此放在后序
-        if (target == root->val and nullptr == root->left and nullptr == root->right)
+        if (target == root->val && nullptr == root->left && nullptr == root->right)
             return nullptr;
 
         return root;

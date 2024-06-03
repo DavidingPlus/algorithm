@@ -41,7 +41,7 @@ public:
 
     //     traverse(root->left, low, high);
 
-    //     if (root->val >= low and root->val <= high)
+    //     if (root->val >= low && root->val <= high)
     //         res += root->val;
     //     else if (root->val > high)
     //         return;

@@ -49,7 +49,7 @@ public:
 
                 // 奇数层，为奇数数或者不满足严格递减失败
                 if (level & 1) {
-                    if (node->val & 1 or node->val >= ref)
+                    if (node->val & 1 || node->val >= ref)
                         return false;
                 }
 
@@ -58,7 +58,7 @@ public:
                  * @note 遇到位运算记得加上括号，因为它的优先级低
                  */
                 if (false == (level & 1)) {
-                    if (false == (node->val & 1) or node->val <= ref)
+                    if (false == (node->val & 1) || node->val <= ref)
                         return false;
                 }
 

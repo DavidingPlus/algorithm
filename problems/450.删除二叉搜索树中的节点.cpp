@@ -42,10 +42,10 @@ public:
         // 相等就代表需要进行删除
         else if (key == root->val) {
             // 1.左右子树都为空，直接删除节点
-            if (nullptr == root->left and nullptr == root->right)
+            if (nullptr == root->left && nullptr == root->right)
                 return nullptr;
             // 2.左右子树有一个不为空，返回非空的那个节点
-            if (!(root->left and root->right))
+            if (!(root->left && root->right))
                 return root->left ? root->left : root->right;
             // 3.左右子树都不为空，返回右子树里面最小的那个
             else

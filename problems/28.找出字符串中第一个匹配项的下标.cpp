@@ -50,7 +50,7 @@ public:
         }
 
         // 检测第一个
-        if (hashCode == patCode and check(haystack, needle, 0))
+        if (hashCode == patCode && check(haystack, needle, 0))
             return 0;
 
         // 开始匹配
@@ -64,7 +64,7 @@ public:
             hashCode = (hashCode - (letterToInt(haystack[right - needle.size()]) * upVal) % Q + Q) % Q;
             hashCode = (base * hashCode) % Q + letterToInt(haystack[right]) % Q;
 
-            if (hashCode == patCode and check(haystack, needle, right - needle.size() + 1))
+            if (hashCode == patCode && check(haystack, needle, right - needle.size() + 1))
                 return right - needle.size() + 1;
         }
         return -1;

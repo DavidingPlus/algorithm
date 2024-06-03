@@ -38,7 +38,7 @@ public:
         if (nullptr == root)
             return;
 
-        if (root->left and nullptr == root->left->left and nullptr == root->left->right)
+        if (root->left && nullptr == root->left->left && nullptr == root->left->right)
             res += root->left->val;
 
         // 左叶子的含义是有父节点并且左右子树为空

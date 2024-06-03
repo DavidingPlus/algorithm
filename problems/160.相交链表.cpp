@@ -28,14 +28,14 @@ public:
     // ListNode *detectCycle(ListNode *head) {
     //     // 快慢指针
     //     auto fast = head, slow = head;
-    //     while (fast and fast->next) {
+    //     while (fast && fast->next) {
     //         fast = fast->next->next;
     //         slow = slow->next;
     //         if (fast == slow)
     //             break;
     //     }
     //     // 如果没有交点，返回nullptr即可
-    //     if (nullptr == fast or nullptr == fast->next)
+    //     if (nullptr == fast || nullptr == fast->next)
     //         return nullptr;
     //     // 然后让一根指针回到头部，相交即是环起点
     //     fast = head;

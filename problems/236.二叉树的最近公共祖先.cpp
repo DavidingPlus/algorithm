@@ -40,7 +40,7 @@ public:
         while (1) {
             // 满足条件才能继续
             if (pp[i]->val == qp[i]->val and
-                i < pp.size() - 1 and i < qp.size() - 1 and pp[i + 1] == qp[i + 1]) {
+                i < pp.size() - 1 && i < qp.size() - 1 && pp[i + 1] == qp[i + 1]) {
                 ++i;
                 continue;
             }

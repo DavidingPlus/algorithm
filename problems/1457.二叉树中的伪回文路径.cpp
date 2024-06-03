@@ -44,7 +44,7 @@ public:
         um[root->val]++ & 1 ? --oddNum : ++oddNum;  // 不存在的也包含在这里面了，不存在会直接创建，赋初值0
 
         // 叶节点
-        if (nullptr == root->left and nullptr == root->right and oddNum <= 1)
+        if (nullptr == root->left && nullptr == root->right && oddNum <= 1)
             ++res;
 
         traverse(root->left);

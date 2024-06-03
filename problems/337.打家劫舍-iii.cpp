@@ -47,10 +47,10 @@ public:
             // 不偷取 root
             int res1 = rob(root->left) + rob(root->right);
             // 偷取 root
-            auto leftLeft = root->left and root->left->left ? root->left->left : nullptr;
-            auto leftRight = root->left and root->left->right ? root->left->right : nullptr;
-            auto rightLeft = root->right and root->right->left ? root->right->left : nullptr;
-            auto rightRight = root->right and root->right->right ? root->right->right : nullptr;
+            auto leftLeft = root->left && root->left->left ? root->left->left : nullptr;
+            auto leftRight = root->left && root->left->right ? root->left->right : nullptr;
+            auto rightLeft = root->right && root->right->left ? root->right->left : nullptr;
+            auto rightRight = root->right && root->right->right ? root->right->right : nullptr;
             int res2 = root->val + rob(leftLeft) + rob(leftRight) + rob(rightLeft) + rob(rightRight);
 
             memo[root] = std::max(res1, res2);

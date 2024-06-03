@@ -39,10 +39,10 @@ public:
         int i = left + 1, j = right;
         while (i <= j) {
             // 先移动左边
-            while (i < right and nums[i] <= guard)
+            while (i < right && nums[i] <= guard)
                 ++i;
             // 在移动右边
-            while (j > left and nums[j] > guard)
+            while (j > left && nums[j] > guard)
                 --j;
 
             if (i >= j)

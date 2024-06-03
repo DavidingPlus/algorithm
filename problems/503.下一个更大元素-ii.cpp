@@ -23,7 +23,7 @@ public:
         // res.resize(2 * n);
         // for (int i = 2 * n - 1; i >= 0; --i) {
         //     // 比较，弹出
-        //     while (!s.empty() and nums[i % n] >= s.top())
+        //     while (!s.empty() && nums[i % n] >= s.top())
         //         s.pop();
 
         //     res[i] = s.empty() ? -1 : s.top();
@@ -39,7 +39,7 @@ public:
 
         for (int i = 2 * n - 1; i >= 0; --i) {
             // 比较，弹出
-            while (false == s.empty() and nums[i % n] >= s.top())
+            while (false == s.empty() && nums[i % n] >= s.top())
                 s.pop();
 
             res[i % n] = s.empty() ? -1 : s.top();

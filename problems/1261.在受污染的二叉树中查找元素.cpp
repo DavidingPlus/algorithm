@@ -57,7 +57,7 @@ public:
 };
 
 /**
- * Your FindElements object will be instantiated and called as such:
+ * Your FindElements object will be instantiated && called as such:
  * FindElements* obj = new FindElements(root);
  * bool param_1 = obj->find(target);
  */

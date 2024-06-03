@@ -31,7 +31,7 @@ public:
     ListNode* middleNode(ListNode* head) {
         // 快慢指针，快指针一次两步，慢指针一次一步
         auto fast = head, slow = head;
-        while (fast and fast->next) {
+        while (fast && fast->next) {
             fast = fast->next->next;
             slow = slow->next;
         }

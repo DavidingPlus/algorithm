@@ -43,7 +43,7 @@ public:
 
         sum += root->val;
         path.push_back(root->val);
-        if (nullptr == root->left and nullptr == root->right and targetSum == sum)
+        if (nullptr == root->left && nullptr == root->right && targetSum == sum)
             res.push_back(path);
 
         traverse(root->left, targetSum);

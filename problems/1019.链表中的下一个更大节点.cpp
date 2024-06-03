@@ -40,7 +40,7 @@ public:
         vector<int> res(v.size());
         stack<int> s;
         for (int i = res.size() - 1; i >= 0; --i) {
-            while (false == s.empty() and v[i] >= s.top()) s.pop();
+            while (false == s.empty() && v[i] >= s.top()) s.pop();
             res[i] = s.empty() ? 0 : s.top();
             s.push(v[i]);
         }

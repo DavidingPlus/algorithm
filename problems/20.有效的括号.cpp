@@ -13,9 +13,9 @@ using namespace std;
 class Solution {
 public:
     bool check(const stack<char>& sc, const char& ch) {
-        if ((')' == ch and '(' == sc.top()) or
-            (']' == ch and '[' == sc.top()) or
-            ('}' == ch and '{' == sc.top()))
+        if ((')' == ch && '(' == sc.top()) or
+            (']' == ch && '[' == sc.top()) or
+            ('}' == ch && '{' == sc.top()))
             return true;
         return false;
     }
@@ -25,7 +25,7 @@ public:
         // 以([{}])为例子，设想一个数据结构，存入([{，当我}进来的时候消除}，显然这是一个栈
         stack<char> sc;
         for (auto& ch : s) {
-            if (false == sc.empty() and check(sc, ch))
+            if (false == sc.empty() && check(sc, ch))
                 sc.pop();
             else
                 sc.push(ch);

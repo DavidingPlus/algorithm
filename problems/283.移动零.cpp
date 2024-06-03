@@ -17,7 +17,7 @@ public:
         int slow = 0, fast = 0;
         for (; fast < nums.size(); ++fast) {
             // 最后一个无论是不是0都进行赋值，因为slow出来的位置在后面，如果对0不赋值，那么原位置如果不是0就出问题了
-            if (nums.size() - 1 == fast or 0 != nums[fast])
+            if (nums.size() - 1 == fast || 0 != nums[fast])
                 nums[slow++] = nums[fast];
         }
         // 填充0

@@ -27,7 +27,7 @@ public:
         {
             for (int j = 0; j < n; ++j)
             {
-                if (1 == grid2[i][j] and false == isVisited[i][j])
+                if (1 == grid2[i][j] && false == isVisited[i][j])
                 {
                     if (isSubIslandDFS(grid1, grid2, i, j, isVisited))
                     {
@@ -53,7 +53,7 @@ public:
         for (int i = 0; i < 4; ++i)
         {
             int newX = x + dirs[i][0], newY = y + dirs[i][1];
-            if (newX >= 0 and newX < m and newY >= 0 and newY < n and 1 == grid2[newX][newY] and false == isVisited[newX][newY])
+            if (newX >= 0 && newX < m && newY >= 0 && newY < n && 1 == grid2[newX][newY] && false == isVisited[newX][newY])
             {
                 isVisited[newX][newY] = true;
                 res &= isSubIslandDFS(grid1, grid2, newX, newY, isVisited);

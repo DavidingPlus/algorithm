@@ -28,7 +28,7 @@ int left_bound(vector<int>& nums, int target) {
             left = mid + 1;
     }
     // 那left做判断，可能越界
-    if (left < 0 or left >= nums.size() or target != nums[left])
+    if (left < 0 || left >= nums.size() || target != nums[left])
         return -1;
     return left;
 }
@@ -47,7 +47,7 @@ int right_bound(vector<int>& nums, int target) {
         else
             left = mid + 1;
     }
-    if (right < 0 or right >= nums.size() or target != nums[right])
+    if (right < 0 || right >= nums.size() || target != nums[right])
         return -1;
     return right;
 }

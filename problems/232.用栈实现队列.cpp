@@ -39,7 +39,7 @@ public:
     }
 
     bool empty() {
-        return s1.empty() and s2.empty();
+        return s1.empty() && s2.empty();
     }
 
 private:
@@ -49,7 +49,7 @@ private:
 };
 
 /**
- * Your MyQueue object will be instantiated and called as such:
+ * Your MyQueue object will be instantiated && called as such:
  * MyQueue* obj = new MyQueue();
  * obj->push(x);
  * int param_2 = obj->pop();

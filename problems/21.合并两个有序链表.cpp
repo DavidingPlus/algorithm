@@ -35,7 +35,7 @@ public:
         auto p1 = list1, p2 = list2, p = res;
 
         // 两个链表都没走到底
-        while (nullptr != p1 and nullptr != p2) {
+        while (nullptr != p1 && nullptr != p2) {
             auto& smaller = (p1->val <= p2->val) ? p1 : p2;
             p->next = new ListNode(smaller->val);
             p = p->next;

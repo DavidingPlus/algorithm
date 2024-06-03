@@ -14,7 +14,7 @@ public:
     RecentCounter() {}
 
     int ping(int t) {
-        while (false == q.empty() and t - 3000 > q.front()) q.pop();
+        while (false == q.empty() && t - 3000 > q.front()) q.pop();
         q.push(t);
         return q.size();
     }
@@ -25,7 +25,7 @@ private:
 };
 
 /**
- * Your RecentCounter object will be instantiated and called as such:
+ * Your RecentCounter object will be instantiated && called as such:
  * RecentCounter* obj = new RecentCounter();
  * int param_1 = obj->ping(t);
  */

@@ -33,7 +33,7 @@ class Solution {
 public:
     TreeNode *mergeTrees(TreeNode *root1, TreeNode *root2) {
         // 递归修改数据结构，等号左边要和等号右边对应，并且注意边界条件
-        if (nullptr == root1 and nullptr == root2)
+        if (nullptr == root1 && nullptr == root2)
             return nullptr;
         else if (nullptr == root1)
             return root2;  // 注意是返回root2而不是构造新节点，因为这里root1分支已经没有了，但是root2还可能存在子节点，因此返回root2，相当于直接接上去

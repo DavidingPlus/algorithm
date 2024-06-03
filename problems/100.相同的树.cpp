@@ -56,13 +56,13 @@ public:
 
     // 方法2：分解子问题
     // bool isSameTree(TreeNode *p, TreeNode *q) {
-    //     if (nullptr == p and nullptr == q)
+    //     if (nullptr == p && nullptr == q)
     //         return true;
 
-    //     else if (nullptr == p or nullptr == q)
+    //     else if (nullptr == p || nullptr == q)
     //         return false;
 
-    //     return p->val == q->val and isSameTree(p->left, q->left) and isSameTree(p->right, q->right);
+    //     return p->val == q->val && isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
     // }
 };
 // @lc code=end

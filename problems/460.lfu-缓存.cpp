@@ -65,7 +65,7 @@ private:
 };
 
 /**
- * Your LFUCache object will be instantiated and called as such:
+ * Your LFUCache object will be instantiated && called as such:
  * LFUCache* obj = new LFUCache(capacity);
  * int param_1 = obj->get(key);
  * obj->put(key,value);

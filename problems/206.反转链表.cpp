@@ -46,7 +46,7 @@ public:
     // 方法2：用递归做
     ListNode* reverseList(ListNode* head) {
         // 递归出口（只写head会出现单元素链表越界的问题，因此这里两个都写
-        if (nullptr == head or nullptr == head->next)
+        if (nullptr == head || nullptr == head->next)
             return head;
 
         auto newHead = reverseList(head->next);

@@ -43,7 +43,7 @@ public:
                 {
                     int newX = point.first + dir.first,
                         newY = point.second + dir.second;
-                    if (newX >= 0 and newX < m and newY >= 0 and newY < n and false == isVisited[newX][newY] and target == image[newX][newY])
+                    if (newX >= 0 && newX < m && newY >= 0 && newY < n && false == isVisited[newX][newY] && target == image[newX][newY])
                     {
                         q.push({newX, newY});
                         image[newX][newY] = color;

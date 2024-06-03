@@ -42,7 +42,7 @@ public:
         // 加入到path中
         path += std::to_string(root->val) + "->";
         // 判断是不是叶子节点
-        if (nullptr == root->left and nullptr == root->right) {
+        if (nullptr == root->left && nullptr == root->right) {
             auto str = path;
             for (int i = 0; i < 2; ++i) str.pop_back();
             res.push_back(str);

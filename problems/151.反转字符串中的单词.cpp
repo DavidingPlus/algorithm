@@ -27,7 +27,7 @@ public:
         string res;
         for (auto& ch : s) {
             // 先不考虑头尾，有空格只保留一个
-            if (!res.empty() and ' ' == ch and ' ' == res.back())
+            if (!res.empty() && ' ' == ch && ' ' == res.back())
                 continue;
 
             res += ch;

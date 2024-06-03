@@ -15,7 +15,7 @@ public:
         // 快慢指针，将前面的值重新填充
         int slow = 0, fast = 0;
         for (; fast != nums.size(); ++fast)
-            if (nums.size() - 1 == fast or nums[fast] != nums[fast + 1])
+            if (nums.size() - 1 == fast || nums[fast] != nums[fast + 1])
                 nums[slow++] = nums[fast];
 
         return slow;

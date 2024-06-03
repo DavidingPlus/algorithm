@@ -12,7 +12,7 @@ class Solution {
 public:
     // 这个函数用来在下标i和j往外扩张的最大回文串，当然前提是i和j之间符合回文串特征
     string Palindrome(string s, int i, int j) {
-        while (i >= 0 and j < s.size() and s[i] == s[j]) {
+        while (i >= 0 && j < s.size() && s[i] == s[j]) {
             --i;
             ++j;
         }
@@ -30,7 +30,7 @@ public:
         for (int i = 0; i < s.size(); ++i) {
             string one = Palindrome(s, i, i), two;
 
-            if (!(s.size() - 1 == i or s[i] != s[i + 1]))
+            if (!(s.size() - 1 == i || s[i] != s[i + 1]))
                 two = Palindrome(s, i, i + 1);
 
             auto &longer = one.size() >= two.size() ? one : two;

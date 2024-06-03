@@ -28,7 +28,7 @@ public:
     bool hasCycle(ListNode *head) {
         // 快慢指针，相交代表存在环
         ListNode *fast = head, *slow = head;
-        while (fast and fast->next) {
+        while (fast && fast->next) {
             fast = fast->next->next;
             slow = slow->next;
             if (fast == slow)

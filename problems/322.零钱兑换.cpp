@@ -60,7 +60,7 @@ public:
             for (auto& coin : coins) {
                 // i - coin可能为负数，这是不允许的
                 // 跳过的第二种情况就是已经直到这个面值找不到了，就是-1
-                if (i - coin < 0 or -1 == dp[i - coin])
+                if (i - coin < 0 || -1 == dp[i - coin])
                     continue;
                 dp[i] = min(dp[i], 1 + dp[i - coin]);
             }
