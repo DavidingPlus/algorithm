@@ -10,7 +10,7 @@
 
 - `feature-lzx-leetcode`：记录`leetcode`刷题
 
-- `feature-yxj-algo-learning`：`yangxj`同学的算法学习
+- `feature-yxj-algo-learning`：`yangjx`同学的算法学习
 
 - `feature-cgj-algo-learning`：`chengj`同学的算法学习
 
