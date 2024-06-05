@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     # # 这个想法挺好，但是空间复杂度是 O(n^2) ，内存肯定受不了
-    # def canPartition(self, nums: list[int]) -> bool:
+    # def canPartition(self, nums) -> bool:
     #     # 言下之意就是说能否找到一个子集，其和为数组和的一半
     #     totalSum = sum(nums)
     #     if totalSum & 1:
@@ -30,7 +30,7 @@ class Solution:
     #     return False
 
     # 借鉴背包问题的思路
-    def canPartition(self, nums: list[int]) -> bool:
+    def canPartition(self, nums) -> bool:
         totalSum = sum(nums)
         if totalSum & 1:
             return False
