@@ -19,4 +19,5 @@ endif ()
 # add pat
 add_subdirectory (pat)
 
-add_subdirectory(buaa)
+# add buaa
+add_subdirectory (buaa)

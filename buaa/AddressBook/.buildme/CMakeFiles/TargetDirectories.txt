@@ -1,3 +1,0 @@
-/home/yjx/Mine/algorithm/algorithm/buaa/AddressBook/.buildme/CMakeFiles/AddressBook.dir
-/home/yjx/Mine/algorithm/algorithm/buaa/AddressBook/.buildme/CMakeFiles/edit_cache.dir
-/home/yjx/Mine/algorithm/algorithm/buaa/AddressBook/.buildme/CMakeFiles/rebuild_cache.dir

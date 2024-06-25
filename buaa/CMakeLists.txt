@@ -22,4 +22,4 @@ endforeach()
 
 unset (PROP_GENERATOR_IS_MULTI_CONFIG)
 
-message ("-- Done configuring pat")
+message ("-- Done configuring buaa")

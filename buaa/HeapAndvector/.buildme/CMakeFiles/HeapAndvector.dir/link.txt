@@ -1,1 +1,0 @@
-/usr/bin/gcc -rdynamic CMakeFiles/HeapAndvector.dir/main.c.o -o HeapAndvector 
