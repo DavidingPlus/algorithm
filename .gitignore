@@ -6,4 +6,4 @@ _test.*
 *.exe
 *.obj
 a.out
-.buildme/
+.buildme
