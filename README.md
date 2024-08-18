@@ -1,4 +1,4 @@
-# leetcode
+# feature-lzx-leetcode
 
-`leetcode`刷题的本地记录.
+leetcode 刷题的本地记录。
 
