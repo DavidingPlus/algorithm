@@ -6,18 +6,18 @@
 
 各分支功能概述：
 
-- `feature-lzx-algo-learning`：网上各种算法课程的学习。
+- feature-liuzx-algo-learning：网上各种算法课程的学习。
 
-- `feature-lzx-hello-algo`：`hello-algo`算法项目的学习。
+- feature-liuzx-hello-algo：hello-algo 算法项目的学习。
 
-- `feature-lzx-lanqiao-review`：蓝桥杯的复习。
+- feature-liuzx-lanqiao-review：蓝桥杯的复习。
 
-- `feature-lzx-leetcode`：记录`leetcode`刷题。
+- feature-liuzx-leetcode：记录 leetcode 刷题。
 
-- `feature-yjx-algo-learning`：`yangjx`同学的算法学习。
+- feature-yangjx-algo-learning：yangjx 同学的算法学习。
 
-- `feature-cgj-algo-learning`：`chengj`同学的算法学习。
+- feature-chengj-algo-learning：chengj 同学的算法学习。
 
-- `feature-xyf-algo-learning`：`xiaoyf`同学的算法学习。
+- feature-xiaoyf-algo-learning：xiaoyf 同学的算法学习。
 
 
