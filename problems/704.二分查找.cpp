@@ -5,28 +5,39 @@
  */
 
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
 
-class Solution {
+#include <bits/stdc++.h>
+
+
+class Solution
+{
+
 public:
-    // 升序数组
-    int search(vector<int>& nums, int target) {
-        // 设置为开区间
-        int left = 0, right = nums.size();
-        while (left < right) {
-            int mid = left + (right - left) / 2;
 
+    // 升序数组
+    int search(std::vector<int> &nums, int target)
+    {
+        // 目前已习惯使用闭区间
+        int left = 0, right = nums.size() - 1;
+        while (left <= right)
+        {
+            int mid = left + (right - left) / 2;
             if (target == nums[mid])
+            {
                 return mid;
-            if (nums[mid] > target)
-                right = mid;
+            }
+            else if (nums[mid] > target)
+            {
+                right = mid - 1;
+            }
             else
+            {
                 left = mid + 1;
+            }
         }
 
         return -1;
     }
 };
+
 // @lc code=end
