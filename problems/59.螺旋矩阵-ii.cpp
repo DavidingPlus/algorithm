@@ -5,51 +5,46 @@
  */
 
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
 
-class Solution {
+#include <bits/stdc++.h>
+
+
+class Solution
+{
+
 public:
-    // 按照遍历的方式填入值即可
-    vector<vector<int>> generateMatrix(int n) {
-        vector<vector<int>> ret;
-        ret.resize(n);
-        for (auto& row : ret)
-            row.resize(n);
 
-        int up = 0, down = n - 1, left = 0, right = n - 1;
+    std::vector<std::vector<int>> generateMatrix(int n)
+    {
+        // 模拟整个操作的过程，以走一圈为一个周期
+        std::vector<std::vector<int>> res(n, std::vector<int>(n));
 
-        int count = 0;
-        while (1) {
-            // 向右
-            for (int j = left; j <= right; ++j, ++count)
-                ret[up][j] = 1 + count;
-            // 因为结束肯定是在到达边界的时候结束，所以我在这里做判断
-            if (n * n == count)
-                break;
-            ++up;
-            // 向下
-            for (int i = up; i <= down; ++i, ++count)
-                ret[i][right] = 1 + count;
-            if (n * n == count)
-                break;
-            --right;
-            // 向左
-            for (int j = right; j >= left; --j, ++count)
-                ret[down][j] = 1 + count;
-            if (n * n == count)
-                break;
-            --down;
-            // 向上
-            for (int i = down; i >= up; --i, ++count)
-                ret[i][left] = 1 + count;
-            if (n * n == count)
-                break;
-            ++left;
+        int base = 0, num = 1;
+
+        // 知道 base 就知道每个周期的坐标该怎么走了，注意一个周期的边界判断逻辑
+        while (base < n / 2)
+        {
+            // 向右走
+            for (int y = base; y < n - base - 1; ++y) res[base][y] = num++;
+
+            // 向下走
+            for (int x = base; x < n - base - 1; ++x) res[x][n - base - 1] = num++;
+
+            // 向左走
+            for (int y = n - base - 1; y >= base + 1; --y) res[n - base - 1][y] = num++;
+
+            // 向上走
+            for (int x = n - base - 1; x >= base + 1; --x) res[x][base] = num++;
+
+            // 进入下一个迭代
+            ++base;
         }
 
-        return ret;
+        // 如果是奇数的边长需要手动填充中间的值
+        if (n & 1) res[n / 2][n / 2] = n * n;
+
+        return res;
     }
 };
+
 // @lc code=end

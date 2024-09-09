@@ -4,13 +4,8 @@
  * [206] 反转链表
  */
 
-struct ListNode {
-    int val;
-    ListNode* next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+#include "_listnode.h"
+
 
 // @lc code=start
 /**
@@ -24,35 +19,43 @@ struct ListNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <vector>
+#include <bits/stdc++.h>
 
-class Solution {
+
+class Solution
+{
+
 public:
-    // 方法1：迭代做一次
-    // ListNode* reverseList(ListNode* head) {
-    //     // 头插法
-    //     auto res = new ListNode(-1);
 
-    //     for (auto ph = head; ph; ph = ph->next) {
-    //         auto newNode = new ListNode(ph->val);
-    //         newNode->next = res->next;
-    //         res->next = newNode;
-    //     }
-    //     return res->next;
-    // }
+    // 迭代解法
+    ListNode *reverseList(ListNode *head)
+    {
+        // 构造一个新的链表进行头插
+        ListNode *dummyHead = new ListNode(-1, nullptr);
 
-    // 方法2：用递归做
-    ListNode* reverseList(ListNode* head) {
-        // 递归出口（只写head会出现单元素链表越界的问题，因此这里两个都写
-        if (nullptr == head || nullptr == head->next)
-            return head;
+        for (auto pMove = head; pMove; pMove = pMove->next)
+        {
+            ListNode *newNode = new ListNode(pMove->val);
 
-        auto newHead = reverseList(head->next);
-        head->next->next = head;
-        head->next = nullptr;
-        return newHead;
+            newNode->next = dummyHead->next;
+            dummyHead->next = newNode;
+        }
+
+        return dummyHead->next;
     }
+
+    // 递归解法
+    // ListNode *reverseList(ListNode *head)
+    // {
+    //     if (!head) return nullptr;
+    //     if (!head->next) return head;
+
+    //     auto headPrior = reverseList(head->next);
+
+    //     head->next->next = head;
+    //     head->next = nullptr;
+
+    //     return headPrior;
+    // }
 };
 // @lc code=end
