@@ -25,7 +25,8 @@ public:
 
     bool isHappy(int n)
     {
-        // 数学证明参考：https://leetcode.cn/problems/happy-number/solutions/225976/kuai-le-de-zhi-shi-dian-zeng-jia-liao-by-sweetiee/
+        // 结论推导参考：https://leetcode.cn/problems/happy-number/solutions/2840288/yi-mu-liao-ran-de-biao-ge-fen-xi-fu-duo-q2el9/
+        // 1 到 INT_MAX 的所有数在经过迭代以后，都不会超过一个阈值，这个阈值不超过 1000，所以想要每次迭代出一个新的数字并且无限循环是不可能的，必然会重复。如果遇到 1 重复那就是快乐数，遇到其他数重复那就不是快乐数
         // 结论是：当无限循环的时候，一定是走到了环的位置，也就是不会存在一个一直走下去的序列，这就是经典的链表环的快慢指针问题
 
         int fast = n, slow = n;
