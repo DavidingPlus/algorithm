@@ -5,53 +5,44 @@
  */
 
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <string>
-#include <unordered_map>
-#include <vector>
 
-class Solution {
+#include <bits/stdc++.h>
+
+
+class Solution
+{
+
 public:
-    vector<int> findAnagrams(string s1, string s2) {
-        // 这个题和字符串排列那个题没区别啊...
-        vector<int> res;
 
-        if (s2.size() > s1.size())
-            return res;
+    std::vector<int> findAnagrams(std::string s1, std::string s2)
+    {
+        if (s1.length() < s2.length()) return {};
 
-        unordered_map<char, int> um1;
-        for (auto& ch : s2)
-            ++um1[ch];
+        std::array<int, 26> hashP;
+        std::fill(hashP.begin(), hashP.end(), 0);
 
-        unordered_map<char, int> um2;
-        int left = 0, right = 0;
+        for (auto &c : s2) ++hashP[c - 'a'];
 
-        while (right - left < s2.size()) {
-            ++um2[s1[right]];
-            ++right;
-        }
+        std::array<int, 26> hashS;
+        std::fill(hashS.begin(), hashS.end(), 0);
 
-        if (um1 == um2)
-            res.push_back(left);
+        for (int i = 0; i < s2.length(); ++i) ++hashS[s1[i] - 'a'];
 
-        while (right < s1.size()) {
-            // 左边弹出
-            if (1 == um2[s1[left]])
-                um2.erase(s1[left]);
-            else
-                --um2[s1[left]];
-            ++left;
+        std::vector<int> res;
 
-            // 右边进入
-            ++um2[s1[right]];
-            ++right;
+        // 利用滑动窗口扫即可
+        for (int i = 0; i + s2.length() - 1 < s1.length(); ++i)
+        {
+            if (hashS == hashP) res.emplace_back(i);
 
-            if (um1 == um2)
-                res.push_back(left);
+            --hashS[s1[i] - 'a'];
+
+            // 位于数组末尾不用插入下一个，做一个特判
+            if (i + s2.length() < s1.length()) ++hashS[s1[i + s2.length()] - 'a'];
         }
 
         return res;
     }
 };
+
 // @lc code=end
