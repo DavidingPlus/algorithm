@@ -5,32 +5,37 @@
  */
 
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <stack>
-#include <string>
 
-class Solution {
+#include <bits/stdc++.h>
+
+
+class Solution
+{
+
 public:
-    bool check(const stack<char>& sc, const char& ch) {
-        if ((')' == ch && '(' == sc.top()) or
-            (']' == ch && '[' == sc.top()) or
-            ('}' == ch && '{' == sc.top()))
-            return true;
-        return false;
-    }
 
-    bool isValid(string s) {
-        // 我的左括号在层层消除之后最后必然一个都不剩
-        // 以([{}])为例子，设想一个数据结构，存入([{，当我}进来的时候消除}，显然这是一个栈
-        stack<char> sc;
-        for (auto& ch : s) {
-            if (false == sc.empty() && check(sc, ch))
-                sc.pop();
+    bool check(char right, char left) { return (')' == right && '(' == left) || ('}' == right && '{' == left) || (']' == right && '[' == left); }
+
+    bool isValid(std::string s)
+    {
+        // 这是一个标准的栈的模板题。进入的元素与栈顶相匹配，最后如果都能匹配必然会被清空。自己模拟一下过程即可
+
+        std::stack<char> sc;
+
+        for (auto &c : s)
+        {
+            if (!sc.empty())
+            {
+                check(c, sc.top()) ? sc.pop() : sc.push(c);
+            }
             else
-                sc.push(ch);
+            {
+                sc.push(c);
+            }
         }
+
         return sc.empty();
     }
 };
+
 // @lc code=end

@@ -4,13 +4,8 @@
  * [143] 重排链表
  */
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+#include "_listnode.h"
+
 
 // @lc code=start
 /**
@@ -23,35 +18,42 @@ struct ListNode {
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-#include <iostream>
-using namespace std;
-#include <stack>
 
-class Solution {
+#include <bits/stdc++.h>
+
+
+class Solution
+{
+
 public:
-    void reorderList(ListNode *head) {
-        // 如何让单链表从尾部从前面输出呢?
-        // 可以借助栈的特点，从头存进去，然后pop出来就是反向的了
 
-        stack<ListNode *> s;
-        int len = 0;
-        for (auto p = head; p; p = p->next, ++len)
-            s.push(p);
+    void reorderList(ListNode *head)
+    {
+        // 利用双端队列让链表头部一个，尾部一个（这里用数组模拟双端队列）
 
-        // 然后原链表一个，尾部链表一个，直到到达长度
-        auto p = head;
+        std::vector<ListNode *> vec;
 
-        // 走到一半的位置，注意我们的p每一个都是指向原链表的下一个位置，跳过插入的位置，因此就会剩下一半，最后剩的一个也需要做处理
-        for (int i = 0; i < len / 2; ++i) {
-            auto node = s.top();
-            s.pop();
+        for (auto pMove = head; pMove; pMove = pMove->next) vec.push_back(pMove);
 
-            auto tmp = p->next;
-            node->next = p->next;
-            p->next = node;
-            p = tmp;
+        ListNode *dummyHead = new ListNode(-1, nullptr);
+
+        ListNode *pMove = dummyHead;
+        for (int left = 0, right = vec.size() - 1; left <= right; ++left, --right)
+        {
+            pMove->next = vec[left];
+            pMove = pMove->next;
+
+            if (left != right)
+            {
+                pMove->next = vec[right];
+                pMove = pMove->next;
+            }
         }
-        p->next = nullptr;
+
+        // 最后一个指针的末尾需要额外设置为空，不然会内存越界，切记细节！
+        pMove->next = nullptr;
+        head = dummyHead->next;
     }
 };
+
 // @lc code=end

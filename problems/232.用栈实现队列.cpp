@@ -5,47 +5,51 @@
  */
 
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <stack>
 
-class MyQueue {
+#include <bits/stdc++.h>
+
+
+class MyQueue
+{
+
 public:
+
     MyQueue() {}
 
-    void push(int x) {
-        s1.push(x);
-    }
+    void push(int x) { m_inputS.push(x); }
 
-    int pop() {
+    int pop()
+    {
         int res = peek();
-        s2.pop();
+
+        m_outputS.pop();
+
         return res;
     }
 
-    int peek() {
-        if (empty())
-            return -1;
-
-        if (!s2.empty())
-            return s2.top();
-        // 把s1的所有压进s2
-        while (!s1.empty()) {
-            int val = s1.top();
-            s1.pop();
-            s2.push(val);
+    int peek()
+    {
+        if (m_outputS.empty())
+        {
+            while (!m_inputS.empty())
+            {
+                int v = m_inputS.top();
+                m_inputS.pop();
+                m_outputS.push(v);
+            }
         }
-        return s2.top();
+
+        return m_outputS.top();
     }
 
-    bool empty() {
-        return s1.empty() && s2.empty();
-    }
+    bool empty() { return m_inputS.empty() && m_outputS.empty(); }
+
 
 private:
-    // 见图，s1做输入栈，s2做输出栈
-    // 两个栈的输入和输出有限制，输出的时候只能从s2中拿，如果s2空了，就一次性把s1中的所有元素压到s2中，这样顺序就对了
-    stack<int> s1, s2;
+
+    // 见图，m_inputS 做输入栈，m_outputS 做输出栈
+    // 两个栈的输入和输出有限制，输出的时候只能从 m_outputS 中拿，如果 m_outputS 空了，就一次性把 m_inputS 中的所有元素压到 m_outputS 中，这样顺序就对了
+    std::stack<int> m_inputS, m_outputS;
 };
 
 /**

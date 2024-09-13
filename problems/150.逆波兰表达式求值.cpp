@@ -5,55 +5,73 @@
  */
 
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <stack>
-#include <vector>
 
-class Solution {
+#include <bits/stdc++.h>
+
+
+class Solution
+{
+
 public:
-    bool isDigit(const string& ch) {
-        return !(("+" == ch) or
-                 ("-" == ch) or
-                 ("*" == ch) or
-                 ("/" == ch));
-    }
 
-    int calculate(const int& num1, const int& num2, const string& op) {
+    bool check(const std::string &s) { return ("+" == s) || ("-" == s) || ("*" == s) || ("/" == s); }
+
+    int calc(int left, int right, const std::string &op)
+    {
         if ("+" == op)
-            return num1 + num2;
+        {
+            return left + right;
+        }
         else if ("-" == op)
-            return num1 - num2;
+        {
+            return left - right;
+        }
         else if ("*" == op)
-            return num1 * num2;
-        else if ("/" == op)
-            return num1 / num2;
-        return 0;
+        {
+            return left * right;
+        }
+        else
+        {
+            return left / right;
+        }
     }
 
-    int evalRPN(vector<string>& tokens) {
-        if (tokens.empty())
-            return 0;
+    int evalRPN(std::vector<std::string> &tokens)
+    {
+        // 一样的使用栈的思想
 
-        // 画图模拟一下求值的过程，每次都取出最后进来的两个，所以也是栈
-        // 题目给出的式子是一定有含义的
-        stack<int> s;
-        int res = atoi(tokens[0].c_str());  // 为防止就一个数，赋值给初始值的数字
-        for (auto& str : tokens) {
-            if (isDigit(str))
-                s.push(atoi(str.c_str()));
-            else {
-                // 弹出计算值在入栈
-                int num2 = s.top();
-                s.pop();
-                int num1 = s.top();
-                s.pop();
+        // 操作符是不会被压入栈的，因此类型使用 int 即可
+        std::stack<int> ss;
 
-                res = calculate(num1, num2, str);
-                s.push(res);
+        for (auto &s : tokens)
+        {
+            if (!ss.empty())
+            {
+                if (check(s))
+                {
+                    // 开始计算
+                    int right = ss.top();
+                    ss.pop();
+
+                    int left = ss.top();
+                    ss.pop();
+
+                    int res = calc(left, right, s);
+                    ss.push(res);
+                }
+                else
+                {
+                    ss.push(std::stoi(s));
+                }
+            }
+            else
+            {
+                ss.push(std::stoi(s));
             }
         }
-        return res;
+
+        return ss.top();
     }
 };
+
 // @lc code=end
