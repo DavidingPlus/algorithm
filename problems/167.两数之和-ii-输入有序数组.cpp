@@ -4,14 +4,16 @@
  * [167] 两数之和 II - 输入有序数组
  */
 
-#include <iostream>
-#include <vector>
-
 // @lc code=start
+
+#include <bits/stdc++.h>
+
 
 class Solution
 {
+
 public:
+
     std::vector<int> twoSum(std::vector<int> &nums, int target)
     {
         // 两根指针，加起来的值小把左边的指针往右移，大了把右边的指针往左边移动
@@ -22,23 +24,23 @@ public:
 
         // 使用双指针（注意不是二分哈）
         int left = 0, right = nums.size() - 1;
-        while (left < right)
+        while (left <= right)
         {
-            int sum = nums[left] + nums[right];
-            if (target == sum)
+            if (target == nums[left] + nums[right])
             {
-                return {1 + left, 1 + right};
+                return {1 + left, 1 + right}; // 答案要求下标从 1 开始
             }
-            else if (sum > target)
+            else if (nums[left] + nums[right] > target)
             {
                 --right;
             }
-            else if (sum < target)
+            else
             {
                 ++left;
             }
         }
-        return {-1, -1};
+
+        return {};
     }
 };
 

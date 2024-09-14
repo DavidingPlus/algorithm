@@ -5,53 +5,62 @@
  */
 
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <string>
 
-class Solution {
+#include <bits/stdc++.h>
+
+
+class Solution
+{
+
 public:
-    void reverse_range(string& s, int left, int right) {
-        while (left <= right) {
-            char ch = s[left];
-            s[left] = s[right];
-            s[right] = ch;
 
-            ++left;
-            --right;
-        }
-    }
+    std::string reverseWords(std::string s)
+    {
+        // 先切片再合并
+        // 切片利用状态机的思路，当遇到第一个非空的字符，进入字符状态，存储另一个指针往有遍历，知道遇到空字符或者越界结束。空字符就进入下一个循环，越界就计算结束。
 
-    string reverseWords(string s) {
-        // 先去掉多余的空格
-        string res;
-        for (auto& ch : s) {
-            // 先不考虑头尾，有空格只保留一个
-            if (!res.empty() && ' ' == ch && ' ' == res.back())
-                continue;
+        std::vector<std::string> words;
 
-            res += ch;
-        }
-        // 去除头尾
-        if (' ' == res.front())
-            res.erase(res.begin());
-        if (' ' == res.back())
-            res.pop_back();
+        int i = 0;
+        while (1)
+        {
+            if (' ' != s[i])
+            {
+                int j = i;
+                for (; ' ' != s[j] && j < s.size(); ++j)
+                    ;
 
-        // 然后的思路是，先对整个字符串进行反转，然后找到每个字符串分别进行反转...
-        reverse_range(res, 0, res.size() - 1);
+                words.push_back(s.substr(i, j - i));
 
-        int left = 0;
-        for (int i = 0; i < res.size(); ++i)
-            if (' ' == res[i]) {
-                reverse_range(res, left, i - 1);
-                left = i + 1;
+                // 最后一个单词也要写入数组，因此跳出放在后面
+                if (j == s.size()) break;
+
+                i = j;
             }
+            else
+            {
+                ++i;
 
-        // 对最后一个单词做翻转
-        reverse_range(res, left, res.size() - 1);
+                if (i == s.size()) break;
+            }
+        }
+
+        std::string res;
+        for (int i = words.size() - 1; i >= 0; --i)
+        {
+            res += words[i];
+
+            if (i) res += ' ';
+        }
+
 
         return res;
     }
+
+    // TODO 如何在原地修改的情况下，即空间复杂度为 O(1) 下完成本题？
+    // std::string reverseWords(std::string s)
+    // {
+    // }
 };
+
 // @lc code=end
