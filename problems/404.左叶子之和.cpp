@@ -4,14 +4,8 @@
  * [404] 左叶子之和
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+#include "_treenode.h"
+
 
 // @lc code=start
 /**
@@ -26,29 +20,32 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <queue>
+#include <bits/stdc++.h>
 
-class Solution {
+
+class Solution
+{
+
 public:
+
     int res = 0;
 
-    void traverse(TreeNode *root) {
-        if (nullptr == root)
-            return;
+    void traverse(TreeNode *root)
+    {
+        if (!root) return;
 
-        if (root->left && nullptr == root->left->left && nullptr == root->left->right)
-            res += root->left->val;
+        if (root->left && !root->left->left && !root->left->right) res += root->left->val;
 
-        // 左叶子的含义是有父节点并且左右子树为空
         traverse(root->left);
         traverse(root->right);
     }
 
-    int sumOfLeftLeaves(TreeNode *root) {
+    int sumOfLeftLeaves(TreeNode *root)
+    {
         traverse(root);
+
         return res;
     }
 };
+
 // @lc code=end

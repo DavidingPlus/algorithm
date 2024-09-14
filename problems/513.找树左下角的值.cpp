@@ -4,6 +4,9 @@
  * [513] 找树左下角的值
  */
 
+#include "_treenode.h"
+
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -17,78 +20,67 @@
  * };
  */
 
-// struct TreeNode {
-//     int val;
-//     TreeNode *left;
-//     TreeNode *right;
-//     TreeNode() : val(0), left(nullptr), right(nullptr) {}
-//     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-//     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-// };
+#include <bits/stdc++.h>
 
-#include <iostream>
-using namespace std;
-#include <queue>
 
-class Solution {
+class Solution
+{
+
 public:
-    int depth = 0;
-    pair<int, int> val_depth = {0, 0};
 
-    // 我用递归遍历实现这个题
-    void traverse(TreeNode *root) {
-        if (nullptr == root)
-            return;
+    // 解法 1：递归遍历，由于是前序遍历，因此第一次访问到的一定就是当前层最左边的那个
+    // int depth = 0;
+    // std::pair<int, int> res = {0, 0}; // 记录某层最左边元素的层数和值
 
-        ++depth;
-        // 这样递归下去，每次遇到新的一层都是这一层最左边的
-        if (depth > val_depth.second)
-            val_depth = {root->val, depth};
+    // void traverse(TreeNode *root)
+    // {
+    //     if (!root) return;
 
-        traverse(root->left);
-        traverse(root->right);
+    //     ++depth;
 
-        --depth;
-    }
+    //     // 这样设计和判断条件，保证了进入下一层前序遍历访问最左边的元素的时候就能更新 res，同时同层的遍历不会对其造成影响
+    //     if (depth > res.first) res = {depth, root->val};
 
-    int findBottomLeftValue(TreeNode *root) {
-        traverse(root);
+    //     traverse(root->left);
+    //     traverse(root->right);
 
-        return val_depth.first;
-    }
-
-    // 用层次遍历实现这个题
-    //  int findBottomLeftValue(TreeNode *root) {
-    //      if (!root)
-    //          return {};
-
-    //     int ret;
-    //     queue<TreeNode *> q;
-    //     q.push(root);
-
-    //     while (!q.empty()) {
-    //         double sum = 0;
-    //         int count = 0;
-
-    //         int sz = q.size();
-    //         for (int i = 0; i < sz; ++i) {
-    //             auto cur = q.front();
-
-    //             // 遍历完毕自然就是最下层
-    //             if (0 == i)
-    //                 ret = cur->val;
-
-    //             // 将左右子树入队列
-    //             if (cur->left)
-    //                 q.push(cur->left);
-    //             if (cur->right)
-    //                 q.push(cur->right);
-
-    //             q.pop();
-    //         }
-    //     }
-
-    //     return ret;
+    //     --depth;
     // }
+
+    // int findBottomLeftValue(TreeNode *root)
+    // {
+    //     traverse(root);
+
+    //     return res.second;
+    // }
+
+    // 解法 2：层序遍历
+    int findBottomLeftValue(TreeNode *root)
+    {
+        if (!root) return 0;
+
+        std::queue<TreeNode *> q;
+        q.push(root);
+
+        int res = 0;
+
+        while (!q.empty())
+        {
+            int n = q.size();
+            for (int i = 0; i < n; ++i)
+            {
+                auto node = q.front();
+                q.pop();
+
+                if (0 == i) res = node->val;
+
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+        }
+
+        return res;
+    }
 };
+
 // @lc code=end

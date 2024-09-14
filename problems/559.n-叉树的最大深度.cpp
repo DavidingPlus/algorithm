@@ -4,6 +4,9 @@
  * [559] N 叉树的最大深度
  */
 
+#include "_treenode.h"
+
+
 // @lc code=start
 /*
 // Definition for a Node.
@@ -25,62 +28,78 @@ public:
 };
 */
 
-// class Node {
-// public:
-//     int val;
-//     vector<Node*> children;
+#include <bits/stdc++.h>
 
-//     Node() {}
 
-//     Node(int _val) {
-//         val = _val;
-//     }
+class Solution
+{
 
-//     Node(int _val, vector<Node*> _children) {
-//         val = _val;
-//         children = _children;
-//     }
-// };
-
-#include <iostream>
-using namespace std;
-#include <vector>
-
-class Solution {
 public:
-    int depth = 0;  // 用depth变量维护到该结点位置的深度
-    int ret = 0;    // 记录最大深度
 
-    // 第一种思路，我们遍历一遍这个N叉树
-    void traverse(Node* root) {
-        if (!root)
-            return;
+    // 解法 1：遍历一次 N 叉树
+    int depth = 0; // 用 depth 变量维护到该结点位置的深度
+    int res = 0;   // 记录最大深度
 
-        ++depth;                // 到达一个新的结点深度++
-        ret = max(ret, depth);  // 这个结点的深度需要进行比较
+    void traverse(Node *root)
+    {
+        if (!root) return;
 
-        for (auto child : root->children)
-            traverse(child);
+        ++depth;
 
-        --depth;  // 回退
+        if (root->children.empty()) res = std::max(res, depth);
+
+        for (auto &child : root->children) traverse(child);
+
+        --depth;
     }
 
-    int maxDepth(Node* root) {
+    int maxDepth(Node *root)
+    {
         traverse(root);
-        return ret;
+
+        return res;
     }
 
-    // 还是两种思路，这是第二种
-    // int maxDepth(Node* root) {
-    //     if (!root)
-    //         return 0;
 
-    //     int ret = 0;
-    //     for (auto child : root->children)
-    //         // 获得当前节点的所有子树的最大深度
-    //         ret = max(ret, maxDepth(child));
+    // 解法 2：划分为自相似的子问题
+    // int maxDepth(Node *root)
+    // {
+    //     if (!root) return 0;
 
-    //     return 1 + ret;
+    //     int res = 0;
+
+    //     for (auto &child : root->children) res = std::max(res, maxDepth(child));
+
+    //     return 1 + res;
     // }
+
+
+    // 解法 3：层序遍历，另一种遍历思路
+    int maxDepth(Node *root)
+    {
+        if (!root) return 0;
+
+        std::queue<Node *> q;
+        q.push(root);
+
+        int res = 0;
+
+        while (!q.empty())
+        {
+            ++res;
+
+            int n = q.size();
+            for (int i = 0; i < n; ++i)
+            {
+                auto node = q.front();
+                q.pop();
+
+                for (auto &child : node->children) q.push(child);
+            }
+        }
+
+        return res;
+    }
 };
+
 // @lc code=end
