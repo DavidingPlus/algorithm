@@ -4,13 +4,8 @@
  * [112] 路径总和
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+#include "_treenode.h"
+
 
 // @lc code=start
 /**
@@ -25,45 +20,52 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
+#include <bits/stdc++.h>
 
-class Solution {
+
+class Solution
+{
+
 public:
-    // 方法1：遍历二叉树
-    // bool flag = false;
-    // int sum = 0;
 
-    // void traverse(TreeNode *root, int targetSum) {
-    //     if (nullptr == root)
-    //         return;
+    // 解法 1：递归遍历
+    int sum = 0;
+    bool flag = false;
 
-    //     sum += root->val;
-    //     if (nullptr == root->left && nullptr == root->right && targetSum == sum) {
-    //         flag = true;
-    //         return;
-    //     }
+    void traverse(TreeNode *root, int targetSum)
+    {
+        if (!root) return;
 
-    //     traverse(root->left, targetSum);
-    //     traverse(root->right, targetSum);
+        sum += root->val;
 
-    //     sum -= root->val;
-    // }
+        if (!root->left && !root->right && targetSum == sum)
+        {
+            flag = true;
+            return;
+        }
 
-    // bool hasPathSum(TreeNode *root, int targetSum) {
-    //     traverse(root, targetSum);
-    //     return flag;
-    // }
+        traverse(root->left, targetSum);
+        traverse(root->right, targetSum);
 
-    // 方法2：分解问题
-    bool hasPathSum(TreeNode *root, int targetSum) {
-        if (nullptr == root)
-            return false;
+        sum -= root->val;
+    }
 
-        if (targetSum == root->val && nullptr == root->left && nullptr == root->right)
-            return true;
+    bool hasPathSum(TreeNode *root, int targetSum)
+    {
+        traverse(root, targetSum);
+
+        return flag;
+    }
+
+
+    // 方法2：分解为自相似的子问题
+    bool hasPathSum(TreeNode *root, int targetSum)
+    {
+        if (!root) return false;
+        if (!root->left && !root->right) return targetSum == root->val;
 
         return hasPathSum(root->left, targetSum - root->val) || hasPathSum(root->right, targetSum - root->val);
     }
 };
+
 // @lc code=end

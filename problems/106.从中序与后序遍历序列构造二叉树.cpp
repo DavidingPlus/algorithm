@@ -4,14 +4,8 @@
  * [106] 从中序与后序遍历序列构造二叉树
  */
 
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
-};
+#include "_treenode.h"
+
 
 // @lc code=start
 /**
@@ -26,32 +20,34 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 
-class Solution {
+
+class Solution
+{
+
 public:
-    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
-        if (inorder.empty())
-            return nullptr;
 
-        int rootValue = postorder.back();
-        TreeNode* root = new TreeNode(rootValue);
+    // 为了防止在递归中每次创建 std::vector 浪费资源，给出 left 和 right 写一个版本
+    TreeNode *buildTreeFromRange(std::vector<int> &inorder, int inorderLeft, int inorderRight, std::vector<int> &postorder, int postorderLeft, int postorderRight)
+    {
+        // 在递归的过程中，中序遍历和后序遍历的数组的大小时时刻刻是一样的，因此判断条件只需要写一个即可
+        if (inorderLeft > inorderRight) return nullptr;
 
-        auto rootPos = find(inorder.begin(), inorder.end(), rootValue);
-        int leftSize = rootPos - inorder.begin();
+        TreeNode *root = new TreeNode(postorder[postorderRight]);
 
-        vector<int> leftInorder(inorder.begin(), rootPos);
-        vector<int> leftPostorder(postorder.begin(), postorder.begin() + leftSize);
-        vector<int> rightInorder(rootPos + 1, inorder.end());
-        vector<int> rightPostorder(postorder.begin() + leftSize, postorder.end() - 1);
+        // pos 的基准值是 inorderLeft，因此注意坐标的换算
+        int pos = 0;
+        for (; root->val != inorder[inorderLeft + pos]; ++pos)
+            ;
 
-        root->left = buildTree(leftInorder, leftPostorder);
-        root->right = buildTree(rightInorder, rightPostorder);
+        root->left = buildTreeFromRange(inorder, inorderLeft, inorderLeft + pos - 1, postorder, postorderLeft, postorderLeft + pos - 1);
+        root->right = buildTreeFromRange(inorder, inorderLeft + pos + 1, inorderRight, postorder, postorderLeft + pos, postorderRight - 1);
 
         return root;
     }
+
+    TreeNode *buildTree(std::vector<int> &inorder, std::vector<int> &postorder) { return buildTreeFromRange(inorder, 0, inorder.size() - 1, postorder, 0, postorder.size() - 1); }
 };
+
 // @lc code=end

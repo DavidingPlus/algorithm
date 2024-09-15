@@ -4,14 +4,8 @@
  * [105] 从前序与中序遍历序列构造二叉树
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+#include "_treenode.h"
+
 
 // @lc code=start
 /**
@@ -26,34 +20,32 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 
-class Solution {
+
+class Solution
+{
+
 public:
-    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-        int n = preorder.size();
-        if (0 == n)
-            return nullptr;
-        // 按照递归的思维一步一步走就好了
-        // 找到根节点在inorder中的位置
-        int rootIndex = find(inorder.begin(), inorder.end(), preorder[0]) - inorder.begin();
 
-        // 构造根节点
-        auto root = new TreeNode(preorder[0]);
+    // 思路同 106 题
+    TreeNode *buildTreeFromRange(std::vector<int> &preorder, int preorderLeft, int preorderRight, std::vector<int> &inorder, int inorderLeft, int inorderRight)
+    {
+        if (preorderLeft > preorderRight) return nullptr;
 
-        // 构造新的preorder和inorder
-        auto newLeftPreorder = std::vector<int>{preorder.begin() + 1, preorder.begin() + 1 + rootIndex};
-        auto newRightPreorder = std::vector<int>{preorder.begin() + 1 + rootIndex, preorder.end()};
-        auto newLeftInorder = std::vector<int>{inorder.begin(), inorder.begin() + rootIndex};
-        auto newRightInorder = std::vector<int>{inorder.begin() + rootIndex + 1, inorder.end()};
+        TreeNode *root = new TreeNode(preorder[preorderLeft]);
 
-        // 连接
-        root->left = buildTree(newLeftPreorder, newLeftInorder);
-        root->right = buildTree(newRightPreorder, newRightInorder);
+        int pos = 0;
+        for (; inorder[inorderLeft + pos] != root->val; ++pos)
+            ;
+
+        root->left = buildTreeFromRange(preorder, preorderLeft + 1, preorderLeft + pos, inorder, inorderLeft, inorderLeft + pos - 1);
+        root->right = buildTreeFromRange(preorder, preorderLeft + pos + 1, preorderRight, inorder, inorderLeft + pos + 1, inorderRight);
+
         return root;
     }
+
+    TreeNode *buildTree(std::vector<int> &preorder, std::vector<int> &inorder) { return buildTreeFromRange(preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1); }
 };
+
 // @lc code=end

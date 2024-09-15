@@ -4,14 +4,8 @@
  * [654] 最大二叉树
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+#include "_treenode.h"
+
 
 // @lc code=start
 /**
@@ -25,31 +19,34 @@ struct TreeNode {
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-#include <iostream>
-using namespace std;
-#include <vector>
 
-class Solution {
+#include <bits/stdc++.h>
+
+
+class Solution
+{
+
 public:
-    TreeNode *constructMaximumBinaryTree(vector<int> &nums) {
-        return constructMaximumBinaryTree(nums, 0, nums.size() - 1);
-    }
 
-    TreeNode *constructMaximumBinaryTree(vector<int> &nums, int left, int right) {
-        // 取闭区间
-        if (left > right)
-            return nullptr;
+    TreeNode *constructMaximumBinaryTreeFromRange(const std::vector<int> &nums, int left, int right)
+    {
+        if (left > right) return nullptr;
 
-        // 找到最大值的下标
-        int maxIndex = left;
+        int pos = left;
         for (int i = left; i <= right; ++i)
-            maxIndex = nums[i] > nums[maxIndex] ? i : maxIndex;
+        {
+            if (nums[pos] < nums[i]) pos = i;
+        }
 
-        TreeNode *root = new TreeNode(nums[maxIndex]);
-        root->left = constructMaximumBinaryTree(nums, left, maxIndex - 1);
-        root->right = constructMaximumBinaryTree(nums, maxIndex + 1, right);
+        TreeNode *root = new TreeNode(nums[pos]);
+
+        root->left = constructMaximumBinaryTreeFromRange(nums, left, pos - 1);
+        root->right = constructMaximumBinaryTreeFromRange(nums, pos + 1, right);
 
         return root;
     }
+
+    TreeNode *constructMaximumBinaryTree(std::vector<int> &nums) { return constructMaximumBinaryTreeFromRange(nums, 0, nums.size() - 1); }
 };
+
 // @lc code=end
