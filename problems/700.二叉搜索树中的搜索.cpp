@@ -4,14 +4,8 @@
  * [700] 二叉搜索树中的搜索
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+#include "_treenode.h"
+
 
 // @lc code=start
 /**
@@ -26,45 +20,48 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
+#include <bits/stdc++.h>
 
-class Solution {
+
+class Solution
+{
+
 public:
-    // TreeNode *res = nullptr;
 
-    // // 方法1：BST自带的优化过后的遍历
-    // void traverse(TreeNode *root, int val) {
-    //     if (nullptr == root)
-    //         return;
+    // 解法 1：递归遍历（BST 优化版本）
+    TreeNode *res = nullptr;
 
-    //     if (val == root->val) {
-    //         res = root;
-    //         return;
-    //     }
-    //     if (root->val > val)
-    //         traverse(root->left, val);
-    //     else
-    //         traverse(root->right, val);
-    // }
-
-    // TreeNode *searchBST(TreeNode *root, int val) {
-    //     traverse(root, val);
-    //     return res;
-    // }
-
-    // 方法2：分解为自相似的子问题
-    TreeNode *searchBST(TreeNode *root, int val) {
-        if (nullptr == root)
-            return nullptr;
+    void traverse(TreeNode *root, int val)
+    {
+        if (!root) return;
 
         if (val == root->val)
-            return root;
+        {
+            res = root;
 
-        if (root->val > val)
-            return searchBST(root->left, val);
-        else
-            return searchBST(root->right, val);
+            return;
+        }
+
+        root->val > val ? traverse(root->left, val) : traverse(root->right, val);
     }
+
+    TreeNode *searchBST(TreeNode *root, int val)
+    {
+        traverse(root, val);
+
+        return res;
+    }
+
+
+    // 解法 2：分解为自相似的子问题
+    // TreeNode *searchBST(TreeNode *root, int val)
+    // {
+    //     if (!root) return nullptr;
+
+    //     if (val == root->val) return root;
+
+    //     return root->val > val ? searchBST(root->left, val) : searchBST(root->right, val);
+    // }
 };
+
 // @lc code=end

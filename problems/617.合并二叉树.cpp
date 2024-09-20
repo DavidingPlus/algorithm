@@ -4,14 +4,8 @@
  * [617] 合并二叉树
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+#include "_treenode.h"
+
 
 // @lc code=start
 /**
@@ -26,26 +20,31 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
+#include <bits/stdc++.h>
 
-class Solution {
+
+class Solution
+{
+
 public:
-    TreeNode *mergeTrees(TreeNode *root1, TreeNode *root2) {
-        // 递归修改数据结构，等号左边要和等号右边对应，并且注意边界条件
-        if (nullptr == root1 && nullptr == root2)
-            return nullptr;
-        else if (nullptr == root1)
-            return root2;  // 注意是返回root2而不是构造新节点，因为这里root1分支已经没有了，但是root2还可能存在子节点，因此返回root2，相当于直接接上去
-        else if (nullptr == root2)
-            return root1;
+
+    TreeNode *mergeTrees(TreeNode *root1, TreeNode *root2)
+    {
+        if (!root1 && !root2) return nullptr;
+
+        // 将合并后的二叉树合并到 root1 上
+        // root1 为空代表以这个合并结点为根节点的子树只有 root2 的部分，因此直接返回，不需要走下面的逻辑
+        if (!root1) return root2;
+        if (!root2) return root1;
 
         root1->val += root2->val;
 
+        // 递归修改二叉树的结构，注意该如何写这样的模板
         root1->left = mergeTrees(root1->left, root2->left);
         root1->right = mergeTrees(root1->right, root2->right);
 
         return root1;
     }
 };
+
 // @lc code=end

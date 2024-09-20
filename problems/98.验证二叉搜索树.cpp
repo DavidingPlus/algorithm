@@ -4,14 +4,8 @@
  * [98] 验证二叉搜索树
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+#include "_treenode.h"
+
 
 // @lc code=start
 /**
@@ -26,69 +20,99 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <vector>
+#include <bits/stdc++.h>
 
-class Solution {
+
+class Solution
+{
+
 public:
-    // int pre = 0, count = 0;
-    // bool flag = true;
 
-    // 方法1：中序遍历，判断是否满足顺序
-    // void traverse(TreeNode *root) {
-    //     if (nullptr == root)
-    //         return;
+    // 解法 1：最直观的做法，中序遍历导出为数组再判断
+    // std::vector<int> res;
+
+    // void traverse(TreeNode *root)
+    // {
+    //     if (!root) return;
 
     //     traverse(root->left);
 
-    //     // 判断是否满足顺序
-    //     // 特殊维护下第一个
-    //     if (0 == count || root->val > pre) {
-    //         (0 == count) ? ++count : 1;
-    //         pre = root->val;
-    //     } else {
-    //         flag = false;
-    //         return;
-    //     }
+    //     res.emplace_back(root->val);
 
     //     traverse(root->right);
     // }
 
-    // bool isValidBST(TreeNode *root) {
+    // bool isValidBST(TreeNode *root)
+    // {
     //     traverse(root);
-    //     return flag;
+
+    //     for (int i = 0; i < res.size() - 1; ++i)
+    //     {
+    //         if (res[i] >= res[i + 1]) return false;
+    //     }
+
+    //     return true;
     // }
 
-    // 方法2：转化为子问题
-    // TODO
-    bool isValidBST(TreeNode *root) {
-        // 这里有一个坑，就是左右子树根节点满足条件并且左右子树也是BST，整棵树不一定是BST
-        // 例子：(层序遍历) 5 4 6 null null 3 7，注意3在右子树，但是他也符合上述条件
 
-        // 所以我们这里需要判断左右子树的所有结点满足条件
-        // 我们来看左子树满足什么条件：它的所有值都小于根节点，右子树相反
-        // 所以可以维护两个值来记录过程中的最大和最小值
+    // 解法 2：在中序遍历的过程中进行判断
+    int pre = INT_MIN;
+    bool flag = true, isRoot = true;
 
-        // 由于有数据为int类型的边界数据，我们用结点表示
-        return isValidBST(root, nullptr, nullptr);
+    void traverse(TreeNode *root)
+    {
+        if (!root) return;
+
+        traverse(root->left);
+
+        // 使用一个变量存储遍历上一次的值，用来判断中序遍历的结果是否都是递增的
+        // leetcode 你是懂的，给一个根节点为 INT_MIN 的树，导致我还非得加一个 isRoot 的 bool 来进行判断
+        if (isRoot || root->val > pre)
+        {
+            pre = root->val;
+
+            if (isRoot) isRoot = false;
+        }
+        else
+        {
+            flag = false;
+            return;
+        }
+
+
+        traverse(root->right);
     }
 
-    // 这个函数用来判断这个树的所有值都在(min->val,min->val)之间
-    bool isValidBST(TreeNode *root, TreeNode *max, TreeNode *min) {
-        if (nullptr == root)
-            return true;
+    bool isValidBST(TreeNode *root)
+    {
+        traverse(root);
 
-        // 如果max或者min为空，就代表目前来说没有限制
-        // 判断当前结点是否符合要求，在判断左右子树是否符合要求
-        // 在过程中需要实时更新最大值和最小值的要求
-        if (max && root->val >= max->val)
-            return false;
-        if (min && root->val <= min->val)
-            return false;
-
-        return isValidBST(root->left, root, min) &&
-               isValidBST(root->right, max, root);
+        return flag;
     }
+
+
+    // 解法 3：分解为自相似的子问题
+    // bool isValidBST(TreeNode *root) { return isValidBSTWithRange(root, nullptr, nullptr); }
+
+    // bool isValidBSTWithRange(TreeNode *root, TreeNode *min, TreeNode *max)
+    // {
+    //     // TODO 这里有一个坑，就是左右子树根节点满足条件并且左右子树也是 BST，整棵树不一定是 BST
+    //     // 例子：(层序遍历) 5 4 6 null null 3 6，注意 3 在右子树，但是也符合上述条件
+
+    //     // 所以我们这里需要判断左右子树的所有结点满足条件
+    //     // 我们来看左子树满足什么条件：它的所有值都小于根节点，右子树相反
+    //     // 所以可以维护两个值来记录过程中的最大和最小值
+    //     // 注意，在本题二叉搜索树的语境中，这个最大值和最小值是不能被取到的，是开区间
+
+    //     // 由于有数据为 int 类型的边界数据，我们用结点指针表示
+
+    //     if (!root) return true;
+
+    //     if (min && root->val <= min->val) return false;
+    //     if (max && root->val >= max->val) return false;
+
+    //     return isValidBSTWithRange(root->left, min, root) && isValidBSTWithRange(root->right, root, max);
+    // }
 };
+
 // @lc code=end

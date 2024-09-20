@@ -6,7 +6,7 @@
 
 // @lc code=start
 
-#include <vector>
+#include <bits/stdc++.h>
 
 
 class Solution
@@ -16,25 +16,22 @@ public:
 
     int uniquePathsWithObstacles(std::vector<std::vector<int>> &obstacleGrid)
     {
-        int m = obstacleGrid.size();
-        int n = obstacleGrid[0].size();
+        int m = obstacleGrid.size(), n = obstacleGrid[0].size();
 
         std::vector<int> dp(n);
-        dp[0] = 1; // 将第一行纳入统一迭代推导出的合理的初始条件（相当于添加 -1 行）
+        dp[0] = 1;
 
         for (int i = 0; i < m; ++i)
         {
             for (int j = 0; j < n; ++j)
             {
-                // 置障碍物的步数为 0
                 if (1 == obstacleGrid[i][j])
                 {
                     dp[j] = 0;
                 }
-                // 其余同理
                 else
                 {
-                    if (0 != j) dp[j] += dp[j - 1];
+                    if (j) dp[j] += dp[j - 1];
                 }
             }
         }
@@ -42,4 +39,5 @@ public:
         return dp[n - 1];
     }
 };
+
 // @lc code=end
