@@ -1,5 +1,7 @@
 # algorithm
 
+（待修改）
+
 算法学习的仓库，记录了自己和朋友们的算法学习。
 
 注：这些分支各自之间并不关联，只是用于区分工作和存储空间，也不要轻易的进行合并。
@@ -19,5 +21,4 @@
 - feature-chengj-algo-learning：chengj 同学的算法学习。
 
 - feature-xiaoyf-algo-learning：xiaoyf 同学的算法学习。
-
 
