@@ -4,11 +4,7 @@
  * [141] 环形链表
  */
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
-};
+#include "_listnode.h"
 
 // @lc code=start
 /**
@@ -19,21 +15,26 @@ struct ListNode {
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+#include <bits/stdc++.h>
 
-#include <iostream>
-using namespace std;
 
-class Solution {
+class Solution
+{
+
 public:
-    bool hasCycle(ListNode *head) {
-        // 快慢指针，相交代表存在环
+
+    bool hasCycle(ListNode *head)
+    {
+        // 快慢指针，相交代表存在环。
         ListNode *fast = head, *slow = head;
-        while (fast && fast->next) {
+        while (fast && fast->next)
+        {
             fast = fast->next->next;
             slow = slow->next;
-            if (fast == slow)
-                return true;
+
+            if (fast == slow) return true;
         }
+
 
         return false;
     }
