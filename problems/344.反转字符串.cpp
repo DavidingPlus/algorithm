@@ -16,8 +16,8 @@ public:
 
     void reverseString(std::vector<char> &s)
     {
-        // 双指针
-        for (int left = 0, right = s.size() - 1; left <= right; ++left, --right) std::swap(s[left], s[right]);
+        // 双指针的思想即可。
+        for (int left = 0, right = s.size() - 1; left < right; ++left, --right) std::swap(s[left], s[right]);
     }
 };
 
