@@ -1,0 +1,10 @@
+{
+    "labuladong-leetcode.filePath": {
+        "cpp": {
+            "filename": "${id}.${cn_name}.${ext}"
+        },
+        "python3": {
+            "filename": "${id}.${cn_name}.${ext}"
+        }
+    }
+}
