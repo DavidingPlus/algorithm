@@ -107,3 +107,8 @@ public:
  * bool param_2 = obj->hasNext();
  */
 // @lc code=end
+
+
+int main()
+{
+}

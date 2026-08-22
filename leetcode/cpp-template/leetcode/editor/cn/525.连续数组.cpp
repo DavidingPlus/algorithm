@@ -45,3 +45,8 @@ private:
     int presum[N] = {0};  // 注意{1}的初始化只有第一个为1，其余为0
 };
 // @lc code=end
+
+
+int main()
+{
+}

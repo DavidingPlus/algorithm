@@ -54,6 +54,11 @@ public:
 // @lc code=end
 
 
+int main()
+{
+}
+
+
 /*
 // @lcpr case=start
 // [1,1,1,1,1]\n3\n

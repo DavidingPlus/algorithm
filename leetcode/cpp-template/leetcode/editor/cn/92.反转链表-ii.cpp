@@ -86,3 +86,8 @@ public:
     // TODO
 };
 // @lc code=end
+
+
+int main()
+{
+}

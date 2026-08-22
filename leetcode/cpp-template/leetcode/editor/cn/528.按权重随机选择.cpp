@@ -55,3 +55,8 @@ public:
  * int param_1 = obj->pickIndex();
  */
 // @lc code=end
+
+
+int main()
+{
+}

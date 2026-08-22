@@ -43,6 +43,11 @@ public:
 // @lc code=end
 
 
+int main()
+{
+}
+
+
 /*
 // @lcpr case=start
 // [2,7,11,15]\n9\n

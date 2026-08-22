@@ -30,3 +30,8 @@ private:
  * int param_1 = obj->ping(t);
  */
 // @lc code=end
+
+
+int main()
+{
+}

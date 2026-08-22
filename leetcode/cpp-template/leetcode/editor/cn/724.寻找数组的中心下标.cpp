@@ -30,3 +30,8 @@ private:
     int presum[N] = {0};
 };
 // @lc code=end
+
+
+int main()
+{
+}

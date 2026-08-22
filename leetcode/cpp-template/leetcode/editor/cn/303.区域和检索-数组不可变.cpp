@@ -34,3 +34,8 @@ public:
  * int param_1 = obj->sumRange(left,right);
  */
 // @lc code=end
+
+
+int main()
+{
+}

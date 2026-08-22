@@ -62,3 +62,8 @@ private:
  * obj->put(key,value);
  */
 // @lc code=end
+
+
+int main()
+{
+}

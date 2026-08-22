@@ -60,6 +60,11 @@ public:
 // @lc code=end
 
 
+int main()
+{
+}
+
+
 /*
 // @lcpr case=start
 // [[1,4,5],[1,3,4],[2,6]]\n

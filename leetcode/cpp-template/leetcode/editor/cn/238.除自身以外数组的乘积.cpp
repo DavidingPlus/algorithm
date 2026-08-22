@@ -46,3 +46,8 @@ private:
 };
 
 // @lc code=end
+
+
+int main()
+{
+}

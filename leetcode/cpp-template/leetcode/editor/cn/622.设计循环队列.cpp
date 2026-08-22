@@ -61,3 +61,8 @@ private:
  * bool param_6 = obj->isFull();
  */
 // @lc code=end
+
+
+int main()
+{
+}

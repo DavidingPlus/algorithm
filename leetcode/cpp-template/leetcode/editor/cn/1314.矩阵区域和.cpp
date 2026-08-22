@@ -34,3 +34,8 @@ private:
     int presums[N][N] = {0};
 };
 // @lc code=end
+
+
+int main()
+{
+}

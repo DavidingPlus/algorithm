@@ -46,3 +46,8 @@ public:
 };
 
 // @lc code=end
+
+
+int main()
+{
+}

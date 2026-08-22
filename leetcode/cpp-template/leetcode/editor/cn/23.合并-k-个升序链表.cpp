@@ -100,5 +100,10 @@ public:
 
         return res->next;
     }
-    // @lc code=end
+// @lc code=end
+
+
+int main()
+{
+}
 };

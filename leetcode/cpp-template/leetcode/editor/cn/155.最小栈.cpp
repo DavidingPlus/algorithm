@@ -39,3 +39,8 @@ private:
  * int param_4 = obj->getMin();
  */
 // @lc code=end
+
+
+int main()
+{
+}

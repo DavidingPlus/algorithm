@@ -62,3 +62,8 @@ private:
  * int param_6 = obj->popBack();
  */
 // @lc code=end
+
+
+int main()
+{
+}

@@ -61,3 +61,8 @@ private:
  * bool param_4 = obj->empty();
  */
 // @lc code=end
+
+
+int main()
+{
+}

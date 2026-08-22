@@ -62,3 +62,8 @@ public:
  * bool param_1 = obj->find(target);
  */
 // @lc code=end
+
+
+int main()
+{
+}

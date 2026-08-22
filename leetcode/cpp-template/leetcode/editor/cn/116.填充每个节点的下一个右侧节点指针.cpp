@@ -79,3 +79,8 @@ public:
     // Node* connect(Node* root) {}
 };
 // @lc code=end
+
+
+int main()
+{
+}
