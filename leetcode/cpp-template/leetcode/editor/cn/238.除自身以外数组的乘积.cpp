@@ -4,20 +4,22 @@
  * [238] 除自身以外数组的乘积
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
+
 
 const int N = 1e5 + 10;
 
 class Solution {
 public:
     // 这个题不准用除法，那么只能用乘法，加上逆向思维，既然有前缀和自然也有对应的后缀和
-    vector<int> productExceptSelf(vector<int>& nums) {
+    std::vector<int> productExceptSelf(std::vector<int>& nums) {
         _init(nums);
 
-        vector<int> answer;
+        std::vector<int> answer;
         for (int i = 0; i < nums.size(); ++i)
             answer.push_back(premul[i] * sufmul[i + 2]);
 
@@ -25,7 +27,7 @@ public:
     }
 
 private:
-    void _init(vector<int>& nums) {
+    void _init(std::vector<int>& nums) {
         // 处理前缀，处理边界
         premul[0] = 1;
         for (int i = 1; i <= nums.size(); ++i)
@@ -50,4 +52,6 @@ private:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

@@ -4,7 +4,12 @@
  * [102] 二叉树的层序遍历
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,28 +31,25 @@
 //     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 // };
 
-#include <iostream>
-using namespace std;
-#include <queue>
 
 class Solution {
 public:
     // 这是用纯正的层次遍历来实现
-    // vector<vector<int>> levelOrder(TreeNode *root) {
+    // std::vector<std::vector<int>> levelOrder(TreeNode *root) {
     //     if (!root)
     //         return {};
 
-    //     vector<vector<int>> ret;
+    //     std::vector<std::vector<int>> ret;
 
     //     // 层次遍历，对应的是bfs广度优先算法，我们需要用到的是队列
-    //     queue<TreeNode *> q;
+    //     std::queue<TreeNode *> q;
     //     // 将根节点入队列
     //     q.push(root);
 
     //     while (!q.empty()) {
     //         // 一次while循环对应一层while的遍历，就是拿取这一层的结点遍历，然后把他们的子节点插入队列
     //         int sz = q.size();  // for循环会改变q.size()，所以存储
-    //         vector<int> layer;
+    //         std::vector<int> layer;
     //         for (int i = 0; i < sz; ++i) {
     //             auto cur = q.front();
 
@@ -69,7 +71,7 @@ public:
 
     // 我们用递归遍历来实现一下
     int depth = 0;  // 维护一下递归遍历的高度，来看一下是哪一层
-    vector<vector<int>> ret;
+    std::vector<std::vector<int>> ret;
 
     void traverse(TreeNode *root) {
         if (!root)
@@ -90,7 +92,7 @@ public:
         --depth;
     }
 
-    vector<vector<int>> levelOrder(TreeNode *root) {
+    std::vector<std::vector<int>> levelOrder(TreeNode *root) {
         traverse(root);
 
         return ret;
@@ -101,4 +103,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

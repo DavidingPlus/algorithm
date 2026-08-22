@@ -4,16 +4,14 @@
  * [199] 二叉树的右视图
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,20 +24,16 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <queue>
-#include <vector>
 
 class Solution {
 public:
     // 方法1：用层序遍历来解决
-    // vector<int> rightSideView(TreeNode *root) {
+    // std::vector<int> rightSideView(TreeNode *root) {
     //     if (nullptr == root)
     //         return {};
 
-    //     queue<TreeNode *> q;
-    //     vector<int> res;
+    //     std::queue<TreeNode *> q;
+    //     std::vector<int> res;
     //     // 根节点入队
     //     q.push(root);
     //     while (false == q.empty()) {
@@ -62,8 +56,8 @@ public:
     // }
 
     // 方法2：通过遍历二叉树解决问题
-    vector<int> res;
-    vector<int> ref;  // 参考数组，用作检测每一层是否已经访问过
+    std::vector<int> res;
+    std::vector<int> ref;  // 参考数组，用作检测每一层是否已经访问过
     int depth = 0;
 
     void traverse(TreeNode *root) {
@@ -83,7 +77,7 @@ public:
         --depth;
     }
 
-    vector<int> rightSideView(TreeNode *root) {
+    std::vector<int> rightSideView(TreeNode *root) {
         // 初始化ref
         ref.resize(100 + 10);
         std::fill(ref.begin(), ref.end(), 666);
@@ -97,4 +91,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

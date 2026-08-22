@@ -4,16 +4,13 @@
  * [1457] 二叉树中的伪回文路径
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,15 +23,12 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <unordered_map>
 
 class Solution {
 public:
     int oddNum = 0;  // 维护遍历过程中路径的实时奇数个数
     int res = 0;
-    unordered_map<int, int> um;  // 需要用哈希表记录实时的元素和个数关系，方便更新oddNum
+    std::unordered_map<int, int> um;  // 需要用哈希表记录实时的元素和个数关系，方便更新oddNum
 
     void traverse(TreeNode *root) {
         if (nullptr == root)
@@ -63,4 +57,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

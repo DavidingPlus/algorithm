@@ -4,16 +4,13 @@
  * [662] 二叉树最大宽度
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,9 +23,6 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <queue>
 
 class Solution {
 public:
@@ -39,7 +33,7 @@ public:
         if (nullptr == root)
             return 0;
 
-        queue<pair<TreeNode *, int>> q;
+        std::queue<std::pair<TreeNode *, int>> q;
         int res = -1;
         // 根节点入队
         q.push({root, 1});
@@ -64,7 +58,7 @@ public:
                 if (node.first->right)
                     q.push({node.first->right, 2 * node.second});
             }
-            res = max(res, (int)(rightIndex - leftIndex + 1));
+            res = std::max(res, (int)(rightIndex - leftIndex + 1));
         }
         return res;
     }
@@ -74,4 +68,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

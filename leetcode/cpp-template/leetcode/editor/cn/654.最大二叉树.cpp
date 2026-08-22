@@ -4,10 +4,14 @@
  * [654] 最大二叉树
  */
 
-#include "_treenode.h"
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -20,7 +24,6 @@
  * };
  */
 
-#include <bits/stdc++.h>
 
 
 class Solution
@@ -54,4 +57,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

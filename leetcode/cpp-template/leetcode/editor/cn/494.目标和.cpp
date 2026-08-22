@@ -5,9 +5,13 @@
  * [494] 目标和
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <bits/stdc++.h>
+
 
 
 namespace std
@@ -16,7 +20,7 @@ namespace std
     struct hash<std::pair<int, int>>
     {
         // 哈希函数需要加上限定符 const，否则编译器会报错！
-        size_t operator()(const std::pair<int, int> &p) const
+        std::size_t operator()(const std::pair<int, int> &p) const
         {
             return std::hash<int>()(p.first) ^ (std::hash<int>()(p.second) << 1);
         }
@@ -29,7 +33,7 @@ class Solution
 public:
 
     // 解法 1：带 memo 的递归 dp
-    // pair 中存放的是唯一标识某种情形的 left 和 target
+    // std::pair 中存放的是唯一标识某种情形的 left 和 target
     std::unordered_map<std::pair<int, int>, int> m_memo;
 
     int findTargetSumWays(std::vector<int> &nums, int target)
@@ -56,6 +60,8 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }
 
 

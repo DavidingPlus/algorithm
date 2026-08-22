@@ -4,15 +4,16 @@
  * [641] 设计循环双端队列
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
 
 class MyCircularDeque {
 public:
     MyCircularDeque(int k) {
-        v = vector<int>(k);
+        v = std::vector<int>(k);
         capacity = k;
     }
 
@@ -76,7 +77,7 @@ public:
 
 private:
     // 思路和设计单端循环队列一样
-    vector<int> v;
+    std::vector<int> v;
     // 由于可以前插，所以front和tail可以负数，负数取模会返回负数的取模值，加上capacity就是真实的下标，这一点区别需要注意
     int front = 0, tail = 0;
     int capacity = 0;

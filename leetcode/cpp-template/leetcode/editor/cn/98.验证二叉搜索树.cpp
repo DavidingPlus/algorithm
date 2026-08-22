@@ -4,10 +4,14 @@
  * [98] 验证二叉搜索树
  */
 
-#include "_treenode.h"
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -20,7 +24,6 @@
  * };
  */
 
-#include <bits/stdc++.h>
 
 
 class Solution
@@ -94,7 +97,7 @@ public:
     // 解法 3：分解为自相似的子问题
     // bool isValidBST(TreeNode *root) { return isValidBSTWithRange(root, nullptr, nullptr); }
 
-    // bool isValidBSTWithRange(TreeNode *root, TreeNode *min, TreeNode *max)
+    // bool isValidBSTWithRange(TreeNode *root, TreeNode *std::min, TreeNode *std::max)
     // {
     //     // TODO 这里有一个坑，就是左右子树根节点满足条件并且左右子树也是 BST，整棵树不一定是 BST
     //     // 例子：(层序遍历) 5 4 6 null null 3 6，注意 3 在右子树，但是也符合上述条件
@@ -108,10 +111,10 @@ public:
 
     //     if (!root) return true;
 
-    //     if (min && root->val <= min->val) return false;
-    //     if (max && root->val >= max->val) return false;
+    //     if (std::min && root->val <= std::min->val) return false;
+    //     if (std::max && root->val >= std::max->val) return false;
 
-    //     return isValidBSTWithRange(root->left, min, root) && isValidBSTWithRange(root->right, root, max);
+    //     return isValidBSTWithRange(root->left, std::min, root) && isValidBSTWithRange(root->right, root, std::max);
     // }
 };
 
@@ -120,4 +123,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

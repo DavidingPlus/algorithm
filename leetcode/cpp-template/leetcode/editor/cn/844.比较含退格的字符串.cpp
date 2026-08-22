@@ -4,9 +4,13 @@
  * [844] 比较含退格的字符串
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <bits/stdc++.h>
+
 
 
 class Solution
@@ -37,4 +41,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

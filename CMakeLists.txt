@@ -1,6 +1,9 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required (VERSION 3.29)
 
-project(algorithm)
+set (CMAKE_C_COMPILER "gcc")
+set (CMAKE_CXX_COMPILER "g++")
 
-add_subdirectory(leetcode/cpp-template)
-add_subdirectory(hello-algo)
+project (algorithm)
+
+add_subdirectory (leetcode/cpp-template)
+add_subdirectory (hello-algo)

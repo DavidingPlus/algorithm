@@ -4,7 +4,12 @@
  * [264] 丑数 II
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 class Solution {
 public:
     int nthUglyNumber(int n) {
@@ -16,4 +21,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

@@ -4,16 +4,13 @@
  * [543] 二叉树的直径
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -25,8 +22,6 @@ struct TreeNode {
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-#include <iostream>
-using namespace std;
 
 class Solution {
 public:
@@ -48,9 +43,9 @@ public:
 
         // 如果我这里改为后序遍历，我就能够在下面获得函数的返回值，进而在一次遍历的时候就能够获得过该节点的最大直径
         // 这个思路算是遍历加上划分为子问题合起来吧...
-        res = max(res, leftDepth + rightDepth);
+        res = std::max(res, leftDepth + rightDepth);
 
-        return 1 + max(leftDepth, rightDepth);
+        return 1 + std::max(leftDepth, rightDepth);
     }
 };
 // @lc code=end
@@ -58,4 +53,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

@@ -4,7 +4,12 @@
  * [144] 二叉树的前序遍历
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -18,9 +23,9 @@
  */
 class Solution {
 public:
-    vector<int> ret;  // 用一个全局变量来维护返回的值
+    std::vector<int> ret;  // 用一个全局变量来维护返回的值
 
-    vector<int> preorderTraversal(TreeNode* root) {
+    std::vector<int> preorderTraversal(TreeNode* root) {
         if (!root)
             return {};
 
@@ -37,4 +42,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

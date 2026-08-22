@@ -4,15 +4,17 @@
  * [240] 搜索二维矩阵 II
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
+
 
 class Solution {
 public:
     // 这个矩阵和前面一个题的性质不同，需要注意
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+    bool searchMatrix(std::vector<std::vector<int>>& matrix, int target) {
         // 这个矩阵从左到右增加，从上到下增加
         // 所以我们没有办法知道下一行的第一个元素和上一行的最后一个元素之间的关系
         // 所以我们从右上角开始，target小于我我就往左走，大于我就往右走，找到了就返回，越界表示找不到
@@ -36,4 +38,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

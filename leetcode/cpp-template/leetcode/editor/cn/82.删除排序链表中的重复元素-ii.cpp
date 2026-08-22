@@ -4,9 +4,14 @@
  * [82] 删除排序链表中的重复元素 II
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 /**
- * Definition for singly-linked list.
+ * Definition for singly-linked std::list.
  * struct ListNode {
  *     int val;
  *     ListNode *next;
@@ -15,8 +20,6 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-#include <iostream>
-using namespace std;
 
 // struct ListNode {
 //     int val;
@@ -71,4 +74,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

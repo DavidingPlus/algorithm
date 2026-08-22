@@ -4,14 +4,10 @@
  * [173] 二叉搜索树迭代器
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
 /**
@@ -26,15 +22,11 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <stack>
-#include <vector>
 
 class BSTIterator {
 public:
     // 自己的方法：时间复杂度高
-    // vector<int> vals;
+    // std::vector<int> vals;
 
     // // 二叉搜索树的中序遍历就是按照顺序排序的结果
     // void traverse(TreeNode *root) {
@@ -70,7 +62,7 @@ public:
     // 我们需要模拟中序遍历的过程
 
     // 用一个栈来存储遍历的结果
-    stack<TreeNode *> s;
+    std::stack<TreeNode *> s;
 
     // 左子树一直到底
     void push_left_branch(TreeNode *p) {

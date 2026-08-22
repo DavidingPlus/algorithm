@@ -4,9 +4,13 @@
  * [232] 用栈实现队列
  */
 
-// @lc code=start
 
 #include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
+// @lc code=start
+
 
 
 class MyQueue

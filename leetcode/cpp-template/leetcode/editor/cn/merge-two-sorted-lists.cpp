@@ -6,15 +6,15 @@
  */
 
 
-#include <iostream>
-#include <vector>
-#include <string>
+
+
+
+#include <bits/stdc++.h>
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 
-using namespace std;
-
 // @lc code=start
+
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
@@ -79,4 +79,3 @@ int main() {
 // @lcpr case=end
 
  */
-

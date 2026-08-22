@@ -4,16 +4,13 @@
  * [623] 在二叉树中增加一行
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,9 +23,6 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <queue>
 
 class Solution {
 public:
@@ -44,7 +38,7 @@ public:
             return newRoot;
         }
 
-        queue<TreeNode *> q;
+        std::queue<TreeNode *> q;
         q.push(root);
         int dep = 0;  // 记录深度
         while (false == q.empty()) {
@@ -83,4 +77,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

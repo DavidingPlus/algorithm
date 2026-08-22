@@ -4,16 +4,20 @@
  * [559] N 叉树的最大深度
  */
 
-#include "_treenode.h"
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /*
 // Definition for a Node.
 class Node {
 public:
     int val;
-    vector<Node*> children;
+    std::vector<Node*> children;
 
     Node() {}
 
@@ -21,14 +25,24 @@ public:
         val = _val;
     }
 
-    Node(int _val, vector<Node*> _children) {
+    Node(int _val, std::vector<Node*> _children) {
         val = _val;
         children = _children;
     }
 };
 */
 
-#include <bits/stdc++.h>
+
+class Node {
+public:
+    int val;
+    std::vector<Node *> children;
+
+    Node() : val(0) {}
+    Node(int _val) : val(_val) {}
+    Node(int _val, std::vector<Node *> _children)
+        : val(_val), children(std::move(_children)) {}
+};
 
 
 class Solution
@@ -75,6 +89,7 @@ public:
 
 
     // 解法 3：层序遍历，另一种遍历思路
+#if 0
     int maxDepth(Node *root)
     {
         if (!root) return 0;
@@ -100,6 +115,7 @@ public:
 
         return res;
     }
+#endif
 };
 
 // @lc code=end
@@ -107,4 +123,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

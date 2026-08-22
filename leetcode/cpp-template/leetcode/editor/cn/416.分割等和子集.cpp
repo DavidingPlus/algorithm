@@ -4,10 +4,13 @@
  * [416] 分割等和子集
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <vector>
-#include <iostream>
+
 
 class Solution
 {
@@ -58,4 +61,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

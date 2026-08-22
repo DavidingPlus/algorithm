@@ -4,16 +4,18 @@
  * [528] 按权重随机选择
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
+
 
 class Solution {
 private:
-    vector<int> preSum{0};
+    std::vector<int> preSum{0};
 
-    int binarySearch(const vector<int>& nums, int target) {
+    int binarySearch(const std::vector<int>& nums, int target) {
         int left = 0, right = nums.size() - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
@@ -29,7 +31,7 @@ private:
     }
 
 public:
-    Solution(vector<int>& w) {
+    Solution(std::vector<int>& w) {
         for (int i = 1; i <= w.size(); ++i)
             preSum.push_back(w[i - 1] + preSum[i - 1]);
     }

@@ -4,10 +4,12 @@
  * [1670] 设计前中后队列
  */
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <deque>
 
 // TODO 后续自己用链表手搓一遍
 class FrontMiddleBackQueue {
@@ -48,7 +50,7 @@ public:
     }
 
 private:
-    deque<int> d;
+    std::deque<int> d;
 };
 
 /**

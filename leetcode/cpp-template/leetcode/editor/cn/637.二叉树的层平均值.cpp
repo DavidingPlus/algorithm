@@ -4,7 +4,12 @@
  * [637] 二叉树的层平均值
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,20 +31,16 @@
 //     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 // };
 
-#include <iostream>
-using namespace std;
-#include <queue>
-#include <vector>
 
 class Solution {
 public:
-    vector<double> averageOfLevels(TreeNode *root) {
+    std::vector<double> averageOfLevels(TreeNode *root) {
         if (!root)
             return {};
 
-        vector<double> ret;
+        std::vector<double> ret;
 
-        queue<TreeNode *> q;
+        std::queue<TreeNode *> q;
         q.push(root);
 
         while (!q.empty()) {
@@ -72,4 +73,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

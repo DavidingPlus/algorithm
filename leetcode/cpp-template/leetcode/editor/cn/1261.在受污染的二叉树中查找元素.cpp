@@ -4,7 +4,12 @@
  * [1261] 在受污染的二叉树中查找元素
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,14 +31,11 @@
 //     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 // };
 
-#include <iostream>
-using namespace std;
-#include <unordered_map>
 
 class FindElements {
 public:
     // 用一个哈希表来存储树当中的值，为0表示不存在(默认)，为1表示存在
-    unordered_map<int, int> hash;
+    std::unordered_map<int, int> hash;
 
     // 需要传入一个参数设定树根的初始值为0
     void traverse(TreeNode *root, int val) {

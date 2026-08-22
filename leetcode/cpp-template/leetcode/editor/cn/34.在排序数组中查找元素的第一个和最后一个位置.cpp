@@ -4,9 +4,13 @@
  * [34] 在排序数组中查找元素的第一个和最后一个位置
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <bits/stdc++.h>
+
 
 
 class Solution
@@ -79,4 +83,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

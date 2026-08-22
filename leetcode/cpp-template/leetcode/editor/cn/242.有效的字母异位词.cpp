@@ -4,9 +4,13 @@
  * [242] 有效的字母异位词
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <bits/stdc++.h>
+
 
 
 class Solution
@@ -37,4 +41,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

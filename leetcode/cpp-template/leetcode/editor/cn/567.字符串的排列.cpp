@@ -4,24 +4,25 @@
  * [567] 字符串的排列
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <string>
-#include <unordered_map>
+
 
 class Solution {
 public:
-    bool checkInclusion(string s1, string s2) {
+    bool checkInclusion(std::string s1, std::string s2) {
         // 滑动窗口，首先s1的大小一定等于s2的大小，让s2的滑动窗口保持s1的长度，然后去判断两个是否满足条件即可
         if (s1.size() > s2.size())
             return false;
 
-        unordered_map<char, int> um1;
+        std::unordered_map<char, int> um1;
         for (auto& ch : s1)
             ++um1[ch];  // 存在++，不存在会创建并且赋初值0，然后++
 
-        unordered_map<char, int> um2;
+        std::unordered_map<char, int> um2;
         int left = 0, right = 0;  // 区间选定左闭右开
 
         // 先移动到区间长度相等的位置
@@ -60,4 +61,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

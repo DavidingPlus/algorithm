@@ -4,14 +4,13 @@
  * [235] 二叉搜索树的最近公共祖先
  */
 
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -22,23 +21,20 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <vector>
 
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        vector<TreeNode*> pp, qp;
+        std::vector<TreeNode*> pp, qp;
 
         // 拿到路径
         find(root, p->val, pp);
         find(root, q->val, qp);
 
-        for (auto& node : pp) cout << node->val << ' ';
-        cout << endl;
-        for (auto& node : qp) cout << node->val << ' ';
-        cout << endl;
+        for (auto& node : pp) std::cout << node->val << ' ';
+        std::cout << std::endl;
+        for (auto& node : qp) std::cout << node->val << ' ';
+        std::cout << std::endl;
 
         // 从头开始比较
         int i = 0;
@@ -56,7 +52,7 @@ public:
     }
 
     // 二叉搜索树可以进行优化
-    TreeNode* find(TreeNode* root, int target, vector<TreeNode*>& path) {
+    TreeNode* find(TreeNode* root, int target, std::vector<TreeNode*>& path) {
         if (nullptr == root)
             return nullptr;
 
@@ -81,4 +77,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

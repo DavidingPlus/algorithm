@@ -4,16 +4,13 @@
  * [971] 翻转二叉树以匹配先序遍历
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,18 +23,15 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <vector>
 
 class Solution {
 public:
-    vector<int> ret;
+    std::vector<int> ret;
     int i = 0;  // 维护一个指针指向voyage的访问位置
     bool flag = true;
 
     // 我维护一个这个结点的父节点，用来进行交换的操作
-    void traverse(TreeNode *root, vector<int> &voyage, TreeNode *father) {
+    void traverse(TreeNode *root, std::vector<int> &voyage, TreeNode *father) {
         if (nullptr == root || !flag)
             return;
 
@@ -65,7 +59,7 @@ public:
         traverse(root->right, voyage, root);
     }
 
-    vector<int> flipMatchVoyage(TreeNode *root, vector<int> &voyage) {
+    std::vector<int> flipMatchVoyage(TreeNode *root, std::vector<int> &voyage) {
         // 在前序遍历过程中，当我遇到一个顺序不符合voyage的时候，该怎么办？
         // 我们想，一个结点最多就两个子树，那么我这个节点的下一个遍历的位置肯定只有左右子树两种情况
         // 所以我尝试翻转这个根节点，如果翻转之后当前仍不能匹配，那么肯定无解，如此递归
@@ -93,4 +87,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

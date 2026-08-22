@@ -4,16 +4,18 @@
  * [1094] 拼车
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
+
 
 const int N = 1e3 + 10;
 
 class Solution {
 public:
-    bool carPooling(vector<vector<int>>& trips, int capacity) {
+    bool carPooling(std::vector<std::vector<int>>& trips, int capacity) {
         // 各个站的人可以构成一个数组
         // 不同批次的顾客在某个站下，某个站上，因此某个区间站的人会进行修改，因此可以用到差分数组
         int dif[N] = {0};
@@ -23,7 +25,7 @@ public:
         for (auto& trip : trips) {
             dif[trip[1]] += trip[0];
             dif[trip[2]] -= trip[0];  // 下车的时候这站的人数已经减少了，所以下了的人不参与进来
-            max_station = max(max_station, trip[2]);
+            max_station = std::max(max_station, trip[2]);
         }
 
         int num = 0;
@@ -40,4 +42,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

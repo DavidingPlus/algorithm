@@ -4,9 +4,13 @@
  * [518] 零钱兑换 II
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <bits/stdc++.h>
+
 
 
 class Solution
@@ -19,7 +23,7 @@ public:
         int n = coins.size();
 
         // 经典完全背包问题，dp[i][j] 表示使用前 i 个凑成面额 j 的组合数（i 从 0 开始）
-        // 二维 vector 可以这样初始化，第一个参数是第一维的大小，第二个参数就是初始化第二维的 vector
+        // 二维 std::vector 可以这样初始化，第一个参数是第一维的大小，第二个参数就是初始化第二维的 std::vector
         std::vector<std::vector<int>> dp(n, std::vector<int>(1 + amount));
 
         // 初始化第一行
@@ -47,4 +51,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

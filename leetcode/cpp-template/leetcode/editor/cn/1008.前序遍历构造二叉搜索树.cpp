@@ -4,16 +4,13 @@
  * [1008] 前序遍历构造二叉搜索树
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,20 +23,17 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <vector>
 
 class Solution {
 public:
-    TreeNode *bstFromPreorder(vector<int> &preorder) {
+    TreeNode *bstFromPreorder(std::vector<int> &preorder) {
         // 在preorder当中，除了根节点，第一个小于它的值，就是左子树的根节点；第一个大于他的值就是右子树的根节点
 
         return bstFromPreorder(preorder, 0, preorder.size() - 1);
     }
 
     // left和right是我要处理的preorder的区间，范围是[left,right]
-    TreeNode *bstFromPreorder(vector<int> &preorder, int left, int right) {
+    TreeNode *bstFromPreorder(std::vector<int> &preorder, int left, int right) {
         // 如果left大于right，则表明该子树不存在
         if (left > right)
             return nullptr;
@@ -66,4 +60,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

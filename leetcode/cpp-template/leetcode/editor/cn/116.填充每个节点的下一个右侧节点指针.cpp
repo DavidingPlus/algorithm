@@ -19,7 +19,12 @@ public:
         : val(_val), left(_left), right(_right), next(_next) {}
 };
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 /*
 // Definition for a Node.
 class Node {
@@ -38,9 +43,6 @@ public:
 };
 */
 
-#include <iostream>
-using namespace std;
-#include <queue>
 
 class Solution {
 public:
@@ -49,7 +51,7 @@ public:
         if (nullptr == root)
             return nullptr;
 
-        queue<Node*> q;
+        std::queue<Node*> q;
         // 将根节点入队
         q.push(root);
         while (false == q.empty()) {
@@ -83,4 +85,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

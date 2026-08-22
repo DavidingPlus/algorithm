@@ -4,16 +4,13 @@
  * [987] 二叉树的垂序遍历
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,14 +23,11 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <vector>
 
 class Solution {
 public:
-    vector<vector<int>> ret;
-    vector<vector<int>> depths;                        // 与上面同步存储行的坐标
+    std::vector<std::vector<int>> ret;
+    std::vector<std::vector<int>> depths;                        // 与上面同步存储行的坐标
     int col = 1;                                       // 维护列号，为了保证根节点和子树一致，初始值取为1，假设有一个虚拟根节点
     int depth = -1;                                    // 维护深度，根节点为0
     int min_col = __INT_MAX__, max_col = __INT_MAX__;  // 维护遍历过程中遇到的最大列号和行号来确定插入的位置
@@ -101,14 +95,14 @@ public:
         --depth;
     }
 
-    vector<vector<int>> verticalTraversal(TreeNode *root) {
+    std::vector<std::vector<int>> verticalTraversal(TreeNode *root) {
         traverse(root, true);
 
         return ret;
     }
 
     // 实现一个二分查找，返回target或者找不到的时候大于target的最小的元素的下标
-    int binary_search(vector<int> &nums, int left, int right, int target) {
+    int binary_search(std::vector<int> &nums, int left, int right, int target) {
         while (left < right) {
             int mid = left + right >> 1;
 
@@ -129,4 +123,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

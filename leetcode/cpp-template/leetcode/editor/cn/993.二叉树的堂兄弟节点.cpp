@@ -4,16 +4,13 @@
  * [993] 二叉树的堂兄弟节点
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,15 +23,12 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <vector>
 
 class Solution {
 public:
     bool is_x_visited = false, is_y_visited = false;
     int depth = -1;
-    vector<pair<int, TreeNode *>> info;  // 记录两个结点的相关信息
+    std::vector<std::pair<int, TreeNode *>> info;  // 记录两个结点的相关信息
 
     // 我们在遍历的过程中存储父节点
     void traverse(TreeNode *root, TreeNode *father, int x, int y) {
@@ -71,4 +65,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

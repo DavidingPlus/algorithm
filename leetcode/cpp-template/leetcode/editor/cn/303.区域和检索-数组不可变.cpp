@@ -4,10 +4,12 @@
  * [303] 区域和检索 - 数组不可变
  */
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
 
 const int N = 1e4 + 10;
 
@@ -17,7 +19,7 @@ private:
     int preSum[N] = {0};
 
 public:
-    NumArray(vector<int>& nums) {
+    NumArray(std::vector<int>& nums) {
         // 前缀和数组为了避免边界条件，下标从1开始
         for (int i = 1; i <= nums.size(); ++i)
             preSum[i] = preSum[i - 1] + nums[i - 1];

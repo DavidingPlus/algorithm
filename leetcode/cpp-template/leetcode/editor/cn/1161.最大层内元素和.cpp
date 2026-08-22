@@ -4,7 +4,13 @@
  * [1161] 最大层内元素和
  */
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,9 +32,6 @@
 //     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 // };
 
-#include <iostream>
-using namespace std;
-#include <queue>
 
 class Solution {
 public:
@@ -37,11 +40,11 @@ public:
         if (!root)
             return 0;
 
-        pair<int, int> depth_sum;  // 存储返回值的层数和元素之和
+        std::pair<int, int> depth_sum;  // 存储返回值的层数和元素之和
         depth_sum.first = 1;
         depth_sum.second = root->val;
 
-        queue<TreeNode *> q;
+        std::queue<TreeNode *> q;
         q.push(root);
 
         int depth = 1;  // 维护实时层数
@@ -81,4 +84,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

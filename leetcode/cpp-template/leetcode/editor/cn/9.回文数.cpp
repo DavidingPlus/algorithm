@@ -4,14 +4,16 @@
  * [9] 回文数
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <string>
+
 
 class Solution {
 public:
-    bool isPalindromeString(const string& str) {
+    bool isPalindromeString(const std::string& str) {
         // 滑动窗口左右扩张
         int right = str.size() / 2;
         int left = (str.size() & 1) ? right : right - 1;
@@ -28,7 +30,7 @@ public:
         if (x < 0)
             return false;
 
-        return isPalindromeString(to_string(x));
+        return isPalindromeString(std::to_string(x));
     }
 };
 // @lc code=end
@@ -36,4 +38,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

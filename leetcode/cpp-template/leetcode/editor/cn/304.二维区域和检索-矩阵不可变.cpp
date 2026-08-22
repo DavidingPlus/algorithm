@@ -4,10 +4,11 @@
  * [304] 二维区域和检索 - 矩阵不可变
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
 
 const int N = 200 + 10;
 
@@ -16,7 +17,7 @@ private:
     int preSum[N][N] = {{0}};
 
 public:
-    NumMatrix(vector<vector<int>>& matrix) {
+    NumMatrix(std::vector<std::vector<int>>& matrix) {
         // 同一维的思路，只是复杂了一些
         for (int i = 1; i <= matrix.size(); ++i) {
             for (int j = 1; j <= matrix.front().size(); ++j)

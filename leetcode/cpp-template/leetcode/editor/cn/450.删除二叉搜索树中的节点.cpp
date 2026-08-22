@@ -4,16 +4,13 @@
  * [450] 删除二叉搜索树中的节点
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -25,8 +22,6 @@ struct TreeNode {
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-#include <iostream>
-using namespace std;
 
 class Solution {
 public:
@@ -145,4 +140,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

@@ -4,16 +4,13 @@
  * [95] 不同的二叉搜索树 II
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -25,20 +22,17 @@ struct TreeNode {
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-#include <iostream>
-using namespace std;
-#include <vector>
 
 class Solution {
 public:
-    vector<TreeNode *> generateTrees(int n) {
+    std::vector<TreeNode *> generateTrees(int n) {
         // 这个题的思路和前面是一样的，都是针对不用值的根节点分左右，然后递归构造
         // 只不过这里的左右子树是一个列表，需要弄完之后一一把可能的BST都构造出来
         return build(1, n);
     }
 
-    vector<TreeNode *> build(int left, int right) {
-        vector<TreeNode *> res;
+    std::vector<TreeNode *> build(int left, int right) {
+        std::vector<TreeNode *> res;
 
         // 大于表示子树为空，代表返回空指针
         if (left > right) {
@@ -69,4 +63,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

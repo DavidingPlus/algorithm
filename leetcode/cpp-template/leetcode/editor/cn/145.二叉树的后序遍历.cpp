@@ -4,7 +4,12 @@
  * [145] 二叉树的后序遍历
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -18,9 +23,9 @@
  */
 class Solution {
 public:
-    vector<int> ret;
+    std::vector<int> ret;
 
-    vector<int> postorderTraversal(TreeNode* root) {
+    std::vector<int> postorderTraversal(TreeNode* root) {
         if (!root)
             return {};
 
@@ -38,4 +43,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

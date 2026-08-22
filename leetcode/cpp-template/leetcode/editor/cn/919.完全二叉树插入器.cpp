@@ -5,11 +5,13 @@
  * [919] 完全二叉树插入器
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <bits/stdc++.h>
 
-#include "_treenode.h"
 
 
 class CBTInserter

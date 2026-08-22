@@ -4,11 +4,12 @@
  * [48] 旋转图像
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <algorithm>
-#include <vector>
+
 
 class Solution {
 public:
@@ -18,7 +19,7 @@ public:
         b = tmp;
     }
 
-    void rotate(vector<vector<int>>& matrix) {
+    void rotate(std::vector<std::vector<int>>& matrix) {
         // 这题和之前那个反转字符串比较类似，那个题的思路是先反转整个字符串，然后再反转各自的字符串得到最终结果
         // 这个题的巧妙之处就在于先做镜像对称，然后再对每一行做翻转即可...
         // 当然，画图之后我们发现如果顺时针就对主对角线做镜像对称，逆时针就对副对角线做镜像对称
@@ -27,11 +28,11 @@ public:
         // 沿主对角线做镜像对称
         for (int i = 0; i < n; ++i)
             for (int j = i + 1; j < n; ++j)
-                swap(matrix[i][j], matrix[j][i]);
+                std::swap(matrix[i][j], matrix[j][i]);
 
         // 每行做翻转
         for (auto& nums : matrix)
-            reverse(nums.begin(), nums.end());
+            std::reverse(nums.begin(), nums.end());
     }
 };
 // @lc code=end
@@ -39,4 +40,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

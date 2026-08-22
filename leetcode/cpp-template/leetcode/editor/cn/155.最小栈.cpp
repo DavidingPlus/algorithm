@@ -4,10 +4,11 @@
  * [155] 最小栈
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <stack>
 
 class MinStack {
 public:
@@ -15,7 +16,7 @@ public:
 
     void push(int val) {
         s.push({val,
-                s.empty() ? val : min(s.top().second, val)});
+                s.empty() ? val : std::min(s.top().second, val)});
     }
 
     void pop() { s.pop(); }
@@ -26,8 +27,8 @@ public:
 
 private:
     // 由于下层的最小值与上层无关，因为需要访问下层的最小值的时候上层早就弹出了，因此对于每一层可以维护一个最小值，这样插入的时候就能够很方便的判断了
-    // 为了节省空间，我就拿pair存了
-    stack<pair<int, int>> s;
+    // 为了节省空间，我就拿std::pair存了
+    std::stack<std::pair<int, int>> s;
 };
 
 /**

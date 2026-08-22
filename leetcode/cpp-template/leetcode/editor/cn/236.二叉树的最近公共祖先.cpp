@@ -4,14 +4,14 @@
  * [236] 二叉树的最近公共祖先
  */
 
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-};
+
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -22,14 +22,11 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <vector>
 
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        vector<TreeNode*> pp, qp;
+        std::vector<TreeNode*> pp, qp;
 
         // 拿到路径
         find(root, p->val, pp);
@@ -52,7 +49,7 @@ public:
 
     // 遍历找到某个节点，然后得到路径
     // 将问题转化为子问题和遍历相加的思路。。。
-    TreeNode* find(TreeNode* root, int target, vector<TreeNode*>& path) {
+    TreeNode* find(TreeNode* root, int target, std::vector<TreeNode*>& path) {
         if (nullptr == root)
             return nullptr;
 
@@ -80,4 +77,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

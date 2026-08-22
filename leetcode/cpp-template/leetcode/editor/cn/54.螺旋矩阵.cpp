@@ -4,15 +4,17 @@
  * [54] 螺旋矩阵
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
+
 
 class Solution {
 public:
-    vector<int> spiralOrder(const vector<vector<int>>& matrix) {
-        vector<int> res;
+    std::vector<int> spiralOrder(const std::vector<std::vector<int>>& matrix) {
+        std::vector<int> res;
 
         // 给定四个遍历的边界，因为遍历的顺序是确定的
         int m = matrix.size(), n = matrix.front().size();
@@ -54,4 +56,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

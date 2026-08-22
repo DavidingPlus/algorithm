@@ -4,18 +4,19 @@
  * [739] 每日温度
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <stack>
-#include <vector>
+
 
 class Solution {
 public:
-    vector<int> dailyTemperatures(vector<int>& temperatures) {
+    std::vector<int> dailyTemperatures(std::vector<int>& temperatures) {
         // 单调栈，只不过这一次栈里面存入的是下标
-        stack<int> s;
-        vector<int> res(temperatures.size());
+        std::stack<int> s;
+        std::vector<int> res(temperatures.size());
 
         for (int i = temperatures.size() - 1; i >= 0; --i) {
             while (false == s.empty() && temperatures[i] >= temperatures[s.top()])
@@ -32,4 +33,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

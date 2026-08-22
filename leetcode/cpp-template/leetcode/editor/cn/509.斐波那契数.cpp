@@ -4,9 +4,13 @@
  * [509] 斐波那契数
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <bits/stdc++.h>
+
 
 
 const int N = 30 + 10;
@@ -81,4 +85,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

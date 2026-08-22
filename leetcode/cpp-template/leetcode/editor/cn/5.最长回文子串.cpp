@@ -3,9 +3,13 @@
  *
  * [5] 最长回文子串
  */
+
 #include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 class Solution
 {
 public:
@@ -47,4 +51,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

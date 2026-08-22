@@ -4,16 +4,18 @@
  * [724] 寻找数组的中心下标
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
+
 
 const int N = 1e4 + 10;
 
 class Solution {
 public:
-    int pivotIndex(vector<int>& nums) {
+    int pivotIndex(std::vector<int>& nums) {
         // 先填充前缀和数组
         for (int i = 1; i <= nums.size(); ++i)
             presum[i] = presum[i - 1] + nums[i - 1];
@@ -34,4 +36,6 @@ private:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

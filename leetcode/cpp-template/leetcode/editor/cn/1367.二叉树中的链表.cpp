@@ -4,9 +4,14 @@
  * [1367] 二叉树中的链表
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 /**
- * Definition for singly-linked list.
+ * Definition for singly-linked std::list.
  * struct ListNode {
  *     int val;
  *     ListNode *next;
@@ -44,24 +49,21 @@
 //     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 // };
 
-#include <iostream>
-using namespace std;
-#include <string>
 
 class Solution {
 public:
-    string traverse_str = string();
+    std::string traverse_str = std::string();
     bool flag = false;  // 代表是否成功
 
     // 解法1，遍历这棵树
-    void traverse(TreeNode *root, const string &list_str) {
+    void traverse(TreeNode *root, const std::string &list_str) {
         // 遍历到空的还没有判断成功，则表明不对，需要回退
         if (!root)
             return;
 
         // node_val在1到100之间，所以可以用ASCII码代表
         traverse_str += root->val;
-        if (traverse_str.find(list_str) != string::npos) {
+        if (traverse_str.find(list_str) != std::string::npos) {
             flag = true;
             return;
         }
@@ -74,7 +76,7 @@ public:
     }
 
     bool isSubPath(ListNode *head, TreeNode *root) {
-        string list_str = string();
+        std::string list_str = std::string();
         for (auto move = head; move; move = move->next)
             list_str += move->val;
 
@@ -115,4 +117,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

@@ -4,17 +4,15 @@
  * [234] 回文链表
  */
 
-struct ListNode {
-    int val;
-    ListNode* next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
- * Definition for singly-linked list.
+ * Definition for singly-linked std::list.
  * struct ListNode {
  *     int val;
  *     ListNode *next;
@@ -24,8 +22,6 @@ struct ListNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
 
 class Solution {
 public:
@@ -106,4 +102,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

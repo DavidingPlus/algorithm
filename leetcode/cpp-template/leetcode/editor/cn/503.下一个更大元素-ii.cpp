@@ -4,21 +4,22 @@
  * [503] 下一个更大元素 II
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <stack>
-#include <vector>
+
 
 class Solution {
 public:
-    vector<int> nextGreaterElements(vector<int>& nums) {
+    std::vector<int> nextGreaterElements(std::vector<int>& nums) {
         int n = nums.size();
 
         // 现在数组是循环的，因此每个元素理论上来说都可以绕一圈来寻找，所以为了模拟这个过程，可以把数组扩大2倍，当然不是真的扩大，只是用 % 来模拟了这个过程
-        stack<int>
+        std::stack<int>
             s;
-        vector<int> res;
+        std::vector<int> res;
 
         // res.resize(2 * n);
         // for (int i = 2 * n - 1; i >= 0; --i) {
@@ -55,4 +56,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

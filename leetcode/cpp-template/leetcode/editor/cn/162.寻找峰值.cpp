@@ -4,14 +4,16 @@
  * [162] 寻找峰值
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
+
 
 class Solution {
 public:
-    int findPeakElement(vector<int>& nums) {
+    int findPeakElement(std::vector<int>& nums) {
         // 我看能不能通过二分来筛选，这时候的筛选条件就是某处的元素值和临近元素的大小关系
         int left = 0, right = nums.size() - 1;  // 使用闭区间
 
@@ -33,4 +35,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

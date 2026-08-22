@@ -5,7 +5,11 @@
  */
 
 #include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 
 
 class Solution
@@ -20,7 +24,7 @@ public:
 
         int fast = 0, slow = 0;
 
-        // 遍历记得写 < size 而不是 <= size - 1，因为 size() 接口是 size_t 类型，如果是空数组 - 1，就成 -1 的补码了，细节。。。
+        // 遍历记得写 < size 而不是 <= size - 1，因为 size() 接口是 std::size_t 类型，如果是空数组 - 1，就成 -1 的补码了，细节。。。
         for (; fast < nums.size(); ++fast)
         {
             // 不相等则快指针给慢指针赋值，相等则代表需要删除的 val，也就是不需要赋值。
@@ -37,4 +41,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

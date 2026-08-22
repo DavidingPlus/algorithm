@@ -1,9 +1,10 @@
+#ifndef LEETCODE_COMMON_TREENODE_INCLUDED
+#define LEETCODE_COMMON_TREENODE_INCLUDED
+
 #include <vector>
 #include <iostream>
 #include <queue>
 #include <optional>
-
-using namespace std;
 
 class TreeNode {
 public:
@@ -55,15 +56,15 @@ public:
         int h = getHeight(root);
         int rows = h * 2 - 1;
         int cols = (1 << h) - 1; // 2^h - 1
-        vector<vector<char>> mat(rows, vector<char>(cols, ' '));
+        std::vector<std::vector<char>> mat(rows, std::vector<char>(cols, ' '));
 
         fillTree(root, 0, 0, cols - 1, h, mat);
 
         for (const auto &row : mat) {
             for (char ch : row) {
-                cout << ch;
+                std::cout << ch;
             }
-            cout << endl;
+            std::cout << std::endl;
         }
     }
 
@@ -71,17 +72,17 @@ private:
     // 计算树的高度，改为静态方法
     static int getHeight(TreeNode *node) {
         if (!node) return 0;
-        return max(getHeight(node->left), getHeight(node->right)) + 1;
+        return std::max(getHeight(node->left), getHeight(node->right)) + 1;
     }
 
     // 递归填充字符矩阵
     // level: 当前节点所在的层（根层为 0）
     // left, right: 当前区域左右边界
     // totalHeight: 树的总高度
-    static void fillTree(TreeNode *node, int level, int left, int right, int totalHeight, vector<vector<char> > &mat) {
+    static void fillTree(TreeNode *node, int level, int left, int right, int totalHeight, std::vector<std::vector<char> > &mat) {
         if (!node) return;
         int mid = (left + right) / 2;
-        string valStr = to_string(node->val);
+        std::string valStr = std::to_string(node->val);
         int offset = (valStr.size() - 1) / 2;  // 计算偏移量，使数字居中
         for (int i = 0; i < valStr.size() && (mid - offset + i) < mat[level * 2].size(); i++) {
             mat[level * 2][mid - offset + i] = valStr[i];
@@ -102,3 +103,4 @@ private:
         }
     }
 };
+#endif

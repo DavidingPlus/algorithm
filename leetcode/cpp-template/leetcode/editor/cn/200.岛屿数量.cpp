@@ -4,15 +4,17 @@
  * [200] 岛屿数量
  */
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <queue>
-#include <vector>
+
 
 class Solution {
 public:
-    int numIslands(vector<vector<char>>& grid) {
+    int numIslands(std::vector<std::vector<char>>& grid) {
         // 这个题的思路是：我们遍历这个图，遇到陆地，我们就想办法把他周围连接的所有陆地全部给变成海水，这样在后续的遍历当中就不会出现重复，直到遍历完毕
         int count = 0;
         int m = grid.size();
@@ -29,13 +31,13 @@ public:
         return count;
     }
 
-    void bfs(vector<vector<char>>& grid, int x, int y) {
+    void bfs(std::vector<std::vector<char>>& grid, int x, int y) {
         int m = grid.size();
         int n = grid[0].size();
 
         // 我们把他上下左右的元素看作结点，满足条件的我们加入队列，然后依次变为0
         // 我们在取出这个节点的时候就把这个节点变为0，这样后面的结点在找的时候就不会重复添加，因为碰到了0
-        queue<pair<int, int>> q;
+        std::queue<std::pair<int, int>> q;
         q.push({x, y});
         // 将本处置为0
         grid[x][y] = '0';
@@ -71,7 +73,7 @@ public:
         }
     }
 
-    void dfs(vector<vector<char>>& grid, int x, int y) {
+    void dfs(std::vector<std::vector<char>>& grid, int x, int y) {
         int m = grid.size();
         int n = grid[0].size();
 
@@ -99,4 +101,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

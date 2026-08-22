@@ -4,16 +4,13 @@
  * [515] 在每个树行中找最大值
  */
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,20 +23,16 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <queue>
-#include <vector>
 
 class Solution {
 public:
     // 方法1：层序遍历
-    // vector<int> largestValues(TreeNode *root) {
+    // std::vector<int> largestValues(TreeNode *root) {
     //     if (nullptr == root)
     //         return {};
 
-    //     vector<int> res;
-    //     queue<TreeNode *> q;
+    //     std::vector<int> res;
+    //     std::queue<TreeNode *> q;
     //     q.push(root);
 
     //     while (false == q.empty()) {
@@ -64,7 +57,7 @@ public:
 
     // 方法2：递归遍历
     int depth = -1;
-    vector<int> res;
+    std::vector<int> res;
 
     void traverse(TreeNode *root) {
         if (nullptr == root)
@@ -82,7 +75,7 @@ public:
         --depth;
     }
 
-    vector<int> largestValues(TreeNode *root) {
+    std::vector<int> largestValues(TreeNode *root) {
         traverse(root);
         return res;
     }
@@ -92,4 +85,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

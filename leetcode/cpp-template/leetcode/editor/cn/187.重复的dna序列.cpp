@@ -4,12 +4,12 @@
  * [187] 重复的DNA序列
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <string>
-#include <unordered_map>
-#include <vector>
+
 
 class Solution {
 public:
@@ -25,10 +25,10 @@ public:
         return 0;
     }
 
-    vector<string> findRepeatedDnaSequences(string s) {
+    std::vector<std::string> findRepeatedDnaSequences(std::string s) {
         // 滑动窗口
-        vector<string> res;
-        unordered_map<int, int> vals;  // 拿一个vals存储哈希值和出现的次数
+        std::vector<std::string> res;
+        std::unordered_map<int, int> vals;  // 拿一个vals存储哈希值和出现的次数
 
         if (s.size() < 10)
             return res;
@@ -60,4 +60,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

@@ -4,9 +4,13 @@
  * [1047] 删除字符串中的所有相邻重复项
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <bits/stdc++.h>
+
 
 
 class Solution
@@ -43,4 +47,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

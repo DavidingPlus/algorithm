@@ -4,12 +4,11 @@
  * [460] LFU 缓存
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <list>
-#include <map>
-#include <unordered_map>
 
 class LFUCache {
 public:
@@ -31,7 +30,7 @@ public:
         if (freqToKeys.end() != freqToKeys.find(1 + freq))
             freqToKeys[1 + freq].push_front(key);
         else
-            freqToKeys.insert({1 + freq, list<int>{key}});
+            freqToKeys.insert({1 + freq, std::list<int>{key}});
         // 修改keyToIter
         keyToIter[key] = {1 + freq, freqToKeys[1 + freq].begin()};
 
@@ -59,9 +58,9 @@ private:
     int capacity;
 
     // 经过分析需要三个数据结构
-    unordered_map<int, int> keyVal;                                // 存储键值对
-    map<int, list<int>, less<int>> freqToKeys;                     // 存储使用频率到键值的映射，为了有序使用map
-    unordered_map<int, pair<int, list<int>::iterator>> keyToIter;  // 存储键值到freq和迭代器的映射，方便修改
+    std::unordered_map<int, int> keyVal;                                // 存储键值对
+    std::map<int, std::list<int>, std::less<int>> freqToKeys;                     // 存储使用频率到键值的映射，为了有序使用std::map
+    std::unordered_map<int, std::pair<int, std::list<int>::iterator>> keyToIter;  // 存储键值到freq和迭代器的映射，方便修改
 };
 
 /**

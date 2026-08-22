@@ -4,10 +4,14 @@
  * [112] 路径总和
  */
 
-#include "_treenode.h"
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -20,7 +24,6 @@
  * };
  */
 
-#include <bits/stdc++.h>
 
 
 class Solution
@@ -59,6 +62,7 @@ public:
 
 
     // 方法2：分解为自相似的子问题
+#if 0
     bool hasPathSum(TreeNode *root, int targetSum)
     {
         if (!root) return false;
@@ -66,6 +70,7 @@ public:
 
         return hasPathSum(root->left, targetSum - root->val) || hasPathSum(root->right, targetSum - root->val);
     }
+#endif
 };
 
 // @lc code=end
@@ -73,4 +78,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

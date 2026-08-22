@@ -4,14 +4,17 @@
  * [388] 文件的最长绝对路径
  */
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <string>
+
 
 class Solution {
 public:
-    int lengthLongestPath(string input) {
+    int lengthLongestPath(std::string input) {
         // TODO
     }
 };
@@ -20,4 +23,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

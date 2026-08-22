@@ -4,8 +4,11 @@
  * [707] 设计链表
  */
 
-#include "_listnode.h"
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
 class MyLinkedList

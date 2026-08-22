@@ -4,16 +4,13 @@
  * [889] 根据前序和后序遍历构造二叉树
  */
 
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
-};
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,17 +23,13 @@ struct TreeNode {
  * };
  */
 
-#include <iostream>
-using namespace std;
-#include <unordered_map>
-#include <vector>
 
 class Solution {
     // 存储 postorder 中值到索引的映射
-    unordered_map<int, int> valToIndex;
+    std::unordered_map<int, int> valToIndex;
 
 public:
-    TreeNode* constructFromPrePost(vector<int>& preorder, vector<int>& postorder) {
+    TreeNode* constructFromPrePost(std::vector<int>& preorder, std::vector<int>& postorder) {
         for (int i = 0; i < postorder.size(); ++i) {
             valToIndex[postorder[i]] = i;
         }
@@ -46,8 +39,8 @@ public:
 
     // 定义：根据 preorder[preStart..preEnd] 和 postorder[postStart..postEnd]
     // 构建二叉树，并返回根节点。
-    TreeNode* build(vector<int>& preorder, int preStart, int preEnd,
-                    vector<int>& postorder, int postStart, int postEnd) {
+    TreeNode* build(std::vector<int>& preorder, int preStart, int preEnd,
+                    std::vector<int>& postorder, int postStart, int postEnd) {
         if (preStart > preEnd) {
             return nullptr;
         }
@@ -84,4 +77,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

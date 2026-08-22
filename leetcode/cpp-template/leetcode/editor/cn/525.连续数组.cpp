@@ -4,11 +4,12 @@
  * [525] 连续数组
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <unordered_map>
-#include <vector>
+
 
 const int N = 1e5 + 10;
 
@@ -16,9 +17,9 @@ class Solution {
 public:
     int ret = 0;
 
-    unordered_map<int, int> um;  // 存储前缀和和最小下标的哈希表
+    std::unordered_map<int, int> um;  // 存储前缀和和最小下标的哈希表
 
-    int findMaxLength(vector<int>& nums) {
+    int findMaxLength(std::vector<int>& nums) {
         // 对这个问题进行一个转换，就是0和1数量相同
         // 意思就是如果我把0替换为-1，这个连续子序列的和就为0，这就涉及到前缀和数组了
 
@@ -35,7 +36,7 @@ public:
             if (um.find(presum[i]) == um.end())
                 um[presum[i]] = i;
             else
-                ret = max(ret, i - um[presum[i]]);
+                ret = std::max(ret, i - um[presum[i]]);
         }
 
         return ret;
@@ -49,4 +50,6 @@ private:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

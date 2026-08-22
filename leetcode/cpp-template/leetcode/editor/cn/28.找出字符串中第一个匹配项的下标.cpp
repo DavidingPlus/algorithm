@@ -4,11 +4,12 @@
  * [28] 找出字符串中第一个匹配项的下标
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <cmath>
-#include <string>
+
 
 // 找一个比较大的素数作为去模的除数
 const int Q = 1658598167;
@@ -17,8 +18,8 @@ const int base = 27;
 
 class Solution {
 public:
-    bool check(const string& haystack, const string& needle, int left) {
-        string subStr = haystack.substr(left, needle.size());
+    bool check(const std::string& haystack, const std::string& needle, int left) {
+        std::string subStr = haystack.substr(left, needle.size());
         return subStr == needle;
     }
 
@@ -27,7 +28,7 @@ public:
     }
 
     // 整个代码注意需要注意int越界和哈希冲突!!!
-    int strStr(string haystack, string needle) {
+    int strStr(std::string haystack, std::string needle) {
         // 这个题用Rabin-Karp算法来做
         // 思路就是把字符串映射为数字，相当于求哈希值
         // 为了避免哈希值太大，要取模
@@ -57,7 +58,7 @@ public:
         long long upVal = 1;
         for (int i = 1; i < needle.size(); i++)
             // 计算过程中不断求模，避免溢出
-            upVal = (upVal * base) % Q;  // 不能直接用pow()函数，因为过程中可能越界...
+            upVal = (upVal * base) % Q;  // 不能直接用std::pow()函数，因为过程中可能越界...
 
         for (int right = needle.size(); right < haystack.size(); ++right) {
             // 由于hashCode是去模出来的，所以这里很可能为负数，加上一个Q可以避免这个问题，让结果正确
@@ -75,4 +76,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

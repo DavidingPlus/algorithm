@@ -6,7 +6,11 @@
  */
 
 #include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 
 class Solution
 {
@@ -45,6 +49,8 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }
 
 

@@ -1,3 +1,6 @@
+#ifndef LEETCODE_COMMON_LISTNODE_INCLUDED
+#define LEETCODE_COMMON_LISTNODE_INCLUDED
+
 #include <iostream>
 #include <vector>
 
@@ -48,3 +51,4 @@ public:
         }
     }
 };
+#endif

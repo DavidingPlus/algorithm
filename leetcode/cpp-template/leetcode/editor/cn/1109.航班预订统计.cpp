@@ -4,16 +4,19 @@
  * [1109] 航班预订统计
  */
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-#include <vector>
-using namespace std;
+
 
 const int N = 2 * 1e4 + 10;
 
 class Solution {
 public:
-    vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
+    std::vector<int> corpFlightBookings(std::vector<std::vector<int>>& bookings, int n) {
         // 想对数组进行某个区间的修改，就可以用到差分数组(就是前缀和数组逆向的原数组)
         int dif[N] = {0};
 
@@ -25,7 +28,7 @@ public:
         }
 
         // 反过来推导前缀和数组
-        vector<int> ret{0};
+        std::vector<int> ret{0};
         for (int i = 1; i <= n; ++i) {
             ret.push_back(ret.back() + dif[i - 1]);
         }
@@ -39,4 +42,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

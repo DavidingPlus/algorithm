@@ -4,9 +4,12 @@
  * [225] 用队列实现栈
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <bits/stdc++.h>
 
 
 class MyStack

@@ -4,18 +4,21 @@
  * [141] 环形链表
  */
 
-#include "_listnode.h"
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
- * Definition for singly-linked list.
+ * Definition for singly-linked std::list.
  * struct ListNode {
  *     int val;
  *     ListNode *next;
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-#include <bits/stdc++.h>
 
 
 class Solution
@@ -44,4 +47,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

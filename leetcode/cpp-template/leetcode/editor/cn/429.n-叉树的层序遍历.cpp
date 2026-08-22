@@ -4,13 +4,29 @@
  * [429] N 叉树的层序遍历
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
+class Node {
+public:
+    int val;
+    std::vector<Node *> children;
+
+    Node() : val(0) {}
+    Node(int _val) : val(_val) {}
+    Node(int _val, std::vector<Node *> _children)
+        : val(_val), children(std::move(_children)) {}
+};
+
 /*
 // Definition for a Node.
 class Node {
 public:
     int val;
-    vector<Node*> children;
+    std::vector<Node*> children;
 
     Node() {}
 
@@ -18,7 +34,7 @@ public:
         val = _val;
     }
 
-    Node(int _val, vector<Node*> _children) {
+    Node(int _val, std::vector<Node*> _children) {
         val = _val;
         children = _children;
     }
@@ -28,7 +44,7 @@ public:
 // class Node {
 // public:
 //     int val;
-//     vector<Node*> children;
+//     std::vector<Node*> children;
 
 //     Node() {}
 
@@ -36,31 +52,27 @@ public:
 //         val = _val;
 //     }
 
-//     Node(int _val, vector<Node*> _children) {
+//     Node(int _val, std::vector<Node*> _children) {
 //         val = _val;
 //         children = _children;
 //     }
 // };
 
-#include <iostream>
-using namespace std;
-#include <queue>
-#include <vector>
 
 class Solution {
 public:
     // 思路和前面一样
-    vector<vector<int>> levelOrder(Node* root) {
+    std::vector<std::vector<int>> levelOrder(Node* root) {
         if (!root)
             return {};
 
-        vector<vector<int>> ret;
+        std::vector<std::vector<int>> ret;
 
-        queue<Node*> q;
+        std::queue<Node*> q;
         q.push(root);
 
         while (!q.empty()) {
-            vector<int> layer;
+            std::vector<int> layer;
 
             int sz = q.size();
             for (int i = 0; i < sz; ++i) {
@@ -85,4 +97,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

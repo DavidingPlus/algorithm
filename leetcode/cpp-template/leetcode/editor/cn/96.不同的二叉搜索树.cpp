@@ -4,9 +4,12 @@
  * [96] 不同的二叉搜索树
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
+
 
 class Solution {
 public:
@@ -46,4 +49,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

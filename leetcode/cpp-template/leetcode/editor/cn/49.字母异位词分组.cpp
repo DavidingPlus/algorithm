@@ -4,9 +4,13 @@
  * [49] 字母异位词分组
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
 
-#include <bits/stdc++.h>
+
 
 
 class Solution
@@ -14,13 +18,13 @@ class Solution
 
 public:
 
-    // 给 array<int, 26> 自定义一个 hash 函数，当然这里是 functor
+    // 给 std::array<int, 26> 自定义一个 hash 函数，当然这里是 functor
     struct ArrayHash
     {
         // 这里不加上 const 限定符会导致下面使用的时候编译错误，可能在调用 hash functor 的时候编译器做了限制，以后写算法写这种 functor 都加上就行
-        size_t operator()(const std::array<int, 26> &arr) const
+        std::size_t operator()(const std::array<int, 26> &arr) const
         {
-            size_t seed = 0;
+            std::size_t seed = 0;
 
             // 目的是为了让其足够混乱，公式来源于侯捷老师的课程
             for (int i = 0; i < 26; ++i) seed ^= std::hash<int>()(arr[i]) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
@@ -69,4 +73,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

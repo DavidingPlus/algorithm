@@ -4,23 +4,25 @@
  * [7] 整数反转
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <string>
+
 
 class Solution {
 public:
     // 方法1：通过字符串
     int reverse(int x) {
-        string str = to_string(abs(x));
+        std::string str = std::to_string(std::abs(x));
 
-        str = string(str.rbegin(), str.rend());
+        str = std::string(str.rbegin(), str.rend());
 
         int res = 0;
 
         try {
-            res = stoi(str);
+            res = std::stoi(str);
         } catch (...) {
             return 0;
         }
@@ -33,4 +35,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

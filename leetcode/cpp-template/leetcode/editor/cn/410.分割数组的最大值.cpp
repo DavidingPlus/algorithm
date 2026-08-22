@@ -4,10 +4,13 @@
  * [410] 分割数组的最大值
  */
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-#include <vector>
-using namespace std;
+
 
 class Solution {
 public:
@@ -15,7 +18,7 @@ public:
     // 分割数组变为运送货物，每天运送的个数不能超过这个最大值的最小值
     // 然后要在m天内运送完毕，这就是前面的问题，问题1011
 
-    int f(vector<int>& weights, int load_weight) {
+    int f(std::vector<int>& weights, int load_weight) {
         int i = 0, days = 0, weight = 0;
 
         for (; i < weights.size(); ++i) {
@@ -33,12 +36,12 @@ public:
         return days;
     }
 
-    int splitArray(vector<int>& nums, int k) {
+    int splitArray(std::vector<int>& nums, int k) {
         int left = 0, right = 10;
 
         // 找出left和right，left就是数组的最大值，right就是所有包裹加起来的重量，为了防止边界我取大点
         for (auto val : nums) {
-            left = max(left, val);
+            left = std::max(left, val);
             right += val;
         }
 
@@ -62,4 +65,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

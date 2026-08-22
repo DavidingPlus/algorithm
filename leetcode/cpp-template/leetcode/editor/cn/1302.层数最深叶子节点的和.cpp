@@ -4,7 +4,12 @@
  * [1302] 层数最深叶子节点的和
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -26,9 +31,6 @@
 //     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 // };
 
-#include <iostream>
-using namespace std;
-#include <queue>
 
 class Solution {
 public:
@@ -38,7 +40,7 @@ public:
 
         int ret = 0;  // 我们不知道哪一层是最后一层，所以我们用层次遍历的方式维护每一层的和，这样下来结束的时候就是最后一层
 
-        queue<TreeNode *> q;
+        std::queue<TreeNode *> q;
         q.push(root);
 
         while (!q.empty()) {
@@ -68,4 +70,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

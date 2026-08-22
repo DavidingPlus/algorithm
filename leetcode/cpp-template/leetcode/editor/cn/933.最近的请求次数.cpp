@@ -4,10 +4,11 @@
  * [933] 最近的请求次数
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <queue>
 
 class RecentCounter {
 public:
@@ -21,7 +22,7 @@ public:
 
 private:
     // 由于新的ping严格大于前面的ping，因此以前的时间超出范围的后面肯定也用不到了，需要弹出，先进先出，因此考虑队列
-    queue<int> q;
+    std::queue<int> q;
 };
 
 /**

@@ -4,10 +4,12 @@
  * [322] 零钱兑换
  */
 
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
 // @lc code=start
-#include <iostream>
-using namespace std;
-#include <vector>
+
 
 const int N = 1e4 + 10;
 
@@ -16,12 +18,12 @@ public:
     // 带有备忘录的自顶而下的递归算法
     // Solution() {
     //     memo.resize(N);
-    //     fill(memo.begin(), memo.end(), -666);
+    //     std::fill(memo.begin(), memo.end(), -666);
     // }
 
-    // vector<int> memo;  // 用来做备忘录，记录面额n需要的最小硬币个数
+    // std::vector<int> memo;  // 用来做备忘录，记录面额n需要的最小硬币个数
 
-    // int coinChange(vector<int>& coins, int amount) {
+    // int coinChange(std::vector<int>& coins, int amount) {
     //     // 这个问题可以用递归来解决
     //     // 我们把amount拆分为每个硬币加上硬币减去这个值的子问题
     //     // 然后遍历一遍整个数组得出去一个最小值就得出了答案
@@ -40,7 +42,7 @@ public:
     //         int count = coinChange(coins, amount - coin);
     //         if (-1 == count)
     //             continue;
-    //         res = min(res, 1 + count);
+    //         res = std::min(res, 1 + count);
     //     }
     //     // 更新memo数组
     //     memo[amount] = (__INT_MAX__ != res) ? res : -1;
@@ -48,10 +50,10 @@ public:
     // }
 
     // 我们通过迭代来做这个题
-    int coinChange(vector<int>& coins, int amount) {
+    int coinChange(std::vector<int>& coins, int amount) {
         // dp数组的含义是面额n需要的最小硬币个数
-        vector<int> dp(N);
-        fill(dp.begin(), dp.end(), __INT_MAX__ - 666);  //-666是为了防止+1然后越界
+        std::vector<int> dp(N);
+        std::fill(dp.begin(), dp.end(), __INT_MAX__ - 666);  //-666是为了防止+1然后越界
 
         // 我们需要通过n来推出n + 1
         dp[0] = 0;
@@ -62,7 +64,7 @@ public:
                 // 跳过的第二种情况就是已经直到这个面值找不到了，就是-1
                 if (i - coin < 0 || -1 == dp[i - coin])
                     continue;
-                dp[i] = min(dp[i], 1 + dp[i - coin]);
+                dp[i] = std::min(dp[i], 1 + dp[i - coin]);
             }
             if (__INT_MAX__ - 666 == dp[i])
                 dp[i] = -1;
@@ -75,4 +77,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

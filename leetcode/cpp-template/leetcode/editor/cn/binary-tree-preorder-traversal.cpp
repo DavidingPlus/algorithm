@@ -1,16 +1,14 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
-
-using namespace std;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 public:
-    vector<int> res;
+    std::vector<int> res;
 
     // 返回前序遍历结果
-    vector<int> preorderTraversal(TreeNode* root) {
+    std::vector<int> preorderTraversal(TreeNode* root) {
         traverse(root);
         return res;
     }
@@ -33,9 +31,9 @@ public:
 int main() {
     // your test code here
     Solution solution;
-    TreeNode *root = TreeNode::createRoot({1, 22, 3, 4, 5, nullopt, 8, nullopt, nullopt, 6, 7, 9});
-    vector<int> result = solution.preorderTraversal(root);
+    TreeNode *root = TreeNode::createRoot({1, 22, 3, 4, 5, std::nullopt, 8, std::nullopt, std::nullopt, 6, 7, 9});
+    std::vector<int> result = solution.preorderTraversal(root);
     for (int val : result) {
-        cout << val << " ";
+        std::cout << val << " ";
     }
 }

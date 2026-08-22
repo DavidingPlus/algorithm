@@ -1,8 +1,6 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
-
-using namespace std;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**

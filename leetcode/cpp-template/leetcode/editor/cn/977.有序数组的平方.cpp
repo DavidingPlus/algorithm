@@ -4,9 +4,14 @@
  * [977] 有序数组的平方
  */
 
-// @lc code=start
 
 #include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
+
+// @lc code=start
+
+
 
 
 class Solution
@@ -109,4 +114,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }

@@ -4,9 +4,14 @@
  * [76] 最小覆盖子串
  */
 
+
+
 #include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 
 class Solution
 {
@@ -21,7 +26,7 @@ public:
 
         for (auto &e : umt)
         {
-            // 注意：umw 是 const unordered_map & 类型，不能使用 umw[key] 访问元素，因为 operator[] 在 key 不存在时可能插入新元素，因此它不是 const 操作。这里应该使用 find() 查找，并保存返回的迭代器：如果 umw.end() == it，说明字符不存在；否则通过 it->second 获取对应次数，再判断 umw 中该字符的数量是否满足 umt 的要求。这样也避免了对同一个 key 重复查找。
+            // 注意：umw 是 const std::unordered_map & 类型，不能使用 umw[key] 访问元素，因为 operator[] 在 key 不存在时可能插入新元素，因此它不是 const 操作。这里应该使用 find() 查找，并保存返回的迭代器：如果 umw.end() == it，说明字符不存在；否则通过 it->second 获取对应次数，再判断 umw 中该字符的数量是否满足 umt 的要求。这样也避免了对同一个 key 重复查找。
             auto it = umw.find(e.first);
             if (umw.end() == it || e.second > it->second) return false;
         }
@@ -67,7 +72,7 @@ public:
 
 
     // 旧版代码。
-    // bool isContain(const unordered_map<char, pair<int, int>> &um)
+    // bool isContain(const std::unordered_map<char, std::pair<int, int>> &um)
     // {
     //     for (auto &each : um)
     //     {
@@ -78,9 +83,9 @@ public:
     //     return true;
     // }
 
-    // string minWindow(string s, string t)
+    // std::string minWindow(std::string s, std::string t)
     // {
-    //     string res;
+    //     std::string res;
     //     res.resize(N);
 
     //     // 滑动窗口的思想，本质其实还是双指针
@@ -92,7 +97,7 @@ public:
     //     // 4.直到右指针移到最右边并且左指针移到不满足条件的最左边
 
     //     // 这个算法的时间复杂度是O(n)，因为我们只遍历了一遍
-    //     unordered_map<char, pair<int, int>> um; // pair中第一个存储现在滑动窗口中的个数，第二个存储t字符串中对应的个数
+    //     std::unordered_map<char, std::pair<int, int>> um; // std::pair中第一个存储现在滑动窗口中的个数，第二个存储t字符串中对应的个数
 
     //     // 初始化um
     //     for (auto &ch : t)
@@ -132,7 +137,7 @@ public:
 
     //     // 如果没找到返回空串
     //     if (N == res.size())
-    //         return string();
+    //         return std::string();
     //     return res;
     // }
 };

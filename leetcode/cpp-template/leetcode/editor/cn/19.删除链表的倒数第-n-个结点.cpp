@@ -4,12 +4,16 @@
  * [19] 删除链表的倒数第 N 个结点
  */
 
-#include "_listnode.h"
 
+
+#include <bits/stdc++.h>
+#include "../common/ListNode.cpp"
+#include "../common/TreeNode.cpp"
 
 // @lc code=start
+
 /**
- * Definition for singly-linked list.
+ * Definition for singly-linked std::list.
  * struct ListNode {
  *     int val;
  *     ListNode *next;
@@ -19,7 +23,6 @@
  * };
  */
 
-#include <bits/stdc++.h>
 
 
 class Solution
@@ -48,4 +51,6 @@ public:
 
 int main()
 {
+    Solution solution;
+    // your test code here
 }
