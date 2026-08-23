@@ -1,5 +1,6 @@
 .vscode/
 build/
+.xmake/
 __pycache__/
 .idea/
 _test.*

@@ -22,3 +22,20 @@
 
 - feature-xiaoyf-algo-learning：xiaoyf 同学的算法学习。
 
+## XMake
+
+根目录提供了与现有 CMake 架构对应的 `xmake.lua` 入口：
+
+```bash
+# 配置并构建默认目标
+xmake
+
+# 构建全部章节和题目
+xmake -a
+
+# 构建指定 target，例如 hello-algo 或 LeetCode 题目
+xmake binary_search
+xmake lc_1_cn
+```
+
+LeetCode 题目会自动扫描 `leetcode/editor/cn` 和 `leetcode/editor/en`，公共代码编译为 `common` 静态库；hello-algo 仍按章节维护独立可执行文件。
