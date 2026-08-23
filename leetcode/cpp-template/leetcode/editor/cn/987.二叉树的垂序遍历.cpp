@@ -8,6 +8,7 @@
 #include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
+#include <limits>
 
 // @lc code=start
 
@@ -30,7 +31,7 @@ public:
     std::vector<std::vector<int>> depths;                        // 与上面同步存储行的坐标
     int col = 1;                                       // 维护列号，为了保证根节点和子树一致，初始值取为1，假设有一个虚拟根节点
     int depth = -1;                                    // 维护深度，根节点为0
-    int min_col = __INT_MAX__, max_col = __INT_MAX__;  // 维护遍历过程中遇到的最大列号和行号来确定插入的位置
+    int min_col = std::numeric_limits<int>::max(), max_col = std::numeric_limits<int>::max();  // 维护遍历过程中遇到的最大列号和行号来确定插入的位置
 
     void traverse(TreeNode *root, bool is_left) {
         if (nullptr == root)
@@ -40,7 +41,7 @@ public:
         ++depth;
 
         // 我们需要特判初始的时候的情况
-        if (__INT_MAX__ == min_col && __INT_MAX__ == max_col) {
+        if (std::numeric_limits<int>::max() == min_col && std::numeric_limits<int>::max() == max_col) {
             ret.push_back({root->val});
             depths.push_back({depth});
             min_col = 0, max_col = 0;

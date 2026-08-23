@@ -5,7 +5,7 @@
 -- 公共数据结构和辅助代码只编译一次，生成静态库 common。
 target("common")
     set_kind("static")
-    set_languages("c++20")
+    set_languages("c++17")
     add_files("leetcode/editor/common/*.cpp")
 
 -- 记录已经使用过的目标名，避免中英文目录中的同名题解产生冲突。
@@ -26,7 +26,7 @@ local function add_solution(source_file, language)
 
     target(target_name)
         set_kind("binary")
-        set_languages("c++20")
+        set_languages("c++17")
         -- 目标冲突时只调整 XMake 内部目标名，输出文件仍使用原始名称。
         set_basename(output_name)
         add_files(source_file)

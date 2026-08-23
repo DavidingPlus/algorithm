@@ -54,7 +54,9 @@
 #include <ctime>
 
 #if ALGORITHM_CXX_STANDARD >= 201103L
+#if !defined(_MSC_VER)
 #include <ccomplex>
+#endif
 #include <cfenv>
 #include <cinttypes>
 #include <cstdint>

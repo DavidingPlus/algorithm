@@ -8,6 +8,7 @@
 #include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
+#include <limits>
 
 // @lc code=start
 
@@ -27,7 +28,7 @@
 class Solution {
 public:
     int ret = 0;
-    int Max = -__INT_MAX__ - 1;  // 我们维护序列当中的最大值
+    int Max = std::numeric_limits<int>::min();  // 我们维护序列当中的最大值
 
     // 好节点的意思转化一下就是：遍历新加入的值必须大于等于原先序列中的最大值
     void traverse(TreeNode *root) {

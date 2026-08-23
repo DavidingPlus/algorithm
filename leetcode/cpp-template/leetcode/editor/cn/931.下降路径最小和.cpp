@@ -7,6 +7,7 @@
 #include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
+#include <limits>
 
 // @lc code=start
 
@@ -26,13 +27,13 @@ public:
         // dp[0]做边界的初始化
         std::fill(dp[0].begin(), dp[0].end(), 0);
 
-        int res = __INT_MAX__;
+        int res = std::numeric_limits<int>::max();
 
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < n; ++j) {
                 dp[i].push_back(matrix[i - 1][j] +
                                 std::min(dp[i - 1][j],
-                                    std::min((j - 1 >= 0) ? dp[i - 1][j - 1] : __INT_MAX__, (j + 1 < n) ? dp[i - 1][j + 1] : __INT_MAX__)));
+                                    std::min((j - 1 >= 0) ? dp[i - 1][j - 1] : std::numeric_limits<int>::max(), (j + 1 < n) ? dp[i - 1][j + 1] : std::numeric_limits<int>::max())));
 
                 if (n == i)
                     res = std::min(res, dp[i].back());

@@ -7,6 +7,7 @@
 #include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
+#include <limits>
 
 // @lc code=start
 
@@ -37,7 +38,7 @@ public:
     //         return memo[amount];
 
     //     // 遍历每个硬币
-    //     int res = __INT_MAX__;
+    //     int res = std::numeric_limits<int>::max();
     //     for (auto& coin : coins) {
     //         int count = coinChange(coins, amount - coin);
     //         if (-1 == count)
@@ -45,7 +46,7 @@ public:
     //         res = std::min(res, 1 + count);
     //     }
     //     // 更新memo数组
-    //     memo[amount] = (__INT_MAX__ != res) ? res : -1;
+    //     memo[amount] = (std::numeric_limits<int>::max() != res) ? res : -1;
     //     return memo[amount];
     // }
 
@@ -53,7 +54,7 @@ public:
     int coinChange(std::vector<int>& coins, int amount) {
         // dp数组的含义是面额n需要的最小硬币个数
         std::vector<int> dp(N);
-        std::fill(dp.begin(), dp.end(), __INT_MAX__ - 666);  //-666是为了防止+1然后越界
+        std::fill(dp.begin(), dp.end(), std::numeric_limits<int>::max() - 666);  //-666是为了防止+1然后越界
 
         // 我们需要通过n来推出n + 1
         dp[0] = 0;
@@ -66,7 +67,7 @@ public:
                     continue;
                 dp[i] = std::min(dp[i], 1 + dp[i - coin]);
             }
-            if (__INT_MAX__ - 666 == dp[i])
+            if (std::numeric_limits<int>::max() - 666 == dp[i])
                 dp[i] = -1;
         }
         return dp[amount];

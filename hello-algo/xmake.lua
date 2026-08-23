@@ -1,3 +1,3 @@
-set_languages("c++11")
+set_languages("c++17")
 
 includes("src")
