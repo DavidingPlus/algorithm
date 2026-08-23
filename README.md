@@ -27,8 +27,8 @@ algo-learning 和 lanqiao-review 主要用于保存学习资料，不参与根�
 ## 环境要求
 
 - [XMake](https://xmake.io/)
-- 支持 C++11 的编译器，用于构建 hello-algo
-- 支持 C++20 的编译器，用于构建 LeetCode C++ 题解
+- 支持 C++17 的编译器，用于构建 hello-algo
+- 支持 C++17 的编译器，用于构建 LeetCode C++ 题解
 
 Linux、macOS 和 Windows 均可使用 XMake。当前 LeetCode C++ 代码已针对 Linux 和 Windows 配置；macOS 默认编译器不一定提供 `bits/stdc++.h`，使用前需要确认编译器支持该头文件。
 
@@ -148,4 +148,26 @@ ${question.code}
 - 构建过程中产生的 build/、.xmake/ 等目录已加入 .gitignore。
 - .vscode/settings.json 已纳入版本控制，其他 .vscode 文件默认忽略。
 - leetcode/README.md 保留了 LeetCode 插件模板的原始说明。
+
+### 本地修改 `.vscode/settings.json`
+
+`.vscode/settings.json` 已提交到仓库。如果只希望保留远端提交的版本，同时允许本地工具修改该文件而不显示为 Git 变更，可以在当前仓库执行：
+
+~~~bash
+git update-index --skip-worktree .vscode/settings.json
+~~~
+
+检查是否生效：
+
+~~~bash
+git ls-files -v .vscode/settings.json
+~~~
+
+输出以小写 `s` 开头表示已启用。恢复正常追踪：
+
+~~~bash
+git update-index --no-skip-worktree .vscode/settings.json
+~~~
+
+该设置只对当前本地仓库生效，不会同步给其他协作者或新克隆的仓库。
 
