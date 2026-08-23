@@ -5,5 +5,5 @@ set (CMAKE_CXX_COMPILER "g++")
 
 project (algorithm)
 
-add_subdirectory (leetcode/cpp-template)
+add_subdirectory (leetcode/cpp)
 add_subdirectory (hello-algo)
