@@ -1,0 +1,32 @@
+{
+    "labuladong-leetcode.filePath": {
+        "default": {
+            "folder": "",
+            "filename": "${id}.${kebab-case-name}.${ext}"
+        },
+        "java": {
+            "folder": "src/main/java/leetcode/editor/${endpointType}",
+            "filename": "${PascalCaseName}.${ext}"
+        },
+        "cpp": {
+            "folder": "leetcode/editor/${endpointType}",
+            "filename": "${id}.${cn_name}.${ext}"
+        },
+        "python": {
+            "folder": "leetcode/editor/${endpointType}",
+            "filename": "${id}.${cn_name}.${ext}"
+        },
+        "python3": {
+            "folder": "leetcode/editor/${endpointType}",
+            "filename": "${id}.${cn_name}.${ext}"
+        },
+        "golang": {
+            "folder": "leetcode/editor/${endpointType}",
+            "filename": "${snake_case_name}_test.${ext}"
+        },
+        "javascript": {
+            "folder": "leetcode/editor/${endpointType}",
+            "filename": "${id}.${cn_name}.${ext}"
+        }
+    }
+}
