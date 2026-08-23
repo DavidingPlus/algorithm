@@ -1,0 +1,16 @@
+-- Keep the chapter-level organization in sync with src/CMakeLists.txt.
+
+includes("chapter_computational_complexity")
+includes("chapter_array_and_linkedlist")
+includes("chapter_stack_and_queue")
+includes("chapter_hashing")
+includes("chapter_tree")
+includes("chapter_heap")
+includes("chapter_graph")
+includes("chapter_searching")
+includes("chapter_sorting")
+includes("chapter_divide_and_conquer")
+includes("chapter_backtracking")
+includes("chapter_dynamic_programming")
+includes("chapter_greedy")
+includes("utils")
