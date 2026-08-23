@@ -4,7 +4,7 @@
  * [27] 移除元素
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

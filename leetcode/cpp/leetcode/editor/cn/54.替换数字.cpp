@@ -1,6 +1,6 @@
 // https://kamacoder.com/problempage.php?pid=1064
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 
 
 // 解法 1：开辟额外空间

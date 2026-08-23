@@ -4,7 +4,7 @@
  * [263] 丑数
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

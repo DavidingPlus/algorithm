@@ -4,7 +4,7 @@
  * [151] 反转字符串中的单词
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

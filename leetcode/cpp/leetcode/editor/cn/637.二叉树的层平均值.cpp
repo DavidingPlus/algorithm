@@ -4,7 +4,7 @@
  * [637] 二叉树的层平均值
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

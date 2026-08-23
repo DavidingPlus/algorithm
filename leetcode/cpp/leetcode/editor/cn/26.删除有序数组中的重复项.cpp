@@ -4,7 +4,7 @@
  * [26] 删除有序数组中的重复项
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

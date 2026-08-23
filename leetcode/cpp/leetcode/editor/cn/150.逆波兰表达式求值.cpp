@@ -4,7 +4,7 @@
  * [150] 逆波兰表达式求值
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

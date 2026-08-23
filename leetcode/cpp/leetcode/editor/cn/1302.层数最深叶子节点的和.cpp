@@ -4,7 +4,7 @@
  * [1302] 层数最深叶子节点的和
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

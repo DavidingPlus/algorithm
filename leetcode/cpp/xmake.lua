@@ -1,12 +1,6 @@
 -- Keep the LeetCode layout equivalent to leetcode/cpp/CMakeLists.txt:
 -- one common static library and one executable per solution file.
 
--- Linux uses GCC's built-in bits/stdc++.h. On Windows, resolve the same
--- include to the repository-local compatibility header instead.
-if is_plat("windows") then
-    add_includedirs("leetcode/editor/common")
-end
-
 target("common")
     set_kind("static")
     set_languages("c++20")

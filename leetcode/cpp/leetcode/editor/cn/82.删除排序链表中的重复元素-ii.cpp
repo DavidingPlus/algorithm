@@ -4,7 +4,7 @@
  * [82] 删除排序链表中的重复元素 II
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

@@ -4,7 +4,7 @@
  * [875] 爱吃香蕉的珂珂
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

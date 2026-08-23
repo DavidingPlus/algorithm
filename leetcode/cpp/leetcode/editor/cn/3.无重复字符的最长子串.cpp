@@ -4,7 +4,7 @@
  * [3] 无重复字符的最长子串
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

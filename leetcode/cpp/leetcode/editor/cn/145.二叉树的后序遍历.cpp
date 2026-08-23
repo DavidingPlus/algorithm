@@ -4,7 +4,7 @@
  * [145] 二叉树的后序遍历
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

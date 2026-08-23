@@ -4,7 +4,7 @@
  * [28] 找出字符串中第一个匹配项的下标
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

@@ -4,7 +4,7 @@
  * [96] 不同的二叉搜索树
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

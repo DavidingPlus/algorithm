@@ -4,7 +4,7 @@
  * [59] 螺旋矩阵 II
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

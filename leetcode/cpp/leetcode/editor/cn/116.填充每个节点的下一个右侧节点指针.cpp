@@ -19,7 +19,7 @@ public:
         : val(_val), left(_left), right(_right), next(_next) {}
 };
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

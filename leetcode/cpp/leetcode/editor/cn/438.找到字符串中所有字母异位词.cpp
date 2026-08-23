@@ -4,7 +4,7 @@
  * [438] 找到字符串中所有字母异位词
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

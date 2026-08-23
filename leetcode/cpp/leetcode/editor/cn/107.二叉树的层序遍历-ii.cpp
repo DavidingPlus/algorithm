@@ -4,7 +4,7 @@
  * [107] 二叉树的层序遍历 II
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

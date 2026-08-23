@@ -4,7 +4,7 @@
  * [1944] 队列中可以看到的人数
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

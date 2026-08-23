@@ -5,7 +5,7 @@
  * [919] 完全二叉树插入器
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

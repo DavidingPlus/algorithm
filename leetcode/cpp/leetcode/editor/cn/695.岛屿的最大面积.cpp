@@ -4,7 +4,7 @@
  * [695] 岛屿的最大面积
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

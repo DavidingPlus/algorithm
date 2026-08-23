@@ -4,7 +4,7 @@
  * [354] 俄罗斯套娃信封问题
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

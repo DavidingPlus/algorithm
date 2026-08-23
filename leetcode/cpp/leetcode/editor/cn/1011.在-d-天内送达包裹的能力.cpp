@@ -4,7 +4,7 @@
  * [1011] 在 D 天内送达包裹的能力
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

@@ -5,7 +5,7 @@
  * [167] 两数之和 II - 输入有序数组
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

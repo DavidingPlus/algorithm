@@ -4,7 +4,7 @@
  * [724] 寻找数组的中心下标
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

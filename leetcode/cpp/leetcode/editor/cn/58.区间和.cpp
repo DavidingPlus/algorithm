@@ -1,6 +1,6 @@
 // https://kamacoder.com/problempage.php?pid=1070
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 
 
 int main()

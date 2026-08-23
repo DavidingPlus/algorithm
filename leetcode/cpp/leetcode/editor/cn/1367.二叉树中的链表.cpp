@@ -4,7 +4,7 @@
  * [1367] 二叉树中的链表
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

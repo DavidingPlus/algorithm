@@ -4,7 +4,7 @@
  * [34] 在排序数组中查找元素的第一个和最后一个位置
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

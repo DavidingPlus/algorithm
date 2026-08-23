@@ -4,7 +4,7 @@
  * [844] 比较含退格的字符串
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

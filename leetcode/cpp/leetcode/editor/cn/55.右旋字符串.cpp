@@ -1,6 +1,6 @@
 // https://kamacoder.com/problempage.php?pid=1065
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 
 
 void swapStr(std::string &s, int left, int right)

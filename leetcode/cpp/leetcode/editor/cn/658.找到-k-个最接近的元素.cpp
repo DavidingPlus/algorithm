@@ -4,7 +4,7 @@
  * [658] 找到 K 个最接近的元素
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

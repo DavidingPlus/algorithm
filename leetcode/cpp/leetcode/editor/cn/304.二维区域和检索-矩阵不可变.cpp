@@ -4,7 +4,7 @@
  * [304] 二维区域和检索 - 矩阵不可变
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

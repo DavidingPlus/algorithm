@@ -4,7 +4,7 @@
  * [429] N 叉树的层序遍历
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

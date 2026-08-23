@@ -4,7 +4,7 @@
  * [238] 除自身以外数组的乘积
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 

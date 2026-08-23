@@ -4,7 +4,7 @@
  * [239] 滑动窗口最大值
  */
 
-#include <bits/stdc++.h>
+#include "../common/globalmacros.h"
 #include "../common/ListNode.cpp"
 #include "../common/TreeNode.cpp"
 
