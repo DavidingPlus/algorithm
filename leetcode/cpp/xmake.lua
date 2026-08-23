@@ -12,23 +12,12 @@ local function add_solution(source_file, language)
     local source_name = path.basename(source_file)
     local output_name = source_name .. "_" .. language
 
-    -- Target names must be portable even when the source filename contains
-    -- Chinese characters, spaces, or punctuation.
-    local problem_id = source_name:match("^(%d+)")
-    local base_target_name
-    if problem_id then
-        base_target_name = "lc_" .. problem_id .. "_" .. language
-    else
-        local safe_source_name = source_name:gsub("[^A-Za-z0-9_]", "_")
-        base_target_name = "lc_" .. safe_source_name .. "_" .. language
-    end
-
-    -- Match CMake's behavior when more than one file maps to the same
-    -- problem/language target name.
-    local target_name = base_target_name
+    -- Use the source filename as the target name so xmake run's target
+    -- completion shows the same descriptive name as the executable.
+    local target_name = output_name
     local target_index = 1
     while used_target_names[target_name] do
-        target_name = base_target_name .. "_" .. target_index
+        target_name = output_name .. "_" .. target_index
         target_index = target_index + 1
     end
     used_target_names[target_name] = true
