@@ -30,7 +30,7 @@ vector<int> nextGreaterElement(const vector<int> &nums)
     {
         // 先比较要进来的元素和栈内的元素的值，好出栈，保证栈的单调性
         // 这里的细节问题，s.top()栈空的时候报错，所以判空写在前面
-        while (!s.empty() and s.top() <= nums[i])
+        while (!s.empty() && s.top() <= nums[i])
             s.pop();
 
         // 本元素的答案就是栈顶元素或者为空就返回-1

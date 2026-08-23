@@ -9,7 +9,7 @@ const value_type N = 1e3;
 
 // 迭代
 value_type fibo1(value_type n) {
-    if (1 == n or 2 == n)
+    if (1 == n || 2 == n)
         return 1;
 
     value_type num1 = 1, num2 = 1;
@@ -25,7 +25,7 @@ value_type fibo1(value_type n) {
 value_type memo[N + 10] = {0};
 
 value_type fibo2(value_type n) {
-    if (1 == n or 2 == n)
+    if (1 == n || 2 == n)
         return 1;
 
     // 做一个备忘录记录
