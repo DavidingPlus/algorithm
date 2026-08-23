@@ -10,43 +10,76 @@
 
 // @lc code=start
 
-
-
-
 class Solution
 {
 
 public:
 
-    std::vector<int> findAnagrams(std::string s1, std::string s2)
+    // 这题和 567 题没有任何区别。
+    std::vector<int> findAnagrams(std::string s, std::string p)
     {
-        if (s1.length() < s2.length()) return {};
-
-        std::array<int, 26> hashP;
-        std::fill(hashP.begin(), hashP.end(), 0);
-
-        for (auto &c : s2) ++hashP[c - 'a'];
-
-        std::array<int, 26> hashS;
-        std::fill(hashS.begin(), hashS.end(), 0);
-
-        for (int i = 0; i < s2.length(); ++i) ++hashS[s1[i] - 'a'];
-
         std::vector<int> res;
+        std::unordered_map<char, int> ums, ump;
 
-        // 利用滑动窗口扫即可
-        for (int i = 0; i + s2.length() - 1 < s1.length(); ++i)
+        for (auto &c : p) ++ump[c];
+
+        int left = 0, right = 0, valid = 0;
+
+        while (right < s.size())
         {
-            if (hashS == hashP) res.emplace_back(i);
 
-            --hashS[s1[i] - 'a'];
+            char c = s[right++];
+            if (ump.count(c))
+            {
+                if (++ums[c] == ump[c]) ++valid;
 
-            // 位于数组末尾不用插入下一个，做一个特判
-            if (i + s2.length() < s1.length()) ++hashS[s1[i + s2.length()] - 'a'];
+                if (ump.size() == valid) res.emplace_back(left);
+            }
+
+            if (p.size() == right - left)
+            {
+                char d = s[left++];
+                if (ump.count(d))
+                {
+                    if (ums[d]-- == ump[d]) --valid;
+                }
+            }
         }
 
         return res;
     }
+
+
+    // 旧版代码。
+    // std::vector<int> findAnagrams(std::string s, std::string p)
+    // {
+    //     if (s.length() < p.length()) return {};
+
+    //     std::array<int, 26> hashP;
+    //     std::fill(hashP.begin(), hashP.end(), 0);
+
+    //     for (auto &c : p) ++hashP[c - 'a'];
+
+    //     std::array<int, 26> hashS;
+    //     std::fill(hashS.begin(), hashS.end(), 0);
+
+    //     for (int i = 0; i < p.length(); ++i) ++hashS[s[i] - 'a'];
+
+    //     std::vector<int> res;
+
+    //     // 利用滑动窗口扫即可
+    //     for (int i = 0; i + p.length() - 1 < s.length(); ++i)
+    //     {
+    //         if (hashS == hashP) res.emplace_back(i);
+
+    //         --hashS[s[i] - 'a'];
+
+    //         // 位于数组末尾不用插入下一个，做一个特判
+    //         if (i + p.length() < s.length()) ++hashS[s[i + p.length()] - 'a'];
+    //     }
+
+    //     return res;
+    // }
 };
 
 // @lc code=end
