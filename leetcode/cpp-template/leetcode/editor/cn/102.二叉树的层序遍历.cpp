@@ -31,72 +31,80 @@
 //     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 // };
 
+class Solution
+{
 
-class Solution {
 public:
-    // 这是用纯正的层次遍历来实现
-    // std::vector<std::vector<int>> levelOrder(TreeNode *root) {
-    //     if (!root)
-    //         return {};
 
-    //     std::vector<std::vector<int>> ret;
+    // 解法 1：纯正的层次遍历模板。
+    std::vector<std::vector<int>> levelOrder(TreeNode *root)
+    {
+        if (!root) return {};
 
-    //     // 层次遍历，对应的是bfs广度优先算法，我们需要用到的是队列
-    //     std::queue<TreeNode *> q;
-    //     // 将根节点入队列
-    //     q.push(root);
+        std::vector<std::vector<int>> res;
 
-    //     while (!q.empty()) {
-    //         // 一次while循环对应一层while的遍历，就是拿取这一层的结点遍历，然后把他们的子节点插入队列
-    //         int sz = q.size();  // for循环会改变q.size()，所以存储
-    //         std::vector<int> layer;
-    //         for (int i = 0; i < sz; ++i) {
-    //             auto cur = q.front();
+        // 层次遍历，对应的是 bfs 广度优先算法，我们需要用到的是队列。
+        std::queue<TreeNode *> q;
+        // 将根节点入队列。
+        q.push(root);
 
-    //             layer.push_back(cur->val);
+        // 一次 while 循环对应一层 while 的遍历，就是拿取这一层的结点遍历，然后把他们的子节点插入队列。
+        while (!q.empty())
+        {
+            std::vector<int> layer;
 
-    //             // 将左右子树入队列
-    //             if (cur->left)
-    //                 q.push(cur->left);
-    //             if (cur->right)
-    //                 q.push(cur->right);
+            // for 循环会改变 q.size()，所以使用变量 n 存储。
+            int n = q.size();
+            for (int i = 0; i < n; ++i)
+            {
+                auto node = q.front();
+                q.pop();
 
-    //             q.pop();
-    //         }
-    //         ret.push_back(layer);
+                layer.emplace_back(node->val);
+
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+
+            res.emplace_back(layer);
+        }
+
+
+        return res;
+    }
+
+    // 解法 2：我们用递归遍历来实现一下。
+
+    // 维护一下递归遍历的高度，来看一下是哪一层。
+    // int depth = 0;
+    // std::vector<std::vector<int>> res;
+
+    // void traverse(TreeNode *root)
+    // {
+    //     if (!root) return;
+
+    //     ++depth;
+
+    //     // 进入到这个结点的时候，判断是哪一层，然后加入到对应的位置。越界只可能越一个界。注意 0 号对应的是第一层。
+    //     if (res.size() == depth - 1)
+    //     {
+    //         res.push_back({root->val});
+    //     }
+    //     else
+    //     {
+    //         res[depth - 1].emplace_back(root->val);
     //     }
 
-    //     return ret;
+    //     traverse(root->left), traverse(root->right);
+
+    //     --depth;
     // }
 
-    // 我们用递归遍历来实现一下
-    int depth = 0;  // 维护一下递归遍历的高度，来看一下是哪一层
-    std::vector<std::vector<int>> ret;
-
-    void traverse(TreeNode *root) {
-        if (!root)
-            return;
-
-        // 进入到这个结点的时候，判断是哪一层，然后加入到对应的位置
-        ++depth;
-        // 越界只可能越一个界
-        // 注意0号对应的是第一层
-        if (ret.size() == depth - 1)
-            ret.push_back({root->val});
-        else
-            ret[depth - 1].push_back(root->val);
-
-        traverse(root->left);
-        traverse(root->right);
-
-        --depth;
-    }
-
-    std::vector<std::vector<int>> levelOrder(TreeNode *root) {
-        traverse(root);
-
-        return ret;
-    }
+    // std::vector<std::vector<int>> levelOrder(TreeNode *root)
+    // {
+    //     traverse(root);
+    //     return res;
+    // }
 };
 // @lc code=end
 
