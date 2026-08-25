@@ -93,8 +93,9 @@ leetcode/cpp-template/xmake.lua 会自动扫描 cn 和 en 目录中的 .cpp 文�
 
 ~~~cpp
 #include "../common/globalmacros.h"
-#include "../common/ListNode.cpp"
-#include "../common/TreeNode.cpp"
+#include "../common/ListNode.h"
+#include "../common/TreeNode.h"
+#include "../common/Node.h"
 ~~~
 
 ### 跨平台万能头文件
@@ -116,8 +117,9 @@ labuladong-leetcode.customCodeTemplate 属于应用程序级设置，不能写�
 
 ~~~cpp
 #include "../common/globalmacros.h"
-#include "../common/ListNode.cpp"
-#include "../common/TreeNode.cpp"
+#include "../common/ListNode.h"
+#include "../common/TreeNode.h"
+#include "../common/Node.h"
 
 ${question.code}
 
