@@ -49,3 +49,10 @@ jobs:
     - name: Build Targets
       working-directory: ${{github.workspace}}
       run: xmake build -j 64
+
+    - name: Run Targets
+      working-directory: ${{github.workspace}}
+      run: |
+        xmake run ListNode_test
+        xmake run TreeNode_test
+        xmake run Node_test
