@@ -5,8 +5,8 @@
  */
 
 #include "../common/globalmacros.h"
-#include "../common/ListNode.cpp"
-#include "../common/TreeNode.cpp"
+#include "../common/ListNode.h"
+#include "../common/TreeNode.h"
 #include <limits>
 
 // @lc code=start

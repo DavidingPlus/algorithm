@@ -1,6 +1,6 @@
 #include "../common/globalmacros.h"
-#include "../common/ListNode.cpp"
-#include "../common/TreeNode.cpp"
+#include "../common/ListNode.h"
+#include "../common/TreeNode.h"
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {

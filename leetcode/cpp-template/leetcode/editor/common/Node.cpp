@@ -1,4 +1,4 @@
-#include "TreeNode.h"
+#include "Node.h"
 
 #include <algorithm>
 #include <iostream>
@@ -6,44 +6,49 @@
 #include <string>
 
 
-TreeNode::TreeNode() : val(0), left(nullptr), right(nullptr)
+Node::Node() : val(0), left(nullptr), right(nullptr), next(nullptr)
 {
 }
 
-TreeNode::TreeNode(int x) : val(x), left(nullptr), right(nullptr)
+Node::Node(int x) : val(x), left(nullptr), right(nullptr), next(nullptr)
 {
 }
 
-TreeNode::TreeNode(int x, TreeNode *left, TreeNode *right)
-    : val(x), left(left), right(right)
+Node::Node(int x, Node *left, Node *right)
+    : val(x), left(left), right(right), next(nullptr)
 {
 }
 
-TreeNode *TreeNode::createRoot(const std::vector<std::optional<int>> &values)
+Node::Node(int x, Node *left, Node *right, Node *next)
+    : val(x), left(left), right(right), next(next)
+{
+}
+
+Node *Node::createRoot(const std::vector<std::optional<int>> &values)
 {
     if (values.empty() || !values[0].has_value())
         return nullptr;
 
-    TreeNode *root = new TreeNode(values[0].value());
-    std::queue<TreeNode *> nodeQueue;
+    Node *root = new Node(values[0].value());
+    std::queue<Node *> nodeQueue;
     nodeQueue.push(root);
 
     size_t i = 1;
     while (i < values.size() && !nodeQueue.empty())
     {
-        TreeNode *current = nodeQueue.front();
+        Node *current = nodeQueue.front();
         nodeQueue.pop();
 
         if (values[i].has_value())
         {
-            current->left = new TreeNode(values[i].value());
+            current->left = new Node(values[i].value());
             nodeQueue.push(current->left);
         }
         ++i;
 
         if (i < values.size() && values[i].has_value())
         {
-            current->right = new TreeNode(values[i].value());
+            current->right = new Node(values[i].value());
             nodeQueue.push(current->right);
         }
         ++i;
@@ -51,16 +56,18 @@ TreeNode *TreeNode::createRoot(const std::vector<std::optional<int>> &values)
     return root;
 }
 
-void TreeNode::freeTree(TreeNode *root)
+void Node::freeTree(Node *root)
 {
     if (!root)
         return;
+
+    // 只沿 left/right 释放，不能沿 next 释放，因为 next 可能指向同层节点。
     freeTree(root->left);
     freeTree(root->right);
     delete root;
 }
 
-void TreeNode::print(TreeNode *root)
+void Node::print(Node *root)
 {
     if (!root)
     {
@@ -83,15 +90,51 @@ void TreeNode::print(TreeNode *root)
     }
 }
 
-int TreeNode::getHeight(TreeNode *node)
+void Node::printNext(Node *root)
+{
+    if (!root)
+    {
+        std::cout << "(empty)" << std::endl;
+        return;
+    }
+
+    std::queue<Node *> nodeQueue;
+    nodeQueue.push(root);
+    while (!nodeQueue.empty())
+    {
+        int levelSize = static_cast<int>(nodeQueue.size());
+        for (int i = 0; i < levelSize; ++i)
+        {
+            Node *current = nodeQueue.front();
+            nodeQueue.pop();
+
+            std::cout << current->val << " -> ";
+            if (current->next)
+                std::cout << current->next->val;
+            else
+                std::cout << '#';
+
+            if (i + 1 < levelSize)
+                std::cout << " | ";
+
+            if (current->left)
+                nodeQueue.push(current->left);
+            if (current->right)
+                nodeQueue.push(current->right);
+        }
+        std::cout << std::endl;
+    }
+}
+
+int Node::getHeight(Node *node)
 {
     if (!node)
         return 0;
     return std::max(getHeight(node->left), getHeight(node->right)) + 1;
 }
 
-void TreeNode::fillTree(TreeNode *node, int level, int left, int right,
-                        int totalHeight, std::vector<std::vector<char>> &mat)
+void Node::fillTree(Node *node, int level, int left, int right,
+                    int totalHeight, std::vector<std::vector<char>> &mat)
 {
     if (!node)
         return;

@@ -5,8 +5,8 @@
  */
 
 #include "../common/globalmacros.h"
-#include "../common/ListNode.cpp"
-#include "../common/TreeNode.cpp"
+#include "../common/ListNode.h"
+#include "../common/TreeNode.h"
 
 // @lc code=start
 
@@ -21,20 +21,31 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+
+class Solution
+{
+
 public:
-    std::vector<int> ret;  // 用一个全局变量来维护返回的值
 
-    std::vector<int> preorderTraversal(TreeNode* root) {
-        if (!root)
-            return {};
+    // 用一个全局变量来维护返回的值。
+    std::vector<int> res;
 
-        ret.push_back(root->val);
+    std::vector<int> preorderTraversal(TreeNode *root)
+    {
+        if (!root) return {};
+
+        res.emplace_back(root->val);
+
+        // std::vector<T> 没有比较好的 append 另一个 vector 的方式，硬要做只能像下面那样，这一点也不优雅。对于 std::vector<T> 来说，追加另一个 vector 的元素不可能做到真正的 O(1)，因为它必须保持连续内存，至少要处理被追加的 n 个元素，复杂度是 O(n)。
+        // std::vector<int> vec{1, 2}, vec2{3, 4, 5};
+        // vec.reserve(vec.size() + vec2.size());
+        // vec.insert(vec.end(), vec2.begin(), vec2.end());
 
         preorderTraversal(root->left);
         preorderTraversal(root->right);
 
-        return ret;
+
+        return res;
     }
 };
 // @lc code=end
