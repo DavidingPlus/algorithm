@@ -3,10 +3,24 @@
 -- 每个题解生成一个独立可执行目标，并链接 common 公共静态库。
 
 -- 公共数据结构和辅助代码只编译一次，生成静态库 common。
+-- 测试程序位于 common/tests，不编入公共库，避免其中的 main 影响其他目标。
+local common_library_sources = os.files("leetcode/editor/common/*.cpp")
+local common_test_sources = os.files("leetcode/editor/common/tests/*_test.cpp")
+
 target("common")
     set_kind("static")
     set_languages("c++17")
-    add_files("leetcode/editor/common/*.cpp")
+    add_files(common_library_sources)
+
+-- 为每个公共数据结构注册一个独立测试目标。
+for _, source_file in ipairs(common_test_sources) do
+    local test_name = path.basename(source_file)
+    target(test_name)
+        set_kind("binary")
+        set_languages("c++17")
+        add_files(source_file)
+        add_deps("common")
+end
 
 -- 记录已经使用过的目标名，避免中英文目录中的同名题解产生冲突。
 local used_target_names = {}
