@@ -5,7 +5,6 @@
  */
 
 
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
@@ -24,32 +23,33 @@
  * };
  */
 
-
-
 class Solution
 {
 
 public:
 
-    TreeNode *constructMaximumBinaryTreeFromRange(const std::vector<int> &nums, int left, int right)
+    // 由于需要递归调用，为了防止普遍的数组拷贝，提供一个根据范围构造的函数。（左闭右闭）
+    TreeNode *constructMaximumBinaryTreeRange(std::vector<int> &nums, int left, int right)
     {
         if (left > right) return nullptr;
 
+        // 找到 nums Range 范围中最大的元素。
         int pos = left;
         for (int i = left; i <= right; ++i)
         {
             if (nums[pos] < nums[i]) pos = i;
         }
 
-        TreeNode *root = new TreeNode(nums[pos]);
+        TreeNode *res = new TreeNode(nums[pos]);
 
-        root->left = constructMaximumBinaryTreeFromRange(nums, left, pos - 1);
-        root->right = constructMaximumBinaryTreeFromRange(nums, pos + 1, right);
+        res->left = constructMaximumBinaryTreeRange(nums, left, pos - 1);
+        res->right = constructMaximumBinaryTreeRange(nums, 1 + pos, right);
 
-        return root;
+
+        return res;
     }
 
-    TreeNode *constructMaximumBinaryTree(std::vector<int> &nums) { return constructMaximumBinaryTreeFromRange(nums, 0, nums.size() - 1); }
+    TreeNode *constructMaximumBinaryTree(std::vector<int> &nums) { return constructMaximumBinaryTreeRange(nums, 0, nums.size() - 1); }
 };
 
 // @lc code=end

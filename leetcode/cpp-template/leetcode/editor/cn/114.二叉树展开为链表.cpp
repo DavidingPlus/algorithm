@@ -23,15 +23,19 @@
  * };
  */
 
+class Solution
+{
 
-class Solution {
 public:
-    // TreeNode* res = new TreeNode(-1);  // 虚拟头结点
-    // TreeNode* p = res;                 // 工作指针
 
-    // void traverse(TreeNode* root) {
-    //     if (nullptr == root)
-    //         return;
+    // // 虚拟头结点。
+    // TreeNode *res = new TreeNode(-1);
+    // // 工作指针。
+    // TreeNode *p = res;
+
+    // void traverse(TreeNode *root)
+    // {
+    //     if (!root) return;
 
     //     p->right = new TreeNode(root->val);
     //     p = p->right;
@@ -40,31 +44,33 @@ public:
     //     traverse(root->right);
     // }
 
-    // // 法1：遍历一次二叉树，构造一棵新树
-    // void flatten(TreeNode* root) {
-    //     if (nullptr == root)
-    //         return;
+    // // 法 1：遍历一次二叉树，构造一棵新树。
+    // void flatten(TreeNode *root)
+    // {
+    //     if (!root) return;
 
     //     traverse(root);
-    //     // 不能直接赋值，因为形参，没办法改变
+
+    //     // 不能直接赋值，因为形参，没办法改变。
     //     root->left = nullptr;
     //     root->right = res->right->right;
     // }
 
-    // 法2：自相似的子问题
-    void flatten(TreeNode* root) {
-        if (nullptr == root)
-            return;
 
+    // 法 2：自相似的子问题。
+    void flatten(TreeNode *root)
+    {
+        if (!root) return;
+
+        // 先拉直，在合并。
         flatten(root->left);
         flatten(root->right);
 
-        // 先拉直，在合并
-        if (root->left) {
-            TreeNode* p = root->left;
-
-            while (p->right)
-                p = p->right;
+        // 找到左子树的叶子结点，与右子树连接起来。如果左子树为空，无需额外处理。
+        TreeNode *p = root->left;
+        if (p)
+        {
+            while (p->right) p = p->right;
 
             p->right = root->right;
             root->right = root->left;
