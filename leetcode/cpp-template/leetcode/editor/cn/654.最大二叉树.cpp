@@ -29,7 +29,7 @@ class Solution
 public:
 
     // 由于需要递归调用，为了防止普遍的数组拷贝，提供一个根据范围构造的函数。（左闭右闭）
-    TreeNode *constructMaximumBinaryTreeRange(std::vector<int> &nums, int left, int right)
+    TreeNode *constructMaximumBinaryTreeFromRange(std::vector<int> &nums, int left, int right)
     {
         if (left > right) return nullptr;
 
@@ -42,14 +42,14 @@ public:
 
         TreeNode *res = new TreeNode(nums[pos]);
 
-        res->left = constructMaximumBinaryTreeRange(nums, left, pos - 1);
-        res->right = constructMaximumBinaryTreeRange(nums, 1 + pos, right);
+        res->left = constructMaximumBinaryTreeFromRange(nums, left, pos - 1);
+        res->right = constructMaximumBinaryTreeFromRange(nums, 1 + pos, right);
 
 
         return res;
     }
 
-    TreeNode *constructMaximumBinaryTree(std::vector<int> &nums) { return constructMaximumBinaryTreeRange(nums, 0, nums.size() - 1); }
+    TreeNode *constructMaximumBinaryTree(std::vector<int> &nums) { return constructMaximumBinaryTreeFromRange(nums, 0, nums.size() - 1); }
 };
 
 // @lc code=end

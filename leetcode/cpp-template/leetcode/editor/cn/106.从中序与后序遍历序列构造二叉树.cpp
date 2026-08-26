@@ -5,7 +5,6 @@
  */
 
 
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
@@ -24,28 +23,36 @@
  * };
  */
 
-
-
 class Solution
 {
 
 public:
 
-    // 为了防止在递归中每次创建 std::vector 浪费资源，给出 left 和 right 写一个版本
+    // 为了防止在递归中每次创建 std::vector 浪费资源，给出范围 Range 的版本（左闭右闭）。
     TreeNode *buildTreeFromRange(std::vector<int> &inorder, int inorderLeft, int inorderRight, std::vector<int> &postorder, int postorderLeft, int postorderRight)
     {
-        // 在递归的过程中，中序遍历和后序遍历的数组的大小时时刻刻是一样的，因此判断条件只需要写一个即可
+        // 在递归的过程中，中序遍历和后序遍历的数组的大小时时刻刻是一样的，因此判断条件只需要写一个即可。
         if (inorderLeft > inorderRight) return nullptr;
 
-        TreeNode *root = new TreeNode(postorder[postorderRight]);
+        // 后序遍历的最后一个值是根节点，根据这个可以在中序遍历中找到这个结点，然后切分为左右两个子树进行分别构建。
+        // 不管是中序遍历还是后序遍历，左子树都先于右子树，因此中序遍历划分的左子树的长度，直接去后序遍历从 postorderLeft 开始截取相同长度，即为后序遍历的左子树。
 
-        // pos 的基准值是 inorderLeft，因此注意坐标的换算
-        int pos = 0;
-        for (; root->val != inorder[inorderLeft + pos]; ++pos)
-            ;
+        int rootPosInorder = 0;
+        for (int i = inorderLeft; i <= inorderRight; ++i)
+        {
+            if (postorder[postorderRight] == inorder[i])
+            {
+                rootPosInorder = i;
+                break;
+            }
+        }
 
-        root->left = buildTreeFromRange(inorder, inorderLeft, inorderLeft + pos - 1, postorder, postorderLeft, postorderLeft + pos - 1);
-        root->right = buildTreeFromRange(inorder, inorderLeft + pos + 1, inorderRight, postorder, postorderLeft + pos, postorderRight - 1);
+        TreeNode *root = new TreeNode(inorder[rootPosInorder]);
+
+        // rootPosInorder 的基准值是 inorder 的首元素，也就是 0，因此注意坐标的换算。
+        root->left = buildTreeFromRange(inorder, inorderLeft, rootPosInorder - 1, postorder, postorderLeft, postorderLeft + rootPosInorder - inorderLeft - 1);
+        root->right = buildTreeFromRange(inorder, 1 + rootPosInorder, inorderRight, postorder, postorderLeft + rootPosInorder - inorderLeft, postorderRight - 1);
+
 
         return root;
     }

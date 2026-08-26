@@ -5,7 +5,6 @@
  */
 
 
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
@@ -24,26 +23,30 @@
  * };
  */
 
-
-
 class Solution
 {
 
 public:
 
-    // 思路同 106 题
+    // 思路同 106 题。
     TreeNode *buildTreeFromRange(std::vector<int> &preorder, int preorderLeft, int preorderRight, std::vector<int> &inorder, int inorderLeft, int inorderRight)
     {
         if (preorderLeft > preorderRight) return nullptr;
 
+        int rootPosInorder = 0;
+        for (int i = inorderLeft; i <= inorderRight; ++i)
+        {
+            if (preorder[preorderLeft] == inorder[i])
+            {
+                rootPosInorder = i;
+                break;
+            }
+        }
+
         TreeNode *root = new TreeNode(preorder[preorderLeft]);
+        root->left = buildTreeFromRange(preorder, 1 + preorderLeft, (1 + preorderLeft) + (rootPosInorder - inorderLeft) - 1, inorder, inorderLeft, rootPosInorder - 1);
+        root->right = buildTreeFromRange(preorder, (1 + preorderLeft) + (rootPosInorder - inorderLeft), preorderRight, inorder, 1 + rootPosInorder, inorderRight);
 
-        int pos = 0;
-        for (; inorder[inorderLeft + pos] != root->val; ++pos)
-            ;
-
-        root->left = buildTreeFromRange(preorder, preorderLeft + 1, preorderLeft + pos, inorder, inorderLeft, inorderLeft + pos - 1);
-        root->right = buildTreeFromRange(preorder, preorderLeft + pos + 1, preorderRight, inorder, inorderLeft + pos + 1, inorderRight);
 
         return root;
     }
