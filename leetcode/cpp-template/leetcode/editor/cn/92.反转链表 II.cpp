@@ -34,31 +34,27 @@ public:
         ListNode *p = head, *pDummy = dummyHead;
         int i = 1;
 
-        // 先处理前面的部分。
-        for (; i < left; ++i)
-        {
-            pDummy->next = new ListNode(p->val);
-            p = p->next, pDummy = pDummy->next;
-        }
+        // 先处理前面的部分。直接把 dummyHead->next 接到 head 即可。
+        dummyHead->next = head;
+        // 然后通过遍历拿到需要反转链表的首元素指针。
+        for (; i < left; ++i) p = p->next, pDummy = pDummy->next;
+
+        ListNode *reverseTail = nullptr;
 
         // 处理中间反转链表的部分。
         for (; i <= right; ++i)
         {
             ListNode *node = new ListNode(p->val);
+
+            // 第一个节点最终会成为反转链表的尾节点，提前记录下来防止后面重新遍历。
+            if (!reverseTail) reverseTail = node;
+
             p = p->next;
             node->next = pDummy->next, pDummy->next = node;
         }
 
-        // 处理后面的部分。
-        // 先把反转链表的末尾和后面的部分连上。
-        while (pDummy->next) pDummy = pDummy->next;
-        pDummy->next = p;
-
-        while (p)
-        {
-            pDummy->next = new ListNode(p->val);
-            p = p->next, pDummy = pDummy->next;
-        }
+        // 处理后面的部分。把反转链表的末尾和后面的部分连上即可。
+        reverseTail->next = p;
 
 
         return dummyHead->next;
