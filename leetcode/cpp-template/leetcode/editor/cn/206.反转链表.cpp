@@ -4,8 +4,6 @@
  * [206] 反转链表
  */
 
-
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
@@ -23,43 +21,45 @@
  * };
  */
 
-
-
 class Solution
 {
 
 public:
 
-    // 迭代解法
-    ListNode *reverseList(ListNode *head)
-    {
-        // 构造一个新的链表进行头插
-        ListNode *dummyHead = new ListNode(-1, nullptr);
 
-        for (auto pMove = head; pMove; pMove = pMove->next)
-        {
-            ListNode *newNode = new ListNode(pMove->val);
-
-            newNode->next = dummyHead->next;
-            dummyHead->next = newNode;
-        }
-
-        return dummyHead->next;
-    }
-
-    // 递归解法
+    // 迭代解法。
     // ListNode *reverseList(ListNode *head)
     // {
-    //     if (!head) return nullptr;
-    //     if (!head->next) return head;
+    //     // 构造一个新的链表进行头插。
+    //     ListNode *dummyHead = new ListNode(-1);
 
-    //     auto headPrior = reverseList(head->next);
+    //     for (ListNode *p = head; p; p = p->next)
+    //     {
+    //         ListNode *node = new ListNode(p->val);
 
-    //     head->next->next = head;
-    //     head->next = nullptr;
+    //         node->next = dummyHead->next;
+    //         dummyHead->next = node;
+    //     }
 
-    //     return headPrior;
+
+    //     return dummyHead->next;
     // }
+
+    // 递归解法。
+    ListNode *reverseList(ListNode *head)
+    {
+        if (!head) return nullptr;
+        // 下面要用到 head->next，不能为空，因此需要特判。
+        if (!head->next) return head;
+
+        ListNode *newHead = reverseList(head->next);
+
+        head->next->next = head;
+        head->next = nullptr;
+
+
+        return newHead;
+    }
 };
 // @lc code=end
 
