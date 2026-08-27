@@ -23,77 +23,93 @@
  */
 
 
-class Solution {
+class Solution
+{
+
 public:
-    // 我想到了两个方法
-    // 1.将链表中的元素放入数组当中，可以随机访问，这个太无脑了，不用
-    // 2.将原链表反转得到新链表，然后与原链表进行一一比对
 
-    // // 用头插法构造一条新的反转链表
-    // ListNode *reverseList(ListNode *head) {
-    //     auto res = new ListNode(-1);
+    // 解法 1：将链表中的元素放入数组当中，可以随机访问，这个太无脑了，不用。
 
-    //     for (auto p = head; p; p = p->next) {
-    //         auto newNode = new ListNode(p->val);
-    //         newNode->next = res->next;
-    //         res->next = newNode;
+    // 解法 2：将原链表反转得到新链表，然后与原链表进行一一比对。
+    // 用头插法构造一条新的反转链表。
+    // ListNode *reverseList(ListNode *head)
+    // {
+    //     ListNode *dummyHead = new ListNode(-1);
+
+    //     for (ListNode *p = head; p; p = p->next)
+    //     {
+    //         ListNode *node = new ListNode(p->val);
+
+    //         node->next = dummyHead->next;
+    //         dummyHead->next = node;
     //     }
 
-    //     return res->next;
+
+    //     return dummyHead->next;
     // }
 
-    // bool isPalindrome(ListNode *head) {
-    //     auto newList = reverseList(head);
+    // bool isPalindrome(ListNode *head)
+    // {
+    //     ListNode *reverseHead = reverseList(head);
+    //     ListNode *p = head, *pReverse = reverseHead;
 
-    //     auto p1 = head, p2 = newList;
-    //     while (p1) {
-    //         if (p1->val != p2->val)
-    //             return false;
-    //         p1 = p1->next;
-    //         p2 = p2->next;
+    //     while (p)
+    //     {
+    //         if (p->val != pReverse->val) return false;
+    //         p = p->next, pReverse = pReverse->next;
     //     }
+
 
     //     return true;
     // }
 
-    // 方法3：找到链表的中点，把后面的反转，然后进行比较
-    ListNode* middleNode(ListNode* head) {
-        // 快慢指针
-        auto fast = head, slow = head;
-        while (fast && fast->next) {
+
+    // 解法 3：找到链表的中点，把后面的反转，然后进行比较。
+    ListNode *middleNode(ListNode *head)
+    {
+        // 快慢指针。
+        ListNode *fast = head, *slow = head;
+
+        while (fast && fast->next)
+        {
             fast = fast->next->next;
             slow = slow->next;
         }
-        // 为了本题目的要求，需要找到右半边的第一个，因此fast如果不是nullptr就是奇数
-        if (fast)
-            slow = slow->next;
 
-        return slow;
+        // 本题目中需要找到右半边的第一个，因此 fast 如果不是 nullptr 就是奇数，需要返回 slow->next。
+        return fast ? slow->next : slow;
     }
 
-    ListNode* reverseList(ListNode* head) {
-        if (nullptr == head || nullptr == head->next)
-            return head;
+    // 使用递归法原地反转链表。
+    ListNode *reverseList(ListNode *head)
+    {
+        if (!head) return nullptr;
+        if (!head->next) return head;
 
-        auto newHead = reverseList(head->next);
+        ListNode *newHead = reverseList(head->next);
         head->next->next = head;
         head->next = nullptr;
+
+
         return newHead;
     }
 
-    bool isPalindrome(ListNode* head) {
-        bool isOdd = false;
-        auto mid = middleNode(head);
+    bool isPalindrome(ListNode *head)
+    {
+        if (!head) return true;
 
-        auto newHead = reverseList(mid);
-        auto pl = head, pr = newHead;
+        ListNode *rightHead = middleNode(head);
+        ListNode *reverseHead = reverseList(rightHead);
 
-        while (pr) {
-            if (pr->val != pl->val)
-                return false;
-            pl = pl->next;
-            pr = pr->next;
+        ListNode *pLeft = head, *pRight = reverseHead;
+        // 反转后的右半部分长度不超过左半部分，因此以 pRight 为空作为结束条件。如果写成 while (pLeft)，单节点或奇数长度链表比较完右半部分后，pRight 可能已经为空，继续访问 pRight->val 会发生空指针解引用。
+        while (pRight)
+        {
+            if (pLeft->val != pRight->val) return false;
+            pLeft = pLeft->next, pRight = pRight->next;
         }
+
+
         return true;
     }
 };

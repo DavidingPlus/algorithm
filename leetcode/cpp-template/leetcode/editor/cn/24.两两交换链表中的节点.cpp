@@ -5,7 +5,6 @@
  */
 
 
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
@@ -24,25 +23,25 @@
  */
 
 
-
 class Solution
 {
 
 public:
 
-    // 递归解法
+    // 递归解法。
     ListNode *swapPairs(ListNode *head)
     {
         if (!head) return nullptr;
         if (!head->next) return head;
 
-        ListNode *headNext = head->next;
-        ListNode *remain = head->next->next;
+        // 前面的特判保证了这里至少有两个节点。因此先反转头两个节点，再递归。
+        ListNode *first = head, *second = head->next, *other = head->next->next;
 
-        head->next = swapPairs(headNext->next);
-        headNext->next = head;
+        first->next = swapPairs(other);
+        second->next = first;
 
-        return headNext;
+
+        return second;
     }
 };
 
