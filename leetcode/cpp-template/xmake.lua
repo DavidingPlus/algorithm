@@ -25,15 +25,21 @@ end
 -- 记录已经使用过的目标名，避免中英文目录中的同名题解产生冲突。
 local used_target_names = {}
 
+local function normalize_target_name(name)
+    -- XMake 的 target 名用于终端命令，空白字符统一替换为下划线。
+    return (name:gsub("%s+", "_"))
+end
+
 local function add_solution(source_file, language)
     local source_name = path.basename(source_file)
     local output_name = source_name .. "_" .. language
 
-    -- 使用“题解文件名_语言”作为目标名，方便通过 xmake run 补全选择题目。
-    local target_name = output_name
+    -- 使用“题解文件名_语言”作为目标名，并将其中的空白替换为下划线，
+    -- 方便通过 xmake run 补全选择题目；源文件名和输出文件名保持不变。
+    local target_name = normalize_target_name(output_name)
     local target_index = 1
     while used_target_names[target_name] do
-        target_name = output_name .. "_" .. target_index
+        target_name = normalize_target_name(output_name) .. "_" .. target_index
         target_index = target_index + 1
     end
     used_target_names[target_name] = true
