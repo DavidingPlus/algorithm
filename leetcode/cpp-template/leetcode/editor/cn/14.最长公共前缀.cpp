@@ -18,7 +18,21 @@ public:
 
     std::string longestCommonPrefix(std::vector<std::string> &strs)
     {
-        // TODO
+        std::string res;
+
+        // res 的长度不会超过 strs 中的最短字符串，为了方便这里以第一个字符串的长度为基准。
+        for (int j = 0; j < strs[0].size(); ++j)
+        {
+            char ch = strs[0][j];
+            for (int i = 1; i < strs.size(); ++i)
+            {
+                if (strs[i].size() == j || strs[i][j] != ch) return res;
+            }
+            res += ch;
+        }
+
+
+        return res;
     }
 };
 // @lc code=end
