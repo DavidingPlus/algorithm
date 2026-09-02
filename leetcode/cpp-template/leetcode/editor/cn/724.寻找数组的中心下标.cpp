@@ -10,26 +10,26 @@
 
 // @lc code=start
 
+class Solution
+{
 
-const int N = 1e4 + 10;
-
-class Solution {
 public:
-    int pivotIndex(std::vector<int>& nums) {
-        // 先填充前缀和数组
-        for (int i = 1; i <= nums.size(); ++i)
-            presum[i] = presum[i - 1] + nums[i - 1];
 
-        // 从左到右进行判断
+    int pivotIndex(std::vector<int> &nums)
+    {
+        preSum.resize(1 + nums.size(), 0);
+        for (int i = 1; i <= nums.size(); ++i) preSum[i] = preSum[i - 1] + nums[i - 1];
+
         for (int i = 1; i <= nums.size(); ++i)
-            if (presum[i - 1] - presum[0] == presum[nums.size()] - presum[i])
-                return i - 1;
+        {
+            if (preSum[i - 1] == preSum[nums.size()] - preSum[i]) return i - 1;
+        }
+
 
         return -1;
     }
 
-private:
-    int presum[N] = {0};
+    std::vector<int> preSum;
 };
 // @lc code=end
 
