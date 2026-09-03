@@ -9,9 +9,8 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
-
-
 
 class MyQueue
 {
@@ -25,8 +24,8 @@ public:
     int pop()
     {
         int res = peek();
-
         m_outputS.pop();
+
 
         return res;
     }
@@ -37,11 +36,12 @@ public:
         {
             while (!m_inputS.empty())
             {
-                int v = m_inputS.top();
+                auto e = m_inputS.top();
                 m_inputS.pop();
-                m_outputS.push(v);
+                m_outputS.push(e);
             }
         }
+
 
         return m_outputS.top();
     }
@@ -51,8 +51,8 @@ public:
 
 private:
 
-    // 见图，m_inputS 做输入栈，m_outputS 做输出栈
-    // 两个栈的输入和输出有限制，输出的时候只能从 m_outputS 中拿，如果 m_outputS 空了，就一次性把 m_inputS 中的所有元素压到 m_outputS 中，这样顺序就对了
+    // 见图，m_inputS 做输入栈，m_outputS 做输出栈。
+    // 两个栈的输入和输出有限制，输出的时候只能从 m_outputS 中拿，如果 m_outputS 空了，就一次性把 m_inputS 中的所有元素压到 m_outputS 中，这样顺序就对了。
     std::stack<int> m_inputS, m_outputS;
 };
 

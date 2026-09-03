@@ -11,7 +11,6 @@
 // @lc code=start
 
 
-
 class MyStack
 {
 
@@ -23,16 +22,18 @@ public:
 
     int pop()
     {
-        int count = m_q.size();
-        for (int i = 0; i < count - 1; ++i)
+        // 这里的处理是将队尾元素移动到队头，其他元素的位置保持不变。这样能保证当前弹出的元素是符合栈语义的，其他元素仍然是队列语义，下一次 pop() 时再执行相同逻辑即可。
+        int n = m_q.size();
+        for (int i = 0; i < n - 1; ++i)
         {
-            int v = m_q.front();
+            auto e = m_q.front();
             m_q.pop();
-            m_q.push(v);
+            m_q.push(e);
         }
 
         int res = m_q.front();
         m_q.pop();
+
 
         return res;
     }
@@ -40,7 +41,9 @@ public:
     int top()
     {
         int res = pop();
+        // 保证队列语义，将弹出的元素重新加入队列，保持队列顺序不变。
         m_q.push(res);
+
 
         return res;
     }
@@ -50,8 +53,7 @@ public:
 
 private:
 
-    // 只需要一个队列就够了
-    // 思路就是每次pop的时候都把前面的元素出队列然后放到末尾去，这样最后进来的就在队头了，并且其他的顺序不变，下次重复相同的操作即可
+    // 只需要一个队列就够了，思路就是每次 pop() 的时候都把前面的元素出队列然后放到末尾去，这样最后进来的就在队头了，并且其他的顺序不变，下次重复相同的操作即可。
     std::queue<int> m_q;
 };
 
