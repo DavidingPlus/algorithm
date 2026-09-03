@@ -10,32 +10,72 @@
 
 // @lc code=start
 
+constexpr int N = 1000;
 
-const int N = 1e3 + 10;
 
-class Solution {
+class Solution
+{
+
 public:
-    bool carPooling(std::vector<std::vector<int>>& trips, int capacity) {
-        // 各个站的人可以构成一个数组
-        // 不同批次的顾客在某个站下，某个站上，因此某个区间站的人会进行修改，因此可以用到差分数组
-        int dif[N] = {0};
 
-        int max_station = 0;
+    bool carPooling(std::vector<std::vector<int>> &trips, int capacity)
+    {
+        std::vector<int> nums(1 + N, 0);
+        Difference df(nums);
 
-        for (auto& trip : trips) {
-            dif[trip[1]] += trip[0];
-            dif[trip[2]] -= trip[0];  // 下车的时候这站的人数已经减少了，所以下了的人不参与进来
-            max_station = std::max(max_station, trip[2]);
+        for (auto &trip : trips)
+        {
+            // 第 trip[1] 站乘客上车，第 trip[2] 站乘客已经下车，即乘客在车上的区间是 [trip[1], trip[2] - 1]。
+            int val = trip[0], i = trip[1], j = trip[2] - 1;
+            df.increment(i, j, val);
         }
 
-        int num = 0;
-        for (int i = 1; i <= max_station; ++i) {
-            num += dif[i - 1];
-            if (num > capacity)
-                return false;
+        std::vector<int> res = df.result();
+        for (auto &e : res)
+        {
+            if (e > capacity) return false;
         }
+
+
         return true;
     }
+
+
+    class Difference
+    {
+
+    public:
+
+        Difference(std::vector<int> &nums)
+        {
+            diff.resize(nums.size());
+            diff[0] = nums[0];
+
+            for (int i = 1; i < nums.size(); ++i) diff[i] = nums[i] - nums[i - 1];
+        }
+
+        void increment(int i, int j, int val)
+        {
+            diff[i] += val;
+            if (1 + j < diff.size()) diff[1 + j] -= val;
+        }
+
+        std::vector<int> result()
+        {
+            std::vector<int> res(diff.size());
+            res[0] = diff[0];
+
+            for (int i = 1; i < diff.size(); ++i) res[i] = res[i - 1] + diff[i];
+
+
+            return res;
+        }
+
+
+    private:
+
+        std::vector<int> diff;
+    };
 };
 // @lc code=end
 
