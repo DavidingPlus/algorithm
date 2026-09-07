@@ -11,34 +11,34 @@
 // @lc code=start
 
 
-
-
 class Solution
 {
 
 public:
 
-    bool check(char right, char left) { return (')' == right && '(' == left) || ('}' == right && '{' == left) || (']' == right && '[' == left); }
+
+    // 这是一个标准的栈的模板题。进入的元素与栈顶相匹配，最后如果都能匹配必然会被清空。自己模拟一下过程即可。
+
+    bool check(char left, char right) { return ('(' == left && ')' == right) || ('{' == left && '}' == right) || ('[' == left && ']' == right); }
 
     bool isValid(std::string s)
     {
-        // 这是一个标准的栈的模板题。进入的元素与栈顶相匹配，最后如果都能匹配必然会被清空。自己模拟一下过程即可
+        std::stack<char> st;
 
-        std::stack<char> sc;
-
-        for (auto &c : s)
+        for (auto &ch : s)
         {
-            if (!sc.empty())
+            if (!st.empty())
             {
-                check(c, sc.top()) ? sc.pop() : sc.push(c);
+                check(st.top(), ch) ? st.pop() : st.push(ch);
             }
             else
             {
-                sc.push(c);
+                st.push(ch);
             }
         }
 
-        return sc.empty();
+
+        return st.empty();
     }
 };
 

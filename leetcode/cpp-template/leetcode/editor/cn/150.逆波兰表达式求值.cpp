@@ -11,12 +11,12 @@
 // @lc code=start
 
 
-
-
 class Solution
 {
 
 public:
+
+    // 一样的使用栈的思想。
 
     bool check(const std::string &s) { return ("+" == s) || ("-" == s) || ("*" == s) || ("/" == s); }
 
@@ -42,39 +42,36 @@ public:
 
     int evalRPN(std::vector<std::string> &tokens)
     {
-        // 一样的使用栈的思想
-
         // 操作符是不会被压入栈的，因此类型使用 int 即可
-        std::stack<int> ss;
+        std::stack<int> st;
 
         for (auto &s : tokens)
         {
-            if (!ss.empty())
+            if (!st.empty())
             {
                 if (check(s))
                 {
-                    // 开始计算
-                    int right = ss.top();
-                    ss.pop();
+                    int right = st.top();
+                    st.pop();
 
-                    int left = ss.top();
-                    ss.pop();
+                    int left = st.top();
+                    st.pop();
 
-                    int res = calc(left, right, s);
-                    ss.push(res);
+                    st.push(calc(left, right, s));
                 }
                 else
                 {
-                    ss.push(std::stoi(s));
+                    st.push(std::stoi(s));
                 }
             }
             else
             {
-                ss.push(std::stoi(s));
+                st.push(std::stoi(s));
             }
         }
 
-        return ss.top();
+
+        return st.top();
     }
 };
 
