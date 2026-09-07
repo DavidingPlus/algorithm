@@ -4,9 +4,6 @@
  * [404] 左叶子之和
  */
 
-
-
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
@@ -26,7 +23,6 @@
  */
 
 
-
 class Solution
 {
 
@@ -40,8 +36,7 @@ public:
 
         if (root->left && !root->left->left && !root->left->right) res += root->left->val;
 
-        traverse(root->left);
-        traverse(root->right);
+        traverse(root->left), traverse(root->right);
     }
 
     int sumOfLeftLeaves(TreeNode *root)

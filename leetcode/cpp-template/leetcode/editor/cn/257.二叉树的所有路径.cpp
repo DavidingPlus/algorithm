@@ -5,10 +5,10 @@
  */
 
 
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
+
 
 // @lc code=start
 
@@ -24,33 +24,35 @@
  * };
  */
 
-
-
 class Solution
 {
 
 public:
 
     std::vector<std::string> res;
+
     std::string path;
+
 
     void traverse(TreeNode *root)
     {
         if (!root) return;
 
-        path += std::to_string(root->val) + "->";
-        if (!root->left && !root->right) res.emplace_back(path.substr(0, path.size() - 2)); // 需要去掉末尾的 ->
+        // 记录进入当前节点之前 path 的长度，后面回溯时直接恢复到这个长度。
+        int oldSize = path.size();
 
-        traverse(root->left);
-        traverse(root->right);
+        path += std::to_string(root->val);
+        if (!root->left && !root->right) res.emplace_back(path);
+        path += "->";
 
-        for (int i = 0; i < std::to_string(root->val).size() + 2; ++i) path.pop_back();
+        traverse(root->left), traverse(root->right);
+
+        path.resize(oldSize);
     }
 
     std::vector<std::string> binaryTreePaths(TreeNode *root)
     {
         traverse(root);
-
         return res;
     }
 };

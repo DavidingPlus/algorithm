@@ -9,6 +9,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 /**
@@ -23,26 +24,28 @@
  * };
  */
 
+class Solution
+{
 
-class Solution {
 public:
-    int res = 0, num = 0;  // res维护最终结果，num维护过程中实时的值
 
-    void traverse(TreeNode *root) {
-        if (nullptr == root)
-            return;
+    // res 维护最终结果，num 维护过程中实时的值。
+    int res = 0, num = 0;
+
+    void traverse(TreeNode *root)
+    {
+        if (!root) return;
 
         num = 10 * num + root->val;
-        if (nullptr == root->left && nullptr == root->right)
-            res += num;
+        if (!root->left && !root->right) res += num;
 
-        traverse(root->left);
-        traverse(root->right);
+        traverse(root->left), traverse(root->right);
 
         num /= 10;
     }
 
-    int sumNumbers(TreeNode *root) {
+    int sumNumbers(TreeNode *root)
+    {
         traverse(root);
         return res;
     }

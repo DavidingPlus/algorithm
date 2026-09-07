@@ -4,10 +4,10 @@
  * [1022] 从根到叶的二进制数之和
  */
 
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
+
 
 // @lc code=start
 
@@ -23,26 +23,30 @@
  * };
  */
 
+class Solution
+{
 
-class Solution {
 public:
-    int res = 0, num = 0;  // res维护答案，num维护实时的十进制数字值
 
-    void traverse(TreeNode *root) {
-        if (nullptr == root)
-            return;
+    // res 维护答案，num 维护实时的十进制数字值。
+    int res = 0, num = 0;
+
+
+    void traverse(TreeNode *root)
+    {
+        if (!root) return;
 
         num = 2 * num + root->val;
-        if (nullptr == root->left && nullptr == root->right)
-            res += num;
 
-        traverse(root->left);
-        traverse(root->right);
+        if (!root->left && !root->right) res += num;
+
+        traverse(root->left), traverse(root->right);
 
         num /= 2;
     }
 
-    int sumRootToLeaf(TreeNode *root) {
+    int sumRootToLeaf(TreeNode *root)
+    {
         traverse(root);
         return res;
     }

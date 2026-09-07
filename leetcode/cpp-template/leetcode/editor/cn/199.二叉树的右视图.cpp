@@ -5,7 +5,6 @@
  */
 
 
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
@@ -25,63 +24,62 @@
  */
 
 
-class Solution {
+class Solution
+{
+
 public:
-    // 方法1：用层序遍历来解决
-    // std::vector<int> rightSideView(TreeNode *root) {
-    //     if (nullptr == root)
-    //         return {};
+
+    // 解法 1：层序遍历。
+    // std::vector<int> rightSideView(TreeNode *root)
+    // {
+    //     std::vector<int> res;
+    //     if (!root) return res;
 
     //     std::queue<TreeNode *> q;
-    //     std::vector<int> res;
-    //     // 根节点入队
     //     q.push(root);
-    //     while (false == q.empty()) {
-    //         // 记录此刻这层当中的元素个数，因为后续会变化
+
+    //     while (!q.empty())
+    //     {
     //         int n = q.size();
-    //         for (int i = 0; i < n; ++i) {
+    //         for (int i = 0; i < n; ++i)
+    //         {
     //             auto node = q.front();
     //             q.pop();
 
-    //             if (n - 1 == i)
-    //                 res.push_back(node->val);
+    //             if (0 == i) res.emplace_back(node->val);
 
-    //             if (node->left)
-    //                 q.push(node->left);
-    //             if (node->right)
-    //                 q.push(node->right);
+    //             // 右视图应该从右边开始遍历。
+    //             if (node->right) q.push(node->right);
+    //             if (node->left) q.push(node->left);
     //         }
     //     }
+
+
     //     return res;
     // }
 
-    // 方法2：通过遍历二叉树解决问题
+    // 解法 2：遍历二叉树。
     std::vector<int> res;
-    std::vector<int> ref;  // 参考数组，用作检测每一层是否已经访问过
-    int depth = 0;
 
-    void traverse(TreeNode *root) {
-        if (nullptr == root)
-            return;
+    int depth = -1;
+
+    void traverse(TreeNode *root)
+    {
+        if (!root) return;
 
         ++depth;
-        if (666 == ref[depth]) {
-            res.push_back(root->val);
-            ref[depth] = -1;
-        }
 
-        // 右视图，那肯定先遍历右边，每一层最先看到的节点就是右侧的值
-        traverse(root->right);
-        traverse(root->left);
+        // 根据 depth 和 res.size() 来判断是否是当前层遍历的第一个结点。
+        if (depth == res.size()) res.emplace_back(root->val);
+
+        // 右视图应该从右边开始遍历。
+        traverse(root->right), traverse(root->left);
 
         --depth;
     }
 
-    std::vector<int> rightSideView(TreeNode *root) {
-        // 初始化ref
-        ref.resize(100 + 10);
-        std::fill(ref.begin(), ref.end(), 666);
-
+    std::vector<int> rightSideView(TreeNode *root)
+    {
         traverse(root);
         return res;
     }

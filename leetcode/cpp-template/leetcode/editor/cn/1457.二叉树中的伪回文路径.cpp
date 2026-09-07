@@ -24,30 +24,37 @@
  */
 
 
-class Solution {
+class Solution
+{
+
 public:
-    int oddNum = 0;  // 维护遍历过程中路径的实时奇数个数
+
+    // 以例子 "333" 和 "3223" 来分析如何判断回文串。回文串的长度可能是偶数或者奇数，除了奇数的中心点以外，其他的元素都能找到另一个匹配的元素。因此，伪回文串的判断条件是路径上所有元素出现的次数，最多只有一个是奇数，奇数多出来的这一个元素就用来做中心点。
+
     int res = 0;
-    std::unordered_map<int, int> um;  // 需要用哈希表记录实时的元素和个数关系，方便更新oddNum
 
-    void traverse(TreeNode *root) {
-        if (nullptr == root)
-            return;
+    // 需要用哈希表记录实时的元素和出现次数的映射关系，方便更新 oddNum。
+    std::unordered_map<int, int> valToCount;
 
-        // 伪回文路径的条件是路径中值的个数只有一个为奇数或者全为偶数，换句话说，奇数的个数<=1
-        um[root->val]++ & 1 ? --oddNum : ++oddNum;  // 不存在的也包含在这里面了，不存在会直接创建，赋初值0
+    // 我们另外维护一个变量，用于记录路径上元素出现的次数为奇数的个数。
+    int oddNum = 0;
 
-        // 叶节点
-        if (nullptr == root->left && nullptr == root->right && oddNum <= 1)
-            ++res;
 
-        traverse(root->left);
-        traverse(root->right);
+    void traverse(TreeNode *root)
+    {
+        if (!root) return;
 
-        um[root->val]-- & 1 ? --oddNum : ++oddNum;
+        valToCount[root->val]++ & 1 ? --oddNum : ++oddNum;
+
+        if (!root->left && !root->right && oddNum <= 1) ++res;
+
+        traverse(root->left), traverse(root->right);
+
+        valToCount[root->val]-- & 1 ? --oddNum : ++oddNum;
     }
 
-    int pseudoPalindromicPaths(TreeNode *root) {
+    int pseudoPalindromicPaths(TreeNode *root)
+    {
         traverse(root);
         return res;
     }

@@ -9,6 +9,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 /**
@@ -23,53 +24,81 @@
  * };
  */
 
+class Solution
+{
 
-class Solution {
 public:
-    TreeNode *addOneRow(TreeNode *root, int val, int depth) {
-        // 层序遍历，找到depth-1的一层，然后修改对应的左子树和右子树
-        if (nullptr == root)
-            return nullptr;
 
-        // 直接更改头节点需要特殊处理
-        if (1 == depth) {
-            auto newRoot = new TreeNode(val);
-            newRoot->left = root;
-            return newRoot;
+    // 解法 1：层序遍历。
+    // TreeNode *addOneRow(TreeNode *root, int val, int depth)
+    // {
+    //     // 同链表思路，增加一个 dummyHead。这样不用特殊处理根节点。
+    //     TreeNode *dummyHead = new TreeNode(-1, root, nullptr);
+
+    //     std::queue<TreeNode *> q;
+    //     q.push(dummyHead);
+
+    //     int dep = -1;
+    //     while (!q.empty())
+    //     {
+    //         ++dep;
+
+    //         int n = q.size();
+    //         for (int i = 0; i < n; ++i)
+    //         {
+    //             auto node = q.front();
+    //             q.pop();
+
+    //             if (node->left) q.push(node->left);
+    //             if (node->right) q.push(node->right);
+
+    //             // 我们在目标层的上一层遍历的时候添加新结点，这样能拿到父结点的信息。
+    //             if (depth - 1 == dep)
+    //             {
+    //                 TreeNode *newLeftNode = new TreeNode(val, node->left, nullptr), *newRightNode = new TreeNode(val, nullptr, node->right);
+
+    //                 node->left = newLeftNode, node->right = newRightNode;
+    //             }
+    //         }
+
+    //         if (depth - 1 == depth) break;
+    //     }
+
+
+    //     return dummyHead->left;
+    // }
+
+
+    // 解法 2：递归遍历。
+    int dep = -1, targetVal, targetDepth;
+
+
+    void traverse(TreeNode *root)
+    {
+        if (!root) return;
+
+        ++dep;
+
+        if (targetDepth - 1 == dep)
+        {
+            TreeNode *newLeftNode = new TreeNode(targetVal, root->left, nullptr), *newRightNode = new TreeNode(targetVal, nullptr, root->right);
+
+            root->left = newLeftNode, root->right = newRightNode;
         }
 
-        std::queue<TreeNode *> q;
-        q.push(root);
-        int dep = 0;  // 记录深度
-        while (false == q.empty()) {
-            ++dep;
-            int n = q.size();
-            for (int i = 0; i < n; ++i) {
-                auto node = q.front();
-                q.pop();
+        traverse(root->left), traverse(root->right);
 
-                if (node->left)
-                    q.push(node->left);
+        --dep;
+    }
 
-                if (node->right)
-                    q.push(node->right);
+    TreeNode *addOneRow(TreeNode *root, int val, int depth)
+    {
+        targetVal = val, targetDepth = depth;
 
-                if (depth - 1 == dep) {
-                    // 插入新节点
-                    // 不能写在上面的if里面是因为，不管node的左右是否为空，都需要插入目标节点，画个图就知道了
-                    auto newLeftNode = new TreeNode(val), newRightNode = new TreeNode(val);
-
-                    newLeftNode->left = node->left;
-                    node->left = newLeftNode;
-                    newRightNode->right = node->right;
-                    node->right = newRightNode;
-                }
-            }
-
-            if (depth - 1 == dep)
-                break;
-        }
-        return root;
+        // 同上。
+        TreeNode *dummyHead = new TreeNode(-1, root, nullptr);
+        traverse(dummyHead);
+        return dummyHead->left;
     }
 };
 // @lc code=end

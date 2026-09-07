@@ -23,28 +23,35 @@
  * };
  */
 
+class Solution
+{
 
-class Solution {
 public:
-    std::string res, path;
 
-    void traverse(TreeNode *root) {
-        if (nullptr == root)
-            return;
+    std::string res = {'a' + 26}, path;
 
-        path.insert(path.begin(), 'a' + root->val);
-        if (nullptr == root->left && nullptr == root->right)
-            res = std::min(res, path);
+
+    void traverse(TreeNode *root)
+    {
+        if (!root) return;
+
+        path += 'a' + root->val;
+
+        if (!root->left && !root->right)
+        {
+            // 题目要求叶子到根，所以比较时反向构造字符串。
+            std::string rev(path.rbegin(), path.rend());
+            res = std::min(res, rev);
+        }
 
         traverse(root->left);
         traverse(root->right);
 
-        path.erase(path.begin());
+        path.pop_back();
     }
 
-    std::string smallestFromLeaf(TreeNode *root) {
-        // 初始化res，给一个比z大的
-        res.push_back('z' + 1);
+    std::string smallestFromLeaf(TreeNode *root)
+    {
         traverse(root);
         return res;
     }
