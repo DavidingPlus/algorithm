@@ -8,20 +8,28 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
-class RecentCounter {
+class RecentCounter
+{
+
 public:
+
     RecentCounter() {}
 
-    int ping(int t) {
-        while (false == q.empty() && t - 3000 > q.front()) q.pop();
+    int ping(int t)
+    {
         q.push(t);
+        while (t - q.front() > 3000) q.pop();
+
+
         return q.size();
     }
 
 private:
-    // 由于新的ping严格大于前面的ping，因此以前的时间超出范围的后面肯定也用不到了，需要弹出，先进先出，因此考虑队列
+
+    // 由于新的 ping 严格大于前面的 ping，因此以前的时间超出范围的后面肯定也用不到了，需要弹出，先进先出，因此考虑队列。
     std::queue<int> q;
 };
 

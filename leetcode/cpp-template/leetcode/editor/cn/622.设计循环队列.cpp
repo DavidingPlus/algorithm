@@ -10,46 +10,64 @@
 
 // @lc code=start
 
-class MyCircularQueue {
+
+class MyCircularQueue
+{
+
 public:
-    MyCircularQueue(int k) {
-        v = std::vector<int>(k);
-        capacity = k;
+
+    MyCircularQueue(int k)
+    {
+        m_capacity = k;
+        m_vec.resize(m_capacity);
     }
 
-    bool enQueue(int value) {
-        if (isFull())
-            return false;
+    bool enQueue(int value)
+    {
+        if (isFull()) return false;
 
-        v[tail % capacity] = value;
-        ++tail;
+        m_vec[m_tail] = value;
+
+        m_tail = (m_tail + 1) % m_capacity;
+        ++m_size;
+
+
         return true;
     }
 
-    bool deQueue() {
-        if (isEmpty())
-            return false;
+    bool deQueue()
+    {
+        if (isEmpty()) return false;
 
-        ++front;
+        m_front = (m_front + 1) % m_capacity;
+        --m_size;
+
+
         return true;
     }
 
-    int Front() { return isEmpty() ? -1 : v[front % capacity]; }
+    int Front() { return isEmpty() ? -1 : m_vec[m_front]; }
 
-    int Rear() { return isEmpty() ? -1 : v[(tail - 1) % capacity]; }
+    int Rear() { return isEmpty() ? -1 : m_vec[(m_tail - 1 + m_capacity) % m_capacity]; }
 
-    bool isEmpty() { return front == tail; }
+    bool isEmpty() { return 0 == m_size; }
 
-    bool isFull() { return tail - front == capacity; }
+    bool isFull() { return m_size == m_capacity; }
+
 
 private:
-    // 哪一个数组来存储就好了，记录front和tail指针即可，记得取模
-    std::vector<int> v;
-    int front = 0, tail = 0;  // front指向队头元素，tail指向队尾元素的下一个元素
-    // 为了区分判断空和满，做这样的设计，允许tail和front的值超出数组边界，我们在调用方的时候取模即可（我们希望用户不要塞INTMAX的值进去就行，当然在算法题当中这是能满足的）
 
-    int capacity = 0;  // 记录数组大小
+    // 底层用数组模拟队列。
+    std::vector<int> m_vec;
+
+    // m_capacity 记录队列容量，m_size 记录队列当前大小。
+    // 为什么需要 m_size 呢？考虑一个例子：m_front == m_tail，这种情况无法判断是 isEmpty() 还是 isFull()，需要额外存储 m_size 判断。
+    int m_capacity = 0, m_size = 0;
+
+    // m_front 指向队头元素，m_tail 指向队尾的下一个元素。
+    int m_front = 0, m_tail = 0;
 };
+
 
 /**
  * Your MyCircularQueue object will be instantiated && called as such:
@@ -66,4 +84,5 @@ private:
 
 int main()
 {
+    std::cout << (0 - 5) % 8 << std::endl;
 }
