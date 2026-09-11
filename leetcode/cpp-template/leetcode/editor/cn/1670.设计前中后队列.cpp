@@ -9,48 +9,60 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
-// TODO 后续自己用链表手搓一遍
-class FrontMiddleBackQueue {
+class FrontMiddleBackQueue
+{
+
 public:
+
     FrontMiddleBackQueue() {}
 
-    void pushFront(int val) { d.push_front(val); }
+    void pushFront(int val) { m_dq.emplace_front(val); }
 
-    void pushMiddle(int val) { d.insert(d.begin() + d.size() / 2, val); }
+    void pushMiddle(int val)
+    {
+        int mid = m_dq.size() / 2;
+        m_dq.insert(m_dq.begin() + mid, val);
+    }
 
-    void pushBack(int val) { d.push_back(val); }
+    void pushBack(int val) { m_dq.emplace_back(val); }
 
-    int popFront() {
-        if (d.empty())
-            return -1;
+    int popFront()
+    {
+        if (m_dq.empty()) return -1;
 
-        int res = d.front();
-        d.pop_front();
+        int res = m_dq.front();
+        m_dq.pop_front();
         return res;
     }
 
-    int popMiddle() {
-        if (d.empty())
-            return -1;
+    int popMiddle()
+    {
+        if (m_dq.empty()) return -1;
 
-        int res = d[d.size() & 1 ? d.size() / 2 : d.size() / 2 - 1];
-        d.erase(d.begin() + ((d.size() & 1) ? d.size() / 2 : d.size() / 2 - 1));
+        int mid = m_dq.size() & 1 ? m_dq.size() / 2 : m_dq.size() / 2 - 1;
+
+        int res = m_dq[mid];
+        m_dq.erase(m_dq.begin() + mid);
         return res;
     }
 
-    int popBack() {
-        if (d.empty())
-            return -1;
+    int popBack()
+    {
+        if (m_dq.empty()) return -1;
 
-        int res = d.back();
-        d.pop_back();
+        int res = m_dq.back();
+        m_dq.pop_back();
         return res;
     }
+
 
 private:
-    std::deque<int> d;
+
+    // 因为要执行 push_front 和 push_back 操作，使用双端队列。
+    std::deque<int> m_dq;
 };
 
 /**

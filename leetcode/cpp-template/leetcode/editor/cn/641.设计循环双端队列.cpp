@@ -10,77 +10,95 @@
 
 // @lc code=start
 
-class MyCircularDeque {
+
+class MyCircularDeque
+{
+
 public:
-    MyCircularDeque(int k) {
-        v = std::vector<int>(k);
-        capacity = k;
+
+    MyCircularDeque(int k)
+    {
+        m_capacity = k;
+        m_vec.resize(m_capacity);
     }
 
-    bool insertFront(int value) {
-        if (isFull())
-            return false;
+    bool insertFront(int value)
+    {
+        if (isFull()) return false;
 
-        // 包含负数的情况，计算正确的index
-        // 为了避免麻烦的判断，先全部变为正数再取模
-        int index = ((front - 1) % capacity + capacity) % capacity;
+        m_front = (m_front - 1 + m_capacity) % m_capacity;
+        m_vec[m_front] = value;
+        ++m_size;
 
-        v[index] = value;
-        --front;
+
         return true;
     }
 
-    bool insertLast(int value) {
-        if (isFull())
-            return false;
+    bool insertLast(int value)
+    {
+        if (isFull()) return false;
 
-        int index = (tail % capacity + capacity) % capacity;
+        m_vec[m_tail] = value;
+        m_tail = (m_tail + 1) % m_capacity;
+        ++m_size;
 
-        v[index] = value;
-        ++tail;
+
         return true;
     }
 
-    bool deleteFront() {
-        if (isEmpty())
-            return false;
+    bool deleteFront()
+    {
+        if (isEmpty()) return false;
 
-        ++front;
+        m_front = (m_front + 1) % m_capacity;
+        --m_size;
+
+
         return true;
     }
 
-    bool deleteLast() {
-        if (isEmpty())
-            return false;
+    bool deleteLast()
+    {
+        if (isEmpty()) return false;
 
-        --tail;
+        m_tail = (m_tail - 1 + m_capacity) % m_capacity;
+        --m_size;
+
+
         return true;
     }
 
-    int getFront() {
-        if (isEmpty())
-            return -1;
+    int getFront() const { return isEmpty() ? -1 : m_vec[m_front]; }
 
-        return v[(front % capacity + capacity) % capacity];
-    }
+    int getRear() const { return isEmpty() ? -1 : m_vec[(m_tail - 1 + m_capacity) % m_capacity]; }
 
-    int getRear() {
-        if (isEmpty())
-            return -1;
+    bool isEmpty() const { return 0 == m_size; }
 
-        return v[((tail - 1) % capacity + capacity) % capacity];
-    }
+    bool isFull() const { return m_capacity == m_size; }
 
-    bool isEmpty() { return front == tail; }
-
-    bool isFull() { return tail - front == capacity; }
 
 private:
-    // 思路和设计单端循环队列一样
-    std::vector<int> v;
-    // 由于可以前插，所以front和tail可以负数，负数取模会返回负数的取模值，加上capacity就是真实的下标，这一点区别需要注意
-    int front = 0, tail = 0;
-    int capacity = 0;
+
+    // 思路同 622 题。
+
+    // m_front 指向当前队首元素，m_tail 指向队尾元素之后的下一个空位。
+    // 但队列刚创建时为空，此时并不存在真正的队首，m_front = m_tail = 0
+    // 只是初始游标，不能把这个 0 理解成已经存在的队首下标。
+    //
+    // 例如容量为 5 时：
+    //   初始状态：m_front = 0，m_tail = 0，m_size = 0
+    //   insertFront(10)：m_front 向前循环到 4，并把 10 写入下标 4
+    //                   此时队列的逻辑内容是 [10]，队首就是下标 4
+    //   insertLast(20)：把 20 写入下标 0，m_tail 移到 1
+    //                   沿循环方向从下标 4 走到下标 0，逻辑顺序是 [10, 20]
+    // 因此，空队列时 m_front = 0 只是约定；第一次从队首插入时先移动 m_front，
+    // 正好可以在当前队首的前一个循环位置写入新元素。
+
+    std::vector<int> m_vec;
+
+    int m_capacity = 0, m_size = 0;
+
+    int m_front = 0, m_tail = 0;
 };
 
 /**
