@@ -34,19 +34,14 @@ public:
         if (left > right) return nullptr;
 
         // 找到 nums Range 范围中最大的元素。
-        int pos = left;
-        for (int i = left; i <= right; ++i)
-        {
-            if (nums[pos] < nums[i]) pos = i;
-        }
-
-        TreeNode *res = new TreeNode(nums[pos]);
-
-        res->left = constructMaximumBinaryTreeFromRange(nums, left, pos - 1);
-        res->right = constructMaximumBinaryTreeFromRange(nums, 1 + pos, right);
+        int pos = std::max_element(nums.begin() + left, nums.begin() + right + 1) - nums.begin();
 
 
-        return res;
+        return new TreeNode(
+            nums[pos],
+            constructMaximumBinaryTreeFromRange(nums, left, pos - 1),
+            constructMaximumBinaryTreeFromRange(nums, 1 + pos, right) //
+        );
     }
 
     TreeNode *constructMaximumBinaryTree(std::vector<int> &nums) { return constructMaximumBinaryTreeFromRange(nums, 0, nums.size() - 1); }
