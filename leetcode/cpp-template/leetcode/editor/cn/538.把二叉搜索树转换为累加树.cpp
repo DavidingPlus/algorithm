@@ -9,6 +9,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 /**
@@ -23,22 +24,29 @@
  * };
  */
 
-class Solution {
+class Solution
+{
+
 public:
+
     int sum = 0;
 
-    void traverse(TreeNode *root) {
-        if (nullptr == root)
-            return;
 
+    void traverse(TreeNode *root)
+    {
+        if (!root) return;
+
+        // 按照中序从右子树开始遍历，遍历完根节点的时候，sum 的值就是答案。
         traverse(root->right);
+
         sum += root->val;
         root->val = sum;
+
         traverse(root->left);
     }
 
-    TreeNode *convertBST(TreeNode *root) {
-        // 比它大的就是右子树的节点之和
+    TreeNode *convertBST(TreeNode *root)
+    {
         traverse(root);
         return root;
     }

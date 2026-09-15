@@ -5,7 +5,6 @@
  */
 
 
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
@@ -25,17 +24,25 @@
  */
 
 
-class Solution {
+class Solution
+{
+
 public:
+
     // 递归修改数据结构的注意事项!!!
-    TreeNode *insertIntoBST(TreeNode *root, int val) {
-        if (nullptr == root)
-            return new TreeNode(val);
+    TreeNode *insertIntoBST(TreeNode *root, int val)
+    {
+        if (!root) return new TreeNode(val, nullptr, nullptr);
 
         if (root->val > val)
+        {
             root->left = insertIntoBST(root->left, val);
+        }
         else
+        {
             root->right = insertIntoBST(root->right, val);
+        }
+
 
         return root;
     }

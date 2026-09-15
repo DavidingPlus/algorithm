@@ -4,11 +4,10 @@
  * [700] 二叉搜索树中的搜索
  */
 
-
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
+
 
 // @lc code=start
 
@@ -25,46 +24,39 @@
  */
 
 
-
 class Solution
 {
 
 public:
 
-    // 解法 1：递归遍历（BST 优化版本）
-    TreeNode *res = nullptr;
+    // 解法 1：递归遍历（BST 优化版本）。
+    // TreeNode *res = nullptr;
 
-    void traverse(TreeNode *root, int val)
-    {
-        if (!root) return;
+    // void traverse(TreeNode *root, int val)
+    // {
+    //     if (!root) return;
 
-        if (val == root->val)
-        {
-            res = root;
+    //     if (val == root->val) res = root;
 
-            return;
-        }
+    //     root->val > val ? traverse(root->left, val) : traverse(root->right, val);
+    // }
 
-        root->val > val ? traverse(root->left, val) : traverse(root->right, val);
-    }
-
-    TreeNode *searchBST(TreeNode *root, int val)
-    {
-        traverse(root, val);
-
-        return res;
-    }
+    // TreeNode *searchBST(TreeNode *root, int val)
+    // {
+    //     traverse(root, val);
+    //     return res;
+    // }
 
 
     // 解法 2：分解为自相似的子问题
-    // TreeNode *searchBST(TreeNode *root, int val)
-    // {
-    //     if (!root) return nullptr;
+    TreeNode *searchBST(TreeNode *root, int val)
+    {
+        if (!root) return nullptr;
 
-    //     if (val == root->val) return root;
+        if (val == root->val) return root;
 
-    //     return root->val > val ? searchBST(root->left, val) : searchBST(root->right, val);
-    // }
+        return root->val > val ? searchBST(root->left, val) : searchBST(root->right, val);
+    }
 };
 
 // @lc code=end
