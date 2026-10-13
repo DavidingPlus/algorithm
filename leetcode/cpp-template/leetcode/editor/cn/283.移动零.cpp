@@ -11,22 +11,22 @@
 // @lc code=start
 
 
-
 class Solution
 {
 
 public:
 
-    // 快慢指针 + 末尾补 0。
     void moveZeroes(std::vector<int> &nums)
     {
-        int fast = 0, slow = 0;
+        // 快慢指针。
+        int slow = 0;
 
-        for (; fast < nums.size(); ++fast)
+        for (int fast = 0; fast < nums.size(); ++fast)
         {
             if (0 != nums[fast]) nums[slow++] = nums[fast];
         }
 
+        // 末尾补 0。
         for (; slow < nums.size(); ++slow) nums[slow] = 0;
     }
 };
