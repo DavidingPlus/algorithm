@@ -10,6 +10,7 @@
 #include "../common/TreeNode.h"
 #include "../common/Node.h"
 
+
 // @lc code=start
 class Solution
 {
@@ -18,14 +19,15 @@ public:
 
     std::vector<int> productExceptSelf(std::vector<int> &nums)
     {
+        // 题目要求不能使用除法，因此维护从左到右和从右到左的前缀积和后缀积数组。
+
         std::vector<int> res(nums.size());
 
-        // 题目要求不能用除法，因此定义从左到右和从右到左的两个前缀积数组。
         std::vector<int> prefix(1 + nums.size(), 1), suffix(2 + nums.size(), 1);
         for (int i = 1; i <= nums.size(); ++i) prefix[i] = prefix[i - 1] * nums[i - 1];
-        for (int i = nums.size(); i >= 1; --i) suffix[i] = suffix[i + 1] * nums[i - 1];
+        for (int i = nums.size(); i >= 1; --i) suffix[i] = suffix[1 + i] * nums[i - 1];
 
-        for (int i = 1; i <= nums.size(); ++i) res[i - 1] = prefix[i - 1] * suffix[i + 1];
+        for (int i = 1; i <= nums.size(); ++i) res[i - 1] = prefix[i - 1] * suffix[1 + i];
 
 
         return res;

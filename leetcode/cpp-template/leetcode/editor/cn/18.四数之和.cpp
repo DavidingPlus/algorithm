@@ -18,18 +18,19 @@ public:
 
     std::vector<std::vector<int>> fourSum(std::vector<int> &nums, long target)
     {
-        std::sort(nums.begin(), nums.end());
+        std::sort(nums.begin(), nums.end(), std::less<int>());
         return nSumTarget(nums, 4, 0, target);
     }
 
     // 直接写一个 n 数之和的模板。这个板子假设数组已经有序，为节省时间，排序逻辑在外层执行。
     std::vector<std::vector<int>> nSumTarget(std::vector<int> &nums, int n, int start, long target)
     {
-        // n 数之和的思路完全参考三数之和，把该问题划分为结构相似的子问题，先枚举第一个数，然后求后面部分的 (n-1) 数之和，最后组合起来。当问题简化为两数之和的时候，就用双指针处理。
+        // n 数之和的思路完全参考 15 题三数之和，把该问题划分为结构相似的子问题，先枚举第一个数，然后求后面部分的 (n-1) 数之和，最后组合起来。当问题简化为两数之和的时候，就用双指针处理。
 
         std::vector<std::vector<int>> res;
-        // 本函数要求至少是 2 Sum，且数组大小不应该小于 n。
-        if (n < 2 || nums.size() < n) return res;
+
+        // 本函数要求至少是两数之和，且数组大小不应该小于 n。
+        if (n < 2 || n > nums.size()) return res;
 
         if (n > 2)
         {
@@ -43,32 +44,29 @@ public:
                     res.emplace_back(tuple);
                 }
 
-                while (i < nums.size() - 1 && nums[i] == nums[1 + i]) ++i;
+                while (1 + i < nums.size() && nums[i] == nums[1 + i]) ++i;
             }
         }
         else
         {
-            int low = start, high = nums.size() - 1;
-
-            while (low < high)
+            int left = start, right = nums.size() - 1;
+            while (left < right)
             {
-                int sum = nums[low] + nums[high];
-                int left = nums[low], right = nums[high];
+                int leftVal = nums[left], rightVal = nums[right], sum = leftVal + rightVal;
 
                 if (sum > target)
                 {
-                    while (low < high && nums[high] == right) --high;
+                    while (left < right && rightVal == nums[right]) --right;
                 }
                 else if (sum < target)
                 {
-                    while (low < high && nums[low] == left) ++low;
+                    while (left < right && leftVal == nums[left]) ++left;
                 }
                 else
                 {
-                    res.push_back({left, right});
-
-                    while (low < high && nums[high] == right) --high;
-                    while (low < high && nums[low] == left) ++low;
+                    res.push_back({nums[left], nums[right]});
+                    while (left < right && leftVal == nums[left]) ++left;
+                    while (left < right && rightVal == nums[right]) --right;
                 }
             }
         }
