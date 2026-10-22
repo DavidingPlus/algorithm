@@ -10,6 +10,7 @@
 #include "../common/TreeNode.h"
 #include "../common/Node.h"
 
+
 // @lc code=start
 class Solution
 {
@@ -21,18 +22,19 @@ public:
     // void sortColors(std::vector<int> &nums)
     // {
     //     // 计算原数组最大和最小值。
-    //     int minVal = *std::min_element(nums.begin(), nums.end()), maxVal = *std::max_element(nums.begin(), nums.end());
+    //     int minValue = *std::min_element(nums.begin(), nums.end()), maxValue = *std::max_element(nums.begin(), nums.end());
 
     //     // 定义 count 数组。
-    //     std::vector<int> count(maxVal - minVal + 1);
-    //     for (auto &e : nums) ++count[e - minVal];
+    //     std::vector<int> count(maxValue - minValue + 1);
+    //     for (auto &e : nums) ++count[e - minValue];
 
     //     int i = 0;
     //     for (int j = 0; j < count.size(); ++j)
     //     {
-    //         while (count[j]--) nums[i++] = j + minVal;
+    //         while (count[j]--) nums[i++] = j + minValue;
     //     }
     // }
+
 
     // 解法 2：双指针。
     // 本题中 nums 只会出现 0, 1, 2 三种数字，我们可以充分利用这一点。
@@ -66,9 +68,10 @@ public:
          *     p 重新处理 0：交换左侧已处理数据，[0, 1, 2]，此时 p 才能继续右移。
          *
          * 如果处理 2 后错误地让 p++，换回来的 0 就会被跳过，数组会停留在 [1, 0, 2]。
+         * 理解这一套运作流程以后，我们也能反过来证明这套流程能保证三个指针维护区域的数据正确性，是否已经处理，处理过后的区域的内容值是否确定为一个值？这二者是自洽的。
          */
-        int left = 0, right = nums.size() - 1;
-        int p = 0;
+
+        int left = 0, right = nums.size() - 1, p = left;
 
         while (p <= right)
         {
