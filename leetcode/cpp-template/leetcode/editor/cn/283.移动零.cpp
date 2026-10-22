@@ -23,7 +23,7 @@ public:
 
         for (int fast = 0; fast < nums.size(); ++fast)
         {
-            if (0 != nums[fast]) nums[slow++] = nums[fast];
+            if (nums[fast]) nums[slow++] = nums[fast];
         }
 
         // 末尾补 0。
