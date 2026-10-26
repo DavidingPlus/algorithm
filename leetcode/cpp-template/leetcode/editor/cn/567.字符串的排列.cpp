@@ -8,6 +8,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 class Solution
@@ -17,35 +18,50 @@ public:
 
     bool checkInclusion(std::string s1, std::string s2)
     {
-        // 本题使用一个定长滑动窗口即可。为了优化复杂度，依旧使用 valid 变量。
         std::unordered_map<char, int> um1, um2;
 
-        for (auto &c : s1) ++um1[c];
+        for (auto &ch : s1) ++um1[ch];
 
-        // 定义左闭右开的区间。
+        // 左闭右开的区间。
         int left = 0, right = 0, valid = 0;
-
         while (right < s2.size())
         {
-            // right 一直往右移动，直到窗口大小等于 s1.size()，这时 left 往右移动一步，这时候窗口大小又小于 s1.size() 了，right 继续往右移动，进入下一次循环。这个设计兼顾了初始条件 right 往右移动以及后续的迭代。
+            // 最直观是否匹配的方法是判断两个哈希表是否相等，但这样的开销很大，并且需要额外处理哈希表中元素为 0 时删除的额外开销（um1 = {a:1, b:1}，um2 = {a:1, b:1, c:0} 这是满足条件的但是这两个哈希表并不相等），因此换一种思路比较。
+            // valid 表示窗口中出现次数恰好符合要求的字符种类数。窗口长度等于 s1.size() 时，若 valid == um1.size()，就说明所有目标字符都恰好匹配。字符进入或离开窗口时，都要处理计数进入和离开“刚好相等”状态的情况。
 
-            char c = s2[right++];
-            if (um1.count(c))
+            // 这里不能用引用，因为不能修改原串本身。
+            // 由于和 um1 比，因此只关心 um1 中出现的字符即可。
+            char ch = s2[right++];
+            if (um1.count(ch))
             {
-                if (++um2[c] == um1[c]) ++valid;
+                // 原本刚好，添加后超出。
+                if (um1[ch] == um2[ch]) --valid;
 
-                if (um1.size() == valid) return true;
+                ++um2[ch];
+
+                // 原本不足，添加后刚好。
+                if (um1[ch] == um2[ch]) ++valid;
             }
 
+            // right 一直往右移动，直到窗口大小等于 s1.size()，这时 left 往右移动一步，这时候窗口大小又小于 s1.size() 了，right 继续往右移动，进入下一次循环。这个设计兼顾了初始条件 right 往右移动以及后续的迭代。
             if (s1.size() == right - left)
             {
-                char d = s2[left++];
-                if (um1.count(d))
+                if (um1.size() == valid) return true;
+
+                ch = s2[left++];
+                if (um1.count(ch))
                 {
-                    if (um2[d]-- == um1[d]) --valid;
+                    // 原本刚好，移出后不足。
+                    if (um1[ch] == um2[ch]) --valid;
+
+                    --um2[ch];
+
+                    // 原本超量，移出后刚好。
+                    if (um1[ch] == um2[ch]) ++valid;
                 }
             }
         }
+
 
         return false;
     }

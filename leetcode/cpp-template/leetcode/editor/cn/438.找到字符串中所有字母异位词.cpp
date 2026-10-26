@@ -8,6 +8,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 class Solution
@@ -15,36 +16,43 @@ class Solution
 
 public:
 
-    // 这题和 567 题没有任何区别。
+    // 这题和 567 题没有任何区别，具体思路见 567 题。
     std::vector<int> findAnagrams(std::string s, std::string p)
     {
         std::vector<int> res;
-        std::unordered_map<char, int> ums, ump;
+        std::unordered_map<char, int> ump, ums;
 
-        for (auto &c : p) ++ump[c];
+        for (auto &ch : p) ++ump[ch];
 
         int left = 0, right = 0, valid = 0;
-
         while (right < s.size())
         {
-
-            char c = s[right++];
-            if (ump.count(c))
+            char ch = s[right++];
+            if (ump.count(ch))
             {
-                if (++ums[c] == ump[c]) ++valid;
+                if (ump[ch] == ums[ch]) --valid;
 
-                if (ump.size() == valid) res.emplace_back(left);
+                ++ums[ch];
+
+                if (ump[ch] == ums[ch]) ++valid;
             }
 
             if (p.size() == right - left)
             {
-                char d = s[left++];
-                if (ump.count(d))
+                if (ump.size() == valid) res.emplace_back(left);
+
+                ch = s[left++];
+                if (ump.count(ch))
                 {
-                    if (ums[d]-- == ump[d]) --valid;
+                    if (ump[ch] == ums[ch]) --valid;
+
+                    --ums[ch];
+
+                    if (ump[ch] == ums[ch]) ++valid;
                 }
             }
         }
+
 
         return res;
     }
