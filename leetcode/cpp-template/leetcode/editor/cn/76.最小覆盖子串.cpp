@@ -7,7 +7,6 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
-#include <limits>
 
 // @lc code=start
 
@@ -21,45 +20,45 @@ public:
         // 滑动窗口的思想。
         // 我们设置一个区间（算法网站建议左闭右开），使用双指针记录窗口。初始情况 left 和 right 都为 0，然后把 right 往右移动，直到滑动窗口中的字符包含 t 中的每个元素，后续用满足条件替代。这样是一个合理的解，但是这个解不一定是最短窗口子串。这个时候考虑该动哪个指针？显然不是 right，因为 right 往右移动的解虽然满足条件，但是长度更大。left 右移，缩短窗口长度，直到不满足条件，这时候是遍历到当前位置的最优解。这个时候继续考虑该动哪个指针？显然不是 left，因为 left 再往右移动显然不满足条件了。这样一直迭代到遍历完整个字符串，最终得到结果。
 
-        int len = std::numeric_limits<int>::max();
-        int start = 0, end = 0;
-
+        int start = 0, end = std::numeric_limits<int>::max();
         // 用一个哈希表记录 t 和滑动窗口，key 是字符 char，data 是当前该字符出现的个数，如果这两个哈希表的内容完全一致，则相等。
-        std::unordered_map<char, int> umt, umw;
+        std::unordered_map<char, int> umt, ums;
+
+        for (auto &ch : t) ++umt[ch];
 
         // 为了优化时间复杂度，使用变量 valid 记录 window 中的字符满足条件的字符个数。
         // 在 right 往右移动中，若出现 umw[c] == umt[c]，代表字符 c 条件，即使后续再增加 c 的个数，也是满足条件的，此时应 ++valid。
         // 在 left 往右移动中，若出现 umw[c] == umt[c]，代表字符 c 下一次将会被移出去，此时字符 c 就不满足条件了，--valid。
         // 这样设计就省去了 isContain() 函数的开销。
-        int valid = 0;
-
-        for (auto &c : t) ++umt[c];
-
         // 定义左闭右开的滑动窗口。
-        int left = 0, right = 0;
+        int left = 0, right = 0, valid = 0;
         while (right < s.size())
         {
-            char c = s[right++];
+            // 本题和 567 题的 valid 处理思路有些许区别，本题的遍历过程不存在超量，最多是恰好相等。
+
+            char ch = s[right++];
             // 为避免额外的问题，只处理 t 中包含的字符。
-            if (umt.count(c))
+            if (umt.count(ch))
             {
-                if (++umw[c] == umt[c]) ++valid;
+                if (++ums[ch] == umt[ch]) ++valid;
             }
 
             while (umt.size() == valid)
             {
-                if (right - left < len) end = right, start = left, len = right - left;
+                if (right - left < end - start) start = left, end = right;
 
-                char d = s[left++];
-                if (umt.count(d))
+                ch = s[left++];
+                if (umt.count(ch))
                 {
-                    if (umw[d]-- == umt[d]) --valid;
+                    if (ums[ch]-- == umt[ch]) --valid;
                 }
             }
         }
 
 
-        return std::numeric_limits<int>::max() != len ? s.substr(start, len) : std::string();
+        return 0 == start && std::numeric_limits<int>::max() == end
+                   ? std::string()
+                   : s.substr(start, end - start);
     }
 
 
