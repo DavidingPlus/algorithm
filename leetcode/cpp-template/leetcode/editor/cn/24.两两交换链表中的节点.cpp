@@ -31,13 +31,12 @@ public:
     // 递归解法。
     ListNode *swapPairs(ListNode *head)
     {
-        if (!head) return nullptr;
-        if (!head->next) return head;
-
         // 前面的特判保证了这里至少有两个节点。因此先反转头两个节点，再递归。
-        ListNode *first = head, *second = head->next, *other = head->next->next;
+        if (!head || !head->next) return head;
 
-        first->next = swapPairs(other);
+        ListNode *first = head, *second = head->next, *other = swapPairs(second->next);
+
+        first->next = other;
         second->next = first;
 
 

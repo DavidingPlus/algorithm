@@ -29,38 +29,8 @@ public:
 
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
     {
-        ListNode *dummyHead = new ListNode(-1), *pDummy = dummyHead;
-        ListNode *p1 = l1, *p2 = l2;
+        ListNode *dummyHead = new ListNode(-1), *p = dummyHead, *p1 = l1, *p2 = l2;
         int carry = 0;
-
-        // // 处理都有位数的部分。
-        // for (; p1 && p2; p1 = p1->next, p2 = p2->next)
-        // {
-        //     int val = (p1->val + p2->val + carry) % 10;
-        //     carry = (p1->val + p2->val + carry) / 10;
-
-        //     ListNode *node = new ListNode(val);
-        //     pDummy->next = node;
-        //     pDummy = pDummy->next;
-        // }
-
-        // // 处理后面不同位的部分。
-        // auto &p = p1 ? p1 : p2;
-        // for (; p; p = p->next)
-        // {
-        //     int val = (p->val + carry) % 10;
-        //     carry = (p->val + carry) / 10;
-
-        //     pDummy->next = new ListNode(val);
-        //     pDummy = pDummy->next;
-        // }
-
-        // // 若最后有进位，需要额外补 1。
-        // if (carry)
-        // {
-        //     pDummy->next = new ListNode(1);
-        //     pDummy = pDummy->next;
-        // }
 
         // 这三个阶段的处理可以合并。循环运行的条件是 p1 不为空或者 p2 不为空或者进位 carry 不为 0。
         while (p1 || p2 || carry)
@@ -80,16 +50,55 @@ public:
             }
 
             // 如果 p1 和 p2 都为空，carry 有值的话，也会走到这里处理最后有进位的逻辑。
-            carry = val / 10;
-            val = val % 10;
+            carry = val / 10, val = val % 10;
 
-            pDummy->next = new ListNode(val);
-            pDummy = pDummy->next;
+            p->next = new ListNode(val);
+            p = p->next;
         }
 
 
         return dummyHead->next;
     }
+
+
+    // 旧版代码。
+    // ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
+    // {
+    //     ListNode *dummyHead = new ListNode(-1), *pDummy = dummyHead, *p1 = l1, *p2 = l2;
+    //     int carry = 0;
+
+    //     // 处理都有位数的部分。
+    //     for (; p1 && p2; p1 = p1->next, p2 = p2->next)
+    //     {
+    //         int val = (p1->val + p2->val + carry) % 10;
+    //         carry = (p1->val + p2->val + carry) / 10;
+
+    //         ListNode *node = new ListNode(val);
+    //         pDummy->next = node;
+    //         pDummy = pDummy->next;
+    //     }
+
+    //     // 处理后面不同位的部分。
+    //     auto &p = p1 ? p1 : p2;
+    //     for (; p; p = p->next)
+    //     {
+    //         int val = (p->val + carry) % 10;
+    //         carry = (p->val + carry) / 10;
+
+    //         pDummy->next = new ListNode(val);
+    //         pDummy = pDummy->next;
+    //     }
+
+    //     // 若最后有进位，需要额外补 1。
+    //     if (carry)
+    //     {
+    //         pDummy->next = new ListNode(1);
+    //         pDummy = pDummy->next;
+    //     }
+
+
+    //     return dummyHead->next;
+    // }
 };
 // @lc code=end
 

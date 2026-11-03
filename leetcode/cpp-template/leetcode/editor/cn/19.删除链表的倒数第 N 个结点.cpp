@@ -29,25 +29,20 @@ class Solution
 
 public:
 
+
     ListNode *removeNthFromEnd(ListNode *head, int n)
     {
-        // 双指针思路，快指针先走 n 步，然后快慢指针从头开始同时走，当快指针走到 nullptr 的时候，快指针刚好就是倒数第 n 个节点。
-        // 本题需要找到倒数第 n 个节点的前驱节点，保证头节点的语义一致，使用 dummy head。
-        ListNode *dummy = new ListNode(-1, head);
-        ListNode *fast = dummy, *slow = dummy;
+        ListNode *dummyHead = new ListNode(-1, head), *fast = dummyHead, *slow = dummyHead;
 
-        for (int i = 0; i < n; ++i) fast = fast->next;
-
-        while (fast->next)
-        {
-            fast = fast->next;
-            slow = slow->next;
-        }
+        // 双指针思路，快指针先走 n 步，然后快慢指针从头开始同时走，当快指针走到 nullptr 的时候，慢指针刚好就是倒数第 n 个节点。
+        // 本题需要找到倒数第 n 个节点的前驱节点，为保证头节点的语义一致，使用 dummy head。
+        while (n--) fast = fast->next;
+        while (fast->next) fast = fast->next, slow = slow->next;
 
         slow->next = slow->next->next;
 
 
-        return dummy->next;
+        return dummyHead->next;
     }
 };
 // @lc code=end

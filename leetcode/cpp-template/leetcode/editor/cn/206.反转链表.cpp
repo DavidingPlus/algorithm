@@ -48,15 +48,12 @@ public:
     // 递归解法。
     ListNode *reverseList(ListNode *head)
     {
-        if (!head) return nullptr;
         // 下面要用到 head->next，不能为空，因此需要特判。
-        if (!head->next) return head;
+        if (!head || !head->next) return head;
 
         ListNode *newHead = reverseList(head->next);
-
         head->next->next = head;
         head->next = nullptr;
-
 
         return newHead;
     }
