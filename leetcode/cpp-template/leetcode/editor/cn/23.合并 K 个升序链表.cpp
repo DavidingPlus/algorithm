@@ -6,7 +6,6 @@
  */
 
 
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
@@ -32,33 +31,39 @@ public:
 
     ListNode *mergeKLists(std::vector<ListNode *> &lists)
     {
+        ListNode *dummyHead = new ListNode(-1), *pDummy = dummyHead;
+
         // 使用优先性队列（小顶堆实现），保证每次队列弹出的元素都是最小的。初始情况先把所有链表的首元素压进来，然后取出的元素对应的链表压入下一个元素，直到某个链表为空，退出战场，最终排序完成。
-        ListNode *res = new ListNode(-1), *p = res;
-        std::priority_queue<ListNode *, std::vector<ListNode *>, std::function<bool(ListNode *, ListNode *)>> pq(
-            [](ListNode *node1, ListNode *node2)
-            {
-                return node1->val > node2->val; //
-            });
+        std::priority_queue<ListNode *,
+                            std::vector<ListNode *>,
+                            std::function<bool(ListNode *, ListNode *)>>
+            pq([](ListNode *node1, ListNode *node2)
+               {
+                   return node1->val > node2->val; //
+               });
 
         // 把所有链表的首元素压进来。
         for (auto &head : lists)
         {
+            // 空链表直接跳过，对应测试用例 [[]]。
             if (head) pq.push(head);
         }
 
         while (!pq.empty())
         {
             // 弹出队列首元素。
-            ListNode *front = pq.top();
-            p->next = new ListNode(front->val);
-            p = p->next;
+            auto node = pq.top();
             pq.pop();
+
+            pDummy->next = new ListNode(node->val);
+            pDummy = pDummy->next;
+
             // 压入下一个元素。
-            if (front->next) pq.push(front->next);
+            if (node->next) pq.push(node->next);
         }
 
 
-        return res->next;
+        return dummyHead->next;
     }
 };
 // @lc code=end
