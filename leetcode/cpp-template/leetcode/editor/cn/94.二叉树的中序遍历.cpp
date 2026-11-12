@@ -8,6 +8,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 /**
@@ -21,22 +22,28 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution
+{
+
 public:
-    std::vector<int> ret;
 
-    std::vector<int> inorderTraversal(TreeNode* root) {
-        if (!root)
-            return {};
-
-        inorderTraversal(root->left);
-
-        ret.push_back(root->val);
-
-        inorderTraversal(root->right);
-
-        return ret;
+    std::vector<int> inorderTraversal(TreeNode *root)
+    {
+        traverse(root);
+        return res;
     }
+
+    void traverse(TreeNode *root)
+    {
+        if (!root) return;
+
+        traverse(root->left);
+        res.emplace_back(root->val);
+        traverse(root->right);
+    }
+
+
+    std::vector<int> res;
 };
 // @lc code=end
 

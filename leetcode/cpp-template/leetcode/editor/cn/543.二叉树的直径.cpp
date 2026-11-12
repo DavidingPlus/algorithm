@@ -27,8 +27,6 @@ class Solution
 
 public:
 
-    int res = 0;
-
     int diameterOfBinaryTree(TreeNode *root)
     {
         // 对每个结点而言，过该结点的最长直径就是左子树的高度加上右子树的高度，因此只需遍历所有的节点获得最大值即可。
@@ -40,7 +38,6 @@ public:
     {
         if (!root) return 0;
 
-        // 如果我这里改为后序遍历，我就能够在下面获得函数的返回值，进而在一次遍历的时候就能够获得过该节点的最大直径。这个思路算是遍历加上划分为子问题合起来吧。
         int leftDepth = depth(root->left), rightDepth = depth(root->right);
 
         res = std::max(res, leftDepth + rightDepth);
@@ -48,6 +45,9 @@ public:
 
         return 1 + std::max(leftDepth, rightDepth);
     }
+
+
+    int res = 0;
 };
 // @lc code=end
 

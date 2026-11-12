@@ -8,6 +8,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 /**
@@ -27,29 +28,30 @@ class Solution
 
 public:
 
-    // 解法 1：遍历二叉树，在过程中修改。
-    // void traverse(TreeNode *root)
-    // {
-    //     if (!root) return;
-
-    //     traverse(root->left), traverse(root->right);
-
-    //     std::swap(root->left, root->right);
-    // }
-
+    // // 解法 1：遍历二叉树，在过程中修改。
     // TreeNode *invertTree(TreeNode *root)
     // {
     //     traverse(root);
     //     return root;
     // }
 
+    // void traverse(TreeNode *root)
+    // {
+    //     if (!root) return;
+
+    //     traverse(root->left), traverse(root->right);
+
+    //     // 在后序位置处理。
+    //     std::swap(root->left, root->right);
+    // }
+
+
     // 解法 2：把原问题分为自相似的子问题。
     TreeNode *invertTree(TreeNode *root)
     {
         if (!root) return nullptr;
 
-        invertTree(root->left);
-        invertTree(root->right);
+        invertTree(root->left), invertTree(root->right);
 
         std::swap(root->left, root->right);
 
