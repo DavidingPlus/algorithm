@@ -10,6 +10,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 /**
@@ -25,31 +26,26 @@ class Solution
 
 public:
 
+    // 相遇的时候快指针一定比慢指针多走了一倍，然后我们把其中一个指针指向起点，再相遇的时候就是起点。
+    // 具体见 142.png。
     ListNode *detectCycle(ListNode *head)
     {
-        // 相遇的时候快指针一定比慢指针多走了一倍，然后我们把其中一个指针指向起点，再相遇的时候就是起点。
-        // 具体见 142.png。
         ListNode *fast = head, *slow = head;
 
         while (fast && fast->next)
         {
-            fast = fast->next->next;
-            slow = slow->next;
+            fast = fast->next->next, slow = slow->next;
 
             if (fast == slow) break;
         }
 
         if (!fast || !fast->next) return nullptr;
 
-        ListNode *p = head;
-        while (p != fast)
-        {
-            p = p->next;
-            fast = fast->next;
-        }
+        slow = head;
+        while (fast != slow) fast = fast->next, slow = slow->next;
 
 
-        return p;
+        return fast;
     }
 };
 // @lc code=end

@@ -8,6 +8,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 /**
@@ -27,18 +28,17 @@ class Solution
 public:
 
 
-    // 迭代解法。
+    // 迭代解法。构造一个新的链表进行头插。
     // ListNode *reverseList(ListNode *head)
     // {
-    //     // 构造一个新的链表进行头插。
     //     ListNode *dummyHead = new ListNode(-1);
 
     //     for (ListNode *p = head; p; p = p->next)
     //     {
-    //         ListNode *node = new ListNode(p->val);
+    //         ListNode *newNode = new ListNode(p->val);
 
-    //         node->next = dummyHead->next;
-    //         dummyHead->next = node;
+    //         newNode->next = dummyHead->next;
+    //         dummyHead->next = newNode;
     //     }
 
 
@@ -51,6 +51,7 @@ public:
         // 下面要用到 head->next，不能为空，因此需要特判。
         if (!head || !head->next) return head;
 
+        ListNode *newTail = head->next;
         ListNode *newHead = reverseList(head->next);
         head->next->next = head;
         head->next = nullptr;

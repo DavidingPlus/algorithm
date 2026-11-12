@@ -9,6 +9,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 /**
@@ -26,15 +27,17 @@ class Solution
 
 public:
 
+    // 快慢指针，相交代表存在环。
     bool hasCycle(ListNode *head)
     {
-        // 快慢指针，相交代表存在环。
         ListNode *fast = head, *slow = head;
+
         while (fast && fast->next)
         {
             fast = fast->next->next;
             slow = slow->next;
 
+            // 判断条件放在后面，防止初始条件 fast == slow 直接结束，导致判断错误。
             if (fast == slow) return true;
         }
 
