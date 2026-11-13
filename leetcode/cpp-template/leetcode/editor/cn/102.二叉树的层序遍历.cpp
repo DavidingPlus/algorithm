@@ -51,16 +51,16 @@ public:
         // 一次 while 循环对应一层 while 的遍历，就是拿取这一层的结点遍历，然后把他们的子节点插入队列。
         while (!q.empty())
         {
-            std::vector<int> layer;
-
             // for 循环会改变 q.size()，所以使用变量 n 存储。
             int n = q.size();
+            std::vector<int> layer(n);
+
             for (int i = 0; i < n; ++i)
             {
                 auto node = q.front();
                 q.pop();
 
-                layer.emplace_back(node->val);
+                layer[i] = node->val;
 
                 if (node->left) q.push(node->left);
                 if (node->right) q.push(node->right);
@@ -72,6 +72,7 @@ public:
 
         return res;
     }
+
 
     // 解法 2：我们用递归遍历来实现一下。
 
