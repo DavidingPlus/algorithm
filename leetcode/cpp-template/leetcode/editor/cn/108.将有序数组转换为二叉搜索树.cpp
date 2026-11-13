@@ -28,7 +28,7 @@ class Solution
 
 public:
 
-    TreeNode *sortedArrayToBST(vector<int> &nums) { return build(nums, 0, nums.size() - 1); }
+    TreeNode *sortedArrayToBST(std::vector<int> &nums) { return build(nums, 0, nums.size() - 1); }
 
     TreeNode *build(const std::vector<int> &nums, int left, int right)
     {
