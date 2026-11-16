@@ -28,11 +28,15 @@ class Solution
 
 public:
 
-    int res = 0, rank = 0;
 
     // 二叉搜索树左子树值均小于根节点，右子树值均大于根节点，利用这个性质，中序遍历的结果是升序的。
+    int kthSmallest(TreeNode *root, int k)
+    {
+        traverse(root, k);
+        return res;
+    }
 
-    void traverse(TreeNode *root, int k)
+    void traverse(TreeNode *root, const int &k)
     {
         if (!root) return;
 
@@ -48,11 +52,7 @@ public:
     }
 
 
-    int kthSmallest(TreeNode *root, int k)
-    {
-        traverse(root, k);
-        return res;
-    }
+    int res = 0, rank = 0;
 };
 // @lc code=end
 

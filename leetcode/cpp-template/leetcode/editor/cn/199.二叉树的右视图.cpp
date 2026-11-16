@@ -9,6 +9,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 /**
@@ -23,13 +24,12 @@
  * };
  */
 
-
 class Solution
 {
 
 public:
 
-    // 解法 1：层序遍历。
+    // // 解法 1：层序遍历。
     // std::vector<int> rightSideView(TreeNode *root)
     // {
     //     std::vector<int> res;
@@ -59,18 +59,18 @@ public:
     // }
 
     // 解法 2：遍历二叉树。
-    std::vector<int> res;
-
-    int depth = -1;
+    std::vector<int> rightSideView(TreeNode *root)
+    {
+        traverse(root);
+        return res;
+    }
 
     void traverse(TreeNode *root)
     {
         if (!root) return;
 
-        ++depth;
-
         // 根据 depth 和 res.size() 来判断是否是当前层遍历的第一个结点。
-        if (depth == res.size()) res.emplace_back(root->val);
+        if (++depth == res.size()) res.emplace_back(root->val);
 
         // 右视图应该从右边开始遍历。
         traverse(root->right), traverse(root->left);
@@ -78,11 +78,9 @@ public:
         --depth;
     }
 
-    std::vector<int> rightSideView(TreeNode *root)
-    {
-        traverse(root);
-        return res;
-    }
+    std::vector<int> res;
+
+    int depth = -1;
 };
 // @lc code=end
 

@@ -9,6 +9,7 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
 
 /**
@@ -28,33 +29,31 @@ class Solution
 
 public:
 
-    // // 虚拟头结点。
-    // TreeNode *res = new TreeNode(-1);
-    // // 工作指针。
-    // TreeNode *p = res;
+    // // 解法 1：遍历一次二叉树，构造一棵新树。
+    // void flatten(TreeNode *root)
+    // {
+    //     // 因为下面要用到 root，因此这里也要特判一下。
+    //     if (!root) return;
+
+    //     traverse(root);
+
+    //     // 不能直接赋值修改 root 指针，因为形参，没办法改变，只能改动它的左右子树。
+    //     root->left = nullptr;
+    //     root->right = dummyHead->right->right;
+    // }
 
     // void traverse(TreeNode *root)
     // {
     //     if (!root) return;
 
-    //     p->right = new TreeNode(root->val);
-    //     p = p->right;
+    //     pDummy->right = new TreeNode(root->val);
+    //     pDummy = pDummy->right;
 
-    //     traverse(root->left);
-    //     traverse(root->right);
+    //     traverse(root->left), traverse(root->right);
     // }
 
-    // // 法 1：遍历一次二叉树，构造一棵新树。
-    // void flatten(TreeNode *root)
-    // {
-    //     if (!root) return;
 
-    //     traverse(root);
-
-    //     // 不能直接赋值，因为形参，没办法改变。
-    //     root->left = nullptr;
-    //     root->right = res->right->right;
-    // }
+    // TreeNode *dummyHead = new TreeNode(-1), *pDummy = dummyHead;
 
 
     // 法 2：自相似的子问题。

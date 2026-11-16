@@ -4,10 +4,10 @@
  * [105] 从前序与中序遍历序列构造二叉树
  */
 
-
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
+
 
 // @lc code=start
 
@@ -29,6 +29,8 @@ class Solution
 public:
 
     // 思路同 106 题。
+    TreeNode *buildTree(std::vector<int> &preorder, std::vector<int> &inorder) { return buildTreeFromRange(preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1); }
+
     TreeNode *buildTreeFromRange(std::vector<int> &preorder, int preorderLeft, int preorderRight, std::vector<int> &inorder, int inorderLeft, int inorderRight)
     {
         if (preorderLeft > preorderRight) return nullptr;
@@ -43,15 +45,12 @@ public:
             }
         }
 
-        TreeNode *root = new TreeNode(preorder[preorderLeft]);
-        root->left = buildTreeFromRange(preorder, 1 + preorderLeft, (1 + preorderLeft) + (rootPosInorder - inorderLeft) - 1, inorder, inorderLeft, rootPosInorder - 1);
-        root->right = buildTreeFromRange(preorder, (1 + preorderLeft) + (rootPosInorder - inorderLeft), preorderRight, inorder, 1 + rootPosInorder, inorderRight);
+        int leftTreeLen = rootPosInorder - inorderLeft;
 
-
-        return root;
+        return new TreeNode(preorder[preorderLeft],
+                            buildTreeFromRange(preorder, preorderLeft + 1, preorderLeft + leftTreeLen, inorder, inorderLeft, rootPosInorder - 1),
+                            buildTreeFromRange(preorder, preorderLeft + leftTreeLen + 1, preorderRight, inorder, rootPosInorder + 1, inorderRight));
     }
-
-    TreeNode *buildTree(std::vector<int> &preorder, std::vector<int> &inorder) { return buildTreeFromRange(preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1); }
 };
 
 // @lc code=end
