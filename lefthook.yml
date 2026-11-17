@@ -1,0 +1,5 @@
+prepare-commit-msg:
+  jobs:
+    - script: gen-commit-msg.sh
+      runner: sh
+      args: "'{1}' '{2}'"
