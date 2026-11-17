@@ -34,6 +34,7 @@ public:
         return res;
     }
 
+    // 这个函数求以 root 为根节点的树的深度。
     int depth(TreeNode *root)
     {
         if (!root) return 0;
