@@ -35,6 +35,7 @@ public:
     // 计算 [left, right] 中能够抢到的最大值（即 198 题）。
     int dp(const std::vector<int> &nums, int left, int right)
     {
+        // 如果 left > right，需要特判，否则会返回 dp_i_minus_1，但其实这时什么也偷不到。
         if (left > right) return 0;
 
         int dp_i_minus_2 = 0, dp_i_minus_1 = nums[left];

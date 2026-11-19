@@ -23,7 +23,7 @@ public:
 
         int dp_i_minus_2 = 0, dp_i_minus_1 = nums[0];
 
-        for (int i = 2; i <= n; ++i)
+        for (int i = 2; i < 1 + n; ++i)
         {
             int dp_i = std::max(nums[i - 1] + dp_i_minus_2, dp_i_minus_1);
             dp_i_minus_2 = dp_i_minus_1;

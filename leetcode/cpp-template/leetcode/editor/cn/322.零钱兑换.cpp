@@ -7,71 +7,73 @@
 #include "../common/globalmacros.h"
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
-#include <limits>
+
 
 // @lc code=start
 
 
-const int N = 1e4 + 10;
+class Solution
+{
 
-class Solution {
 public:
-    // 带有备忘录的自顶而下的递归算法
-    // Solution() {
-    //     memo.resize(N);
-    //     std::fill(memo.begin(), memo.end(), -666);
-    // }
 
-    // std::vector<int> memo;  // 用来做备忘录，记录面额n需要的最小硬币个数
+    // 本题思路完全同 279 题。
 
-    // int coinChange(std::vector<int>& coins, int amount) {
-    //     // 这个问题可以用递归来解决
-    //     // 我们把amount拆分为每个硬币加上硬币减去这个值的子问题
-    //     // 然后遍历一遍整个数组得出去一个最小值就得出了答案
-    //     if (0 == amount)
-    //         return 0;
-    //     if (amount < 0)
-    //         return -1;
-
-    //     // 这两个的顺序是没有影响的，但是为了防止amount为负数导致越界放在下面
-    //     if (-666 != memo[amount])  // 这里包含了两种情况，都是已经有结果的，就是嫩巩固凑出的最小的个数以及凑不出，就是-1
-    //         return memo[amount];
-
-    //     // 遍历每个硬币
-    //     int res = std::numeric_limits<int>::max();
-    //     for (auto& coin : coins) {
-    //         int count = coinChange(coins, amount - coin);
-    //         if (-1 == count)
-    //             continue;
-    //         res = std::min(res, 1 + count);
-    //     }
-    //     // 更新memo数组
-    //     memo[amount] = (std::numeric_limits<int>::max() != res) ? res : -1;
-    //     return memo[amount];
-    // }
-
-    // 我们通过迭代来做这个题
-    int coinChange(std::vector<int>& coins, int amount) {
-        // dp数组的含义是面额n需要的最小硬币个数
-        std::vector<int> dp(N);
-        std::fill(dp.begin(), dp.end(), std::numeric_limits<int>::max() - 666);  //-666是为了防止+1然后越界
-
-        // 我们需要通过n来推出n + 1
+    // 解法 1：迭代。
+    int coinChange(std::vector<int> &coins, int amount)
+    {
+        // dp 数组的含义是面额 n 需要的最小硬币个数。
+        // XXX 不管 coins 如何设计，题目可能的最大值就是 amount（全用 1 去凑），为了防止 1 + dp[i - coin] 越界（原来初始化为 std::numeric_limits<int>::max()），可以用 1 + amount 来初始化。
+        std::vector<int> dp(1 + amount, 1 + amount);
         dp[0] = 0;
-        for (int i = 1; i <= amount; ++i) {
-            // 后面的思路和递归是一样的，遍历分成子问题然后去最小值，迭代的过程中下标小的一定已经计算出来了，所以直接用即可
-            for (auto& coin : coins) {
-                // i - coin可能为负数，这是不允许的
-                // 跳过的第二种情况就是已经直到这个面值找不到了，就是-1
-                if (i - coin < 0 || -1 == dp[i - coin])
-                    continue;
-                dp[i] = std::min(dp[i], 1 + dp[i - coin]);
+
+        for (int i = 1; i <= amount; ++i)
+        {
+            for (auto &coin : coins)
+            {
+                // 与 279 题不同的是，本题需要考虑 dp[i - coin] 不存在的情况，因为 coins 可能无法兑换出 amount 的零钱。不像完全平方数，至少有一组解，n * 1 * 1。
+                if (coin <= i) dp[i] = std::min(dp[i], 1 + dp[i - coin]);
             }
-            if (std::numeric_limits<int>::max() - 666 == dp[i])
-                dp[i] = -1;
         }
-        return dp[amount];
+
+
+        return 1 + amount == dp[amount] ? -1 : dp[amount];
     }
+
+
+    // XXX 解法 2：递归。本题不推荐，开销太大，但可以熟悉语法。
+    // int coinChange(std::vector<int> &coins, int amount)
+    // {
+    //     int INF = 1 + amount;
+
+    //     // -1 代表尚未计算。不为 -1 代表已经被计算过了，可能是有解的值或者无解的 INF。
+    //     std::vector<int> memo(1 + amount, -1);
+    //     memo[0] = 0;
+
+    //     // 递归函数的知识见 0.递归函数.md。
+    //     auto impl = [&](auto &&self, int remain)
+    //     {
+    //         // 包含了 if(0 == remain) return 0; 的特判。
+    //         if (-1 != memo[remain]) return memo[remain];
+
+    //         int res = INF;
+
+    //         for (auto &coin : coins)
+    //         {
+    //             if (coin <= remain) res = std::min(res, 1 + self(self, remain - coin));
+    //         }
+
+    //         memo[remain] = res;
+
+
+    //         return res;
+    //     };
+
+    //     int res = impl(impl, amount);
+
+
+    //     return INF == res ? -1 : res;
+    // }
 };
 // @lc code=end
 
