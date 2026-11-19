@@ -8,33 +8,35 @@
 #include "../common/ListNode.h"
 #include "../common/TreeNode.h"
 
+
 // @lc code=start
-
-
-const int N = 2500 + 10;
 
 class Solution
 {
+
 public:
-    // 这个子序列不一定是连续的！
+
     int lengthOfLIS(std::vector<int> &nums)
     {
-        // 设置dp[i]的含义是以i下标结尾的最长递增子序列
-        // 从i-1推导i，就是看0到i-1的每个子序列加上i的元素之后能否满足递增，然后合起来进行比较即可，因为i结尾的子序列去掉最后一个仍然是递增子序列，并且由于是最大所以肯定是倒数第二个下标对应的最大的
+        int res = 1, n = nums.size();
 
-        int res = 1;
-        int dp[N] = {0};
-        dp[0] = 1;
-        for (int i = 1; i < nums.size(); ++i)
+        // 维护 dp[i] 是第 i 个元素结尾的最长递增子序列的长度（i - 1 是下标）。
+        // 因为这个子序列不一定是连续的，因此前面每一项都有可能作为答案的一部分，即遍历前面每一项计算 dp[i]，状态转移方程到手。
+        std::vector<int> dp(1 + n, 1);
+
+        for (int i = 1; i <= n; ++i)
         {
             dp[i] = 1;
-            for (int j = 0; j < i; ++j)
+
+            for (int j = 1; j < i; ++j)
             {
-                if (nums[i] > nums[j])
-                    dp[i] = std::max(dp[i], 1 + dp[j]);
+                if (nums[i - 1] > nums[j - 1]) dp[i] = std::max(dp[i], 1 + dp[j]);
             }
+
             res = std::max(res, dp[i]);
         }
+
+
         return res;
     }
 };

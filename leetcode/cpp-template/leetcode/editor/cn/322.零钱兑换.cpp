@@ -51,7 +51,7 @@ public:
     //     memo[0] = 0;
 
     //     // 递归函数的知识见 0.递归函数.md。
-    //     auto impl = [&](auto &&self, int remain)
+    //     auto dp = [&](auto &&self, int remain)
     //     {
     //         // 包含了 if(0 == remain) return 0; 的特判。
     //         if (-1 != memo[remain]) return memo[remain];
@@ -69,7 +69,7 @@ public:
     //         return res;
     //     };
 
-    //     int res = impl(impl, amount);
+    //     int res = dp(dp, amount);
 
 
     //     return INF == res ? -1 : res;
