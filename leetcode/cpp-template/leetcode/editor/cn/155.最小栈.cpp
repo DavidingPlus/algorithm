@@ -11,6 +11,7 @@
 
 // @lc code=start
 
+
 class MinStack
 {
 
@@ -18,19 +19,17 @@ public:
 
     MinStack() {}
 
-    void push(int val) { st.push({val, st.empty() ? val : std::min(val, getMin())}); }
+    void push(int value) { m_st.emplace(value, m_st.empty() ? value : std::min(m_st.top().second, value)); }
 
-    void pop() { st.pop(); }
+    void pop() { m_st.pop(); }
 
-    int top() { return st.top().first; }
+    int top() const { return m_st.top().first; }
 
-    int getMin() { return st.top().second; }
+    int getMin() const { return m_st.top().second; }
 
-
-private:
-
-    // 由于下层的最小值与上层无关，因为需要访问下层的最小值的时候上层早就弹出了，因此对于每一层可以维护一个最小值，这样插入的时候就能够很方便的判断了。为了节省空间，就拿 std::pair 存了。
-    std::stack<std::pair<int, int>> st;
+    // 本来是可以直接拿优先性队列写的，但是还是用传统栈写吧。
+    // XXX 考虑压入某个栈的情况，假设没压入时最小值是 a，新进来可能会产生一个新最小值，但当新进来的数被弹出去以后，最小值依然是 a，换句话说，新进来的元素不会影响已经压入元素的最小值。因此完全可以在维护原来栈的同时，维护一个当前状态的最小值。
+    std::stack<std::pair<int, int>> m_st;
 };
 
 /**
