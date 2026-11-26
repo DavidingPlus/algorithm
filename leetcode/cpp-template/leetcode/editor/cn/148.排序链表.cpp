@@ -27,8 +27,52 @@ class Solution
 
 public:
 
-    // TODO
-    // 每次递归都要扫一遍链表，时间复杂度有点爆炸，需要考虑其他的做法。
+    // 正确的一种解法：归并排序。
+    ListNode *sortList(ListNode *head)
+    {
+        if (!head || !head->next) return head;
+
+        ListNode *middlePrev = findMiddlePrevOfList(head), *middle = middlePrev->next;
+        middlePrev->next = nullptr;
+
+        return mergeTwoList(sortList(head), sortList(middle));
+    }
+
+    // 合并两个已经升序的链表，为一个升序的链表。
+    ListNode *mergeTwoList(ListNode *head1, ListNode *head2)
+    {
+        ListNode *dummy = new ListNode(-1), *p = dummy, *p1 = head1, *p2 = head2;
+
+        while (p1 && p2)
+        {
+            auto &node = p1->val < p2->val ? p1 : p2;
+
+            p->next = node;
+            p = p->next;
+            node = node->next;
+        }
+
+        auto &remain = p1 ? p1 : p2;
+        p->next = remain;
+
+
+        return dummy->next;
+    }
+
+    // 找到链表的中点。本题的场景需要找到链表的中点的前驱结点，外层调用保证该链表至少有两个结点。
+    ListNode *findMiddlePrevOfList(ListNode *head)
+    {
+        ListNode *dummy = new ListNode(-1, head);
+        ListNode *fast = head, *slow = dummy;
+
+        while (fast && fast->next) fast = fast->next->next, slow = slow->next;
+
+
+        return slow;
+    }
+
+
+    // 废掉的解法：每次递归都要扫一遍链表，时间复杂度有点爆炸，需要考虑其他的做法。
     // ListNode *sortList(ListNode *head)
     // {
     //     if (!head || !head->next) return head;
